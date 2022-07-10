@@ -1,0 +1,145 @@
+// /**
+//  * mk5v2.tsx
+//  * Page component Breville Hopper Mark 5 Version 2.
+//  */
+
+// // Node Modules
+// import type { NextPage } from 'next';
+// import Image from 'next/image';
+
+// // Components
+// import PrintPreview from 'react_three/components/PrintPreview';
+
+// // Constants
+// // const DEBOSSED_TEXT = `
+// //  /+\     |FF|-|                /__\              \FFFFFFFF/-/    \FFFFFFFF/-/   \MMMMMMMM/-/   \HHHHHHHH/-/  \CCCCCCCC/-/ 
+// //  |C|     /FF\-|      /_\       |MM|     |EE|]     \MMMMMM/-/      \FFFFFF/-/     \MMMMMM/-/     \HHHHHH/-/    \CCCCCC/-/
+// //  |C|    /FFFF\       |H|       |MM|   __|EE|__   __\EEEE/__      __\EEEE/__     __\EEEE/__     __\EEEE/__    __\EEEE/__
+// // Cream    Foam    Half & Half   Milk   Espresso   Cappuccino    Dry Cappuccino   Flat White     Cafe Breve     Con Pana
+// // `;
+
+// const DEBOSSED_TEXT_WEBSAFE = `
+//  /+\\     |FF|-|                /__\\              \\FFFFFFFF/-/    \\FFFFFFFF/-/   \\MMMMMMMM/-/   \\HHHHHHHH/-/  \\CCCCCCCC/-/ 
+//  |C|     /FF\\-|      /_\\       |MM|     |EE|]     \\MMMMMM/-/      \\FFFFFF/-/     \\MMMMMM/-/     \\HHHHHH/-/    \\CCCCCC/-/
+//  |C|    /FFFF\\       |H|       |MM|   __|EE|__   __\\EEEE/__      __\\EEEE/__     __\\EEEE/__     __\\EEEE/__    __\\EEEE/__
+// Cream    Foam    Half & Half   Milk   Espresso   Cappuccino    Dry Cappuccino   Flat White     Cafe Breve     Con Pana
+// `;
+
+// // Public
+// import img0704 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0704.jpeg';
+// import img0705 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0705.jpeg';
+// import img0706 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0706.jpeg';
+// import img0708 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0708.jpeg';
+// import img0710 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0710.jpeg';
+// import img0716 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0716.jpeg';
+// import img0717 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0717.jpeg';
+// import img0718 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0718.jpeg';
+// import img0719 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0719.jpeg';
+// import img0720 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0720.jpeg';
+// import img0721 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0721.jpeg';
+// import img0722 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0722.jpeg';
+// import img0723 from 'public/jpeg/project/breville_hopper/mk5v2/IMG_0723.jpeg';
+
+// const Mark5v2: NextPage = () => {
+//   return (
+//     <div>
+//       <h1>Mark 5 Version 2</h1>
+//       <h2>Debossed Text</h2>
+//       <pre>{DEBOSSED_TEXT_WEBSAFE}</pre>
+//       <PrintPreview
+//         gcodeUrl="/gcode/breville_hopper/mk5v2.gcode"
+//         stlUrl="/stl/breville_hopper/mk5v2.stl"
+//       />
+//       <figure>
+//         <Image
+//           alt="Fewer defects encountered during neck printing."
+//           placeholder="blur"
+//           src={img0704}
+//         />
+//         <Image
+//           alt="Top view of interior neck defects."
+//           placeholder="blur"
+//           src={img0705}
+//         />
+//         <figcaption>
+//           Minor defects encountered during printing process.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Front view of debossing."
+//           placeholder="blur"
+//           src={img0706}
+//         />
+//         <Image
+//           alt="Left corner view of debossing."
+//           placeholder="blur"
+//           src={img0708}
+//         />
+//         <Image
+//           alt="Right corner view of debossing."
+//           placeholder="blur"
+//           src={img0710}
+//         />
+//         <figcaption>
+//           View of debossing print.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Front view of debossing in completed print."
+//           placeholder="blur"
+//           src={img0716}
+//         />
+//         <Image
+//           alt="Top view of completed print."
+//           placeholder="blur"
+//           src={img0717}
+//         />
+//         <Image
+//           alt="Bottom view of completed print."
+//           placeholder="blur"
+//           src={img0719}
+//         />
+//         <Image
+//           alt="Elapsed time for print."
+//           placeholder="blur"
+//           src={img0718}
+//         />
+//         <figcaption>
+//           Completed print.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="View of o-ring placed in recessed neck area."
+//           placeholder="blur"
+//           src={img0720}
+//         />
+//         <Image
+//           alt="View of hopper attached to machine."
+//           placeholder="blur"
+//           src={img0721}
+//         />
+//         <Image
+//           alt="Closer view or o-ring on hopper when attached to machine."
+//           placeholder="blur"
+//           src={img0722}
+//         />
+//         <Image
+//           alt="View of cabinet door opened when hopper is attached to machine."
+//           placeholder="blur"
+//           src={img0723}
+//         />
+//         <video autoPlay loop muted src="/mp4/breville_hopper/mk5v2.mp4">
+//           Video displaying the debossing on hopper.
+//         </video>
+//         <figcaption>
+//           Hopper placed on machine.
+//         </figcaption>
+//       </figure>
+//     </div>
+//   );
+// };
+
+// export default Mark5v2;

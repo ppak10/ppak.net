@@ -1,0 +1,114 @@
+// /**
+//  * mk5v1.tsx
+//  * Page component Breville Hopper Mark 5 Version 1.
+//  */
+
+// // Node Modules
+// import type { NextPage } from 'next';
+// import Image from 'next/image';
+
+// // Components
+// import PrintPreview from 'react_three/components/PrintPreview';
+
+// // Public
+// import img0689 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0689.jpeg';
+// import img0690 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0690.jpeg';
+// import img0692 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0692.jpeg';
+// import img0693 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0693.jpeg';
+// import img0695 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0695.jpeg';
+// import img0696 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0696.jpeg';
+// import img0698 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0698.jpeg';
+// import img0699 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0699.jpeg';
+// import img0700 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0700.jpeg';
+// import img0701 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0701.jpeg';
+// import img0702 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0702.jpeg';
+// import img0703 from 'public/jpeg/project/breville_hopper/mk5v1/IMG_0703.jpeg';
+
+// const Mark5v1: NextPage = () => {
+//   return (
+//     <div>
+//       <h1>Mark 5 Version 1</h1>
+//       <PrintPreview
+//         gcodeUrl="/gcode/breville_hopper/mk5v1.gcode"
+//         stlUrl="/stl/breville_hopper/mk5v1.stl"
+//       />
+//       <figure>
+//         <Image
+//           alt="Funnel portion of neck still has stringy defects."
+//           placeholder="blur"
+//           src={img0689}
+//         />
+//         <Image
+//           alt="Side view of funnel portion of neck defects."
+//           placeholder="blur"
+//           src={img0690}
+//         />
+//         <Image
+//           alt="Interior funnel portion of neck does not have defects."
+//           placeholder="blur"
+//           src={img0692}
+//         />
+//         <figcaption>
+//           Stringy defects occur on outside of funnel portion of neck.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Later view of stringy defects."
+//           placeholder="blur"
+//           src={img0693}
+//         />
+//         <Image
+//           alt="Later view of printing process."
+//           placeholder="blur"
+//           src={img0695}
+//         />
+//         <Image
+//           alt="Top view of printing process."
+//           placeholder="blur"
+//           src={img0696}
+//         />
+//         <figcaption>
+//           Later view of printing process.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Top view of completed print."
+//           placeholder="blur"
+//           src={img0698}
+//         />
+//         <Image
+//           alt="Side view of completed print."
+//           placeholder="blur"
+//           src={img0699}
+//         />
+//         <Image
+//           alt="Side view of defects after completed print."
+//           placeholder="blur"
+//           src={img0700}
+//         />
+//         <Image
+//           alt="Bottom view of defects after completed print."
+//           placeholder="blur"
+//           src={img0702}
+//         />
+//         <Image
+//           alt="Bottom view after defects have been trimmed."
+//           placeholder="blur"
+//           src={img0703}
+//         />
+//         <Image
+//           alt="Total elapsed print time."
+//           placeholder="blur"
+//           src={img0701}
+//         />
+//         <figcaption>
+//           Views of completed print.
+//         </figcaption>
+//       </figure>
+//     </div>
+//   );
+// };
+
+// export default Mark5v1;

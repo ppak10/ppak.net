@@ -1,0 +1,131 @@
+// /**
+//  * mk6.tsx
+//  * Page component Breville Hopper Mark 6.
+//  */
+
+// // Node Modules
+// import type { NextPage } from 'next';
+// import Image from 'next/image';
+
+// // Components
+// import PrintPreview from 'react_three/components/PrintPreview';
+
+// // Public
+// import img0725 from 'public/jpeg/project/breville_hopper/mk6/IMG_0725.jpeg';
+// import img0726 from 'public/jpeg/project/breville_hopper/mk6/IMG_0726.jpeg';
+// import img0727 from 'public/jpeg/project/breville_hopper/mk6/IMG_0727.jpeg';
+// import img0728 from 'public/jpeg/project/breville_hopper/mk6/IMG_0728.jpeg';
+// import img0731 from 'public/jpeg/project/breville_hopper/mk6/IMG_0731.jpeg';
+// import img0732 from 'public/jpeg/project/breville_hopper/mk6/IMG_0732.jpeg';
+// import img0733 from 'public/jpeg/project/breville_hopper/mk6/IMG_0733.jpeg';
+// import img0734 from 'public/jpeg/project/breville_hopper/mk6/IMG_0734.jpeg';
+// import img0735 from 'public/jpeg/project/breville_hopper/mk6/IMG_0735.jpeg';
+// import img0736 from 'public/jpeg/project/breville_hopper/mk6/IMG_0736.jpeg';
+// import img0737 from 'public/jpeg/project/breville_hopper/mk6/IMG_0737.jpeg';
+// import img0738 from 'public/jpeg/project/breville_hopper/mk6/IMG_0738.jpeg';
+
+// const Mark6: NextPage = () => {
+//   return (
+//     <div>
+//       <h1>Mark 6</h1>
+//       <h2>Notes:</h2>
+//       <ul>
+//         <li>Hopper neck has o-rings that fit snuggly when screwed into place.</li>
+//       </ul>
+//       <PrintPreview
+//         gcodeUrl="/gcode/breville_hopper/mk6.gcode"
+//         stlUrl="/stl/breville_hopper/mk6.stl"
+//       />
+//       <figure>
+//         <Image
+//           alt="Defects encountered during neck printing process."
+//           placeholder="blur"
+//           src={img0725}
+//         />
+//         <Image
+//           alt="Closer view of defects encountered during neck printing process."
+//           placeholder="blur"
+//           src={img0726}
+//         />
+//         <figcaption>
+//           Small printing defects are still present during neck printing process.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Top view of printing of funnel portion of neck."
+//           placeholder="blur"
+//           src={img0727}
+//         />
+//         <figcaption>
+//           Square funnel prints wil less defects.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Top view of later portion of print."
+//           placeholder="blur"
+//           src={img0728}
+//         />
+//         <figcaption>
+//           Top portion of print.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Top view of completed print."
+//           placeholder="blur"
+//           src={img0731}
+//         />
+//         <Image
+//           alt="Total elapsed time for print."
+//           placeholder="blur"
+//           src={img0732}
+//         />
+//         <figcaption>
+//           Completed print.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Interior view of top portion of hopper."
+//           placeholder="blur"
+//           src={img0733}
+//         />
+//         <Image
+//           alt="Top view of hopper with accessories in place."
+//           placeholder="blur"
+//           src={img0734}
+//         />
+//         <Image
+//           alt="Brush accessory is a bit too large for created slot."
+//           placeholder="blur"
+//           src={img0735}
+//         />
+//         <Image
+//           alt="Hopper placed on machine."
+//           placeholder="blur"
+//           src={img0736}
+//         />
+//         <Image
+//           alt="Top view of hopper placed on machine."
+//           placeholder="blur"
+//           src={img0737}
+//         />
+//         <Image
+//           alt="Side view of hopper placed on machine with o-rings visible."
+//           placeholder="blur"
+//           src={img0738}
+//         />
+//         <video autoPlay loop muted src="/mp4/breville_hopper/mk6.mp4">
+//           Video displaying cabinet closing with hopper.
+//         </video>
+//         <figcaption>
+//           Hopper placed on machine with o-ring.
+//         </figcaption>
+//       </figure>
+//     </div>
+//   );
+// };
+
+// export default Mark6;

@@ -1,0 +1,162 @@
+// /**
+//  * mk7v1a.tsx
+//  * Page component Breville Hopper Mark 7 Version 1a.
+//  */
+
+// // Node Modules
+// import type { NextPage } from 'next';
+// import Image from 'next/image';
+
+// // Components
+// import PrintPreview from 'react_three/components/PrintPreview';
+
+// // Public
+// import img0741 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0741.jpeg';
+// import img0742 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0742.jpeg';
+// import img0744 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0744.jpeg';
+// import img0749 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0749.jpeg';
+// import img0750 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0750.jpeg';
+// import img0751 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0751.jpeg';
+// import img0752 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0752.jpeg';
+// import img0753 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0753.jpeg';
+// import img0754 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0754.jpeg';
+// import img0755 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0755.jpeg';
+// import img0756 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0756.jpeg';
+// import img0757 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0757.jpeg';
+// import img0758 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0758.jpeg';
+// import img0759 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0759.jpeg';
+// import img0761 from 'public/jpeg/project/breville_hopper/mk7v1a/IMG_0761.jpeg';
+
+// const Mark7v1a: NextPage = () => {
+//   return (
+//     <div>
+//       <h1>Mark 7 Version 1a</h1>
+//       <PrintPreview
+//         gcodeUrl="/gcode/breville_hopper/mk7v1a.gcode"
+//         stlUrl="/stl/breville_hopper/mk7v1.stl"
+//       />
+//       <h2>Notes:</h2>
+//       <ul>
+//         <li>Grooves for o-rings where made a litte large this time around and fits better.</li>
+//         <li>Added notches on the sides of hopper to hold either espresso filter holder or additional extensions.</li>
+//         <li>Print bed for this print was not leveled properly.</li>
+//         <li>Not ready for use.</li>
+//       </ul>
+//       <figure>
+//         <Image
+//           alt="Initial adhesion layers for printing along with leftovers from previous prints."
+//           placeholder="blur"
+//           src={img0741}
+//         />
+//         <figcaption>
+//           Adhesion layer for print along with difficult to remove leftovers from last print.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Defects already present during lower portion of print."
+//           placeholder="blur"
+//           src={img0742}
+//         />
+//         <Image
+//           alt="Additional layers seems have less defects."
+//           placeholder="blur"
+//           src={img0744}
+//         />
+//         <figcaption>
+//           Defects appear during the early stages of the print but seems to be less apparent during later stages.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Lower portion of the print seems to exhibit uneven printing."
+//           placeholder="blur"
+//           src={img0749}
+//         />
+//         <Image
+//           alt="Right side of adhesion layer has lifted from the print bed."
+//           placeholder="blur"
+//           src={img0750}
+//         />
+//         <figcaption>
+//           Uneven printing and adhesion failure possibly due to improper bed leveling.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Top view of completed print."
+//           placeholder="blur"
+//           src={img0751}
+//         />
+//         <Image
+//           alt="Top view of defects within completed print."
+//           placeholder="blur"
+//           src={img0753}
+//         />
+//         <Image
+//           alt="Total elapsed time for print."
+//           placeholder="blur"
+//           src={img0752}
+//         />
+//         <figcaption>
+//           Completed print with close ups on defects.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Bottom view of hopper removed from print bed."
+//           placeholder="blur"
+//           src={img0754}
+//         />
+//         <Image
+//           alt="Close up of hopper bottom with printing defects."
+//           placeholder="blur"
+//           src={img0755}
+//         />
+//         <figcaption>
+//           Close up views of internal and external defects of hopper.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Side view of hopper with filter holder placed in slot."
+//           placeholder="blur"
+//           src={img0756}
+//         />
+//         <Image
+//           alt="Close up view of o-rings placed in grooves."
+//           placeholder="blur"
+//           src={img0757}
+//         />
+//         <figcaption>
+//           Views of additional hopper features.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Side view of the back of machine where hopper blocks water removal."
+//           placeholder="blur"
+//           src={img0761}
+//         />
+//         <Image
+//           alt="View of hopper with filter holders placed in slots."
+//           placeholder="blur"
+//           src={img0758}
+//         />
+//         <Image
+//           alt="Top view of hopper with lid attached."
+//           placeholder="blur"
+//           src={img0759}
+//         />
+//         <video autoPlay loop muted src="/mp4/breville_hopper/mk7v1a.mp4">
+//           Video displaying cabinet closing with hopper.
+//         </video>
+//         <figcaption>
+//           Hopper placed on machine.
+//         </figcaption>
+//       </figure>
+//     </div>
+//   );
+// };
+
+// export default Mark7v1a;

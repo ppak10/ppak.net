@@ -1,0 +1,173 @@
+// /**
+//  * mk7v4b.tsx
+//  * Page component Breville Hopper Mark 7 Version 4b.
+//  */
+
+// // Node Modules
+// import type { NextPage } from 'next';
+// import Image from 'next/image';
+
+// // Components
+// import PrintPreview from 'react_three/components/PrintPreview';
+
+// // Public
+// import img0008_1 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0008(1).jpeg';
+// import img0010 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0010.jpeg';
+// import img0011 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0011.jpeg';
+// import img0012 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0012.jpeg';
+// import img0014_1 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0014(1).jpeg';
+// import img0015_1 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0015(1).jpeg';
+// import img0016_1 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0016(1).jpeg';
+// import img0017_1 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0017(1).jpeg';
+// import img0018 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0018.jpeg';
+// import img0019_1 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0019(1).jpeg';
+// import img0020_1 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0020(1).jpeg';
+// import img0021 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0021.jpeg';
+// import img0022 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0022.jpeg';
+// import img0023 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0023.jpeg';
+// import img0025_1 from 'public/jpeg/project/breville_hopper/mk7v4b/IMG_0025(1).jpeg';
+
+// const Mark7v4b: NextPage = () => {
+//   return (
+//     <div>
+//       <h1>Mark 7 Version 4b</h1>
+//       <PrintPreview
+//         gcodeUrl="/gcode/breville_hopper/mk7v4.gcode"
+//         stlMeshRotation={[Math.PI / 2, 0, Math.PI]}
+//         stlUrl="/stl/breville_hopper/mk7v4.stl"
+//       />
+//       <h2>Notes:</h2>
+//       <ul>
+//         <li>
+//           Prints backwards, upside-down with support around lip area.
+//           <ul>
+//             <li>No reason for backwards, just accidentally added additional rotation on cura ultimaker.</li>
+//           </ul>
+//         </li>
+//         <li>Removes section under filter holder as previous print shows it can work without it.</li>
+//         <li>Print was successful however bowed out due to improper magnetic print bed placement.</li>
+//         <li>Print used with machine</li>
+//       </ul>
+//       <figure>
+//         <Image
+//           alt="Magnetic print bed attached with clips."
+//           placeholder="blur"
+//           src={img0008_1}
+//         />
+//         <Image
+//           alt="Small adhesion failure on sides of print."
+//           placeholder="blur"
+//           src={img0010}
+//         />
+//         <Image
+//           alt="Middle portion of magnetic bed has lifted away from printing platform."
+//           placeholder="blur"
+//           src={img0011}
+//         />
+//         <figcaption>
+//           Magnetic print bed is now attached with clips but issues are still present.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Bits of excess support exposed later in print."
+//           placeholder="blur"
+//           src={img0012}
+//         />
+//         <figcaption>
+//           Print has excess support along lid area.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Funnel portion of print has printed successfully."
+//           placeholder="blur"
+//           src={img0014_1}
+//         />
+//         <figcaption>
+//           Funnel portion of print has printed successfully without defects.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Neck portion of print has printed successfully."
+//           placeholder="blur"
+//           src={img0015_1}
+//         />
+//         <figcaption>
+//           Neck portion of print has printed successfully with additional support.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Top view of completed print."
+//           placeholder="blur"
+//           src={img0016_1}
+//         />
+//         <Image
+//           alt="View of elapsed time."
+//           placeholder="blur"
+//           src={img0017_1}
+//         />
+//         <figcaption>
+//           Completed print and elapsed time.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="O-Rings fit well on inset in neck."
+//           placeholder="blur"
+//           src={img0018}
+//         />
+//         <figcaption>
+//           O-Rings fit well on inset in neck. 
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Hopper fits well on machine along with filter holder."
+//           placeholder="blur"
+//           src={img0019_1}
+//         />
+//         <Image
+//           alt="Top view of hopper on machine"
+//           placeholder="blur"
+//           src={img0020_1}
+//         />
+//         <Image
+//           alt="Side view of hopper on machine along with filter holder."
+//           placeholder="blur"
+//           src={img0021}
+//         />
+//         <figcaption>
+//           Views of finished hopper on machine
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="O-Rings on neck do not slip when secured to machine."
+//           placeholder="blur"
+//           src={img0022}
+//         />
+//         <Image
+//           alt="Hopper leaves enough space to allow for water reservoir is removed."
+//           placeholder="blur"
+//           src={img0023}
+//         />
+//         <Image
+//           alt="Hopper is slightly lifted from machine when filter holder is removed."
+//           placeholder="blur"
+//           src={img0025_1}
+//         />
+//         <video autoPlay loop muted src="/mp4/breville_hopper/mk7v4b.mp4">
+//           Video displaying cabinet closing with hopper on machine.
+//         </video>
+//         <figcaption>
+//           Additional notes on finished print.
+//         </figcaption>
+//       </figure>
+//     </div>
+//   );
+// };
+
+// export default Mark7v4b;

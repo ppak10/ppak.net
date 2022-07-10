@@ -1,0 +1,130 @@
+// /**
+//  * mk7v1b.tsx
+//  * Page component Breville Hopper Mark 7 Version 1b.
+//  */
+
+// // Node Modules
+// import type { NextPage } from 'next';
+// import Image from 'next/image';
+
+// // Components
+// import PrintPreview from 'react_three/components/PrintPreview';
+
+// // Public
+// import img0762 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0762.jpeg';
+// import img0763 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0763.jpeg';
+// import img0766 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0766.jpeg';
+// import img0767 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0767.jpeg';
+// import img0769 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0769.jpeg';
+// import img0770 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0770.jpeg';
+// import img0771 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0771.jpeg';
+// import img0772 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0772.jpeg';
+// import img0773 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0773.jpeg';
+// import img0774 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0774.jpeg';
+// import img0775 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0775.jpeg';
+// import img0776 from 'public/jpeg/project/breville_hopper/mk7v1b/IMG_0776.jpeg';
+
+// const Mark7v1b: NextPage = () => {
+//   return (
+//     <div>
+//       <h1>Mark 7 Version 1b</h1>
+//       <PrintPreview
+//         gcodeUrl="/gcode/breville_hopper/mk7v1b.gcode"
+//         stlMeshRotation={[Math.PI / 2, 0, 0]}
+//         stlUrl="/stl/breville_hopper/mk7v1.stl"
+//       />
+//       <h2>Notes:</h2>
+//       <ul>
+//         <li>Prints upside-down with support around lip area.</li>
+//         <li>Not ready for use.</li>
+//       </ul>
+//       <figure>
+//         <Image
+//           alt="Prints top down to allow for flat ceiling of hopper."
+//           placeholder="blur"
+//           src={img0762}
+//         />
+//         <Image
+//           alt="Adds support for inset for lid area."
+//           placeholder="blur"
+//           src={img0763}
+//         />
+//         <Image
+//           alt="Later stage of print with support for inset for lid area."
+//           placeholder="blur"
+//           src={img0766}
+//         />
+//         <Image
+//           alt="Close up of seperation between support and lid area."
+//           placeholder="blur"
+//           src={img0767}
+//         />
+//         <figcaption>
+//           Early stages of upside-down hopper print with support for lid.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Later stage of print during funnel section."
+//           placeholder="blur"
+//           src={img0769}
+//         />
+//         <figcaption>
+//           Later stage of print during funnel section.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Small adhesion failure with visible seam of defect."
+//           placeholder="blur"
+//           src={img0770}
+//         />
+//         <Image
+//           alt="Printing defects during circular portion of funnel."
+//           placeholder="blur"
+//           src={img0771}
+//         />
+//         <figcaption>
+//           Notable defects during later portion of print.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Finished printing result."
+//           placeholder="blur"
+//           src={img0772}
+//         />
+//         <Image
+//           alt="Elasped time of print."
+//           placeholder="blur"
+//           src={img0773}
+//         />
+//         <figcaption>
+//           Finished Print
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Interal view of defects during circular funnel portion."
+//           placeholder="blur"
+//           src={img0774}
+//         />
+//         <Image
+//           alt="Close up on partial removal of lid support."
+//           placeholder="blur"
+//           src={img0775}
+//         />
+//         <Image
+//           alt="Top view of lid inset with fully removed support."
+//           placeholder="blur"
+//           src={img0776}
+//         />
+//         <figcaption>
+//           Close up views of finished print.
+//         </figcaption>
+//       </figure>
+//     </div>
+//   );
+// };
+
+// export default Mark7v1b;

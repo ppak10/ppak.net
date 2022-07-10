@@ -1,0 +1,106 @@
+// /**
+//  * mk7v3.tsx
+//  * Page component Breville Hopper Mark 7 Version 3.
+//  */
+
+// // Node Modules
+// import type { NextPage } from 'next';
+// import Image from 'next/image';
+
+// // Components
+// import PrintPreview from 'react_three/components/PrintPreview';
+
+// // Public
+// import img0787 from 'public/jpeg/project/breville_hopper/mk7v3/IMG_0787.jpeg';
+// import img0001_3 from 'public/jpeg/project/breville_hopper/mk7v3/IMG_0001(3).jpeg';
+// import img0002_3 from 'public/jpeg/project/breville_hopper/mk7v3/IMG_0002(3).jpeg';
+// import img0003_2 from 'public/jpeg/project/breville_hopper/mk7v3/IMG_0003(2).jpeg';
+// import img0004_3 from 'public/jpeg/project/breville_hopper/mk7v3/IMG_0004(3).jpeg';
+// import img0005 from 'public/jpeg/project/breville_hopper/mk7v3/IMG_0005.jpeg';
+// import img0006 from 'public/jpeg/project/breville_hopper/mk7v3/IMG_0006.jpeg';
+
+// const Mark7v3: NextPage = () => {
+//   return (
+//     <div>
+//       <h1>Mark 7 Version 3</h1>
+//       <PrintPreview
+//         gcodeUrl="/gcode/breville_hopper/mk7v3.gcode"
+//         stlMeshRotation={[Math.PI / 2, 0, 0]}
+//         stlUrl="/stl/breville_hopper/mk7v3.stl"
+//       />
+//       <h2>Notes:</h2>
+//       <ul>
+//         <li>Added magnetic print bed.</li>
+//         <li>Prints upside-down with support around lip area.</li>
+//         <li>Increased angle in funnel portion.</li>
+//         <li>
+//           Encountered thermal runaway errors (3x).
+//           <ul>
+//             <li>First error happened overnight (probably early into the night) and resumed printing the next morning for a couple more hours.</li>
+//             <li>Second thermal runaway error encountered next morning.</li>
+//             <li>Third thermal runaway error happened less than a few hours later. (Print stopped and printer attempted to address issue)</li>
+//           </ul>
+//         </li>
+//         <li>Did not finish print.</li>
+//         <li>Not ready for use.</li>
+//       </ul>
+//       <figure>
+//         <Image
+//           alt="Print beginning on magnetic bed."
+//           placeholder="blur"
+//           src={img0787}
+//         />
+//         <figcaption>
+//           Print starting with magnetic bed.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Early stage of print."
+//           placeholder="blur"
+//           src={img0001_3}
+//         />
+//         <figcaption>
+//           Early stage of print before first thermal runaway error.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="Thermal runaway error."
+//           placeholder="blur"
+//           src={img0003_2}
+//         />
+//         <Image
+//           alt="Later stage of print resumed after thermal runaway."
+//           placeholder="blur"
+//           src={img0002_3}
+//         />
+//         <figcaption>
+//           Print encountered a thermal runaway error and was resumed after restarting printer.
+//         </figcaption>
+//       </figure>
+//       <figure>
+//         <Image
+//           alt="View of filter holders on partially completed print."
+//           placeholder="blur"
+//           src={img0004_3}
+//         />
+//         <Image
+//           alt="Side view of partially completed print."
+//           placeholder="blur"
+//           src={img0005}
+//         />
+//         <Image
+//           alt="Close up on filter holder."
+//           placeholder="blur"
+//           src={img0006}
+//         />
+//         <figcaption>
+//           View of accessories on partially completed print.
+//         </figcaption>
+//       </figure>
+//     </div>
+//   );
+// };
+
+// export default Mark7v3;
