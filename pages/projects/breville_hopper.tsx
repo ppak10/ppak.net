@@ -13,6 +13,20 @@ import Carousel from 'common/components/Carousel';
 import PrintPreviews from 'react_three/components/PrintPreviews';
 
 // Constants
+// const DEBOSSED_TEXT = `
+//  /+\     |FF|-|                /__\              \FFFFFFFF/-/    \FFFFFFFF/-/   \MMMMMMMM/-/   \HHHHHHHH/-/  \CCCCCCCC/-/ 
+//  |C|     /FF\-|      /_\       |MM|     |EE|]     \MMMMMM/-/      \FFFFFF/-/     \MMMMMM/-/     \HHHHHH/-/    \CCCCCC/-/
+//  |C|    /FFFF\       |H|       |MM|   __|EE|__   __\EEEE/__      __\EEEE/__     __\EEEE/__     __\EEEE/__    __\EEEE/__
+// Cream    Foam    Half & Half   Milk   Espresso   Cappuccino    Dry Cappuccino   Flat White     Cafe Breve     Con Pana
+// `;
+
+const DEBOSSED_TEXT_WEBSAFE = `
+ /+\\     |FF|-|                /__\\              \\FFFFFFFF/-/    \\FFFFFFFF/-/   \\MMMMMMMM/-/   \\HHHHHHHH/-/  \\CCCCCCCC/-/ 
+ |C|     /FF\\-|      /_\\       |MM|     |EE|]     \\MMMMMM/-/      \\FFFFFF/-/     \\MMMMMM/-/     \\HHHHHH/-/    \\CCCCCC/-/
+ |C|    /FFFF\\       |H|       |MM|   __|EE|__   __\\EEEE/__      __\\EEEE/__     __\\EEEE/__     __\\EEEE/__    __\\EEEE/__
+Cream    Foam    Half & Half   Milk   Espresso   Cappuccino    Dry Cappuccino   Flat White     Cafe Breve     Con Pana
+`;
+
 const IMAGE_WIDTH = 992;
 const IMAGE_HEIGHT = 744;
 
@@ -100,6 +114,10 @@ const StyledBrevilleHopper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1em;
+
+  pre {
+    overflow-x: auto;
+  }
 `;
 
 const BrevilleHopper: NextPage = () => (
@@ -165,7 +183,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Cylindrical extension placed on top of existing hopper. (Mk 1)
+        Cylindrical extension placed on top of existing hopper. (Mark 1)
       </figcaption>
     </figure>
 
@@ -212,7 +230,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Errors in printing due to abrupt step in neck area. (Mk2)
+        Errors in printing due to abrupt step in neck area. (Mark 2)
       </figcaption>
     </figure>
     <p>
@@ -255,7 +273,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Hopper with lid in intended spot just below cabinet. (Mk2)
+        Hopper with lid in intended spot just below cabinet. (Mark 2)
       </figcaption>
     </figure>
     <figure>
@@ -263,7 +281,7 @@ const BrevilleHopper: NextPage = () => (
         Video of cabinet above hopper opening.
       </video>
       <figcaption>
-        Hopper with lid no longer prevents cabinet door from opening. (Mk2)
+        Hopper with lid no longer prevents cabinet door from opening. (Mark 2)
       </figcaption>
     </figure>
     <p>
@@ -283,12 +301,20 @@ const BrevilleHopper: NextPage = () => (
       />
       <figcaption>
         This print coincedently has appropriate dimesion to be repurposed as
-        anti-flip barrier for my cat&apos;s water bowl. (Mk2)
+        anti-flip barrier for my cat&apos;s water bowl. (Mark 2)
       </figcaption>
     </figure>
     
     {/* Mk 3 */}
     <h2>Mark 3</h2>
+    <p>
+      &emsp;This version of the print was updated to use a larger 200 mm
+      cylindrical diameter to further increase the amount beans it can store.
+      This was printed right side up but ran into issues towards the end where
+      the lid inset portion had significant overhang. Some of the filament
+      around this area was not able to adhere correctly to its intended area and
+      were left as stringy residue.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -329,9 +355,15 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Successfully printed hopper with several defects.
+        Successfully printed hopper with several defects. (Mark 3)
       </figcaption>
     </figure>
+    <p>
+      &emsp;The existing lid fits well in the provided inset and a small notch
+      was placed in the side to make removing the lid easier. This print was the
+      first iteration to successfully attach to the existing hopper and extend
+      the space to store coffee beans.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -360,11 +392,34 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Hopper fits well on Breville machine and functions as intended.
+        Hopper fits well on Breville machine and functions as intended. (Mark 3)
       </figcaption>
     </figure>
 
     {/* Mk4 V1  */}
+    <h2>Mark 4 Version 1</h2>
+    <p>
+      &emsp;This iteration of the print aimed to improve the extension&apos;s
+      placement on the hopper with rubber O-rings while also utilizing a larger
+      220 mm diameter. For this I followed this tutorial to remove some of the
+      factory restraints on the slicer software.
+    </p>
+    <figure>
+      <iframe
+        src="https://www.youtube.com/embed/Il1sierB4Yk"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        style={{ aspectRatio: '16 / 9' }}
+      />
+      <figcaption>
+        Tutorial for removing keep out areas on Ultimaker.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The print encountered some defects early while printing the sloped
+      portions of the funnel but successfully finished printing utilizing the
+      maximum print area.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -387,34 +442,52 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Print utilizing maximum 220mm x 220mm area with some defects.
+        Print utilizing maximum 220 mm x 220 mm area with some defects.
+        (Mark 4 Version 1)
       </figcaption>
     </figure>
+    <p>
+      &emsp;The finished print however did not fit on the hopper area as the
+      rubber O-rings placed in the printed neck grooves was too large. This was
+      noted and in future prints would be accounted for with greater tolerance.
+    </p>
     <figure>
-      <Image
-        alt="O-ring on hopper is too large to fit on machine."
-        height={IMAGE_HEIGHT}
-        src="/bucket/jpeg/project/breville_hopper/mk4v1/IMG_0684.JPEG"
-        width={IMAGE_WIDTH}
-      />
-      <Image
-        alt="Side view with o-ring on hopper."
-        height={IMAGE_HEIGHT}
-        src="/bucket/jpeg/project/breville_hopper/mk4v1/IMG_0685.JPEG"
-        width={IMAGE_WIDTH}
-      />
-      <Image
-        alt="2.00mm o-ring caliper measurement with cat"
-        height={IMAGE_HEIGHT}
-        src="/bucket/jpeg/project/breville_hopper/mk4v1/IMG_3495.JPEG"
-        width={IMAGE_WIDTH}
-      />
+      <Carousel>
+        <Image
+          alt="O-ring on hopper is too large to fit on machine."
+          height={IMAGE_HEIGHT}
+          src="/bucket/jpeg/project/breville_hopper/mk4v1/IMG_0684.JPEG"
+          width={IMAGE_WIDTH}
+        />
+        <Image
+          alt="Side view with o-ring on hopper."
+          height={IMAGE_HEIGHT}
+          src="/bucket/jpeg/project/breville_hopper/mk4v1/IMG_0685.JPEG"
+          width={IMAGE_WIDTH}
+        />
+        <Image
+          alt="2.00mm o-ring caliper measurement with cat"
+          height={IMAGE_HEIGHT}
+          src="/bucket/jpeg/project/breville_hopper/mk4v1/IMG_3495.JPEG"
+          width={IMAGE_WIDTH}
+        />
+      </Carousel>
       <figcaption>
         Tolerance for o-ring groove was not sufficient enough to fit.
+        (Mark 4 Version 1)
       </figcaption>
     </figure>
 
     {/* Mk4 V2 */}
+    <h2>Mark 4 Version 2</h2>
+    <p>
+      &emsp;This version attempts to see what would occur if a 240 mm diameter
+      was used on a 220 mm x 220 mm maximum print bed. As seen below, the
+      printer is physically not be able to extend further than what is available
+      and for some of those curved portions would result in a straight line. The
+      print was stopped mid way as the funnel portion did not end up printing
+      properly either.
+    </p>
     <figure>
       <Image
         alt="240mm x 240mm area print failed."
@@ -423,11 +496,20 @@ const BrevilleHopper: NextPage = () => (
         width={IMAGE_WIDTH}
       />
       <figcaption>
-        Print utilizing 240mm x 240mm area was not successful.
+        Print utilizing 240 mm x 240 mm area was not successful.
+        (Mark 4 Version 2)
       </figcaption>
     </figure>
 
     {/* Mk5 V1 */}
+    <h2>Mark 5 Version 1</h2>
+    <p>
+      &emsp;This version reverts back to a design similar to that of Mark 3
+      with a greater emphasis on updating the sloped interior and exterior
+      portions to print with less defects. Unfortunately the adjustments to the
+      exterior funnel portion of the print was not enough to prevent defects but
+      the interior slope towards the top printed correctly.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -505,10 +587,19 @@ const BrevilleHopper: NextPage = () => (
       </Carousel>
       <figcaption>
         Views of print and defects during and after print process.
+        (Mark 5 Version 1)
       </figcaption>
     </figure>
 
     {/* Mk5 V2 */}
+    <h2>Mark 5 Version 2</h2>
+    <p>
+      &emsp;This version aims to fix the defects issue on the exterior portion
+      of the funnel by increasing the angle of the funnel. Along with this
+      debossed content was added around the side of the print to displaying the
+      following recipes.
+    </p>
+    <pre>{DEBOSSED_TEXT_WEBSAFE}</pre>
     <figure>
       <Carousel>
         <Image
@@ -570,6 +661,11 @@ const BrevilleHopper: NextPage = () => (
         Views of printing process and completed print with elapsed time.
       </figcaption>
     </figure>
+    <p>
+      &emsp;The print was successful and the increased tolerance for the O-rings
+      allowed the extension to fit in the machine, albet very tightly. In the
+      next print the tolerance around the O-ring will be further increased.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -606,11 +702,12 @@ const BrevilleHopper: NextPage = () => (
         Video displaying the debossing on hopper.
       </video>
       <figcaption>
-        Views of debossed content.
+        Views of debossed recipes.
       </figcaption>
     </figure>
 
     {/* Mk6 */}
+    <h2>Mark 6</h2>
     <figure>
       <Carousel>
         <Image
