@@ -115,6 +115,15 @@ const StyledBrevilleHopper = styled.div`
   flex-direction: column;
   gap: 1em;
 
+  h2 {
+    background-color: beige;
+    margin: 0px;
+    padding: 1em 0px;
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+  }
+
   pre {
     overflow-x: auto;
   }
@@ -806,6 +815,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V1a */}
+    <h2>Mark 7 Version 1a</h2>
     <figure>
       <Carousel>
         <Image
@@ -921,7 +931,8 @@ const BrevilleHopper: NextPage = () => (
       </figcaption>
     </figure>
 
-    {/* Mk7 V1 */}
+    {/* Mk7 V1b */}
+    <h2>Mark 7 Version 1b</h2>
     <figure>
       <Carousel>
         <Image
@@ -1003,6 +1014,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V2 */}
+    <h2>Mark 7 Version 2</h2>
     <figure>
       <Carousel>
         <Image
@@ -1066,6 +1078,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V3 */}
+    <h2>Mark 7 Version 3</h2>
     <figure>
       <Carousel>
         <Image
@@ -1124,6 +1137,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V4a */}
+    <h2>Mark 7 Version 4a</h2>
     <figure>
       <Image
         alt="Print failure due to shift in print bed."
@@ -1137,6 +1151,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V4b */}
+    <h2>Mark 7 Version 4b</h2>
     <figure>
       <Carousel>
         <Image
@@ -1253,6 +1268,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V5 */}
+    <h2>Mark 7 Version 5</h2>
     <figure>
       <Carousel>
         <Image
@@ -1304,6 +1320,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V6 */}
+    <h2>Mark 7 Version 6</h2>
     <figure>
       <Carousel>
         <Image
@@ -1349,6 +1366,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V7 */}
+    <h2>Mark 7 Version 7</h2>
     <figure>
       <Carousel>
         <Image

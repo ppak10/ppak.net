@@ -58,9 +58,7 @@ const DodecahedralDice: NextPage = () => (
       <iframe
         src="https://www.youtube.com/embed/iUGoevQzW-g"
         title="YouTube video player"
-        // frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        // allowfullscreen
         style={{ aspectRatio: '16 / 9' }}
       />
       <figcaption>
