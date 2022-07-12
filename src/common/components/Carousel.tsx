@@ -4,7 +4,6 @@
  */
 
 // Node Modules
-import Image from 'next/image';
 import { arrayOf, element, string } from 'prop-types';
 import {
   FC,
@@ -16,9 +15,9 @@ import {
 } from 'react';
 import styled from 'styled-components';
 
-// Public
-import circleChevronLeftSVG from 'public/svg/common/circle-chevron-left-solid.svg';
-import circleChevronRightSVG from 'public/svg/common/circle-chevron-right-solid.svg';
+// Components
+import CircleChevronLeftSolid from 'common/components/svg/CircleChevronLeftSolid';
+import CircleChevronRightSolid from 'common/components/svg/CircleChevronRightSolid';
 
 // Styled Components
 const StyledCarousel = styled.div`
@@ -56,7 +55,12 @@ const StyledCarouselButton = styled.button`
   width: 2em;
 
   // Done to fix safari ipad issue of buttons not being able to be pressed.
-  z-index: 1;
+  z-index: 2;
+
+  path {
+    fill: white;
+    transition-duration: 250ms;
+  }
 
   // Hides buttons when on mobile.
   @media (max-width: ${({ theme }) => theme.size.mobile}) {
@@ -65,6 +69,12 @@ const StyledCarouselButton = styled.button`
 
   :disabled {
     display: none;
+  }
+
+  :hover:enabled {
+    path {
+      fill: gray;
+    }
   }
 `;
 
@@ -120,20 +130,14 @@ const Carousel: FC<Props> = ({ children, className }) => {
         onClick={handleLeftClick}
         style={{ left: '5%' }}
       >
-        <Image
-          alt="circle chevron left SVG"
-          src={circleChevronLeftSVG}
-        />        
+        <CircleChevronLeftSolid />
       </StyledCarouselButton>
       <StyledCarouselButton
         disabled={scrollLeft >= scrollWidth - clientWidth}
         onClick={handleRightClick}
         style={{ right: '5%' }}
       >
-        <Image
-          alt="circle chevron right SVG"
-          src={circleChevronRightSVG}
-        />        
+        <CircleChevronRightSolid />
       </StyledCarouselButton>
     </StyledCarousel>
   );

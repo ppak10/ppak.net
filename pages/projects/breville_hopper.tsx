@@ -121,7 +121,9 @@ const StyledBrevilleHopper = styled.div`
     padding: 1em 0px;
     position: sticky;
     top: 0px;
-    z-index: 2;
+
+    // z-index must be higher than carousel buttons (z-index: 2)
+    z-index: 3;
   }
 
   pre {
@@ -418,7 +420,10 @@ const BrevilleHopper: NextPage = () => (
         src="https://www.youtube.com/embed/Il1sierB4Yk"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        style={{ aspectRatio: '16 / 9' }}
+        style={{
+          aspectRatio: '16 / 9',
+          minHeight: 278,
+        }}
       />
       <figcaption>
         Tutorial for removing keep out areas on Ultimaker.
@@ -717,6 +722,13 @@ const BrevilleHopper: NextPage = () => (
 
     {/* Mk6 */}
     <h2>Mark 6</h2>
+    <p>
+      &emsp;This iteration aims to utilize the full printable area of the 220 mm
+      x 220 mm print bed with square dimensions. The circular neck portion of
+      the print was kept the same and used the loft tool to generate the funnel
+      portion. Along with this insets were created for other accessories such as
+      the brush and grounds comb.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -760,7 +772,13 @@ const BrevilleHopper: NextPage = () => (
         Views during print process and elapsed time.
       </figcaption>
     </figure>
-
+    <p>
+      &emsp;The print finished in just over a day and with minimal defects which
+      occurred during the neck portion. The brush accessory was a little too
+      long to fit in place and the inset for the handle portion will need
+      extended. The space for the O-ring was just enough and was able to fit
+      snuggly in the machine when twisted in place.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -801,7 +819,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Hopper placed on machine with o-ring.
+        Print with accessories in place and secured on the machine.
       </figcaption>
     </figure>
 
@@ -816,6 +834,16 @@ const BrevilleHopper: NextPage = () => (
 
     {/* Mk7 V1a */}
     <h2>Mark 7 Version 1a</h2>
+    <p>
+      &emsp;This iteration sets aside the insets for the brush and grounds
+      trimmer for a later version and focuses on providing a space to store the
+      filter basket. The print ran into issues early on where adhesion to the
+      print bed started failing on the right side early, probably due to
+      improper leveling. Along with this, this design produced a lot more
+      stringy defects probably due to some of the abrupt offsets. This time
+      around the grooves of the O-rings were made a little too large as the
+      print seems to slide in and out of place too easily.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -883,7 +911,13 @@ const BrevilleHopper: NextPage = () => (
         Completed print with close ups on defects.
       </figcaption>
     </figure>
-
+    <p>
+      &emsp;The space for the filter basket was adequate enough to secure them
+      in place but were a little too tight as removing them for use also ends up
+      lifting the print. In the next iteration of this print the slots for the
+      filter basket will have greater tolerances and less unneccessary material
+      surrounding it.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -933,6 +967,12 @@ const BrevilleHopper: NextPage = () => (
 
     {/* Mk7 V1b */}
     <h2>Mark 7 Version 1b</h2>
+    <p>
+      &emsp;This version of the print takes the same model but prints it upside
+      down to see if this would create less defects. Unfortunately, changing the
+      way it was printed did not resolve some of the issues that were inherit in
+      the design.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -1015,6 +1055,14 @@ const BrevilleHopper: NextPage = () => (
 
     {/* Mk7 V2 */}
     <h2>Mark 7 Version 2</h2>
+    <p>
+      &emsp;This iteration removes the extra two filter basket slots on the
+      right side of the print since we only have a total of two. Along with this
+      the dimensions of this prints were reduced to 180 mm in width to look
+      better on the espresso machine. This print ended up unused as the funnel
+      portion were not thick enough to allow the individual layers to adhere to
+      on another.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -1079,6 +1127,37 @@ const BrevilleHopper: NextPage = () => (
 
     {/* Mk7 V3 */}
     <h2>Mark 7 Version 3</h2>
+    <p>
+      &emsp;The removal of the finished print from the included print bed was
+      often time consuming as it needs to be done carefully in order to not
+      damage the print when scraping away from the rigid print bed. To address
+      this I purchased a flexible magnetic print bed which made it easy to
+      remove from the printer and the final print.
+    </p>
+    <figure>
+      <Image
+        alt="Magnetic print bed for Ender 3 listing on Amazon.com"
+        height="681"
+        src="/bucket/jpeg/project/breville_hopper/mk7v3/ender_3_magnetic_print_bed.JPG"
+        width="1230"
+      />
+      <figcaption>
+        Amazon.com listing for Ender 3 magnetic print bed.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Unfortunately this print encountered the first thermal runaway error
+      which at the time I attributed to an improper installation of the new
+      print bed. During this issue, the printer would emit a continuous tone
+      loud as a fire alarm in order to alert the user to turn off the machine.
+      After further research, this error is encountered when the printer is
+      unable to accurately control the temperature of either the print bed or
+      extruder nozzle. The main cause of this error is possibly due to the
+      thermoresistor is improperly attached to the heat source. For this I
+      believed that the new magnetic print bed and the adhesive attachment might
+      have contributed to this issue and thus removed and reattached the new
+      print bed.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -1110,6 +1189,10 @@ const BrevilleHopper: NextPage = () => (
         Print encountered a thermal runaway error and was resumed after restarting printer.
       </figcaption>
     </figure>
+    <p>
+      &emsp;The print however was sufficiently completed enough for me to test
+      out how the filter baskets would fit.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -1138,6 +1221,12 @@ const BrevilleHopper: NextPage = () => (
 
     {/* Mk7 V4a */}
     <h2>Mark 7 Version 4a</h2>
+    <p>
+      &emsp;Unfortunately the magnetic print bed on this print was not securely
+      attached to the print bed and shifted during the printing process. I did
+      not know at the time but this was caused due to my attempt to readjust the
+      magnetic adhesion layer on the print bed.
+    </p>
     <figure>
       <Image
         alt="Print failure due to shift in print bed."
@@ -1152,6 +1241,13 @@ const BrevilleHopper: NextPage = () => (
 
     {/* Mk7 V4b */}
     <h2>Mark 7 Version 4b</h2>
+    <p>
+      &emsp;This iteration updates the angle of the funnel portion in order to
+      print properly and removes the section of the filter basket holder. The
+      magnetic print bed was secured with paper clips used on previous prints.
+      This proved adqueate enough to keep the print bed from moving away but
+      was not able to prevent the issue of print bowing out on the edges.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -1207,7 +1303,11 @@ const BrevilleHopper: NextPage = () => (
         Completed print and elapsed time.
       </figcaption>
     </figure>
-
+    <p>
+      &emsp;The print used the same O-rings and ended up fitting well onto the
+      espresso machine along with providing slots for hanging up the filter
+      baskets.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -1269,6 +1369,14 @@ const BrevilleHopper: NextPage = () => (
 
     {/* Mk7 V5 */}
     <h2>Mark 7 Version 5</h2>
+    <p>
+      &emsp;At this point I was confident that the magnetic print caused the
+      bowing issue so I reverted back to using the rigid non-magnetic print bed.
+      I attached this in the same way with paper clips but forget to level the
+      print bed. As a result, the extruder nozzle was far too close to the print
+      bed and ended up fusing the print to the print bed. This made the removal
+      process of the final print difficult and ended up damaging the print.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -1321,6 +1429,18 @@ const BrevilleHopper: NextPage = () => (
 
     {/* Mk7 V6 */}
     <h2>Mark 7 Version 6</h2>
+    <p>
+      &emsp;At this pointer I had no other option but to give the magnetic print
+      bed another chance as I had ruined the included one in the previous print.
+      While doing this I figured out that I had attaching the adhesive portion
+      of the print bed improperly by rotating 90°. As such to the magnetic print
+      bed also had to be rotated 90° and the lift portion cut off in order to be
+      secured properly. This encountered a strange issue where the filament for
+      the spool got stuck and ended up preventing the filament from flowing to
+      the extruder; The printer did not know this and continued printing without
+      the filament. The print was completed enough to show that the brush inset
+      was just a bit too large and should be made a bit smaller.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -1361,12 +1481,18 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Failed print showed that space around brush inset was a little too large.
+        Failed print showed that space around brush inset was a adequate enough
+        to fit but still little bit too large.
       </figcaption>
     </figure>
 
     {/* Mk7 V7 */}
     <h2>Mark 7 Version 7</h2>
+    <p>
+      &emsp;This version of the print adds in the slot for rectangular grounds
+      scraper to the front of the print and debossing indicators for filter
+      basket and grounds scraper.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -1398,7 +1524,13 @@ const BrevilleHopper: NextPage = () => (
         Finished print and elapsed time.
       </figcaption>
     </figure>
-
+    <p>
+      The print completed with minimal defects as the loft in the funnel portion
+      was updated well enough to accomodate the subsequent layers. The slots for
+      the accessories and lid were printed with enough tolerance to allow easy
+      placement and removal. The space for the filter basket holder was
+      increased so that the slot can be used with the filter basket in place.
+    </p>
     <figure>
       <Carousel>
         <Image
@@ -1448,7 +1580,6 @@ const BrevilleHopper: NextPage = () => (
         Views of hopper with accessories attached while on machine.
       </figcaption>
     </figure>
-
     <figure>
       <video autoPlay loop muted src="/bucket/mp4/project/breville_hopper/mk7v7.mp4">
         Video displaying cabinet closing with hopper on machine.
@@ -1457,6 +1588,17 @@ const BrevilleHopper: NextPage = () => (
         Cabinet door closing.
       </figcaption>
     </figure>
+    <p>
+      &emsp;As a first project I used a lot of filament to create multiple
+      iterations of the print with small changes and in hindsight a smaller
+      project may have suited better. Through this process I refined the way I
+      developed models in Fusion 360 to from re-inputing the same measurements
+      to using the included tools such as history to save time by iterating on
+      the existing designs. I am satisfied with the outcome of this project and
+      impressed by the accuracy and tolerances that can be achieved with the 3D
+      printer. I am interested in further exploring this tool and other
+      solutions I can build with this technology.
+    </p>
 
   </StyledBrevilleHopper>
 );
