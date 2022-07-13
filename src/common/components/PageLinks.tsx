@@ -33,7 +33,7 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
     height: 5em;
     position: absolute;
     right: 0px;
-    top: 0px;
+    top: 5em;
     transform: translateX(100%);
     width: 5em;
 

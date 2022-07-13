@@ -127,7 +127,11 @@ const StyledCarouselIndicators = styled.div`
 
 // Types
 interface Props {
-  children: ReactNode[]; // Expects a list of <Image />, not just one or none.
+  /**
+   * Expects a list of <Image />, not just one or none (No more than 10 images).
+   * If too many images are included, the indicators on the bottom will overflow
+   */
+  children: ReactNode[];
   className?: string;
 }
 

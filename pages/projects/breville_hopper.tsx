@@ -559,7 +559,7 @@ const BrevilleHopper: NextPage = () => (
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         style={{
           aspectRatio: '16 / 9',
-          minWidth: 310,
+          minWidth: 300,
         }}
       />
       <figcaption>
@@ -667,18 +667,6 @@ const BrevilleHopper: NextPage = () => (
           alt="Funnel portion of neck still has stringy defects."
           height={IMAGE_HEIGHT}
           src="/bucket/jpeg/project/breville_hopper/mk5v1/IMG_0689.JPEG"
-          width={IMAGE_WIDTH}
-        />
-        <Image
-          alt="Side view of funnel portion of neck defects."
-          height={IMAGE_HEIGHT}
-          src="/bucket/jpeg/project/breville_hopper/mk5v1/IMG_0690.JPEG"
-          width={IMAGE_WIDTH}
-        />
-        <Image
-          alt="Interior funnel portion of neck does not have defects."
-          height={IMAGE_HEIGHT}
-          src="/bucket/jpeg/project/breville_hopper/mk5v1/IMG_0692.JPEG"
           width={IMAGE_WIDTH}
         />
         <Image
@@ -1113,18 +1101,6 @@ const BrevilleHopper: NextPage = () => (
     </p>
     <figure>
       <Carousel>
-        <Image
-          alt="Prints top down to allow for flat ceiling of hopper."
-          height={IMAGE_HEIGHT}
-          src="/bucket/jpeg/project/breville_hopper/mk7v1b/IMG_0762.JPEG"
-          width={IMAGE_WIDTH}
-        />
-        <Image
-          alt="Adds support for inset for lid area."
-          height={IMAGE_HEIGHT}
-          src="/bucket/jpeg/project/breville_hopper/mk7v1b/IMG_0763.JPEG"
-          width={IMAGE_WIDTH}
-        />
         <Image
           alt="Later stage of print with support for inset for lid area."
           height={IMAGE_HEIGHT}
