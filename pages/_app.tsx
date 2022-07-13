@@ -33,6 +33,7 @@ const GlobalStyle = createGlobalStyle<{theme: typeof theme}>`
     left: 0px;
     position: fixed;
     top: 0px;
+    width: min-content;
   }
 
   html {

@@ -13,6 +13,18 @@ import ChevronLeftSolid from 'common/components/svg/ChevronLeftSolid';
 import ChevronRightSolid from 'common/components/svg/ChevronRightSolid';
 
 // Styled Components
+const StyledPageLinksContent = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  overflow-y: auto;
+  padding: 0em 1em;
+  width: 100%;
+
+  ol {
+    list-style: none;
+  }
+`;
+
 const StyledPageLinks = styled.nav<{isShown: boolean}>`
   align-items: center;
   background-color: white;
@@ -22,7 +34,6 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
   position: relative;
   transform: translateX(${({ isShown }) => isShown ? '0px': '-100%' });
   transition-duration: 250ms;
-  width: 250px;
 
   button {
     background-color: white;
@@ -35,7 +46,7 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
     right: 0px;
     top: 5em;
     transform: translateX(100%);
-    width: 5em;
+    width: 2.5em;
 
     svg {
       width: 1em;
@@ -51,17 +62,15 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
       }
     }
   }
-`;
 
-const StyledPageLinksContent = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  overflow-y: auto;
-  padding: 0em 1em;
-  width: 100%;
+  // TODO: Add in better transitions.
+  ${StyledPageLinksContent} {
+    display: ${({ isShown }) => isShown ? 'flex': 'none'};
+    width: 250px;
+  }
 
-  ol {
-    list-style: none;
+  h1 {
+    display: ${({ isShown }) => isShown ? 'flex': 'none'};
   }
 `;
 
