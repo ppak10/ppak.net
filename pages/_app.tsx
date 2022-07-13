@@ -28,6 +28,20 @@ const GlobalStyle = createGlobalStyle<{theme: typeof theme}>`
     }
   }
 
+  #page-links-root {
+    bottom: 0px;
+    left: 0px;
+    position: fixed;
+    top: 0px;
+
+    // Need to display over sticky headers of (z-index: 1);
+    z-index: 2;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: beige;
   }

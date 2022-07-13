@@ -10,6 +10,8 @@ import styled from 'styled-components';
 
 // Components
 import Carousel from 'common/components/Carousel';
+import PageLinks from 'common/components/PageLinks';
+import Portal from 'common/components/Portal';
 import PrintPreviews from 'react_three/components/PrintPreviews';
 
 // Constants
@@ -108,6 +110,9 @@ const PRINT_PREVIEWS_HOPPER = [
   },
 ];
 
+// Enums
+import { PortalElementId } from 'common/enums';
+
 // Styled Components
 import { StyledPrintPreviewsSection } from 'react_three/styled';
 const StyledBrevilleHopper = styled.div`
@@ -133,6 +138,138 @@ const StyledBrevilleHopper = styled.div`
 
 const BrevilleHopper: NextPage = () => (
   <StyledBrevilleHopper>
+    <Portal portalElementId={PortalElementId.PageLinks}>
+      <PageLinks>
+        <ol>
+          <li>
+            <h2>
+              <a href="#mk1">Mark 1</a>
+            </h2>
+          </li>
+          <li>
+            <h2>
+              <a href="#mk2">Mark 2</a>
+            </h2>
+          </li>
+          <li>
+            <h2>
+              <a href="#mk3">Mark 3</a>
+            </h2>
+          </li>
+          <li>
+            <h2>Mark 4</h2>
+            <ol>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk4v1">Version 1</a>
+                  </h3>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk4v2">Version 2</a>
+                  </h3>
+                </a>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <h2>Mark 5</h2>
+            <ol>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk5v1">Version 1</a>
+                  </h3>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk5v2">Version 2</a>
+                  </h3>
+                </a>
+              </li>
+            </ol>
+          </li>
+          <li>
+            <h2>
+              <a href="#mk6">Mark 6</a>
+            </h2>
+          </li>
+          <li>
+            <h2>Mark 7</h2>
+            <ol>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk7v1a">Version 1a</a>
+                  </h3>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk7v1b">Version 1b</a>
+                  </h3>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk7v2">Version 2</a>
+                  </h3>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk7v3">Version 3</a>
+                  </h3>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk7v4a">Version 4a</a>
+                  </h3>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk7v4b">Version 4b</a>
+                  </h3>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk7v5">Version 5</a>
+                  </h3>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk7v6">Version 6</a>
+                  </h3>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk7v7">Version 7</a>
+                  </h3>
+                </a>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </PageLinks>
+    </Portal>
     <StyledPrintPreviewsSection>
       <h1 style={{ gridArea: 'heading' }}>Breville Hopper</h1>
       <p style={{ gridArea: 'paragraph' }}>
@@ -150,7 +287,7 @@ const BrevilleHopper: NextPage = () => (
     </StyledPrintPreviewsSection>
 
     {/* Mk1 */}
-    <h2>Mark 1</h2>
+    <h2 id="mk1">Mark 1</h2>
     <p>
       &emsp;For my first design I measured the distance between the top of the
       existing coffee bean hopper and the bottom of the cabinet door to be
@@ -199,7 +336,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk2 */}
-    <h2>Mark 2</h2>
+    <h2 id="mk2">Mark 2</h2>
     <p>
       &emsp;The second iteration of this design aimed to use more of the
       available horizontal space but also embed the lid portion into the print
@@ -317,7 +454,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
     
     {/* Mk 3 */}
-    <h2>Mark 3</h2>
+    <h2 id="mk3">Mark 3</h2>
     <p>
       &emsp;This version of the print was updated to use a larger 200 mm
       cylindrical diameter to further increase the amount beans it can store.
@@ -408,7 +545,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk4 V1  */}
-    <h2>Mark 4 Version 1</h2>
+    <h2 id="mk4v1">Mark 4 Version 1</h2>
     <p>
       &emsp;This iteration of the print aimed to improve the extension&apos;s
       placement on the hopper with rubber O-rings while also utilizing a larger
@@ -422,7 +559,7 @@ const BrevilleHopper: NextPage = () => (
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         style={{
           aspectRatio: '16 / 9',
-          minHeight: 278,
+          minWidth: 310,
         }}
       />
       <figcaption>
@@ -493,7 +630,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk4 V2 */}
-    <h2>Mark 4 Version 2</h2>
+    <h2 id="mk4v2">Mark 4 Version 2</h2>
     <p>
       &emsp;This version attempts to see what would occur if a 240 mm diameter
       was used on a 220 mm x 220 mm maximum print bed. As seen below, the
@@ -516,7 +653,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk5 V1 */}
-    <h2>Mark 5 Version 1</h2>
+    <h2 id="mk5v1">Mark 5 Version 1</h2>
     <p>
       &emsp;This version reverts back to a design similar to that of Mark 3
       with a greater emphasis on updating the sloped interior and exterior
@@ -606,7 +743,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk5 V2 */}
-    <h2>Mark 5 Version 2</h2>
+    <h2 id="mk5v2">Mark 5 Version 2</h2>
     <p>
       &emsp;This version aims to fix the defects issue on the exterior portion
       of the funnel by increasing the angle of the funnel. Along with this
@@ -722,7 +859,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk6 */}
-    <h2>Mark 6</h2>
+    <h2 id="mk6">Mark 6</h2>
     <p>
       &emsp;This iteration aims to utilize the full printable area of the 220 mm
       x 220 mm print bed with square dimensions. The circular neck portion of
@@ -834,7 +971,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V1a */}
-    <h2>Mark 7 Version 1a</h2>
+    <h2 id="mk7v1a">Mark 7 Version 1a</h2>
     <p>
       &emsp;This iteration sets aside the insets for the brush and grounds
       trimmer for a later version and focuses on providing a space to store the
@@ -967,7 +1104,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V1b */}
-    <h2>Mark 7 Version 1b</h2>
+    <h2 id="mk7v1b">Mark 7 Version 1b</h2>
     <p>
       &emsp;This version of the print takes the same model but prints it upside
       down to see if this would create less defects. Unfortunately, changing the
@@ -1056,7 +1193,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V2 */}
-    <h2>Mark 7 Version 2</h2>
+    <h2 id="mk7v2">Mark 7 Version 2</h2>
     <p>
       &emsp;This iteration removes the extra two filter basket slots on the
       right side of the print since we only have a total of two. Along with this
@@ -1128,7 +1265,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V3 */}
-    <h2>Mark 7 Version 3</h2>
+    <h2 id="mk7v3">Mark 7 Version 3</h2>
     <p>
       &emsp;The removal of the finished print from the included print bed was
       often time consuming as it needs to be done carefully in order to not
@@ -1223,7 +1360,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V4a */}
-    <h2>Mark 7 Version 4a</h2>
+    <h2 id="mk7v4a">Mark 7 Version 4a</h2>
     <p>
       &emsp;Unfortunately the magnetic print bed on this print was not securely
       attached to the print bed and shifted during the printing process. I did
@@ -1244,7 +1381,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V4b */}
-    <h2>Mark 7 Version 4b</h2>
+    <h2 id="mk7v4b">Mark 7 Version 4b</h2>
     <p>
       &emsp;This iteration updates the angle of the funnel portion in order to
       print properly and removes the section of the filter basket holder. The
@@ -1372,7 +1509,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V5 */}
-    <h2>Mark 7 Version 5</h2>
+    <h2 id="mk7v5">Mark 7 Version 5</h2>
     <p>
       &emsp;At this point I was confident that the magnetic print caused the
       bowing issue so I reverted back to using the rigid non-magnetic print bed.
@@ -1433,7 +1570,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V6 */}
-    <h2>Mark 7 Version 6</h2>
+    <h2 id="mk7v6">Mark 7 Version 6</h2>
     <p>
       &emsp;At this pointer I had no other option but to give the magnetic print
       bed another chance as I had ruined the included one in the previous print.
@@ -1492,7 +1629,7 @@ const BrevilleHopper: NextPage = () => (
     </figure>
 
     {/* Mk7 V7 */}
-    <h2>Mark 7 Version 7</h2>
+    <h2 id="mk7v7">Mark 7 Version 7</h2>
     <p>
       &emsp;This version of the print adds in the slot for rectangular grounds
       scraper to the front of the print and debossing indicators for filter
@@ -1605,7 +1742,6 @@ const BrevilleHopper: NextPage = () => (
       printer. I am interested in further exploring this tool and other
       solutions I can build with this technology.
     </p>
-
   </StyledBrevilleHopper>
 );
 

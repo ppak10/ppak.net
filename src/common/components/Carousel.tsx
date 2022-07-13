@@ -79,6 +79,9 @@ const StyledCarouselButton = styled.button`
   }
 `;
 
+/**
+ * @author <{@link https://moderncss.dev/pure-css-custom-styled-radio-buttons/}>
+ */
 const StyledCarouselIndicators = styled.div`
   display: flex;
   gap: 0.5em;
