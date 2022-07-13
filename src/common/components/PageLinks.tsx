@@ -36,6 +36,8 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
   transition-duration: 250ms;
 
   button {
+    align-items: center;
+    justify-content: center;
     background-color: white;
     border: none;
     border-top-right-radius: 1em;
@@ -53,6 +55,9 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
 
     svg {
       width: 1em;
+
+      // Small offset for iphone and other mobile devices.
+      transform: translateX(-25%);
     }
 
     path {
