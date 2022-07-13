@@ -20,7 +20,7 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
   flex-direction: column;
   height: 100%;
   position: relative;
-  transform: translateX(${({ isShown }) => isShown ? '-100%' : '0px'});
+  transform: translateX(${({ isShown }) => isShown ? '0px': '-100%' });
   transition-duration: 250ms;
   width: 250px;
 
@@ -83,7 +83,7 @@ const PageLinks: FC<Props> = ({ children, className }) => {
   return (
     <StyledPageLinks className={className} isShown={isShown}>
       <button onClick={handleClick}>
-        {isShown ? <ChevronRightSolid /> : <ChevronLeftSolid />}
+        {isShown ? <ChevronLeftSolid /> : <ChevronRightSolid />}
       </button>
       <h1>Table of Contents</h1>
       <StyledPageLinksContent>

@@ -124,11 +124,7 @@ const StyledBrevilleHopper = styled.div`
     background-color: beige;
     margin: 0px;
     padding: 1em 0px;
-    position: sticky;
     top: 0px;
-
-    // z-index must be higher than carousel buttons
-    z-index: 1;
   }
 
   pre {
