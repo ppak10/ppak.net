@@ -41,12 +41,15 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
     border-top-right-radius: 1em;
     border-bottom-right-radius: 1em;
     cursor: pointer;
-    height: 5em;
+    height: 10em;
     position: absolute;
     right: 0px;
     top: 5em;
-    transform: translateX(100%);
-    width: 2.5em;
+
+    // Small issue on mobile in space between button and content.
+    transform: translateX(99%);
+
+    width: 1.75em;
 
     svg {
       width: 1em;
