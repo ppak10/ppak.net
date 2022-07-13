@@ -122,8 +122,8 @@ const StyledBrevilleHopper = styled.div`
     position: sticky;
     top: 0px;
 
-    // z-index must be higher than carousel buttons (z-index: 2)
-    z-index: 3;
+    // z-index must be higher than carousel buttons
+    z-index: 1;
   }
 
   pre {
@@ -673,6 +673,7 @@ const BrevilleHopper: NextPage = () => (
       </Carousel>
       <figcaption>
         Views of printing process and completed print with elapsed time.
+        (Mark 5 Version 2)
       </figcaption>
     </figure>
     <p>
@@ -708,7 +709,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Hopper placed on machine.
+        Hopper placed on machine. (Mark 5 Version 2)
       </figcaption>
     </figure>
     <figure>
@@ -769,7 +770,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Views during print process and elapsed time.
+        Views during print process and elapsed time. (Mark 6)
       </figcaption>
     </figure>
     <p>
@@ -819,7 +820,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Print with accessories in place and secured on the machine.
+        Print with accessories in place and secured on the machine. (Mark 6)
       </figcaption>
     </figure>
 
@@ -908,7 +909,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Completed print with close ups on defects.
+        Completed print with close ups on defects. (Mark 7 Version 1a)
       </figcaption>
     </figure>
     <p>
@@ -952,7 +953,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Hopper placed on machine.
+        Hopper placed on machine. (Mark 7 Version 1a)
       </figcaption>
     </figure>
 
@@ -961,7 +962,7 @@ const BrevilleHopper: NextPage = () => (
         Video displaying cabinet closing with hopper.
       </video>
       <figcaption>
-        Cabinet closing
+        Cabinet is able to close with print in place. (Mark 7 Version 1a)
       </figcaption>
     </figure>
 
@@ -1050,6 +1051,7 @@ const BrevilleHopper: NextPage = () => (
       </Carousel>
       <figcaption>
         Close up views of defects in finished print and elapsed time.
+        (Mark 7 Version 1b)
       </figcaption>
     </figure>
 
@@ -1121,7 +1123,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        View of defects in finished print.
+        View of defects in finished print. (Mark 7 Version 2)
       </figcaption>
     </figure>
 
@@ -1142,7 +1144,7 @@ const BrevilleHopper: NextPage = () => (
         width="1230"
       />
       <figcaption>
-        Amazon.com listing for Ender 3 magnetic print bed.
+        Amazon.com listing for Ender 3 magnetic print bed. (Mark 7 Version 3)
       </figcaption>
     </figure>
     <p>
@@ -1186,7 +1188,8 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Print encountered a thermal runaway error and was resumed after restarting printer.
+        Print encountered a thermal runaway error and was resumed after
+        restarting printer. (Mark 7 Version 3)
       </figcaption>
     </figure>
     <p>
@@ -1215,7 +1218,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        View of accessories on partially completed print.
+        View of accessories on partially completed print. (Mark 7 Version 3)
       </figcaption>
     </figure>
 
@@ -1236,6 +1239,7 @@ const BrevilleHopper: NextPage = () => (
       />
       <figcaption>
         Magnetic print bed has shifted causing print failure.
+        (Mark 7 Version 4a)
       </figcaption>
     </figure>
 
@@ -1300,7 +1304,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Completed print and elapsed time.
+        Completed print and elapsed time. (Mark 7 Version 4b)
       </figcaption>
     </figure>
     <p>
@@ -1354,7 +1358,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Additional notes on finished print.
+        Additional notes on finished print. (Mark 7 Version 4b)
       </figcaption>
     </figure>
 
@@ -1363,7 +1367,7 @@ const BrevilleHopper: NextPage = () => (
         Video displaying cabinet closing with hopper on machine.
       </video>
       <figcaption>
-        Cabinet close with hopper attached.
+        Cabinet close with hopper attached. (Mark 7 Version 4b)
       </figcaption>
     </figure>
 
@@ -1424,6 +1428,7 @@ const BrevilleHopper: NextPage = () => (
       </Carousel>
       <figcaption>
         Views of print and damage during removal from print bed.
+        (Mark 7 Version 5)
       </figcaption>
     </figure>
 
@@ -1482,7 +1487,7 @@ const BrevilleHopper: NextPage = () => (
       </Carousel>
       <figcaption>
         Failed print showed that space around brush inset was a adequate enough
-        to fit but still little bit too large.
+        to fit but still little bit too large. (Mark 7 Version 6)
       </figcaption>
     </figure>
 
@@ -1521,7 +1526,7 @@ const BrevilleHopper: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Finished print and elapsed time.
+        Finished print and elapsed time. (Mark 7 Version 7)
       </figcaption>
     </figure>
     <p>
@@ -1578,6 +1583,7 @@ const BrevilleHopper: NextPage = () => (
       </Carousel>
       <figcaption>
         Views of hopper with accessories attached while on machine.
+        (Mark 7 Version 7)
       </figcaption>
     </figure>
     <figure>
@@ -1585,7 +1591,7 @@ const BrevilleHopper: NextPage = () => (
         Video displaying cabinet closing with hopper on machine.
       </video>
       <figcaption>
-        Cabinet door closing.
+        Cabinet door is able to close with print in place. (Mark 7 Version 7)
       </figcaption>
     </figure>
     <p>

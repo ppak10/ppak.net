@@ -6,6 +6,7 @@
 // Node Modules
 import { arrayOf, element, string } from 'prop-types';
 import {
+  ChangeEvent,
   FC,
   ReactNode,
   UIEvent,
@@ -26,13 +27,16 @@ const StyledCarousel = styled.div`
 
 const StyledCarouselImages = styled.div`
   display: flex;
-  overflow-x: hidden;
+  overflow-x: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
 
-  // Expects user to use buttons for image carousel except while on phone.
-  @media (max-width: ${({ theme }) => theme.size.mobile}) {
-    overflow-x: scroll;
+  // Hides the scrollbar for firefox.
+  scrollbar-width: none;
+
+  ::-webkit-scrollbar {
+    // Hides scrollbar for chrome and edge browsers.
+    height: 0px;
   }
 
   // Applies styles to <Image /> component.
@@ -54,9 +58,6 @@ const StyledCarouselButton = styled.button`
   transform: translateY(-50%);
   width: 2em;
 
-  // Done to fix safari ipad issue of buttons not being able to be pressed.
-  z-index: 2;
-
   path {
     fill: white;
     transition-duration: 250ms;
@@ -73,8 +74,51 @@ const StyledCarouselButton = styled.button`
 
   :hover:enabled {
     path {
-      fill: gray;
+      fill: rgba(255, 255, 255, 0.8);
     }
+  }
+`;
+
+const StyledCarouselIndicators = styled.div`
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  padding: 1em;
+
+  input[type="radio"] {
+    -webkit-appearance: none;
+
+    appearance: none;
+    border-color: gray;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.15em;
+    display: grid;
+    font-size: 1.5em;
+    height: 1em;
+    margin: 0px;
+    place-content: center;
+    transition-duration: 250ms;
+    width: 1em;
+
+    :hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+  }
+
+  input[type="radio"]::before {
+    border-radius: 50%;
+    box-shadow: inset 1em 1em gray;
+    content: "";
+    height: 1em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    width: 1em;
+  }
+
+  input[type="radio"]:checked::before {
+    transform: scale(1);
   }
 `;
 
@@ -88,6 +132,7 @@ const Carousel: FC<Props> = ({ children, className }) => {
   // Hooks
   const ref = useRef<HTMLDivElement>(null);
 
+  const [scrollIndex, setScrollIndex] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollWidth, setScrollWidth] = useState(0);
   const [clientWidth, setClientWidth] = useState(0);
@@ -116,15 +161,39 @@ const Carousel: FC<Props> = ({ children, className }) => {
     }
   };
 
-  const handleScroll = (e: UIEvent<HTMLDivElement>) => {
-    setScrollLeft((e.target as HTMLDivElement).scrollLeft);
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    if (ref.current) {
+      ref.current.scrollLeft = parseInt(value);
+    }
   };
+
+  const handleScroll = (e: UIEvent<HTMLDivElement>) => {
+    const { scrollLeft } = e.target as HTMLDivElement;
+    setScrollLeft(scrollLeft);
+    setScrollIndex(Math.floor(scrollLeft/clientWidth));
+  };
+
+  // JSX
+  const indexRadioInputsJSX = children.map((_, index) => (
+    <input
+      checked={scrollIndex === index}
+      key={index}
+      onChange={handleInputChange}
+      type="radio"
+      value={index * clientWidth}
+    />
+  ));
 
   return (
     <StyledCarousel className={className}>
       <StyledCarouselImages ref={ref} onScroll={handleScroll}>
         {children}
       </StyledCarouselImages>
+      <StyledCarouselIndicators>
+        {indexRadioInputsJSX}
+      </StyledCarouselIndicators>
+      {/* These buttons seem to disappear on touch screens for some reason. */}
       <StyledCarouselButton
         disabled={!scrollLeft}
         onClick={handleLeftClick}
