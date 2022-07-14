@@ -47,17 +47,23 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
     position: absolute;
     right: 0px;
     top: 5em;
+    width: 3.5em;
 
     // Small issue on mobile in space between button and content.
     transform: translateX(99%);
 
-    width: 1.75em;
+    @media (max-width: ${({ theme }) => theme.size.mobile}) {
+      // Smaller button as to not display over text on mobile devices.
+      width: 1.75em;
+    }
 
     svg {
       width: 1em;
 
-      // Small offset for iphone and other mobile devices.
-      transform: translateX(-25%);
+      @media (max-width: ${({ theme }) => theme.size.mobile}) {
+        // Small offset for iphone and other mobile devices.
+        transform: translateX(-50%);
+      }
     }
 
     path {
