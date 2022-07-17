@@ -85,11 +85,25 @@ const Lou: NextPage = () => (
               <li>
                 <h3>
                   <a href="#builderRedesign-draft-components">
-                    draft-components
+                    <code>
+                      draft-components
+                    </code>
+                  </a>
+                </h3>
+              </li>
+              <li>
+                <h3>
+                  <a href="#builderRedesign-themes">
+                    Themes
                   </a>
                 </h3>
               </li>
             </ol>
+          </li>
+          <li>
+            <h2>
+              <a href="#workflowRevisions">Workflow Revisions</a>
+            </h2>
           </li>
         </ol>
       </PageLinks>
@@ -202,9 +216,10 @@ const Lou: NextPage = () => (
     <figure>
       <Image
         alt="Lou Builder create from template example"
-        height="700"
+        // 450 x 450 but too small so 1000 x 1000 preserves aspect ratio.
+        height="1000"
         src="/bucket/jpeg/work/lou/IMG_3568.JPG"
-        width="449"
+        width="1000"
       />
       <figcaption>
         Create an experience from one of Lou&apos;s pre-built templates.
@@ -239,13 +254,13 @@ const Lou: NextPage = () => (
     <p>
       &emsp;In addition to these structural refactoring, we also wanted to
       enhance the user experience by providing a set of customizable features
-      such as colors, fonts, and embeded media links. For this we needed to
-      upgrade our implementation of our rich text editor so that these complex
-      features can be added in. Along with this other small touches such as
-      hover previews for created experiences were implemented to provide a more
-      fluid user experience. As shown in the mock-ups below the build flow of
-      an experience was also redesigned to utilize tabs to guide the user along
-      process of creating then finally publishing a experience.
+      such as colors, fonts, and themes. For this we needed to upgrade our
+      implementation of our rich text editor so that these complex features can
+      be added in. Along with this other small touches such as hover previews for
+      created experiences were implemented to provide a more fluid user
+      experience. As shown in the mock-ups below, the build flow of an
+      experience was redesigned to make use of these new features and aid in
+      creating a new experience.
     </p>
     <figure>
       <Carousel>
@@ -289,6 +304,8 @@ const Lou: NextPage = () => (
       course of a couple of months and completely changed the Lou Builder Chrome
       extension to provide a nicer and more comprehensive user experience.
     </p>
+
+    {/* Builder Redesign: draft-components */}
     <h2 id="builderRedesign-draft-components">
       Builder Redesign: <code>draft-components</code>
     </h2>
@@ -317,9 +334,9 @@ const Lou: NextPage = () => (
     <figure>
       <Image
         alt="Redesigned experience step toolbar component with updated controls."
-        height="423"
-        src="/bucket/jpeg/work/lou/IMG_3575.JPG"
-        width="717"
+        height="543"
+        src="/bucket/jpeg/work/lou/IMG_3575(1).JPG"
+        width="965"
       />
       <figcaption>
         Mockup for redesigned toolbar controls including those for color and
@@ -370,6 +387,38 @@ const Lou: NextPage = () => (
       the builder. With these components published as a package, we were able to
       easily use this in our other products such as the Dashboard website and
       Assistant script.
+    </p>
+
+    {/* Builder Redesign: Themes */}
+    <h2 id="builderRedesign-themes">
+      Builder Redesign: Themes
+    </h2>
+    <p>
+      &emsp;When building experiences, our users typically end up using the same
+      styles that match their company&apos;s and it can be tedious to enter the
+      same configurations each time. For this the Themes feature will solve this
+      problem which allows for the commonly used company presets to be saved and
+      used when creating other experiences with the Lou Builder.
+    </p>
+
+    {/* Workflow Revisions */}
+    <h2 id="workflowRevisions">
+      Workflow Revisions
+    </h2>
+    <p>
+      &emsp;On the server we refer to experiences as <code>workflows</code> and
+      record the changes made whenever saved as <code>revisions</code>. This is
+      useful for archival purposes and for our own analytics when considering
+      which new projects would have greatest impact. For this admin feature we
+      want to provide a page on the KPI Dashboard to search and view&nbsp;
+      <code>workflows</code> along with their respective <code>revisions</code>.
+      On this feature I spent some time working on the API to build a paginated
+      route to retrieve the appropriate <code>revisions</code>. This route is
+      then called from the Dashboard and with some tweaks to the exisiting
+      components, the experience can be viewed at the time of the&nbsp;
+      <code>revision</code>. This feature gave me a taste of building out
+      improvements to the back-end and integrating these changes on front-end
+      applications such as the Builder and Dashboard.
     </p>
   </StyledLou>
 );

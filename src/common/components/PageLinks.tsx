@@ -80,7 +80,7 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
   // TODO: Add in better transitions.
   ${StyledPageLinksContent} {
     display: ${({ isShown }) => isShown ? 'flex': 'none'};
-    width: 250px;
+    width: max-content;
   }
 
   h1 {
