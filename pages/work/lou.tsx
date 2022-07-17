@@ -6,6 +6,7 @@
 // Node Modules
 import type { NextPage } from 'next';
 import Image from 'next/image';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 // Components
@@ -15,6 +16,8 @@ import Portal from 'common/components/Portal';
 
 // Constants
 const LANDING_PAGE_MOCKUP_WIDTH = 1504;
+const REDESIGN_MOCKUP_WIDTH = 2559;
+const REDESIGN_MOCKUP_HEIGHT = 1378;
 
 // Enums
 import { PortalElementId } from 'common/enums';
@@ -25,6 +28,34 @@ const StyledLou = styled.div`
   flex-direction: column;
   gap: 1em;
 `;
+
+const DraftJSLink: FC = () => (
+  <a href="https://draftjs.org/" rel="noreferrer" target="_blank">
+    <code>
+      draft-js
+    </code>
+  </a>
+);
+
+const MegadraftLink: FC = () => (
+  <a href="https://megadraft.io/" rel="noreferrer" target="_blank">
+    <code>
+      megadraft
+    </code>
+  </a>
+);
+
+const ReactColorLink: FC = () => (
+  <a
+    href="https://www.npmjs.com/package/react-color"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <code>
+      react-color
+    </code>
+  </a>
+);
 
 const Lou: NextPage = () => (
   <StyledLou>
@@ -46,6 +77,20 @@ const Lou: NextPage = () => (
               <a href="#tourTemplates">Tour Templates</a>
             </h2>
           </li>
+          <li>
+            <h2>
+              <a href="#builderRedesign">Builder Redesign</a>
+            </h2>
+            <ol>
+              <li>
+                <h3>
+                  <a href="#builderRedesign-draft-components">
+                    draft-components
+                  </a>
+                </h3>
+              </li>
+            </ol>
+          </li>
         </ol>
       </PageLinks>
     </Portal>
@@ -59,8 +104,8 @@ const Lou: NextPage = () => (
       on top of the website with little to no code at all. During my time at Lou
       I worked mainly on features for the Builder extension and also made
       improvements to our other services such as the Assistant Script,
-      Dashboard, Landing Page, and API. These included such things as User
-      Segments, 
+      Dashboard, Landing Page, and API. Some of my most notable contributions
+      included the Landing Page Redesign, Builder Redesign, 
     </p>
 
     {/* Turnkey Segments */}
@@ -165,6 +210,167 @@ const Lou: NextPage = () => (
         Create an experience from one of Lou&apos;s pre-built templates.
       </figcaption>
     </figure>
+
+    {/* Builder Redesign */}
+    <h2 id="builderRedesign">Builder Redesign</h2>
+    <p>
+      &emsp;The Builder extension provides a fairly intuitive user interface but
+      its current implementation limits the potential features that can be added
+      on top of it. In this state before its redesign, the extension provides a
+      WYSIWYG (What You See Is What You Get) editor for editing content within
+      an experience restricted inside an <code>&lt;iframe&gt;</code>, sufficient
+      for its existing scope but limiting in potential features. Some of these
+      difficulties include dealing with the height, width, positioning, and user
+      interactions of the experience steps along with that of the&nbsp;
+      <code>&lt;iframe&gt;</code> parent. With this in mind, we decided to move
+      away from the contraints of an <code>&lt;iframe&gt;</code> and instead
+      utilize the&nbsp;
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Shadow DOM
+      </a>
+      &nbsp;to keep the experience step components isolated away from the
+      host&apos;s website, however these also came with its own set of
+      challenges.
+    </p>
+    <p>
+      &emsp;In addition to these structural refactoring, we also wanted to
+      enhance the user experience by providing a set of customizable features
+      such as colors, fonts, and embeded media links. For this we needed to
+      upgrade our implementation of our rich text editor so that these complex
+      features can be added in. Along with this other small touches such as
+      hover previews for created experiences were implemented to provide a more
+      fluid user experience. As shown in the mock-ups below the build flow of
+      an experience was also redesigned to utilize tabs to guide the user along
+      process of creating then finally publishing a experience.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Redesigned home page for Lou Builder Chrome extension."
+          height={REDESIGN_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3570.JPG"
+          width={REDESIGN_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Redesigned build tab for Lou Builder Chrome extension."
+          height={REDESIGN_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3571.JPG"
+          width={REDESIGN_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Redesigned deliver tab for Lou Builder Chrome extension."
+          height={REDESIGN_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3572.JPG"
+          width={REDESIGN_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Redesigned segment tab for Lou Builder Chrome extension."
+          height={REDESIGN_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3573.JPG"
+          width={REDESIGN_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Redesigned publish tab for Lou Builder Chrome extension."
+          height={REDESIGN_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3574.JPG"
+          width={REDESIGN_MOCKUP_WIDTH}
+        />
+      </Carousel>
+      <figcaption>
+        Mockups for proposed Lou Builder Chrome extension redesign.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;This ended up being one of the larger projects that spanned over the
+      course of a couple of months and completely changed the Lou Builder Chrome
+      extension to provide a nicer and more comprehensive user experience.
+    </p>
+    <h2 id="builderRedesign-draft-components">
+      Builder Redesign: <code>draft-components</code>
+    </h2>
+    <p>
+      &emsp;The first part of this project involved updating our implementation
+      of the WYSIWYG (What You See Is What You Get) editor to utilize further
+      customizable features such as color and fonts. For this we have been using
+      a third party wrapper of the package <DraftJSLink /> called&nbsp;
+      <MegadraftLink /> which has been sufficient for us at this point. However
+      with the goals features of this project, we quickly ran into the
+      limitations of <MegadraftLink /> and opted to directly use <DraftJSLink />
+      &nbsp;itself. This was feasable since the content is stored the same&nbsp;
+      <DraftJSLink /> format in both of the packages and did not need to worry
+      about migrating existing data to a new type of format.
+    </p>
+    <p>
+      &emsp;Since <DraftJSLink /> replaced <MegadraftLink /> as our core
+      dependency for our rich text editor, the included out-of-the-box features
+      such as the basic controls that we previously used were no longer
+      available. This meant recreating the basic controls (i.e.
+      <strong>Bold</strong>, <i>Italics</i>, <u>Underline</u>, etc.) along with
+      new controls for font family and font color. For this we created our own
+      package to house our components created using <DraftJSLink /> which we
+      named <code>@lou-assistant/draft-components</code>.
+    </p>
+    <figure>
+      <Image
+        alt="Redesigned experience step toolbar component with updated controls."
+        height="423"
+        src="/bucket/jpeg/work/lou/IMG_3575.JPG"
+        width="717"
+      />
+      <figcaption>
+        Mockup for redesigned toolbar controls including those for color and
+        font.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;In order to provide a font family that is as close or exactly that
+      of the one used on the host site, we use an API provided by&nbsp;
+      <a href="https://fonts.google.com/" rel="noreferrer" target="_blank">
+        Google Fonts
+      </a>
+      &nbsp;to provide access to hundreds of free fonts. To do this we follow
+      the API documentation to use the npm package,&nbsp;
+      <a
+        href="https://www.npmjs.com/package/webfontloader"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <code>
+          webfontloader
+        </code>
+      </a>
+      &nbsp;to load in the appropriate files to initialize the desired font
+      family. As for finding the perfect font, a search dropdown component was
+      created to allow the user to type in a desired fornt and peruse through a
+      list of matching results. This search component was integrated into the
+      toolbar alongside the custom font functionality for the WYSIWYG editor.
+    </p>
+    <figure>
+      <video autoPlay loop muted src="/bucket/mp4/work/lou/font_family_search.mp4">
+        Video displaying use of custom Google Font in Lou Builder.
+      </video>
+      <figcaption>
+        Utilizing Tangerine Google Font in Experience Step.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;For the font and highlight colors we used the npm package&nbsp;
+      <ReactColorLink /> as our color picker component to input or select a
+      color from the host website. At this point we ran into incompatibility
+      issues with the Shadow DOM and some of our core dependencies such
+      including <ReactColorLink /> and <DraftJSLink />. Since moving away from
+      using the Shadow DOM was not an option, the packages were forked and
+      support for use within the Shadow DOM was added in. This was a major
+      hurdle to overcome and once this was done a small amount of polishing and
+      bug fixing was all that was necessary to implement this new editor into
+      the builder. With these components published as a package, we were able to
+      easily use this in our other products such as the Dashboard website and
+      Assistant script.
+    </p>
   </StyledLou>
 );
 
