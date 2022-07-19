@@ -16,8 +16,8 @@ import Portal from 'common/components/Portal';
 
 // Constants
 const LANDING_PAGE_MOCKUP_WIDTH = 1504;
-const REDESIGN_MOCKUP_WIDTH = 2559;
-const REDESIGN_MOCKUP_HEIGHT = 1378;
+const LOU_BUILDER_MOCKUP_WIDTH = 2559;
+const LOU_BUILDER_MOCKUP_HEIGHT = 1378;
 
 // Enums
 import { PortalElementId } from 'common/enums';
@@ -84,16 +84,16 @@ const Lou: NextPage = () => (
             <ol>
               <li>
                 <h3>
-                  <a href="#builderRedesign-draft-components">
+                  <a href="#builderRedesign:draft-components@0.0.1">
                     <code>
-                      draft-components
+                      draft-components@0.0.1
                     </code>
                   </a>
                 </h3>
               </li>
               <li>
                 <h3>
-                  <a href="#builderRedesign-themes">
+                  <a href="#builderRedesign:themes">
                     Themes
                   </a>
                 </h3>
@@ -104,6 +104,27 @@ const Lou: NextPage = () => (
             <h2>
               <a href="#workflowRevisions">Workflow Revisions</a>
             </h2>
+          </li>
+          <li>
+            <h2>
+              <a href="#widgets">Widgets</a>
+            </h2>
+            <ol>
+              <li>
+                <h3>
+                  <a href="#widgets:toolbar">Toolbar</a>
+                </h3>
+              </li>
+              <li>
+                <h3>
+                  <a href="#widgets:draft-components@1.0.0">
+                    <code>
+                      draft-components@1.0.0
+                    </code>
+                  </a>
+                </h3>
+              </li>
+            </ol>
           </li>
         </ol>
       </PageLinks>
@@ -119,7 +140,7 @@ const Lou: NextPage = () => (
       I worked mainly on features for the Builder extension and also made
       improvements to our other services such as the Assistant Script,
       Dashboard, Landing Page, and API. Some of my most notable contributions
-      included the Landing Page Redesign, Builder Redesign, 
+      included the Landing Page Redesign, Builder Redesign, Widgets, 
     </p>
 
     {/* Turnkey Segments */}
@@ -266,33 +287,33 @@ const Lou: NextPage = () => (
       <Carousel>
         <Image
           alt="Redesigned home page for Lou Builder Chrome extension."
-          height={REDESIGN_MOCKUP_HEIGHT}
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
           src="/bucket/jpeg/work/lou/IMG_3570.JPG"
-          width={REDESIGN_MOCKUP_WIDTH}
+          width={LOU_BUILDER_MOCKUP_WIDTH}
         />
         <Image
           alt="Redesigned build tab for Lou Builder Chrome extension."
-          height={REDESIGN_MOCKUP_HEIGHT}
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
           src="/bucket/jpeg/work/lou/IMG_3571.JPG"
-          width={REDESIGN_MOCKUP_WIDTH}
+          width={LOU_BUILDER_MOCKUP_WIDTH}
         />
         <Image
           alt="Redesigned deliver tab for Lou Builder Chrome extension."
-          height={REDESIGN_MOCKUP_HEIGHT}
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
           src="/bucket/jpeg/work/lou/IMG_3572.JPG"
-          width={REDESIGN_MOCKUP_WIDTH}
+          width={LOU_BUILDER_MOCKUP_WIDTH}
         />
         <Image
           alt="Redesigned segment tab for Lou Builder Chrome extension."
-          height={REDESIGN_MOCKUP_HEIGHT}
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
           src="/bucket/jpeg/work/lou/IMG_3573.JPG"
-          width={REDESIGN_MOCKUP_WIDTH}
+          width={LOU_BUILDER_MOCKUP_WIDTH}
         />
         <Image
           alt="Redesigned publish tab for Lou Builder Chrome extension."
-          height={REDESIGN_MOCKUP_HEIGHT}
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
           src="/bucket/jpeg/work/lou/IMG_3574.JPG"
-          width={REDESIGN_MOCKUP_WIDTH}
+          width={LOU_BUILDER_MOCKUP_WIDTH}
         />
       </Carousel>
       <figcaption>
@@ -306,8 +327,8 @@ const Lou: NextPage = () => (
     </p>
 
     {/* Builder Redesign: draft-components */}
-    <h2 id="builderRedesign-draft-components">
-      Builder Redesign: <code>draft-components</code>
+    <h2 id="builderRedesign:draft-components@0.0.1">
+      Builder Redesign: <code>draft-components@0.0.1</code>
     </h2>
     <p>
       &emsp;The first part of this project involved updating our implementation
@@ -390,16 +411,40 @@ const Lou: NextPage = () => (
     </p>
 
     {/* Builder Redesign: Themes */}
-    <h2 id="builderRedesign-themes">
+    <h2 id="builderRedesign:themes">
       Builder Redesign: Themes
     </h2>
     <p>
       &emsp;When building experiences, our users typically end up using the same
       styles that match their company&apos;s and it can be tedious to enter the
-      same configurations each time. For this the Themes feature will solve this
-      problem which allows for the commonly used company presets to be saved and
-      used when creating other experiences with the Lou Builder.
+      same configurations each time. The Themes feature will solve this problem
+      which allows for the commonly used company presets to be saved and used
+      when creating other experiences with the Lou Builder. The configurations
+      for these company style presets can be accessed mainly through the
+      Dashboard page where when saved can be utilized through the Lou Builder.
     </p>
+    <figure>
+      <Image
+        alt="Component for displaying available and created themes."
+        height="636"
+        src="/bucket/jpeg/work/lou/IMG_3578.JPG"
+        width="1336"
+      />
+      <figcaption>
+        Dashboard component for viewing created themes and creating new ones.
+      </figcaption>
+    </figure>
+    <figure>
+      <Image
+        alt="Component for displaying available and created themes."
+        height="1667"
+        src="/bucket/jpeg/work/lou/IMG_3579.JPG"
+        width="1633"
+      />
+      <figcaption>
+        Dashboard page for editing and updating selected theme.
+      </figcaption>
+    </figure>
 
     {/* Workflow Revisions */}
     <h2 id="workflowRevisions">
@@ -420,6 +465,116 @@ const Lou: NextPage = () => (
       improvements to the back-end and integrating these changes on front-end
       applications such as the Builder and Dashboard.
     </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Page component displaying first workflow revision."
+          height="888"
+          src="/bucket/jpeg/work/lou/IMG_3580.JPG"
+          width="821"
+        />
+        <Image
+          alt="Page component displaying current workflow revision."
+          height="888"
+          src="/bucket/jpeg/work/lou/IMG_3581.JPG"
+          width="821"
+        />
+      </Carousel>
+      <figcaption>
+        Dashboard KPI page component for displaying example revisions.
+      </figcaption>
+    </figure>
+    
+    {/* Widgets */}
+    <h2 id="widgets">
+      Widgets
+    </h2>
+    <p>
+      &emsp;Along with general workflow experiences such as Tours and
+      Announcements, we want to provide our customers with a more persistant
+      experience feature between page visits. After completing a Tour or
+      Announcement, users would benefit from additional guidance on exploring
+      platform features that might not be extremely obvious. For this we built
+      out a new creatable experience type alongside <code>workflows</code>,
+      called <code>widgets</code>. With <code>widgets</code>, experiences can be
+      created to address a number of situations ranging from simple messages to
+      checklists which indicates progress through connected experiences.
+    </p>
+    <p>
+      &emsp;This projects revamps the process for creating an experience
+      through the Lou Builder by further broadening the customizability of an
+      experience. The most prominent of these changes is the new Blocks
+      structure of a <code>widget</code>, which allows customizability in the
+      type (i.e. Checklist Item, Progress, Rich Text, etc.) and ordering of the
+      content within. Other additions include the ability to connect workflows
+      to checklist items, persisting experience state, new toolbar components
+      for the Builder, and updated Sidebar pages for the Lou Builder. The
+      ambitious scope of this project made it one of the largest I have worked
+      on to this date as it was essentially a whole new product with prior
+      knowledge from developing <code>workflows</code>. Due to this, the project
+      was done on and off over the course of multiple quarters as to address
+      some of the immediate concerns of our existing customers. In the end, we
+      were able to complete this project and push out a new product that our
+      customers enjoy using.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Lou Builder toolbar for widget container component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3589.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Lou Builder toolbar for widget trigger component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3588.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Lou Builder toolbar for widget content component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3587.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Lou Builder toolbar for widget progress component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3586.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Lou Builder toolbar for widget checklist item component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3585.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Lou Builder toolbar for widget spacer component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3584.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Lou Builder toolbar for widget divider component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3591.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+      </Carousel>
+      <figcaption>
+        Mock-ups for blocks and features in proposed Lou Widget Builder.
+      </figcaption>
+    </figure>
+    <h2 id="widgets:toolbar">
+      Widgets: Toolbar
+    </h2>
+    <h2 id="widgets:draft-components@1.0.0">
+      Widgets:&nbsp;
+      <code>
+        draft-components@1.0.0
+      </code>
+    </h2>
   </StyledLou>
 );
 
