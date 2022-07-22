@@ -7,6 +7,8 @@
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import { FC } from 'react';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import styled from 'styled-components';
 
 // Components
@@ -19,6 +21,81 @@ const LANDING_PAGE_MOCKUP_WIDTH = 1504;
 const LOU_BUILDER_MOCKUP_WIDTH = 2559;
 const LOU_BUILDER_MOCKUP_HEIGHT = 1378;
 
+const PLACEMENT_GRID = `
++-------------+---------------+--------------+
+|  Top Left   |  Top Center   |  Top Right   |
++-------------+---------------+--------------+
+| Middle Left | Middle Center | Middle Right |
++-------------+---------------+--------------+
+| Bottom Left | Bottom Center | Bottom Right |
++-------------+---------------+--------------+
+`;
+
+const PLACEMENT_ENUM = `
+/**
+ * @description
+ * Placments declared using bit shifting for complex conditionals.
+ * +------------------+--------------------+-------------------+---+
+ * |         8        |          16        |         32        | + |
+ * +------------------+--------------------+-------------------+---+
+ * |   Top Left (9)   |  Top Center (17)   |  Top Right (33)   | 1 |  
+ * +------------------+--------------------+-------------------+---+
+ * | Middle Left (10) | Middle Center (18) | Middle Right (34) | 2 | 
+ * +------------------+--------------------+-------------------+---+
+ * | Bottom Left (12) | Bottom Center (20) | Bottom Right (36) | 4 | 
+ * +------------------+--------------------+-------------------+---+
+ * 
+ * @example Determining placement from dimensional values.
+ * const dimensionsToPlacement = (dimensions): Placement => {
+ *   // Placement will be returned unchanged if no conditionals are met.
+ *   let placement = Placement.Custom; // 000000 = 0
+ *   
+ *   // Vertical
+ *   if (dimensions.top === '0px') {
+ *     placement += Placement.Top; // 000001 = 1
+ *   } else if (dimensions.top === '50%') {
+ *     placement += Placement.Middle; // 000010 = 2
+ *   } else if (dimensions.bottom === '0px') {
+ *     placement += Placement.Bottom; // 000100 = 4
+ *   }
+ * 
+ *   // Horizontal
+ *   if (dimensions.left === '0px') {
+ *     placement += Placement.Left; // 001000 = 8
+ *   } else if (dimensions.left === '50%') {
+ *     placement += Placement.Center; // 010000 = 16
+ *   } else if (dimensions.right === '0px') {
+ *     placement += Placement.Right; // 100000 = 32
+ *   }
+ * 
+ *   return placement; // Placement.TopLeft === 1 + 8
+ * }
+ */
+export enum Placement {
+  Custom = 0, // 000000 = 0
+
+  Top = 1 << 0, // 000001 = 1
+  Middle = 1 << 1, // 000010 = 2
+  Bottom = 1 << 2, // 000100 = 4
+
+  Left = 1 << 3, // 001000 = 8
+  Center = 1 << 4, // 010000 = 16
+  Right = 1 << 5, // 100000 = 32
+
+  TopLeft = Top | Left, // 001001 = 9             (1 + 8 = 9)
+  TopCenter = Top | Center, // 010001 = 17        (1 + 16 = 17)
+  TopRight = Top | Right, // 100001 = 33          (1 + 32 = 33)
+
+  MiddleLeft = Middle | Left, // 001010 = 10      (2 + 8 = 10)
+  MiddleCenter = Middle | Center, // 010010 = 18  (2 + 16 = 18)
+  MiddleRight = Middle | Right, // 100010 = 34    (2 + 32 = 34)
+
+  BottomLeft = Bottom | Left, // 001100 = 12      (4 + 8 = 12)
+  BottomCenter = Bottom | Center, // 010100 = 20  (4 + 16 = 20)
+  BottomRight = Bottom | Right, // 100100 = 36    (4 + 32 = 36)
+}
+`;
+
 // Enums
 import { PortalElementId } from 'common/enums';
 
@@ -27,6 +104,19 @@ const StyledLou = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1em;
+
+  pre {
+    // Specifically for react-syntax highlighter
+    border-radius: 0.5em;
+
+    margin: auto;
+    max-width: 100%;
+
+    @media (min-width: ${({ theme }) => theme.size.tablet}) {
+      // Increases font size to double for tablet size or greater.
+      font-size: 2em;
+    }
+  }
 `;
 
 const DraftJSLink: FC = () => (
@@ -112,7 +202,7 @@ const Lou: NextPage = () => (
             <ol>
               <li>
                 <h3>
-                  <a href="#widgets:toolbar">Toolbar</a>
+                  <a href="#widgets:placement">Placement</a>
                 </h3>
               </li>
               <li>
@@ -140,7 +230,10 @@ const Lou: NextPage = () => (
       I worked mainly on features for the Builder extension and also made
       improvements to our other services such as the Assistant Script,
       Dashboard, Landing Page, and API. Some of my most notable contributions
-      included the Landing Page Redesign, Builder Redesign, Widgets, 
+      included the&nbsp;
+      <a href="#landingPageRedesign">Landing Page Redesign</a>,&nbsp;
+      <a href="#builderRedesign">Builder Redesign</a>,&nbsp;
+      <a href="#widgets">Widgets</a>&nbsp;
     </p>
 
     {/* Turnkey Segments */}
@@ -563,12 +656,128 @@ const Lou: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Mock-ups for blocks and features in proposed Lou Widget Builder.
+        Mock-ups for proposed <code>widget</code> blocks and features for Lou
+        Builder.
       </figcaption>
     </figure>
-    <h2 id="widgets:toolbar">
-      Widgets: Toolbar
+
+    {/* Widgets: Placement */}
+    <h2 id="widgets:placement">
+      Widgets: Placement
     </h2>
+    <p>
+      &emsp;A <code>widget</code> is customizable such that it can be placed
+      anywhere on the site but for ease of use we provide a 3 x 3
+      &nbsp;<code>placement</code> grid inside the Lou Builder toolbar for quick
+      access to <code>placements</code> ranging from the top left corner to the
+      bottom right corner. In conjunction with this, inputs for providing values
+      for <code>top</code>, <code>left</code>, <code>right</code>,
+      &nbsp;<code>bottom</code> <code>positions</code> can be used to further
+      specify where the <code>widget</code> should be put. Because
+      &nbsp;<code>widgets</code> can use precision greater than that of
+      &nbsp;<code>placements</code> , the <code>position</code> values are
+      stored and primarily used. It is only when the <code>widget</code>
+      &nbsp;experiences are edited that these <code>positions</code> are also
+      converted into <code>placement</code> values to be used within the Lou
+      Builder&apos;s toolbar 3 x 3 grid.
+    </p>
+    <figure>
+      <Image
+        alt="Lou Builder toolbar for styling widget container component."
+        height={LOU_BUILDER_MOCKUP_HEIGHT}
+        src="/bucket/jpeg/work/lou/IMG_3592.JPG"
+        width={LOU_BUILDER_MOCKUP_WIDTH}
+      />
+      <figcaption>
+        Mock-up of Lou Builder toolbar for styling <code>widget</code>
+        &nbsp;container.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;As mentioned before, the area of the screen in which the
+      &nbsp;<code>widget</code> is placed is primarily determined by the
+      &nbsp;<code>position</code> values. The <code>position</code> values (i.e.
+      &nbsp;<code>string</code> values for css properties such as
+      &nbsp;<code>top</code>, <code>left</code>, <code>right</code>,
+      &nbsp;<code>bottom</code>) needed to be converted into their appropriate
+      &nbsp;<code>placement</code> values. These <code>placement</code> values
+      would represent a 3 x 3 grid and as such would resemble something like the
+      following.
+    </p>
+    <pre>{PLACEMENT_GRID}</pre>
+    <p>
+      &emsp;<code>Placement</code> values in this grid are determined by a
+      combination of <code>position</code> values that match either
+      &nbsp;<code>0px</code> or <code>50%</code> (<code>Top</code>,
+      &nbsp;<code>Left</code>, <code>Bottom</code>, <code>Right</code>, or
+      &nbsp;<code>Middle</code>, <code>Center</code> respectively). Since this
+      3 x 3 grid uses a combination of these <code>placement</code> values, we
+      need to be able to know if the <code>position</code> values are a valid
+      combination. (i.e. A <code>position</code> where the css values for
+      &nbsp;<code>top</code> is <code>0px</code> and <code>left</code> is
+      &nbsp;<code>50%</code> would correspond to a <code>placement</code> of
+      &nbsp;<code>TopCenter</code>). One possible approach to checking these
+      combinations could be to extensively check every possible combination in
+      order to provide the associated <code>placement</code>. Another approach
+      would be to leverage the
+      &nbsp;<a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#bitwise_shift_operators"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Bitwise shift operators
+      </a>
+      &nbsp;in conjunction with
+      &nbsp;<a
+        href="https://www.typescriptlang.org/docs/handbook/enums.html#computed-and-constant-members"
+        rel="noreferrer"
+        target="_blank"
+      >
+        TypeScript <code>enums</code>
+      </a>
+      &nbsp;to check the individual values and determine if they add up into a
+      valid combination.
+    </p>
+    <SyntaxHighlighter language="typescript" style={docco}>
+      {PLACEMENT_ENUM}
+    </SyntaxHighlighter>
+    <p>
+      &emsp;In short, each of these <code>enums</code> can be added to another
+      matching <code>enum</code> and the sum of these two would result in a
+      separate but valid <code>enum</code>. This then can be used to populate
+      the 3 x 3 grid within the toolbar to indicate that the following
+      &nbsp;<code>positions</code> match the appropriate <code>placement</code>.
+      The converse of this is applicable as selecting a <code>placement</code>
+      &nbsp; will also provide the appropriate <code>positions</code>.
+    </p>
+    <p>
+      &emsp;I give credit to
+      &nbsp;<a
+        href="https://www.youtube.com/c/rollthedyc3"
+        rel="noreferrer"
+        target="_blank"
+      >
+        dyc3
+      </a>
+      &nbsp;for introducing me to applications of bitwise operators while I
+      watching one of his code review videos. This proved useful and applicable
+      to this project as it solves a similar problem of dealing with complex
+      states such as <code>placements</code> in the 3 x 3 grid.
+    </p>
+    <figure>
+      <iframe
+        src="https://www.youtube.com/embed/LleJbZ3FOPU?start=2563"
+        style={{
+          aspectRatio: '16 / 9',
+          minWidth: 300,
+        }}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      />
+      <figcaption>
+        Applications of bitwise operators in Ynadere Simulator code review.
+      </figcaption>
+    </figure>
     <h2 id="widgets:draft-components@1.0.0">
       Widgets:&nbsp;
       <code>
