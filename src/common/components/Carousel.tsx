@@ -59,7 +59,7 @@ const StyledCarouselButton = styled.button`
   width: 2em;
 
   path {
-    fill: white;
+    fill: gray;
     transition-duration: 250ms;
   }
 
@@ -74,7 +74,8 @@ const StyledCarouselButton = styled.button`
 
   :hover:enabled {
     path {
-      fill: rgba(255, 255, 255, 0.8);
+      // Gray
+      fill: rgba(128, 128, 128, 0.8);
     }
   }
 `;

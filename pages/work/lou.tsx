@@ -8,7 +8,7 @@ import type { NextPage } from 'next';
 import Image from 'next/image';
 import { FC } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import docco from 'react-syntax-highlighter/dist/cjs/styles/hljs/docco';
 import styled from 'styled-components';
 
 // Components
@@ -748,8 +748,37 @@ const Lou: NextPage = () => (
       the 3 x 3 grid within the toolbar to indicate that the following
       &nbsp;<code>positions</code> match the appropriate <code>placement</code>.
       The converse of this is applicable as selecting a <code>placement</code>
-      &nbsp; will also provide the appropriate <code>positions</code>.
+      &nbsp; will also provide the appropriate <code>positions</code>. The
+      toolbar will also place itself appropriately alongside the
+      &nbsp;<code>widget</code> container so that it visible regardless of
+      <code>placement</code>.
     </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Bottom right placement of widget container."
+          height="535"
+          src="/bucket/jpeg/work/lou/IMG_3594.JPG"
+          width="1063"
+        />
+        <Image
+          alt="Middle right placement of widget container."
+          height="534"
+          src="/bucket/jpeg/work/lou/IMG_3595.JPG"
+          width="1060"
+        />
+        <Image
+          alt="Middle center placement of widget container."
+          height="535"
+          src="/bucket/jpeg/work/lou/IMG_3596.JPG"
+          width="1062"
+        />
+      </Carousel>
+      <figcaption>
+        Displays <code>placements</code> of <code>widget</code> container and
+        associated <code>positions</code> and toolbar.
+      </figcaption>
+    </figure>
     <p>
       &emsp;I give credit to
       &nbsp;<a
@@ -775,15 +804,43 @@ const Lou: NextPage = () => (
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       />
       <figcaption>
-        Applications of bitwise operators in Ynadere Simulator code review.
+        Applications of bitwise operators in Yandere Simulator code review.
       </figcaption>
     </figure>
+
+    {/* Widgets: draft-components@1.0.0 */}
     <h2 id="widgets:draft-components@1.0.0">
       Widgets:&nbsp;
       <code>
         draft-components@1.0.0
       </code>
     </h2>
+    <p>
+      &emsp;For <code>workflow</code> related experiences only one
+      &nbsp;<code>draft-js</code> editor was utilized at a given time. With this
+      assumption, much of the functions and components in
+      &nbsp;<code>draft-components@0.0.1</code> were constructed with far too
+      much overhead to be practical if used multiple times within a parent
+      element. The outline of this new <code>widget</code> features includes the
+      &nbsp;<code>blocks</code> structure where multiple instances of the
+      &nbsp;<code>draft-js</code> editor would need to be used alongside each
+      other in <code>blocks</code> such as Checklist Item or Content. For this
+      new feature, much of the content inside of <code>draft-components</code>
+      &nbsp;would be refactored and redesigned to make it easier to use multiple
+      instances of the <code>draft-js</code> editor alongside each other.
+    </p>
+    <figure>
+      <Image
+        alt="Checklist item block alongside toolbar for styles."
+        height="498"
+        src="/bucket/jpeg/work/lou/IMG_3597.JPG"
+        width="1074"
+      />
+      <figcaption>
+        Multiple instances of the <code>draft-js</code> editor will be used in
+        this <code>widget</code> in Checklist Item and Content blocks.
+      </figcaption>
+    </figure>
   </StyledLou>
 );
 
