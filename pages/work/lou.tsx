@@ -119,10 +119,34 @@ const StyledLou = styled.div`
   }
 `;
 
+const ContextLink: FC = () => (
+  <a
+    href="https://reactjs.org/docs/context.html"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <code>
+      Context
+    </code>
+  </a>
+);
+
 const DraftJSLink: FC = () => (
   <a href="https://draftjs.org/" rel="noreferrer" target="_blank">
     <code>
       draft-js
+    </code>
+  </a>
+);
+
+const EditorStateLink: FC = () => (
+  <a
+    href="https://draftjs.org/docs/api-reference-editor-state/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <code>
+      EditorState
     </code>
   </a>
 );
@@ -143,6 +167,14 @@ const ReactColorLink: FC = () => (
   >
     <code>
       react-color
+    </code>
+  </a>
+);
+
+const ReduxLink: FC = () => (
+  <a href="https://redux.js.org/" rel="noreferrer" target="_blank">
+    <code>
+      Redux
     </code>
   </a>
 );
@@ -202,16 +234,25 @@ const Lou: NextPage = () => (
             <ol>
               <li>
                 <h3>
-                  <a href="#widgets:placement">Placement</a>
+                  <code>
+                    <a href="#widgets:placement">Placement</a>
+                  </code>
                 </h3>
               </li>
               <li>
                 <h3>
-                  <a href="#widgets:draft-components@1.0.0">
-                    <code>
+                  <code>
+                    <a href="#widgets:draft-components@1.0.0">
                       draft-components@1.0.0
-                    </code>
-                  </a>
+                    </a>
+                  </code>
+                </h3>
+              </li>
+              <li>
+                <h3>
+                  <code>
+                    <a href="#widgets:blocks">Blocks</a>
+                  </code>
                 </h3>
               </li>
             </ol>
@@ -429,11 +470,11 @@ const Lou: NextPage = () => (
       customizable features such as color and fonts. For this we have been using
       a third party wrapper of the package <DraftJSLink /> called&nbsp;
       <MegadraftLink /> which has been sufficient for us at this point. However
-      with the goals features of this project, we quickly ran into the
-      limitations of <MegadraftLink /> and opted to directly use <DraftJSLink />
-      &nbsp;itself. This was feasable since the content is stored the same&nbsp;
-      <DraftJSLink /> format in both of the packages and did not need to worry
-      about migrating existing data to a new type of format.
+      with the goals features of this project, we quickly ran into the&nbsp;
+      limitations of <MegadraftLink /> and opted to directly use
+      <DraftJSLink /> itself. This was feasable since the content is stored the
+      same <DraftJSLink /> format in both of the packages and did not need to
+      worry about migrating existing data to a new type of format.
     </p>
     <p>
       &emsp;Since <DraftJSLink /> replaced <MegadraftLink /> as our core
@@ -663,7 +704,8 @@ const Lou: NextPage = () => (
 
     {/* Widgets: Placement */}
     <h2 id="widgets:placement">
-      Widgets: Placement
+      Widgets:
+      &nbsp;<code>Placement</code>
     </h2>
     <p>
       &emsp;A <code>widget</code> is customizable such that it can be placed
@@ -671,15 +713,15 @@ const Lou: NextPage = () => (
       &nbsp;<code>placement</code> grid inside the Lou Builder toolbar for quick
       access to <code>placements</code> ranging from the top left corner to the
       bottom right corner. In conjunction with this, inputs for providing values
-      for <code>top</code>, <code>left</code>, <code>right</code>,
-      &nbsp;<code>bottom</code> <code>positions</code> can be used to further
-      specify where the <code>widget</code> should be put. Because
-      &nbsp;<code>widgets</code> can use precision greater than that of
-      &nbsp;<code>placements</code> , the <code>position</code> values are
-      stored and primarily used. It is only when the <code>widget</code>
-      &nbsp;experiences are edited that these <code>positions</code> are also
-      converted into <code>placement</code> values to be used within the Lou
-      Builder&apos;s toolbar 3 x 3 grid.
+      for <code>top</code>, <code>left</code>, <code>right</code>,&nbsp;
+      <code>bottom</code> <code>positions</code> can be used to further specify
+      where the <code>widget</code> should be put. Because&nbsp;
+      <code>widgets</code> can use precision greater than that of&nbsp;
+      <code>placements</code> , the <code>position</code> values are stored and
+      primarily used. It is only when the <code>widget</code> experiences are
+      edited that these <code>positions</code> are also converted into&nbsp;
+      <code>placement</code> values to be used within the Lou Builder&apos;s
+      toolbar 3 x 3 grid.
     </p>
     <figure>
       <Image
@@ -694,41 +736,41 @@ const Lou: NextPage = () => (
       </figcaption>
     </figure>
     <p>
-      &emsp;As mentioned before, the area of the screen in which the
-      &nbsp;<code>widget</code> is placed is primarily determined by the
-      &nbsp;<code>position</code> values. The <code>position</code> values (i.e.
-      &nbsp;<code>string</code> values for css properties such as
-      &nbsp;<code>top</code>, <code>left</code>, <code>right</code>,
-      &nbsp;<code>bottom</code>) needed to be converted into their appropriate
-      &nbsp;<code>placement</code> values. These <code>placement</code> values
-      would represent a 3 x 3 grid and as such would resemble something like the
+      &emsp;As mentioned before, the area of the screen in which the&nbsp;
+      <code>widget</code> is placed is primarily determined by the&nbsp;
+      <code>position</code> values. The <code>position</code> values (i.e.&nbsp;
+      <code>string</code> values for css properties such as&nbsp;
+      <code>top</code>, <code>left</code>, <code>right</code>,&nbsp;
+      <code>bottom</code>) needed to be converted into their appropriate&nbsp;
+      <code>placement</code> values. These <code>placement</code> values would
+      represent a 3 x 3 grid and as such would resemble something like the
       following.
     </p>
     <pre>{PLACEMENT_GRID}</pre>
     <p>
       &emsp;<code>Placement</code> values in this grid are determined by a
-      combination of <code>position</code> values that match either
-      &nbsp;<code>0px</code> or <code>50%</code> (<code>Top</code>,
-      &nbsp;<code>Left</code>, <code>Bottom</code>, <code>Right</code>, or
-      &nbsp;<code>Middle</code>, <code>Center</code> respectively). Since this
-      3 x 3 grid uses a combination of these <code>placement</code> values, we
-      need to be able to know if the <code>position</code> values are a valid
-      combination. (i.e. A <code>position</code> where the css values for
-      &nbsp;<code>top</code> is <code>0px</code> and <code>left</code> is
-      &nbsp;<code>50%</code> would correspond to a <code>placement</code> of
-      &nbsp;<code>TopCenter</code>). One possible approach to checking these
+      combination of <code>position</code> values that match either&nbsp;
+      <code>0px</code> or <code>50%</code> (<code>Top</code>,&nbsp;
+      <code>Left</code>, <code>Bottom</code>, <code>Right</code>, or&nbsp;
+      <code>Middle</code>, <code>Center</code> respectively). Since this 3 x 3
+      grid uses a combination of these <code>placement</code> values, we need to
+      be able to know if the <code>position</code> values are a valid
+      combination. (i.e. A <code>position</code> where the css values for&nbsp;
+      <code>top</code> is <code>0px</code> and <code>left</code> is&nbsp;
+      <code>50%</code> would correspond to a <code>placement</code> of&nbsp;
+      <code>TopCenter</code>). One possible approach to checking these
       combinations could be to extensively check every possible combination in
       order to provide the associated <code>placement</code>. Another approach
-      would be to leverage the
-      &nbsp;<a
+      would be to leverage the&nbsp;
+      <a
         href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#bitwise_shift_operators"
         rel="noreferrer"
         target="_blank"
       >
         Bitwise shift operators
       </a>
-      &nbsp;in conjunction with
-      &nbsp;<a
+      &nbsp;in conjunction with&nbsp;
+      <a
         href="https://www.typescriptlang.org/docs/handbook/enums.html#computed-and-constant-members"
         rel="noreferrer"
         target="_blank"
@@ -745,12 +787,12 @@ const Lou: NextPage = () => (
       &emsp;In short, each of these <code>enums</code> can be added to another
       matching <code>enum</code> and the sum of these two would result in a
       separate but valid <code>enum</code>. This then can be used to populate
-      the 3 x 3 grid within the toolbar to indicate that the following
-      &nbsp;<code>positions</code> match the appropriate <code>placement</code>.
+      the 3 x 3 grid within the toolbar to indicate that the following&nbsp;
+      <code>positions</code> match the appropriate <code>placement</code>.
       The converse of this is applicable as selecting a <code>placement</code>
-      &nbsp; will also provide the appropriate <code>positions</code>. The
-      toolbar will also place itself appropriately alongside the
-      &nbsp;<code>widget</code> container so that it visible regardless of
+      &nbsp;will also provide the appropriate <code>positions</code>. The
+      toolbar will also place itself appropriately alongside the&nbsp;
+      <code>widget</code> container so that it visible regardless of&nbsp;
       <code>placement</code>.
     </p>
     <figure>
@@ -780,8 +822,8 @@ const Lou: NextPage = () => (
       </figcaption>
     </figure>
     <p>
-      &emsp;I give credit to
-      &nbsp;<a
+      &emsp;I credit&nbsp;
+      <a
         href="https://www.youtube.com/c/rollthedyc3"
         rel="noreferrer"
         target="_blank"
@@ -810,24 +852,22 @@ const Lou: NextPage = () => (
 
     {/* Widgets: draft-components@1.0.0 */}
     <h2 id="widgets:draft-components@1.0.0">
-      Widgets:&nbsp;
-      <code>
-        draft-components@1.0.0
-      </code>
+      Widgets:
+      &nbsp;<code>draft-components@1.0.0</code>
     </h2>
     <p>
-      &emsp;For <code>workflow</code> related experiences only one
-      &nbsp;<code>draft-js</code> editor was utilized at a given time. With this
-      assumption, much of the functions and components in
-      &nbsp;<code>draft-components@0.0.1</code> were constructed with far too
-      much overhead to be practical if used multiple times within a parent
-      element. The outline of this new <code>widget</code> features includes the
-      &nbsp;<code>blocks</code> structure where multiple instances of the
-      &nbsp;<code>draft-js</code> editor would need to be used alongside each
-      other in <code>blocks</code> such as Checklist Item or Content. For this
-      new feature, much of the content inside of <code>draft-components</code>
-      &nbsp;would be refactored and redesigned to make it easier to use multiple
-      instances of the <code>draft-js</code> editor alongside each other.
+      &emsp;For <code>workflow</code> related experiences only one&nbsp;
+      <DraftJSLink /> editor was utilized at a given time. With this assumption,
+      much of the functions and components in&nbsp;
+      <code>draft-components@0.0.1</code> were constructed with far too much
+      overhead to be practical if used multiple times within a parent element.
+      The outline of this new <code>widget</code> features includes the&nbsp;
+      <code>blocks</code> structure where multiple instances of the&nbsp;
+      <DraftJSLink /> editor would need to be used alongside each other in&nbsp;
+      <code>blocks</code> such as Checklist Item or Content. For this new
+      feature, much of the content inside of <code>draft-components</code> would
+      be refactored and redesigned to make it easier to use multiple instances
+      of the <DraftJSLink /> editor alongside each other.
     </p>
     <figure>
       <Image
@@ -841,6 +881,50 @@ const Lou: NextPage = () => (
         this <code>widget</code> in Checklist Item and Content blocks.
       </figcaption>
     </figure>
+    <p>
+      &emsp;In its current state, <code>draft-components@0.0.1</code> heavily
+      utilizes React&apos;s <ContextLink /> API for its state management. This
+      is used primarily to dispatch actions and denote the current&nbsp;
+      <EditorStateLink /> through the toolbar controls. This follows a design
+      similar to the <code>action</code>, <code>reducer</code>,&nbsp;
+      <code>store</code> seen in a state management package called&nbsp;
+      <ReduxLink />. This provided some needed structure when exploring some of
+      the features and API in <DraftJSLink />, however added significant
+      overhead to each editor instance.
+    </p>
+    <p>
+      &emsp;The heaviest portion of this overhead is in the&nbsp;
+      <code>&lt;Provider /&gt;</code> component required to wrap each&nbsp;
+      <DraftJSLink /> editor component separately. Because of this requirement,
+      it would be difficult to intialize / remove multiple&nbsp;
+      <code>&lt;Provider /&gt;</code> components depending on the amount of
+      applicable <code>blocks</code> are used. A better approach would be to
+      move the state management for <EditorStateLink /> outside the package that
+      way it only needs to be initialized when needed. This would also allow for
+      multiple <EditorStateLink /> instances to be managed in a parent component
+      making it extenisble to the <code>blocks</code> structure for a&nbsp;
+      <code>widget</code>.
+    </p>
+    <p>
+      &emsp;One way of looking at this redesign to&nbsp;
+      <code>draft-components</code> would be that it now provides the tools to
+      assemble an editor instead of providing it out of the box. This has its
+      drawbacks where more assembly is required in some cases such as the Lou
+      Builder, but provides a simplier experience in most other cases. With
+      this, <code>draft-components</code> provides a simple component export
+      for <code>&lt;Editor /&gt;</code>, the state of which can be controlled
+      through <code>props</code> instead of a&nbsp;
+      <code>&lt;Provider /&gt;</code> parent component. This new design replaces
+      the previous but since the relegated design is still in use with&nbsp;
+      <code>workflow</code> experiences those exports have been moved into
+      a <code>legacy</code> folder to be addressed at a future date.
+    </p>
+
+    {/* Widgets: Blocks */}
+    <h2 id="widgets:blocks">
+      Widgets:&nbsp;
+      <code>Blocks</code>
+    </h2>
   </StyledLou>
 );
 
