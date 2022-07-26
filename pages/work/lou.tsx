@@ -151,6 +151,12 @@ const EditorStateLink: FC = () => (
   </a>
 );
 
+const GoogleFontsLink: FC = () => (
+  <a href="https://fonts.google.com/" rel="noreferrer" target="_blank">
+    Google Fonts
+  </a>
+);
+
 const MegadraftLink: FC = () => (
   <a href="https://megadraft.io/" rel="noreferrer" target="_blank">
     <code>
@@ -254,6 +260,33 @@ const Lou: NextPage = () => (
                     <a href="#widgets:blocks">Blocks</a>
                   </code>
                 </h3>
+                <ol>
+                  <li>
+                    <h4>
+                      <a href="#widgets:blocks-content">Content</a>
+                    </h4>
+                  </li>
+                  <li>
+                    <h4>
+                      <a href="#widgets:blocks-progress">Progress</a>
+                    </h4>
+                  </li>
+                  <li>
+                    <h4>
+                      <a href="#widgets:blocks-checklistItem">Checklist Item</a>
+                    </h4>
+                  </li>
+                  <li>
+                    <h4>
+                      <a href="#widgets:blocks-spacer">Spacer</a>
+                    </h4>
+                  </li>
+                  <li>
+                    <h4>
+                      <a href="#widgets:blocks-divider">Divider</a>
+                    </h4>
+                  </li>
+                </ol>
               </li>
             </ol>
           </li>
@@ -501,11 +534,8 @@ const Lou: NextPage = () => (
     <p>
       &emsp;In order to provide a font family that is as close or exactly that
       of the one used on the host site, we use an API provided by&nbsp;
-      <a href="https://fonts.google.com/" rel="noreferrer" target="_blank">
-        Google Fonts
-      </a>
-      &nbsp;to provide access to hundreds of free fonts. To do this we follow
-      the API documentation to use the npm package,&nbsp;
+      <GoogleFontsLink /> to provide access to hundreds of free fonts. To do
+      this we follow the API documentation to use the npm package,&nbsp;
       <a
         href="https://www.npmjs.com/package/webfontloader"
         rel="noreferrer"
@@ -924,6 +954,300 @@ const Lou: NextPage = () => (
     <h2 id="widgets:blocks">
       Widgets:&nbsp;
       <code>Blocks</code>
+    </h2>
+    <p>
+      &emsp;The <code>blocks</code> structure that is utilized with&nbsp;
+      <code>widgets</code> provides a new level of customizability and
+      personalization to experiences. Customers have access to greater degree of
+      freedom when building experiences in that they are able to select and
+      arrange the appropriate <code>blocks</code> in any desired configuration.
+      The <code>blocks</code> provide the basic content editor along with other
+      specialized functions such as progress, checkboxes, and dividers; enabling
+      additional interactive functionality. These new features allows for our
+      customers to build out experiences as close to their ideal design while
+      introducing new possible ways to interact with the user.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Lou Builder toolbar for widget content component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3587.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Lou Builder toolbar for widget progress component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3586.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Lou Builder toolbar for widget checklist item component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3585.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Lou Builder toolbar for widget spacer component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3584.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+        <Image
+          alt="Lou Builder toolbar for widget divider component."
+          height={LOU_BUILDER_MOCKUP_HEIGHT}
+          src="/bucket/jpeg/work/lou/IMG_3591.JPG"
+          width={LOU_BUILDER_MOCKUP_WIDTH}
+        />
+      </Carousel>
+      <figcaption>
+        Mock-ups for proposed <code>widget</code> blocks (Content, Progress,
+        Checklist Item, Spacer, and Divider respectively).
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;<code>Blocks</code> can be added directly from the toolbar through a
+      dedicated page displaying the possible options and reached limits for
+      types such as Progress <code>block</code> (Only one Progress block is
+      allowed per <code>widget</code> since it does not make sense to allow
+      multiple). In the example below a Divider block is added and rearranged to
+      be moved below the Progress <code>block</code> and then removed. This
+      outlines a small snippet of the user flow and freedom provided when
+      building a <code>widget</code> such that quickly trying out new ideas is
+      quite accessible.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Lou Builder toolbar page for adding widget block."
+          height="494"
+          src="/bucket/jpeg/work/lou/IMG_3598.JPG"
+          width="1000"
+        />
+        <Image
+          alt="Widget with newly added Divider block."
+          height="544"
+          src="/bucket/jpeg/work/lou/IMG_3600.JPG"
+          width="1010"
+        />
+        <Image
+          alt="Divider block moved down one block."
+          height="526"
+          src="/bucket/jpeg/work/lou/IMG_3601.JPG"
+          width="997"
+        />
+        <Image
+          alt="Widget after block as been removed."
+          height="503"
+          src="/bucket/jpeg/work/lou/IMG_3602.JPG"
+          width="965"
+        />
+      </Carousel>
+      <figcaption>
+        Example flow of adding a Divider <code>block</code>, moving it down, and
+        deleting it.
+      </figcaption>
+    </figure>
+
+    {/* Widgets: Blocks - Content */}
+    <h2 id="widgets:blocks-content">
+      Widgets: <code>Blocks</code> - Content
+    </h2>
+    <p>
+      &emsp;The Content <code>block</code> is a newer iteration of the core rich
+      text editor used with <code>workflow</code> experiences. This version of
+      the editor utilizes the changes in <code>draft-components@1.0.0</code> to
+      provide a more responsive and faster building experience. Along with this,
+      the popular <GoogleFontsLink /> search and text color features have been
+      ported over so that no compromises are made between the two versions. For
+      its use in <code>widgets</code>, this <code>block</code> acts as the basic
+      building block for adding text and images viewable to the user.
+    </p>
+    <figure>
+      <Image
+        alt="Content block and Lou builder toolbar page."
+        height="494"
+        src="/bucket/jpeg/work/lou/IMG_3599.JPG"
+        width="1074"
+      />
+      <figcaption>
+        Content <code>block</code> in <code>widget</code> with corresponding
+        toolbar styles page.
+      </figcaption>
+    </figure>
+
+    {/* Widgets: Blocks - Progress */}
+    <h2 id="widgets:blocks-progress">
+      Widget: <code>Blocks</code> - Progress
+    </h2>
+    <p>
+      &emsp;The Progress <code>block</code> is a new addition as it provides a
+      dynamic indicator to the user denoting the progress through checklist
+      items as they are completed. In this <code>block</code> basic information
+      such as the amount of completed checklist items and color of the progress
+      bar can be customized to match that of the customer&apos;s designs.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Progress block and associated toolbar styles page."
+          height="501"
+          src="/bucket/jpeg/work/lou/IMG_3603.JPG"
+          width="977"
+        />
+        <Image
+          alt="Toggling off the show step count switch."
+          height="503"
+          src="/bucket/jpeg/work/lou/IMG_3604.JPG"
+          width="968"
+        />
+        <Image
+          alt="Checklist item previewed with toggled completetion."
+          height="494"
+          src="/bucket/jpeg/work/lou/IMG_3605.JPG"
+          width="1076"
+        />
+        <Image
+          alt="Updating color and step count switch."
+          height="493"
+          src="/bucket/jpeg/work/lou/IMG_3606.JPG"
+          width="962"
+        />
+        <Image
+          alt="Checklist item previewed with toggled completetion with changes."
+          height="495"
+          src="/bucket/jpeg/work/lou/IMG_3607.JPG"
+          width="1073"
+        />
+      </Carousel>
+      <figcaption>
+        Example of changes to Progress <code>block</code> and previewed with
+        Checklist Item completion.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;In order to display the completion of Checklist Items, the state of
+      this needs to kept and updated somewhere. The Progress <code>block</code>
+      &nbsp;component is kept simple by remaining a stateless component as it
+      only visually indicates what is fed to it through <code>props</code>. The
+      completion state is kept in the parent component and is managed to stay in
+      sync with the data provided by the server, local storage, and user
+      interactions. This <code>block</code> will update in realtime as Checklist
+      Items are marked as completed or if Checklist Item <code>blocks</code>
+      &nbsp;are added or removed. There is a limit of one Progress&nbsp;
+      <code>block</code> per <code>widget</code> as having multiple
+      Progress <code>blocks</code> would serve no additional purpose.
+    </p>
+
+    {/* Widgets: Blocks - Checklist Item */}
+    <h2 id="widgets:blocks-checklistItem">
+      Widget: <code>Blocks</code> - Checklist Item
+    </h2>
+    <p>
+      &emsp;The Checklist Item <code>block</code> is the flagship feature
+      for <code>widgets</code> as it provides the same customizable editor used
+      for the Content <code>block</code> alongside the dynamic state properites
+      of the Progress <code>block</code>. A Checklist Item helps guide the user
+      through the process of onboarding by providing an indicator of completed
+      experiences or tasks alongside the remaining ones. 
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Styles toolbar tab for checklist item block."
+          height="499"
+          src="/bucket/jpeg/work/lou/IMG_3608.JPG"
+          width="1072"
+        />
+        <Image
+          alt="Checklist item previewed as completed."
+          height="498"
+          src="/bucket/jpeg/work/lou/IMG_3609.JPG"
+          width="1074"
+        />
+        <Image
+          alt="Actions toolbar tab for checklist item block."
+          height="494"
+          src="/bucket/jpeg/work/lou/IMG_3610.JPG"
+          width="970"
+        />
+      </Carousel>
+      <figcaption>
+        Toolbar tabs and preview state of Checklist Item <code>block</code>.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Similar to how the Content <code>block</code> is able to have its
+      text styled through the <DraftJSLink /> editor, the Checklist Item&nbsp;
+      <code>block</code> has all of that same functionality. This&nbsp;
+      <code>block</code> in addition to content allows for the customer to
+      change the color of the checkmark to a more appropriate one to better fit
+      with the company&apos;s theme. This change can then be seen when
+      previewed as complete so that the checkmark is displayed along with the
+      expected <s>strikethrough</s> for text content. This &quot;Preview as
+      completed&quot; directly updates the state of a checklist allowing other
+      <code>blocks</code> that display such as the Progress <code>block</code>
+      &nbsp;to also update accordingly.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Selecting a workflow experience to link to checklist item."
+          height="507"
+          src="/bucket/jpeg/work/lou/IMG_3611.JPG"
+          width="974"
+        />
+        <Image
+          alt="Redirecting to start url when this link is clicked."
+          height="508"
+          src="/bucket/jpeg/work/lou/IMG_3612.JPG"
+          width="971"
+        />
+        <Image
+          alt="Changing this checklist item to be completed when goal is done."
+          height="505"
+          src="/bucket/jpeg/work/lou/IMG_3613.JPG"
+          width="971"
+        />
+      </Carousel>
+      <figcaption>
+        The different ways to customize checklist item actions to start an
+        experience when clicked and mark as complete.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Checklist Items can have a <code>workflow</code> experience linked
+      to it allowing for this experience to be started when clicked. This is
+      useful for cases where an experience shows up only once or is more
+      applicable to user interaction. The option to redirect the user to the
+      appropriate URL is also possible with this action in order to provide the
+      intended experience. For most cases with a connected experience the
+      corresponding Checklist Item will automatically display its checked state
+      when completed. However, for some other cases it is more desirable to
+      connect the completion state of the Checklist Item to a separate Goal or
+      just allow the user to manually mark it as complete. Both of these cases
+      can be configured / combined for these Checklist Items providing a variety
+      of different interaction avenues.
+    </p>
+    <p>
+      &emsp;As this <code>block</code> is our flagship and most complex feature
+      in the aptly named Checklist Experience (a.k.a. <code>widgets</code>), at
+      launch the actions for a Checklist Item are available only to paying
+      customers. Styling for the Checklist Item <code>block</code> and all other
+      features within the different <code>block</code> types are accessible to
+      everyone. This feature proved to be our most capable addition as it
+      provides a medium for our customers to leverage their library of
+      experiences in a dynamic and interactive center for the user.
+    </p>
+
+    {/* Widgets: Blocks - Spacer */}
+    <h2 id="widgets:blocks-spacer">
+      Widget: <code>Blocks</code> - Spacer
+    </h2>
+
+    {/* Widgets: Blocks - Divider */}
+    <h2 id="widgets:blocks-divider">
+      Widget: <code>Blocks</code> - Divider
     </h2>
   </StyledLou>
 );
