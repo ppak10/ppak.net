@@ -185,6 +185,14 @@ const ReduxLink: FC = () => (
   </a>
 );
 
+const StyledComponentsLink: FC = () => (
+  <a href="https://styled-components.com/" rel="noreferrer" target="_blank">
+    <code>
+      styled-components
+    </code>
+  </a>
+);
+
 const Lou: NextPage = () => (
   <StyledLou>
     <Portal portalElementId={PortalElementId.PageLinks}>
@@ -287,6 +295,11 @@ const Lou: NextPage = () => (
                     </h4>
                   </li>
                 </ol>
+              </li>
+              <li>
+                <h3>
+                  <a href="#widgets:outline">Outline</a>
+                </h3>
               </li>
             </ol>
           </li>
@@ -575,9 +588,7 @@ const Lou: NextPage = () => (
     </p>
 
     {/* Builder Redesign: Themes */}
-    <h2 id="builderRedesign:themes">
-      Builder Redesign: Themes
-    </h2>
+    <h2 id="builderRedesign:themes">Builder Redesign: Themes</h2>
     <p>
       &emsp;When building experiences, our users typically end up using the same
       styles that match their company&apos;s and it can be tedious to enter the
@@ -611,9 +622,7 @@ const Lou: NextPage = () => (
     </figure>
 
     {/* Workflow Revisions */}
-    <h2 id="workflowRevisions">
-      Workflow Revisions
-    </h2>
+    <h2 id="workflowRevisions">Workflow Revisions</h2>
     <p>
       &emsp;On the server we refer to experiences as <code>workflows</code> and
       record the changes made whenever saved as <code>revisions</code>. This is
@@ -650,9 +659,7 @@ const Lou: NextPage = () => (
     </figure>
     
     {/* Widgets */}
-    <h2 id="widgets">
-      Widgets
-    </h2>
+    <h2 id="widgets">Widgets</h2>
     <p>
       &emsp;Along with general workflow experiences such as Tours and
       Announcements, we want to provide our customers with a more persistant
@@ -733,10 +740,7 @@ const Lou: NextPage = () => (
     </figure>
 
     {/* Widgets: Placement */}
-    <h2 id="widgets:placement">
-      Widgets:
-      &nbsp;<code>Placement</code>
-    </h2>
+    <h2 id="widgets:placement">Widgets: <code>Placement</code></h2>
     <p>
       &emsp;A <code>widget</code> is customizable such that it can be placed
       anywhere on the site but for ease of use we provide a 3 x 3
@@ -882,8 +886,7 @@ const Lou: NextPage = () => (
 
     {/* Widgets: draft-components@1.0.0 */}
     <h2 id="widgets:draft-components@1.0.0">
-      Widgets:
-      &nbsp;<code>draft-components@1.0.0</code>
+      Widgets: <code>draft-components@1.0.0</code>
     </h2>
     <p>
       &emsp;For <code>workflow</code> related experiences only one&nbsp;
@@ -951,10 +954,7 @@ const Lou: NextPage = () => (
     </p>
 
     {/* Widgets: Blocks */}
-    <h2 id="widgets:blocks">
-      Widgets:&nbsp;
-      <code>Blocks</code>
-    </h2>
+    <h2 id="widgets:blocks">Widgets: <code>Blocks</code></h2>
     <p>
       &emsp;The <code>blocks</code> structure that is utilized with&nbsp;
       <code>widgets</code> provides a new level of customizability and
@@ -1050,9 +1050,7 @@ const Lou: NextPage = () => (
     </figure>
 
     {/* Widgets: Blocks - Content */}
-    <h2 id="widgets:blocks-content">
-      Widgets: <code>Blocks</code> - Content
-    </h2>
+    <h2 id="widgets:blocks-content">Widgets: <code>Blocks</code> - Content</h2>
     <p>
       &emsp;The Content <code>block</code> is a newer iteration of the core rich
       text editor used with <code>workflow</code> experiences. This version of
@@ -1077,9 +1075,7 @@ const Lou: NextPage = () => (
     </figure>
 
     {/* Widgets: Blocks - Progress */}
-    <h2 id="widgets:blocks-progress">
-      Widget: <code>Blocks</code> - Progress
-    </h2>
+    <h2 id="widgets:blocks-progress">Widget: <code>Blocks</code> - Progress</h2>
     <p>
       &emsp;The Progress <code>block</code> is a new addition as it provides a
       dynamic indicator to the user denoting the progress through checklist
@@ -1241,14 +1237,141 @@ const Lou: NextPage = () => (
     </p>
 
     {/* Widgets: Blocks - Spacer */}
-    <h2 id="widgets:blocks-spacer">
-      Widget: <code>Blocks</code> - Spacer
-    </h2>
+    <h2 id="widgets:blocks-spacer">Widget: <code>Blocks</code> - Spacer</h2>
+    <p>
+      &emsp;The Spacer <code>block</code> is a simple component that is used
+      inbetween <code>blocks</code> to provide customizable spacing through
+      adjustment of the Spacer <code>block</code> height.
+    </p>
+    <figure>
+      <Image
+        alt="Spacer widget block component used alongside other blocks."
+        height="528"
+        src="/bucket/jpeg/work/lou/IMG_3614.JPG"
+        width="971"
+      />
+      <figcaption>
+        Spacer <code>block</code> alongside other <code>blocks</code> with
+        toolbar styles page.
+      </figcaption>
+    </figure>
 
     {/* Widgets: Blocks - Divider */}
-    <h2 id="widgets:blocks-divider">
-      Widget: <code>Blocks</code> - Divider
-    </h2>
+    <h2 id="widgets:blocks-divider">Widget: <code>Blocks</code> - Divider</h2>
+    <p>
+      &emsp;The Divider <code>block</code> is very much like the aforementioned
+      spacer <code>block</code> in that it provides distinction between&nbsp;
+      <code>blocks</code> through a solid divider line. This <code>block</code>
+      &nbsp;has customizable attributes ranging from its line thickness, line
+      color, space above, and space below.
+    </p>
+    <figure>
+      <Image
+        alt="Divider widget block component used alongside other blocks."
+        height="546"
+        src="/bucket/jpeg/work/lou/IMG_3615.JPG"
+        width="1080"
+      />
+      <figcaption>
+        Divider <code>block</code> alongside inputs in toolbar styles page.
+      </figcaption>
+    </figure>
+
+    {/* Widgets: Outline */}
+    <h2 id="widgets:outline">Widget: Outline</h2>
+    <p>
+      &emsp;The Lou Builder provides an interface to build out these&nbsp;
+      <code>widgets</code> in an intuitive and interactive way. One of these
+      attributes is the outline present around the <code>block</code> or&nbsp;
+      <code>container</code> which is used to indicate hover or focus on the
+      item that is to be edited. This tool also provides a couple of additional
+      functions of which include displaying the <code>block</code> type, buttons
+      to adjust ordering of <code>block</code>, and button to delete&nbsp;
+      <code>block</code>. By clicking on specific parts of the&nbsp;
+      <code>widget</code>, our client is able to navigate through the many of
+      their created <code>blocks</code> and go about editing with the tools
+      provided in the toolbar.
+    </p>
+    <figure>
+      <video autoPlay loop src="/bucket/mp4/work/lou/widget_outline.mp4">
+        Video displaying use of widget outline component in builder.
+      </video>
+      <figcaption>
+        The Lou Builder provides a helpful dynamic outline when creating /
+        editing a <code>widget</code>.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;This outline feature can be divided into two separate parts; one
+      outline for the <code>block</code> or item that is focused upon and
+      another outline for the client is currently hovering over. Both of these
+      outlines share a couple of common features such as dynamically changing
+      the height, width, and positioning based on their target (i.e.&nbsp;
+      <code>blocks</code> and <code>container</code>). These outlines also
+      leverages the capabilities of <StyledComponentsLink /> to create the
+      transition styles that provide fluid movement between the items which
+      are hovered or focused upon.
+    </p>
+    <p>
+      &emsp;The hover outline is the basic component for providing an slight
+      outline around the <code>block</code> or <code>container</code> that will
+      be focused upon when clicked. One way to provide this outline would be to
+      utilize the <code>border</code> CSS Properties for each element but this
+      would mean that the outlines for each <code>block</code> would be a
+      separate element. This would make it overly difficult to emulate the fluid
+      motion for the outline since each outline would be tied to a&nbsp;
+      <code>block</code> or <code>container</code>.
+    </p>
+    <p>
+      &emsp;Another approach would be to have a single outline component which
+      would make the fluid motion feasible with just the CSS Property&nbsp;
+      <code>transition-duration: 250ms;</code>. This makes the styling for these
+      transitions fairly straightfoward but shifts the brunt of the load to be
+      done using React. This is primarily done by listening to mouse events
+      which will provide height, width, and position, details about the target
+      element. With this information, the state of the outline component will be
+      updated to display at the correct position through the appropriate mouse
+      events.
+    </p>
+    <figure>
+      <video autoPlay loop src="/bucket/mp4/work/lou/widget_outline_hover.mp4">
+        Video displaying use of widget outline for hovering in builder.
+      </video>
+      <figcaption>
+        The hover outline indicates which <code>block</code> will be focused
+        upon when clicked.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The focus outline extends and builds off of the structure of the
+      hover outline by using the same logic and adding in a couple features.
+      Tweaks were made to the React logic to manage some of the edge cases when
+      selecting text or using the associated buttons. The outline component uses
+      a pseudo element to provide the text associate with the&nbsp;
+      <code>block</code> type such as the Checklist Item, Content, and etc.
+      Along with this the buttons on the side of provide options to move
+      the <code>block</code> up, down, or remove it completely. Other small
+      touches include hiding hover outline on focused outlines and removing the
+      appropriate up and down buttons when necessary.
+    </p>
+    <figure>
+      <video autoPlay loop src="/bucket/mp4/work/lou/widget_outline_focus.mp4">
+        Video displaying use of widget outline for focused blocks in builder.
+      </video>
+      <figcaption>
+        The focus outline provides the &quot;Move Up&quot; and &quot;Move
+        Down&quot; buttons along with the button to delete the&nbsp;
+        <code>block</code>.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;This addition proved to be a fairly complex feature for the Lou
+      Builder as there were a couple of different ways to achieve the desired
+      outcome, each with their tradeoffs. Opting to use React for the outline
+      logic proved to work well with this feature as it provided a fast,
+      responsive outline transitions while adhering to a design that is
+      extensible to changes.
+    </p>
   </StyledLou>
 );
 
