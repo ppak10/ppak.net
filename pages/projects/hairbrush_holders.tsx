@@ -26,7 +26,20 @@ const PRINT_PREVIEWS_HAIRBRUSH_HOLDERS = [
     gcodeUrl: '/bucket/gcode/project/hairbrush_holders/oval_v2.gcode',
     stlUrl: '/bucket/stl/project/hairbrush_holders/oval_v2.stl',
   },
-]
+];
+
+const PRINT_PREVIEWS_OVAL_HAIRBRUSH_HOLDER = [
+  {
+    buttonText: 'V1',
+    gcodeUrl: '/bucket/gcode/project/hairbrush_holders/oval_v1.gcode',
+    stlUrl: '/bucket/stl/project/hairbrush_holders/oval_v1.stl',
+  },
+  {
+    buttonText: 'V2',
+    gcodeUrl: '/bucket/gcode/project/hairbrush_holders/oval_v2.gcode',
+    stlUrl: '/bucket/stl/project/hairbrush_holders/oval_v2.stl',
+  },
+];
 
 // Styled Components
 import {
@@ -42,6 +55,7 @@ const StyledHairbrushHolders = styled.div`
   pre {
     margin: auto;
     max-width: 100%;
+    overflow: auto;
 
     @media (min-width: ${({ theme }) => theme.size.tablet}) {
       // Increases font size to double for tablet size or greater.
@@ -81,7 +95,7 @@ const HairbrushHolders: NextPage = () => (
         gcodeUrl="/bucket/gcode/project/hairbrush_holders/cylindrical.gcode"
         stlUrl="/bucket/stl/project/hairbrush_holders/cylindrical.stl"
       />
-      <h2 style={{ gridArea: 'heading' }}>Cylindrical Brush</h2>
+      <h2 style={{ gridArea: 'heading' }}>Cylindrical Hairbrush</h2>
       <p style={{ gridArea: 'paragraph' }}>
         &emsp;This print is intended to be mounted and hold the cylindrical
         hairbrush providing enough space to expose the brush handle. The brush
@@ -187,6 +201,124 @@ const HairbrushHolders: NextPage = () => (
       />
       <figcaption>
         Cylindrical hairbrush holder in place next to medicine cabinet.
+      </figcaption>
+    </figure>
+    <StyledPrintPreviewsSection>
+      <PrintPreviews printPreviews={PRINT_PREVIEWS_OVAL_HAIRBRUSH_HOLDER} />
+      <h1 style={{ gridArea: 'heading' }}>Oval Hairbrush</h1>
+      <p style={{ gridArea: 'paragraph' }}>
+        &emsp;The &quot;oval&quot; hairbrush has bristles that protrude from the
+        oval brush head in a cresent shape. The length from the head of the
+        brush and the end of the bristle was measured to be approximately&nbsp;
+        <code>45 mm</code>. The width of the brush head is approximately&nbsp;
+        <code>65 mm</code> and along with the height dimensions, these values
+        were used with the arc tool in Fusion 360 was used to sketch out the
+        cresent slot for the brush head. The first version of this design did
+        not include the <code>15 mm</code> of space to account for the sink
+        counter overhang and to account for this <code>20 mm</code> of extra
+        space was added to that side of the print.
+      </p>
+    </StyledPrintPreviewsSection>
+    <figure>
+      <Image
+        alt="Intended placement of print."
+        height={IMAGE_HEIGHT}
+        src="/bucket/jpeg/project/hairbrush_holders/IMG_0845.JPEG"
+        width={IMAGE_WIDTH}
+      />
+      <figcaption>
+        Print was meant to be placed alongside counter.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The print here uses the same settings as the previous hairbrush
+      holder (<code>0.28 mm</code> extruder width and <code>10%</code> infill).
+      The print time was estimated to take just over 14 hours and was completed
+      in just under 13 and a half hours. Adding this extra material between the
+      surfaces added around an extra 3 hours of print time as V1 had an
+      estimated completion time of 11 hours and 19 minutes.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Front view of finished print on bed."
+          height={IMAGE_HEIGHT}
+          src="/bucket/jpeg/project/hairbrush_holders/IMG_0847.JPEG"
+          width={IMAGE_WIDTH}
+        />
+        <Image
+          alt="Elapsed time for finished print."
+          height={IMAGE_HEIGHT}
+          src="/bucket/jpeg/project/hairbrush_holders/IMG_0848.JPEG"
+          width={IMAGE_WIDTH}
+        />
+      </Carousel>
+      <figcaption>
+        Finished print and elapsed time.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The print finished correctly with a couple of small defects between
+      some of the layers. Overall, the space made for the brush and adhesive
+      stickers fit very well.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Front view of finished print."
+          height={IMAGE_HEIGHT}
+          src="/bucket/jpeg/project/hairbrush_holders/IMG_0849.JPEG"
+          width={IMAGE_WIDTH}
+        />
+        <Image
+          alt="Back view of finished print."
+          height={IMAGE_HEIGHT}
+          src="/bucket/jpeg/project/hairbrush_holders/IMG_0850.JPEG"
+          width={IMAGE_WIDTH}
+        />
+        <Image
+          alt="Back view of finished print with stickers in place."
+          height={IMAGE_HEIGHT}
+          src="/bucket/jpeg/project/hairbrush_holders/IMG_0851.JPEG"
+          width={IMAGE_WIDTH}
+        />
+      </Carousel>
+      <figcaption>
+        Finished print and elapsed time.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Instead of next to the sink counter, the brush holder was placed
+      inside the sink cabinet as it would be directly outside of view. This is a
+      design consideration I did not think of until I sought outside feedback
+      and will take this into consideration for my future projects.
+    </p>
+    <figure>
+      <Image
+        alt="Print placed underneath counter"
+        height={IMAGE_HEIGHT}
+        src="/bucket/jpeg/project/hairbrush_holders/IMG_0852.JPEG"
+        width={IMAGE_WIDTH}
+      />
+      <figcaption>
+        Print placed inside sink cabinet door, away from view.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;With these hairbrush holders in place, the sink counter is a bit
+      tidier. For a home improvement projects like this, I will make sure to
+      involve the considerations of the home owner during the design process to
+      best fit their constraints.
+    </p>
+    <figure>
+      <Image
+        alt="Clean sink countertop"
+        height={IMAGE_HEIGHT}
+        src="/bucket/jpeg/project/hairbrush_holders/IMG_0854.JPEG"
+        width={IMAGE_WIDTH}
+      />
+      <figcaption>
+        Counter top is a bit cleaner without the clutter of hairbrushes.
       </figcaption>
     </figure>
   </StyledHairbrushHolders>

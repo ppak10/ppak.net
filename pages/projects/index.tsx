@@ -160,6 +160,21 @@ const Projects: NextPage = () => {
           width={THUMBNAIL_WIDTH}
         />
       </StyledListItem>
+      <StyledListItem>
+        <Link href="/projects/hairbrush_holders">
+          <a>
+            <h3>
+              Hairbrush Holders
+            </h3>
+          </a>
+        </Link>
+        <Image
+          alt="Hairbrush holders in their respective places on the sink."
+          height={THUMBNAIL_HEIGHT}
+          src="/bucket/jpeg/project/hairbrush_holders/thumbnail.JPEG"
+          width={THUMBNAIL_WIDTH}
+        />
+      </StyledListItem>
     </StyledProjects>
   );
 };
