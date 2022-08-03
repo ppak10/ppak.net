@@ -157,6 +157,18 @@ const GoogleFontsLink: FC = () => (
   </a>
 );
 
+const LouSDKTrackLink: FC = () => (
+  <a
+    href="https://www.louassist.com/docs/javascript-sdk/track"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <code>
+      Lou.track()
+    </code>
+  </a>
+)
+
 const MegadraftLink: FC = () => (
   <a href="https://megadraft.io/" rel="noreferrer" target="_blank">
     <code>
@@ -239,6 +251,11 @@ const Lou: NextPage = () => (
           <li>
             <h2>
               <a href="#workflowRevisions">Workflow Revisions</a>
+            </h2>
+          </li>
+          <li>
+            <h2>
+              <a href="#goals">Goals</a>
             </h2>
           </li>
           <li>
@@ -657,6 +674,130 @@ const Lou: NextPage = () => (
         Dashboard KPI page component for displaying example revisions.
       </figcaption>
     </figure>
+
+    <h2 id="goals">Goals</h2>
+    <p>
+      &emsp;Another feature that clients have asked for is the ability to create
+      goals associated with experiences or when a specific event is created. To
+      achieve this a Django app for handling events was created so that a
+      specific goal can be marked as completed if the event with the
+      corresponding name exists. With this the client is able to get insight
+      into user segments and how they respond to the created experiences.
+    </p>
+    <p>
+      &emsp;The initial iteration of this goal form is built inside the existing
+      sidebar page for building out experiences. For this Goals have their own
+      dedicated tab in which the Title, Description, and Event Name can be
+      attributed to it. Along with this the tab allows for a created Goal to be
+      associated with the experience but the ability to create and attach an
+      event is notably missing here. This is done intentionally as at this point
+      the events can only be created through the <LouSDKTrackLink /> function in
+      our SDK provided when the user installs our script. This limited the
+      accessibility of this feature to those familiar with our SDK but was
+      enough to get the feature published.
+    </p>
+    <figure>
+      <Image
+        alt="Goals form on dedicated tab for workflow."
+        // height="961"
+        height="2000"
+        src="/bucket/jpeg/work/lou/IMG_3627.JPG"
+        // width="478"
+        width="1000"
+      />
+      <figcaption>
+        Initial implementation for creating a Goal on its own specific tab.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;For these goals to be useful, the client needs to access the
+      accrued information and metrics from the users that complete these goals.
+      For this the experience page was updated to display the associated metrics
+      alongside the other general analytics.
+    </p>
+    <figure>
+      <Image
+        alt="Dashboard page to track analytics associated with Goals."
+        height="946"
+        src="/bucket/jpeg/work/lou/IMG_3628.JPG"
+        width="1205"
+      />
+      <figcaption>
+        Dashboard page to track analytics associated with Goals.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The Goals feature in its existing state allows for the collection of
+      metrics associated with the attached experience. The issue it runs into is
+      the accessiblity of this feature is quite limited due to its exclusive use
+      through the Lou SDK&apos;s <LouSDKTrackLink /> function. The next update
+      to this feature would move the form to its own page and extend its uses to
+      4 different Goal types: Click Action, Hover Action, Page Load Action, and
+      Custom Action.
+    </p>
+    <p>
+      &emsp;The Click and Hover Action Goal types allows for the client to
+      select an eleement for the website and use that to send an event if it is
+      clicked or hovered upon respectively. The Page Load Action Goal type will
+      create an event to complete a goal when the URL for a specified page is
+      loaded. Lastly the Custom Action Goal allows for the client to use the
+      existing way of creating events through the Lou SDK&apos;s&nbsp;
+      <LouSDKTrackLink /> function. Each of these Goals will need an Event Name
+      provided to it that will be used to determine if the Goal is completed. In
+      addition a more readable title should be provided as this is displayed
+      when selecting a Goal to associate with an Experience. 
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Goal page form for creating a Click Action Goal."
+          height="706"
+          src="/bucket/jpeg/work/lou/IMG_3629.JPG"
+          width="694"
+        />
+        <Image
+          alt="Goal page form for creating a Hover Action Goal."
+          height="695"
+          src="/bucket/jpeg/work/lou/IMG_3630.JPG"
+          width="689"
+        />
+        <Image
+          alt="Goal page form for creating a Page Load Action Goal."
+          height="715"
+          src="/bucket/jpeg/work/lou/IMG_3633.JPG"
+          width="693"
+        />
+        <Image
+          alt="Goal page form for creating a Custom Action Goal."
+          height="650"
+          src="/bucket/jpeg/work/lou/IMG_3632.JPG"
+          width="689"
+        />
+      </Carousel>
+      <figcaption>
+        Different types of goals that can be created through the Lou Builder.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;While creating the Goal, many of the fields are autogenerated for
+      the client&apos;s benefit all of which can be edited. The Event Name uses
+      a UUID as to create a unique identifier different from any created before.
+      Once the Goal is created it is automatically selected to be used with the
+      experience the user is currently working on.
+    </p>
+    <figure>
+      <video autoPlay loop muted src="/bucket/mp4/work/lou/goals_page.mp4">
+        Video displaying the use of goals page to create goals on Lou Builder.
+      </video>
+      <figcaption>
+        The different types of goals that can be created through the Builder.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;With the enhancements to the Goal feature, it is made more
+      accessible and convenient to use while creating an Experience making it
+      appropriate to classify as &quot;Code Free&quot;.
+    </p>
     
     {/* Widgets */}
     <h2 id="widgets">Widgets</h2>
@@ -1293,7 +1434,7 @@ const Lou: NextPage = () => (
       provided in the toolbar.
     </p>
     <figure>
-      <video autoPlay loop src="/bucket/mp4/work/lou/widget_outline.mp4">
+      <video autoPlay loop muted src="/bucket/mp4/work/lou/widget_outline.mp4">
         Video displaying use of widget outline component in builder.
       </video>
       <figcaption>
@@ -1334,7 +1475,12 @@ const Lou: NextPage = () => (
       events.
     </p>
     <figure>
-      <video autoPlay loop src="/bucket/mp4/work/lou/widget_outline_hover.mp4">
+      <video
+        autoPlay
+        loop
+        muted
+        src="/bucket/mp4/work/lou/widget_outline_hover.mp4"
+      >
         Video displaying use of widget outline for hovering in builder.
       </video>
       <figcaption>
@@ -1355,7 +1501,12 @@ const Lou: NextPage = () => (
       appropriate up and down buttons when necessary.
     </p>
     <figure>
-      <video autoPlay loop src="/bucket/mp4/work/lou/widget_outline_focus.mp4">
+      <video
+        autoPlay
+        loop
+        muted
+        src="/bucket/mp4/work/lou/widget_outline_focus.mp4"
+      >
         Video displaying use of widget outline for focused blocks in builder.
       </video>
       <figcaption>
