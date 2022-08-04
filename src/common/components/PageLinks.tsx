@@ -16,12 +16,13 @@ import ChevronRightSolid from 'common/components/svg/ChevronRightSolid';
 const StyledPageLinksContent = styled.div`
   box-sizing: border-box;
   display: flex;
+  overflow-x: hidden;
   overflow-y: auto;
-  padding: 0em 1em;
   width: 100%;
 
   ol {
     list-style: none;
+    padding-right: 2em;
   }
 `;
 
@@ -34,6 +35,10 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
   position: relative;
   transform: translateX(${({ isShown }) => isShown ? '0px': '-100%' });
   transition-duration: 250ms;
+
+  a {
+    white-space: nowrap; 
+  }
 
   button {
     align-items: center;
@@ -50,7 +55,7 @@ const StyledPageLinks = styled.nav<{isShown: boolean}>`
     width: 3.5em;
 
     // Small issue on mobile in space between button and content.
-    transform: translateX(99%);
+    transform: translateX(98%);
 
     @media (max-width: ${({ theme }) => theme.size.mobile}) {
       // Smaller button as to not display over text on mobile devices.

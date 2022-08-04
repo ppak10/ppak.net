@@ -260,6 +260,18 @@ const Lou: NextPage = () => (
           </li>
           <li>
             <h2>
+              <a href="#workflowProfileHeader">Workflow Profile Header</a>
+            </h2>
+          </li>
+          <li>
+            <h2>
+              <a href="#workflowBannerStep">
+                Workflow Banner Step
+              </a>
+            </h2>
+          </li>
+          <li>
+            <h2>
               <a href="#widgets">Widgets</a>
             </h2>
             <ol>
@@ -798,6 +810,130 @@ const Lou: NextPage = () => (
       accessible and convenient to use while creating an Experience making it
       appropriate to classify as &quot;Code Free&quot;.
     </p>
+
+    {/* Workflow Profile Header */}
+    <h2 id="workflowProfileHeader">Workflow Profile Header</h2>
+    <p>
+      &emsp;In order to provide a more personalized Experience, the option to
+      include more information about the client is available through Profile
+      Headers. This Profile Header will allow for an image, first name, and
+      company name to be displayed on each step of the Experience to the user.
+      The aim for this feature is to give the end user of this Experience to
+      feel like confident and comfortable by the guidance provided as there is
+      now a face and name to attach to it.
+    </p>
+    <figure>
+      <Image
+        alt="Experience utilizing profile header."
+        height={272 * 4}
+        src="/bucket/jpeg/work/lou/IMG_3643.JPG"
+        width={373 * 4}
+      />
+      <figcaption>
+        Experience Modal utilizing default Profile Header.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The first issue that needed to be addressed here is updating the
+      Dashboard so that the client is able to input the appropriate details such
+      as the client&apos;s name and image. For this a route was created to
+      appropriately handle image uploading and attach this uploaded image to the
+      profile data for the company member. Once the image was uploaded to our
+      AWS Bucket, the corresponding URL is then attached to the profile data and
+      utilized as the image for the Profile Header.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Dashboard page for updating profile details."
+          height="845"
+          src="/bucket/jpeg/work/lou/IMG_3639.JPG"
+          width="1584"
+        />
+        <Image
+          alt="Option to upload image to profile."
+          height="826"
+          src="/bucket/jpeg/work/lou/IMG_3640.JPG"
+          width="1592"
+        />
+      </Carousel>
+      <figcaption>
+        Dashboard profile page to update profile details and upload image.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;On the Lou Builder this feature is accessible through a simple
+      toggle where if enabled, the Profile Header is place at the top of every
+      Experience step.
+    </p>
+    <figure>
+      <Image
+        alt="Lou Builder toolbar for experience and toggling profile header."
+        height={523 * 2}
+        src="/bucket/jpeg/work/lou/IMG_3641.JPG"
+        width={667 * 2}
+      />
+      <figcaption>
+        Toolbar for toggling on Profile Header.
+      </figcaption>
+    </figure>
+
+    {/* Workflow Banner Step */}
+    <h2 id="workflowBannerStep">Workflow Banner Step</h2>
+    <p>
+      &emsp;So far the experiences have consisted of either Modal or Tooltip
+      like steps of which help guide the user through the features available in
+      the client&apos;s platform. These have been sufficient for most use cases
+      but some situations would benefit from a Banner like Step in order to
+      immediately get the user&apos;s attention. For this Banners builds on top
+      of the existing structure for a <code>workflow</code> with the addition of
+      special placement to the top and bottom of the page along with alignment
+      of buttons to the left or right side of the Banner.
+    </p>
+    <figure>
+      <Image
+        alt="Option to create Banner Experience from Lou Builder Template."
+        height="1369"
+        src="/bucket/jpeg/work/lou/IMG_3644.JPG"
+        width="2559"
+      />
+      <figcaption>
+        Lou Builder page to create Banner Experience from Template.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Creating a Banner Experience is virtually the same as any other
+      Experience through the Lou Builder with a couple of different fields in
+      the toolbar. The Banner Step can be used in combination with other Step
+      types such as Modals or Tooltips as to provide an additional tool for
+      creating experiences in the client&apos;s toolkit.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Toolbar inside the Lou Builder to customize Banner Step."
+          height="1365"
+          src="/bucket/jpeg/work/lou/IMG_3645.JPG"
+          width="2542"
+        />
+        <Image
+          alt="Option to place Banner Step on the bottom of the page."
+          height="1365"
+          src="/bucket/jpeg/work/lou/IMG_3646.JPG"
+          width="2540"
+        />
+        <Image
+          alt="Options for customizing buttons on Banner Step."
+          height="1366"
+          src="/bucket/jpeg/work/lou/IMG_3647.JPG"
+          width="2543"
+        />
+      </Carousel>
+      <figcaption>
+        Special customization options for the Banner Step such as placement and
+        buttons.
+      </figcaption>
+    </figure>
     
     {/* Widgets */}
     <h2 id="widgets">Widgets</h2>
