@@ -272,6 +272,13 @@ const Lou: NextPage = () => (
           </li>
           <li>
             <h2>
+              <a href="#a/bTesting">
+                A / B Testing
+              </a>
+            </h2>
+          </li>
+          <li>
+            <h2>
               <a href="#widgets">Widgets</a>
             </h2>
             <ol>
@@ -346,9 +353,7 @@ const Lou: NextPage = () => (
       I worked mainly on features for the Builder extension and also made
       improvements to our other services such as the Assistant Script,
       Dashboard, Landing Page, and API. Some of my most notable contributions
-      included the&nbsp;
-      <a href="#landingPageRedesign">Landing Page Redesign</a>,&nbsp;
-      <a href="#builderRedesign">Builder Redesign</a>,&nbsp;
+      included the <a href="#builderRedesign">Builder Redesign</a>,&nbsp;
       <a href="#widgets">Widgets</a>&nbsp;
     </p>
 
@@ -432,6 +437,49 @@ const Lou: NextPage = () => (
       </Carousel>
       <figcaption>
         Mock-ups used for each page.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Later on the Pricing Page was updated to provide a more interactive
+      experience to the client as a slider was introduced to display how pricing
+      would change according to the amount of MAUs (Monthly Active Users). This
+      along with small changes to the Home Page were implemented to achieve a
+      more modern look.
+    </p>
+    <figure>
+      <Image
+        alt="Updated Pricing Page."
+        height="2396"
+        src="/bucket/jpeg/work/lou/IMG_3638.jpg"
+        width="1413"
+      />
+      <figcaption>
+        Pricing page updated to include MAUs slider.
+      </figcaption>
+    </figure>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Updated Pricing Table of the Pricing Page."
+          height="2384"
+          src="/bucket/jpeg/work/lou/IMG_3637.jpg"
+          width="1808"
+        />
+        <Image
+          alt="Updated Home Page."
+          height="2424"
+          src="/bucket/jpeg/work/lou/IMG_3636.jpg"
+          width="1885"
+        />
+        <Image
+          alt="Updated Products section of the home page."
+          height="2401"
+          src="/bucket/jpeg/work/lou/IMG_3635.jpg"
+          width="1892"
+        />
+      </Carousel>
+      <figcaption>
+        Extended Pricing Table and small changes to Home Page.
       </figcaption>
     </figure>
 
@@ -932,6 +980,60 @@ const Lou: NextPage = () => (
       <figcaption>
         Special customization options for the Banner Step such as placement and
         buttons.
+      </figcaption>
+    </figure>
+
+    {/* A / B Testing */}
+    <h2 id="a/bTesting">A / B Testing</h2>
+    <p>
+      &emsp;A / B Testing allows for clients to see if the experience that was
+      created has an impact on their users. For this feature it utilizes the
+      previous Goals feature as metrics regarding completetion rate can be use
+      to measure the effectiveness of an Experience.
+    </p>
+    <p>
+      &emsp;To display the metrics of the A / B testing feature, another card
+      specific to this is included below the other existing metrics for an
+      Experience in the Dashboard. Here the card is divided into two sections of
+      Group A and Group B where one is shown the Experience and the other is not
+      respectively. The metrics then show the users&apos; response with or
+      without being shown the Experience with the percentage metric shown inside
+      the Donut Pie Chart. The results of each group can be compared to each
+      other differences between the two can be interpreted accordingly.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Initial dashboard metrics for Experience without A / B Testing."
+          height="828"
+          src="/bucket/jpeg/work/lou/IMG_3648.JPG"
+          width="1401"
+        />
+        <Image
+          alt="Dashboard metrics for Experience with A / B testing turned on."
+          height="816"
+          src="/bucket/jpeg/work/lou/IMG_3649.JPG"
+          width="1535"
+        />
+      </Carousel>
+      <figcaption>
+        Dashboard analytics page for Experience displaying A / B Test Metrics.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;As for enabling this feature, it can be done inside the Lou Builder
+      and is as simple as toggling a switch.
+    </p>
+    <figure>
+      <Image
+        alt="Lou Builder page for enabling A / B testing."
+        height="927"
+        src="/bucket/jpeg/work/lou/IMG_3651.JPG"
+        width="1180"
+      />
+      <figcaption>
+        A / B testing can be enabled through the last experience page of the Lou
+        Builder.
       </figcaption>
     </figure>
     
