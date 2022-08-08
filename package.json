@@ -12,6 +12,7 @@
     "@react-three/fiber": "^8.0.27",
     "@types/react-syntax-highlighter": "^15.5.3",
     "next": "^12.1.6",
+    "rc-slider": "^10.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-syntax-highlighter": "^15.5.0",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
+    "@types/rc-slider": "^9.3.1",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.6",
     "@types/styled-components": "^5.1.15",

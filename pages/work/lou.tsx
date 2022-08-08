@@ -4,8 +4,10 @@
  */
 
 // Node Modules
+import 'rc-slider/assets/index.css';
 import type { NextPage } from 'next';
 import Image from 'next/image';
+import Slider from 'rc-slider';
 import { FC } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import docco from 'react-syntax-highlighter/dist/cjs/styles/hljs/docco';
@@ -94,6 +96,12 @@ export enum Placement {
   BottomCenter = Bottom | Center, // 010100 = 20  (4 + 16 = 20)
   BottomRight = Bottom | Right, // 100100 = 36    (4 + 32 = 36)
 }
+`;
+
+const VARIANTS_SCREEN_SIZE_VALUES_EXAMPLES = `
+min               max     min                max
+ |---variantLeft---|       |---variantRight---|
+null             400px   401px              1000px
 `;
 
 // Enums
@@ -189,6 +197,18 @@ const ReactColorLink: FC = () => (
   </a>
 );
 
+const RCSliderLink: FC = () => (
+  <a
+    href="https://www.npmjs.com/package/rc-slider"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <code>
+      rc-slider
+    </code>
+  </a>
+);
+
 const ReduxLink: FC = () => (
   <a href="https://redux.js.org/" rel="noreferrer" target="_blank">
     <code>
@@ -222,7 +242,7 @@ const Lou: NextPage = () => (
           </li>
           <li>
             <h2>
-              <a href="#tourTemplates">Tour Templates</a>
+              <a href="#templates">Templates</a>
             </h2>
           </li>
           <li>
@@ -339,6 +359,35 @@ const Lou: NextPage = () => (
               </li>
             </ol>
           </li>
+          <li>
+            <h2>
+              <a href="#workflowScreenSize">Workflow Screen Size</a>
+            </h2>
+            <ol>
+              <li>
+                <h3>
+                  <code>
+                    <a href="#workflowScreenSize:variant">Variant</a>
+                  </code>
+                </h3>
+              </li>
+              <li>
+                <h3>
+                  <a href="#workflowScreenSize:slider">Slider</a>
+                </h3>
+              </li>
+              <li>
+                <h3>
+                  <a href="#workflowScreenSize:footer">Footer</a>
+                </h3>
+              </li>
+              <li>
+                <h3>
+                  <a href="#workflowScreenSize:default">Default</a>
+                </h3>
+              </li>
+            </ol>
+          </li>
         </ol>
       </PageLinks>
     </Portal>
@@ -354,7 +403,8 @@ const Lou: NextPage = () => (
       improvements to our other services such as the Assistant Script,
       Dashboard, Landing Page, and API. Some of my most notable contributions
       included the <a href="#builderRedesign">Builder Redesign</a>,&nbsp;
-      <a href="#widgets">Widgets</a>&nbsp;
+      <a href="#widgets">Widgets</a>,&nbsp;
+      <a href="#workflowScreenSize">Workflow Screen Size</a>,&nbsp;
     </p>
 
     {/* Turnkey Segments */}
@@ -483,13 +533,15 @@ const Lou: NextPage = () => (
       </figcaption>
     </figure>
 
-    {/* Tour Templates */}
-    <h2 id="tourTemplates">Tour Templates</h2>
+    {/* Templates */}
+    <h2 id="templates">Templates</h2>
     <p>
       &emsp;This feature is specific to the Builder where it made creating
-      onboarding experiences for new a customer easier by selecting from a
+      onboarding Experiences for new a client easier by selecting from a
       fitting template. From this, the created experience can be edited or added
-      upon to better fit the customer&apos;s website.
+      upon to better fit the customer&apos;s website. This is an improvement on
+      the previous implementation of a blank Experience as it removes the
+      friction encounter when creating the first Experience.
     </p>
     <figure>
       <Image
@@ -501,6 +553,22 @@ const Lou: NextPage = () => (
       />
       <figcaption>
         Create an experience from one of Lou&apos;s pre-built templates.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Templates were later on updated to have its own dedicated page
+      within the sidebar as the variety of different Experience types and thus
+      Templates had grown so large. Having this page specific to Experience
+      Templates provided room to expand its functionality such that a Template
+      option can preview its first step when hovered upon. This allows the
+      client to see what would be created before selecting a specific option. 
+    </p>
+    <figure>
+      <video autoPlay loop muted src="/bucket/mp4/work/lou/templates_page.mp4">
+        Video displaying previewing and selection of Template options.
+      </video>
+      <figcaption>
+        A Template for an Experience can be previewed before selection.
       </figcaption>
     </figure>
 
@@ -1761,6 +1829,174 @@ const Lou: NextPage = () => (
       responsive outline transitions while adhering to a design that is
       extensible to changes.
     </p>
+
+    {/* Workflow Screen Size */}
+    <h2 id="workflowScreenSize">Workflow Screen Size</h2>
+    <p>
+      &emsp;Up to this point all Experiences have been the same regardless of
+      the screen size of the browser when viewed. For instances where the screen
+      size is smaller than <code>700px</code> (i.e. Mobile and Tablet devices),
+      the Experience has been hidden and not shown to the user. This is done
+      since we cannot guarantee that the Experience will show up as the client
+      intended for some of these screen sizes as the layout of the website may
+      have changed to accomodate the smaller screen size. In this Screen Size
+      feature for Experiences (more specifically <code>Workflows</code>) we want
+      allow the client to create Experiences that are customized appropriately
+      for each size range of the screen, allowing the Experience to be shown on
+      a range of devices from Mobile to Desktop.
+    </p>
+    <p>
+      &emsp;In order to achieve this the <code>Workflow</code> Model is updated
+      and extended to essentially allow multiple Experiences to be stored inside
+      one <code>Workflow</code>. These &quot;Experiences&quot; would only show
+      up under certain size range conditions and could have different&nbsp;
+      <code>Workflow Steps</code> associated with it. As such, internally we
+      refer to these as <code>Variants</code> as a variant of the experience is
+      displayed when a certian screen size is met. In addition to this, the UI
+      for the Lou Builder needed to redesigned in a way to indicate that the
+      client is making changes to a specific variant of the Experience. For this
+      portions of the build process such as the browser window and sidebar pages
+      were overhauled to properly indicate which <code>variant</code> was being
+      changed.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Mockup of uncustomized default screen sizes."
+          height="958"
+          src="/bucket/jpeg/work/lou/IMG_3655.JPG"
+          width="1795"
+        />
+        <Image
+          alt="Mockup of customized default screen sizes."
+          height="958"
+          src="/bucket/jpeg/work/lou/IMG_3656.JPG"
+          width="1795"
+        />
+        <Image
+          alt="Mockup of current Experience with multiple screen sizes."
+          height="958"
+          src="/bucket/jpeg/work/lou/IMG_3657.JPG"
+          width="1795"
+        />
+        <Image
+          alt="Mockup of adding in new screen size."
+          height="958"
+          src="/bucket/jpeg/work/lou/IMG_3658.JPG"
+          width="1795"
+        />
+      </Carousel>
+      <figcaption>
+        Mockups for updating <code>Workflow</code> to utilize screen size ranges
+        on the Lou Builder.
+      </figcaption>
+    </figure>
+
+    {/* Workflow Screen Size: Variant */}
+    <h2 id="workflowScreenSize:variant">
+      Workflow Screen Size: <code>Variant</code>
+    </h2>
+    <p>
+      &emsp;<code>Workflows</code> were initially made to have only one set
+      of <code>steps</code> that would be shown to the user during the
+      Experience. As mentioned before, <code>workflows</code> would be updated
+      to allow for more than one set of <code>steps</code> to be associated with
+      an Experience leading this to be referred to as a&nbsp;
+      <code>workflow variant</code>. For this some things needed to be taken
+      into consideration, one of which was migrating the existing&nbsp;
+      <code>workflows</code> to utilize additional screen size ranges.
+    </p>
+    <p>
+      &emsp;For this case previously existing <code>workflows</code> would
+      behave exactly the same as before. The only change the client will see is
+      the configuration that was implicitly set (i.e. Experience is not shown
+      for screen sizes under <code>700px</code>) is now configurable.
+    </p>
+    <figure>
+      <Image
+        alt="Modal for adjusting screen size ranges for existing workflow."
+        height="1364"
+        src="/bucket/jpeg/work/lou/IMG_3659.JPG"
+        width="2555"
+      />
+      <figcaption>
+        Existing <code>workflows</code> will have the following screen size
+        configuration.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The model for <code>variants</code> is similar to that of a&nbsp;
+      <code>workflow</code> in that it references many of the same models
+      for <code>goal</code>, <code>steps</code>, and <code>type</code>. To allow
+      for specific display conditions, a couple of extra keys are included of
+      which include <code>screenSizeRangeMaxWidth</code>,&nbsp;
+      <code>screenSizeRangeMinWidth</code>, and&nbsp;
+      <code>screenSizeRangeType</code>. These values are used to identify the
+      screen size range in which this <code>variant</code> will appear and can
+      be adjusted accordingly.
+    </p>
+
+    {/* Workflow Screen Size: Slider */}
+    <h2 id="workflowScreenSize:slider">
+      Workflow Screen Size: Slider
+    </h2>
+    <p>
+      &emsp;Each <code>variant</code> associated with a screen size range has a
+      minimum width that the Experience will show up under and a maximum width
+      that it would stop appearing at. Another assumption made with this&nbsp;
+      <code>variant</code> structure is that they are adjacent to one another.
+      This would mean that the <code>screenSizeRangeMaxWidth</code> value would
+      be <code>1px</code> less than the&nbsp;
+      <code>screenSizeRangeMinWidth</code> value to the <code>variant</code> to
+      the right.
+    </p>
+    <pre>
+      {VARIANTS_SCREEN_SIZE_VALUES_EXAMPLES}
+    </pre>
+    <p>
+      &emsp;With this considerations in mind and the designs laid out in the
+      mockups, a range slider would suit best as an interface to manage the
+      screen size ranges of each <code>variant</code>. Unfortunately the native
+      HTML element&nbsp;
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <code>&lt;input&nbsp;type=&quot;range&quot;&gt;</code>
+      </a>
+      &nbsp;does not support multiple range sliders and a specialized component
+      for this had to be created or imported. For this <RCSliderLink /> package
+      proved to be a solid solution as it provided a simple component for
+      managing multiple different range sliders seamlessly with plently of
+      exposed <code>props</code> to customize to our needs.
+    </p>
+    <Slider
+      range
+      count={3}
+      defaultValue={[20, 40, 60, 80]}
+      pushable
+      trackStyle={[{ backgroundColor: 'red' }, { backgroundColor: 'green' }]}
+      handleStyle={[{ backgroundColor: 'yellow' }, { backgroundColor: 'gray' }]}
+      railStyle={{ backgroundColor: 'black' }}
+    />
+    <a
+      href="https://slider-react-component.vercel.app/demo/range"
+      rel="noreferrer"
+      target="_blank"
+    >
+      <code>rc-slider</code> Multi Range with Custom track example.
+    </a>
+
+    {/* Workflow Screen Size: Footer */}
+    <h2 id="workflowScreenSize:footer">
+      Workflow Screen Size: Footer
+    </h2>
+
+    {/* Workflow Screen Size: Default */}
+    <h2 id="workflowScreenSize:default">
+      Workflow Screen Size: Default
+    </h2>
   </StyledLou>
 );
 
