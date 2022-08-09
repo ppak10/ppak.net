@@ -378,12 +378,17 @@ const Lou: NextPage = () => (
               </li>
               <li>
                 <h3>
+                  <a href="#workflowScreenSize:default">Default</a>
+                </h3>
+              </li>
+              <li>
+                <h3>
                   <a href="#workflowScreenSize:footer">Footer</a>
                 </h3>
               </li>
               <li>
                 <h3>
-                  <a href="#workflowScreenSize:default">Default</a>
+                  <a href="#workflowScreenSize:window">Window</a>
                 </h3>
               </li>
             </ol>
@@ -1929,11 +1934,10 @@ const Lou: NextPage = () => (
       <code>workflow</code> in that it references many of the same models
       for <code>goal</code>, <code>steps</code>, and <code>type</code>. To allow
       for specific display conditions, a couple of extra keys are included of
-      which include <code>screenSizeRangeMaxWidth</code>,&nbsp;
-      <code>screenSizeRangeMinWidth</code>, and&nbsp;
-      <code>screenSizeRangeType</code>. These values are used to identify the
-      screen size range in which this <code>variant</code> will appear and can
-      be adjusted accordingly.
+      which include <code>screenSizeRangeMaxWidth</code>, <code>screenSizeRangeMinWidth</code>,
+      and <code>screenSizeRangeType</code>. These values are used to identify
+      the screen size range in which this <code>variant</code> will appear and
+      can be adjusted accordingly.
     </p>
 
     {/* Workflow Screen Size: Slider */}
@@ -1987,15 +1991,214 @@ const Lou: NextPage = () => (
     >
       <code>rc-slider</code> Multi Range with Custom track example.
     </a>
+    <p>
+      &emsp;As for the values that these &quot;Thumbs&quot; represent, two
+      adjacent <code>screenSizeRangeMinWidth</code> and&nbsp;
+      <code>screenSizeRangeMaxWidth</code> values can be derived through the
+      assumption that values are only <code>1px</code> apart. With this, an
+      array of <code>screenSizeRangeMinWidth</code> is provided to the&nbsp;
+      <code>&lt;Slider /&gt;</code> component imported from <RCSliderLink /> and
+      the callback values can be utilized as the expected screen size range
+      values.
+    </p>
+    <p>
+      &emsp;This then updates the appropriate values and the changes are
+      reflected in the interface for each <code>variant</code> above the slider.
+      The CSS for each list item providing information regarding each&nbsp;
+      <code>variant</code> is updated to provide width values matching the
+      &quot;Thumb&quot; placements within the slider below. The
+      appropriate <code>width</code> and <code>margin-left</code> values are
+      calculated by determining the percentage of space each&nbsp;
+      <code>variant&apos;s</code> screen size range take relative to the total
+      maximum width. The result is a slider that provides more visual feedback
+      to the screen size range of each <code>variant</code>.
+    </p>
+    <figure>
+      <video
+        autoPlay
+        loop
+        muted
+        src="/bucket/mp4/work/lou/slider_moving.mp4"
+      >
+        Video displaying screen size range descriptions adjusting to slider
+        movement.
+      </video>
+      <figcaption>
+        Information and size regarding the <code>variant</code> screen size
+        range is also updated when the slider is moved.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Another small feature behavior implemented within the slider is the
+      ability to directly input the desired screen size ranges into the
+      &quot;Thumbs&quot; of the slider. This is useful for many cases as clients
+      usually have their screen size breakpoints already predefined within their
+      website. This would allow for the client to simply enter these values into
+      the &quot;Thumbs&quot; instead of arduously arraging the slider to their
+      desired layout. This is achieved through the utilizing the exposed&nbsp;
+      <code>&lt;Slider.Handle /&gt;</code> component from <RCSliderLink /> and
+      customizing it to allow an <code>&lt;input /&gt;</code> element to be
+      positioned within. Within the component for the custom &quot;thumb&quot;,
+      the same callback for handing value changes is utilized for our&nbsp;
+      <code>&lt;input /&gt;</code> element is used but debounced so that it
+      waits 1 second from the last user input to update screen size range
+      values.
+    </p>
+    <figure>
+      <video
+        autoPlay
+        loop
+        muted
+        src="/bucket/mp4/work/lou/slider_input.mp4"
+      >
+        Video displaying screen size range &quot;thumbs&quot; allowing user
+        input for width values.
+      </video>
+      <figcaption>
+        Each of the slider &quot;thumbs&quot; allow for the client to directly
+        input the desired values.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Along with the <code>&lt;input /&gt;</code> element recently
+      added <code>variants</code> also include an option to delete. This is
+      useful for in cases where an added <code>variant</code> is no longer
+      desired and should be easily removed. Notably the option to delete already
+      existing (saved) <code>variants</code> is absent. This is a user
+      constraint implemented to prevent the client from accidently deleting
+      a <code>variant</code> that they spent considerable time building. Another
+      constraint is that only the first or last slider &quot;thumb&quot; can be
+      deleted at a time. This is a cursory check to make sure that each screen
+      size range is adjacent to one another.
+    </p>
+    <figure>
+      <video
+        autoPlay
+        loop
+        muted
+        src="/bucket/mp4/work/lou/slider_delete.mp4"
+      >
+        Video displaying deleting behavior within screen size range slider.
+      </video>
+      <figcaption>
+        Only recently added screen size ranges on the ends of the slider can be
+        deleted.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Lastly the behavior to add in new screen size ranges is provided
+      through as dropdown menu which provides the options of adding preset
+      ranges for mobile, tablet, or desktop accordingly.
+    </p>
+    <p>
+      &emsp;There are many ways to create a simple dropdown component and the
+      easiest way is to utilize the <code>useState</code> API from react to
+      manage the display state of the dropdown through a button. This works as
+      long as the button element is pressed but does not hide the dropdown if
+      anything else is clicked. An approach to solve this issue would be to
+      attach an event listeners higher up in the document to update the
+      corresponding state for the dropdown but this comes at the cost of
+      simplicity as managing this behavior can become a headache quite easily.
+      Another approach would be to avoid state entirely and manage the display
+      state of the dropdown with CSS. To achieve this the pseudo class for &nbsp;
+      <code>:focus</code> is utilized as a toggle for the&nbsp;
+      <code>visibility</code> property such that the dropdown appears when the
+      button is focused upon. The <code>visibility</code> CSS property is use
+      instead of the similar looking <code>display</code> CSS property to allow
+      for the callbacks within the dropdown to execute before disappearing. With
+      this the state management within the dropdown is no longer an issue and
+      the behavior of the dropdown are as expected.
+    </p>
+    <p>
+      &emsp;Back to the slider, adding new <code>variants</code> through the
+      previously mentioned dropdown will append the new <code>variant</code> to
+      the appropriate end. (i.e. mobile will be placed toward the left and
+      desktop will be placed to the right.) When adding a new&nbsp;
+      <code>variant</code> the properties of the previous&nbsp;
+      <code>variant</code> such as steps are copied to the new. This is done
+      since we expect that the client will make a minor of changes to the
+      Experience to accomodate the respective screen size.
+    </p>
+    <figure>
+      <video
+        autoPlay
+        loop
+        muted
+        src="/bucket/mp4/work/lou/slider_add.mp4"
+      >
+        Video displaying add behavior within screen size range slider.
+      </video>
+      <figcaption>
+        <code>Variants</code> can be added to either side of the slider
+        depending on the selected type.
+      </figcaption>
+    </figure>
+
+    {/* Workflow Screen Size: Default */}
+    <h2 id="workflowScreenSize:default">
+      Workflow Screen Size: Default
+    </h2>
+    <p>
+      &emsp;As with styles for Experiences, default screen size ranges can be
+      applied to an Experience immediately after creation. This allows the
+      client to save the commonly used screen size ranges such as their own
+      breakpoints and reuse them in future <code>workflows</code>. For this
+      convenience is key and as such the default screen sizes can be directly
+      edited within the Lou Builder, saving the client from the need to switch
+      between their site and Lou Dashboard browser tabs.
+    </p>
+    <p>
+      &emsp;Once the option to edit the default screen sizes is selected, the
+      modal shrinks and a scroll up transition is applied to the slider. This
+      animated change between the two is done to better convey that the client
+      is now updating default screen sizes as the sliders look and function the
+      same. In the provided slider, the default screen size ranges can be
+      configured similar to a typical <code>workflow</code> with the only
+      difference here being that there is a limit of 5 different ranges. Once the
+      default values are saved, these default screen size range values can be
+      applied to the <code>workflow</code> and saved.
+    </p>
+    <figure>
+      <video
+        autoPlay
+        loop
+        muted
+        src="/bucket/mp4/work/lou/range_default.mp4"
+      >
+        Video displaying updating range defaults within the Lou Builder.
+      </video>
+      <figcaption>
+        Default screen size ranges can be applied on a newly created&nbsp;
+        <code>workflow</code> and these default values can be updated as well.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;These default values can also be seen within the Lou Dashboard in
+      the Design page alongside the&nbsp;
+      <a href="#builderRedesign:themes">Themes</a> feature used to automatically
+      style Experiences.
+    </p>
+    <figure>
+      <Image
+        alt="Dashboard page displaying the default screen size range."
+        height="659"
+        src="/bucket/jpeg/work/lou/IMG_3665.JPG"
+        width="1625"
+      />
+      <figcaption>
+        The default values for screen size ranges can be configured within the
+        Lou Builder and viewed on the Dashboard.
+      </figcaption>
+    </figure>
 
     {/* Workflow Screen Size: Footer */}
     <h2 id="workflowScreenSize:footer">
       Workflow Screen Size: Footer
     </h2>
 
-    {/* Workflow Screen Size: Default */}
-    <h2 id="workflowScreenSize:default">
-      Workflow Screen Size: Default
+    {/* Workflow Screen Size: Window */}
+    <h2 id="workflowScreenSize:window">
+      Workflow Screen Size: Window
     </h2>
   </StyledLou>
 );
