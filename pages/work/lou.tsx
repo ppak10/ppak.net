@@ -2195,11 +2195,68 @@ const Lou: NextPage = () => (
     <h2 id="workflowScreenSize:footer">
       Workflow Screen Size: Footer
     </h2>
+    <p>
+      &emsp;Since there are multiple <code>variants</code> and corresponding
+      steps with each a clear indicator is needed to denote which&nbsp;
+      <code>variant</code> is being built. For this a footer component is
+      implemented in on the Build Tab of the sidebar listing all the&nbsp;
+      <code>variants</code> associated with the <code>workflow</code>. With this
+      footer component the client is able to navigate through the existing&nbsp;
+      <code>variants</code> with left and right chevron buttons. These buttons
+      will appear only if the amount of created <code>variants</code> (3+)
+      overflow past the width of the sidebar and make use of manipulating
+      the <code>scrollLeft</code> value to display the appropriate&nbsp;
+      <code>variant</code>.
+    </p>
+    <p>
+      &emsp;In addition to selecting which <code>variant</code> to focus on
+      building, the option to delete is present on the top right of first and
+      last <code>variant</code> list items. This option is present here as
+      opposed to the previously mentioned&nbsp;
+      <a href="#workflowScreenSize:slider">Slider</a> in order to provide a
+      confirmation check to the client before deleting the selected&nbsp;
+      <code>variant</code>.
+    </p>
+    <figure>
+      <video
+        autoPlay
+        loop
+        muted
+        src="/bucket/mp4/work/lou/build_tab_footer.mp4"
+      >
+        Video displaying use of the build tab footer and its possible actions.
+      </video>
+      <figcaption>
+        <code>Variants</code> can be managed within the footer of the Build Tab.
+      </figcaption>
+    </figure>
 
     {/* Workflow Screen Size: Window */}
     <h2 id="workflowScreenSize:window">
       Workflow Screen Size: Window
     </h2>
+    <p>
+      &emsp;In order to provide the client a environment that they would expect
+      their Experience to appear on, the browser window automatically adjust to
+      the associated screen size range. This allows the elements on the website
+      to respond as expected when shown on devices with different widths. This
+      behavior is only possible through the exposed chrome extension APIs which
+      allow the Lou Builder to dictate the dimensions of the browser window.
+    </p>
+    <figure>
+      <video
+        autoPlay
+        loop
+        muted
+        src="/bucket/mp4/work/lou/screen_size_resize.mp4"
+      >
+        Video displaying window resizing to the appropriate screen size range.
+      </video>
+      <figcaption>
+        The browser window will resize to the appropriate width for each&nbsp;
+        <code>variant</code>.
+      </figcaption>
+    </figure>
   </StyledLou>
 );
 
