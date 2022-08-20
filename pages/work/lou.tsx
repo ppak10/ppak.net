@@ -23,18 +23,17 @@ const LANDING_PAGE_MOCKUP_WIDTH = 1504;
 const LOU_BUILDER_MOCKUP_WIDTH = 2559;
 const LOU_BUILDER_MOCKUP_HEIGHT = 1378;
 
-const PLACEMENT_GRID = `
-+-------------+---------------+--------------+
+const PLACEMENT_GRID =
+`+-------------+---------------+--------------+
 |  Top Left   |  Top Center   |  Top Right   |
 +-------------+---------------+--------------+
 | Middle Left | Middle Center | Middle Right |
 +-------------+---------------+--------------+
 | Bottom Left | Bottom Center | Bottom Right |
-+-------------+---------------+--------------+
-`;
++-------------+---------------+--------------+`;
 
-const PLACEMENT_ENUM = `
-/**
+const PLACEMENT_ENUM =
+`/**
  * @description
  * Placments declared using bit shifting for complex conditionals.
  * +------------------+--------------------+-------------------+---+
@@ -95,13 +94,37 @@ export enum Placement {
   BottomLeft = Bottom | Left, // 001100 = 12      (4 + 8 = 12)
   BottomCenter = Bottom | Center, // 010100 = 20  (4 + 16 = 20)
   BottomRight = Bottom | Right, // 100100 = 36    (4 + 32 = 36)
-}
-`;
+}`;
 
-const VARIANTS_SCREEN_SIZE_VALUES_EXAMPLES = `
-min               max     min                max
- |---variantLeft---|       |---variantRight---|
-null             400px   401px              1000px
+const VARIANTS_SCREEN_SIZE_VALUES_EXAMPLES = 
+`min            max     min            max
+ |---variantA---|       |---variantB---|
+null           400px   401px         1000px`;
+
+const WORKFLOW_SURVEY_STEP_MODEL =
+`# General primary button and text properties.
+primary_button_background_color = models.CharField()
+primary_button_border_radius = models.IntegerField()
+primary_button_size = models.CharField()
+primary_button_text = models.CharField()
+primary_button_text_color = models.CharField()
+
+# General secondary button and text properties.
+secondary_button_background_color = models.CharField()
+secondary_button_border_radius = models.IntegerField()
+secondary_button_redirect_url = models.CharField()
+secondary_button_size = models.CharField()
+secondary_button_text = models.CharField()
+secondary_button_text_color = models.CharField()
+
+# Survey specific primary / secondary button and text properties.
+survey_primary_button_background_color = models.CharField()
+survey_primary_button_text_color = models.CharField()
+survey_primary_text = models.CharField()
+survey_primary_text_color = models.CharField()
+survey_secondary_text = models.CharField()
+survey_secondary_text_color = models.CharField()
+survey_type = models.CharField()
 `;
 
 // Enums
@@ -393,6 +416,13 @@ const Lou: NextPage = () => (
               </li>
             </ol>
           </li>
+          <li>
+            <h2>
+              <a href="#workflowSurveyStep">
+                Workflow Survey Step
+              </a>
+            </h2>
+          </li>
         </ol>
       </PageLinks>
     </Portal>
@@ -408,8 +438,28 @@ const Lou: NextPage = () => (
       improvements to our other services such as the Assistant Script,
       Dashboard, Landing Page, and API. Some of my most notable contributions
       included the <a href="#builderRedesign">Builder Redesign</a>,&nbsp;
-      <a href="#widgets">Widgets</a>,&nbsp;
-      <a href="#workflowScreenSize">Workflow Screen Size</a>,&nbsp;
+      <a href="#widgets">Widgets</a>, and&nbsp;
+      <a href="#workflowScreenSize">Workflow Screen Size</a>.
+    </p>
+    <p>
+      &emsp;Over the 2+ years I spent at Lou, the team and I worked to plan and
+      execute features that would address our current clients&apos; needs but
+      also help attract new customers. Our product adopted a tiered payment
+      model ranging from free to enterprise to broaden the types of clients that
+      we can service. With this, the free tier provides access to a majority of
+      our features with limitations on their use which can be accessed through a
+      paid tier. Along with the outreach done by our buisness development team,
+      this model proved successful as our company&quot;s Monthly Recurring
+      Revenue (MRR) incease by a factor greater than 50x during this period. We
+      attribute this to a collaboration of our team&apos;s actions from our
+      client outreach to our service approach to new features. When a client
+      uses Lou, they can expect a consistent flow of new features some of which
+      have been&nbsp;
+      <a href="#goals">Goals</a>,&nbsp;
+      <a href="#a/bTesting">A / B Testing</a>, and many new Experience step
+      types. Along with this our outreach team works in tandem with all of our
+      clients to address any needs and improvements that can be made to the
+      product to provide the best user experience.
     </p>
 
     {/* Turnkey Segments */}
@@ -2257,6 +2307,101 @@ const Lou: NextPage = () => (
         <code>variant</code>.
       </figcaption>
     </figure>
+    <p>
+      &emsp;Once the client is finished editing the associated Experience, the
+      Lou Builder will automatically resize the window back to its previous
+      dimensions. This additional behavior reduces the amount of clicks the
+      client need to make when building an Experience and provides a more
+      natural user experience.
+    </p>
+
+    {/* Workflow Survey Step */}
+    <h2 id="workflowSurveyStep">Workflow Survey Step</h2>
+    <p>
+      &emsp;Another common feature request is the support for a more in depth
+      interactive survey <code>workflow</code> step where a user can provide
+      feedback to the completed Experience. This would be its own&nbsp;
+      <code>workflow</code> step type existing as a <code>feedback</code> step
+      type where in its current state provides a &quot;Thumbs Up&quot; or
+      &quot;Thumbs Down&quot; interaction option. This has been sufficient for
+      most interactions but could be further expanded into other areas such as
+      &quot;Short Answer&quot; and &quot;0 - 10 Score&quot; providing more areas
+      to gather user feedback and compile into a&nbsp;
+      <a
+        href="https://en.wikipedia.org/wiki/Net_promoter_score"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Net Promoter Score
+      </a> (NPS).
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Different types of survey types for a workflow step."
+          height="1004"
+          src="/bucket/png/work/lou/hero-visual.png"
+          width="1430"
+        />
+        <Image
+          alt="Landing page image of Lou Builder toolbar for editing survey."
+          height="1073"
+          src="/bucket/png/work/lou/build-visual.png"
+          width="1464"
+        />
+        <Image
+          alt="Optional segment details and rules configurations on Dashboard."
+          height="1070"
+          src="/bucket/png/work/lou/target-visual.png"
+          width="1461"
+        />
+        <Image
+          alt="Analytics page on dashboard to display net promoter score."
+          height="1070"
+          src="/bucket/png/work/lou/analyze-visual.png"
+          width="1461"
+        />
+      </Carousel>
+      <figcaption>
+        Mockup images for Survey feature with images displayed on our&nbsp;
+        <a
+          href="https://www.louassist.com/product/nps-and-surveys"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Landing Page
+        </a>.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;These survey step types offer more customizability than the previous
+      feedback step, more specifically in the text and color of the associated
+      buttons. For this the model for data saved associated with a&nbsp;
+      <code>workflow</code> was updated to save more specific properties for
+      buttons and text. Some of the survey types such as the &quot;0 - 10
+      Score&quot; and &quot;Short Answer&quot; utilize multiple text and button
+      properties and as such these have been prefixed with&nbsp;
+      <code>survey_primary</code> and <code>survey_secondary</code>. Settings
+      specific only to the <code>feedback</code> type of a&nbsp;
+      <code>workflow</code> such as the &quot;0/500&quot; character limit in
+      &quot;Short Answer&quot; survey are prefixed with <code>survey</code>.
+    </p>
+    <SyntaxHighlighter language="python" style={docco}>
+      {WORKFLOW_SURVEY_STEP_MODEL}
+    </SyntaxHighlighter>
+    <p>
+      &emsp;With these properties, each <code>workflow</code> survey step can be
+      customized to best fit the client&apos;s needs. To further assist the
+      creation process a template for creating &quot;NPS&quot; Experience is
+      avaialable on the Templates page of the Lou Builder. Like a general
+      Experience, the dashboard provides pages to configure user segments and
+      view associated analytics. The analytics page has a special section
+      specific to this feature to provide a visual graph of the &quot;Net
+      Promoter Score&quot; and table highlighting the user responses and scores.
+      This feature proved a success with our clients and a nice selling point as
+      it provided a means to record more descriptive user feeedback and better
+      visuals to interpret these results.
+    </p>
   </StyledLou>
 );
 
