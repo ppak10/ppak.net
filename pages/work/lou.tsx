@@ -130,6 +130,9 @@ survey_type = models.CharField()
 // Enums
 import { PortalElementId } from 'common/enums';
 
+// Public
+import louSVG from 'public/svg/brand/lou-brands.svg';
+
 // Styled Components
 const StyledLou = styled.div`
   display: flex;
@@ -427,7 +430,11 @@ const Lou: NextPage = () => (
       </PageLinks>
     </Portal>
 
-    <h1>Lou</h1>
+    <h1>
+      <a href="https://www.louassist.com/" rel="noreferrer" target="_blank">
+        <Image alt="angel.co SVG" src={louSVG} />
+      </a>
+    </h1>
     <p>
       &emsp;At Lou we build out tools to help customers onboard users onto their
       platform in order to provide a better user experience and increase user
