@@ -23,3 +23,7 @@ export const StyledListItem = styled.li`
     transform: translate(0.15em, -0.15em);
   }
 `;
+
+export const StyledCover = styled.div`
+  position: fixed;
+`;
