@@ -7,6 +7,7 @@
 // Node Modules
 import type { NextPage } from 'next';
 import Image from 'next/image';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 // Components
@@ -66,6 +67,21 @@ const PRINT_PREVIEWS_CUSTOM_KEYCAPS = [
   },
 ]
 
+const PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_1 = [
+  {
+    buttonText: 'Version 1',
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlScale: 150,
+    stlUrl: '/bucket/stl/project/custom_keycaps/part1v1.stl',
+  },
+  {
+    buttonText: 'Version 2',
+    stlMeshRotation: [0, 0, 0],
+    stlScale: 150,
+    stlUrl: '/bucket/stl/project/custom_keycaps/part1v2.stl',
+  },
+]
+
 // Enums
 import { PortalElementId } from 'common/enums';
 
@@ -77,32 +93,40 @@ const StyledCustomKeycaps = styled.div`
   gap: 1em;
 `;
 
+const FrancisoMaderaLink: FC = () => (
+  <a
+    href="https://www.linkedin.com/in/franciscomadera/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Francisco Madera
+  </a>
+);
+
+const Form2Link: FC = () => (
+  <a
+    href="https://formlabs.com/3d-printers/form-2/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Form 2
+  </a>
+);
+
 const CustomKeycaps: NextPage = () => (
   <StyledCustomKeycaps>
     <Portal portalElementId={PortalElementId.PageLinks}>
       <PageLinks>
         <ol>
-	  <h1>
-	    <a href="#title">Custom Keycaps</a>
-	  </h1>
+	  <li>
+	    <h1>
+	      <a href="#title">Custom Keycaps</a>
+	    </h1>
+	  </li>
           <li>
-            <h2>Mark 4</h2>
-            <ol>
-              <li>
-                <a>
-                  <h3>
-                    <a href="#mk4v1">Version 1</a>
-                  </h3>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <h3>
-                    <a href="#mk4v2">Version 2</a>
-                  </h3>
-                </a>
-              </li>
-            </ol>
+            <h1>
+	      <a href="#part1">Part 1</a>
+	    </h1>
           </li>
         </ol>
       </PageLinks>
@@ -123,10 +147,130 @@ const CustomKeycaps: NextPage = () => (
       </p>
     </StyledPrintPreviewsSection>
     <p>
-      &emsp; The vacuum would often clean the area around the cabinet bench and
-      partially clean the area underneath until the intake would prevent it from
-      going any further.
+      &emsp;This project consisted of three different parts (or milestones),
+      the first being a comparison of several ideas / designs which would be
+      researched and gauged in their competitiveness to conventional
+      manufacturing methods. The next part of this project would be to improve
+      on the initial design and filter the possible designs down to 2. The
+      final part of this project was to choose a final design and produce
+      physical prototypes.
     </p>
+    <p>
+      &emsp;For this project we were limited to polymer processes such as
+      Stereolithography (SLA) and Fuse Deposition Modeling (FDM). This allowed
+      us to work with the machines at&nbsp;
+      <a
+	href="https://engineering.cmu.edu/techspark/about/index.html"
+	target="_blank"
+      >
+	TechSpark
+      </a>
+      &nbsp;which included the&nbsp;
+      <a
+	href="https://www.stratasys.com/en/3d-printers/printer-catalog/fdm-printers/f123-series-printers/"
+	target="_blank"
+      >
+	Stratasys F170
+      </a>
+      &nbsp;(FDM),&nbsp;
+      <a
+	href="https://3pitech.com/products/dremel-digilab-3d40-flx-3d-printer"
+	target="_blank"
+      >
+	Dremel 3D40-FLX
+      </a>
+      &nbsp;(FDM), and&nbsp;
+      <Form2Link />
+      &nbsp;(SLA); Of which we primarily used the Form 2 for its ability to
+      capture fine details of up to 25 microns.
+    </p>
+    <figure>
+      <Image
+        alt="Image of the Form 2 printer available at TechSpark."
+        height={4032}
+        width={3024}
+        src="/bucket/heic/project/custom_keycaps/form_2_techspark.HEIC"
+      />
+      <figcaption>
+	TechSpark's Form 2 SLA machine we primarily used to print custom keycaps.
+      </figcaption>
+    </figure>
+    <StyledPrintPreviewsSection>
+      <PrintPreviews
+	ordered
+	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_1}
+      />
+      <h1 id="part1" style={{ gridArea: 'heading' }}>Part 1</h1>
+      <p style={{ gridArea: 'paragraph' }}>
+	&emsp;The first part of this project required us to follow the&nbsp;
+	<a
+      	  href="/bucket/pdf/project/custom_keycaps/part_1.pdf"
+      	  target="_blank"
+      	>
+	  project guidelines
+      	</a>
+	&nbsp;and propose three possible products which we could develop
+	solutions for specific to additive manufacturing. For this we
+	chose topology optimized drones, custom glasses frames, and custom
+	keycaps. Our&nbsp;
+	<a
+      	  href="/bucket/pdf/project/custom_keycaps/part_1_group_8.pdf"
+      	  target="_blank"
+      	>
+	  report
+      	</a>
+	&nbsp;outlines the market fit and proposed implementations and a rough
+	CAD model of our most promising product which was the custom keycap. A
+	quick basic model of the keycap was sketched by our group's designer,
+	&nbsp;<FrancisoMaderaLink />, and printed using the <Form2Link /> SLA
+	printer.
+      </p>
+    </StyledPrintPreviewsSection>
+    <p>
+      &emsp;The resulting print from this quick sketch produced a tiny keycap
+      due to the eyeballed measurements of sample images that were found online.
+      The print itself took around 30 minutes in the <Form2Link /> SLA printer
+      with the first version failing due to the lack of support. The second
+      version was prepared with more supports and created a print the better
+      resembled a keycap.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Finished print attached to printer"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_0943.HEIC"
+        />
+        <Image
+          alt="Keycap Version 1 (failed still attached to supports)"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_3796.HEIC"
+        />
+        <Image
+          alt="Keycap Version 1 (backside)"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_3797.HEIC"
+        />
+        <Image
+          alt="Keycap Version 2 "
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_3793.HEIC"
+        />
+        <Image
+          alt="Keycap Version 1 and Keycap Version 2"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_3798.HEIC"
+        />
+      </Carousel>
+      <figcaption>
+        Prints of keycaps version 1 and version 2.
+      </figcaption>
+    </figure>
     <figure>
       <video autoPlay loop muted src="/bucket/mp4/project/cabinet_stilt/robo_vac_blocked_trimmed.mp4">
         Video displaying robo-vac blocked from going underneath cabinet.
