@@ -11,38 +11,117 @@ import styled from 'styled-components';
 
 // Components
 import Carousel from 'common/components/Carousel';
+import PageLinks from 'common/components/PageLinks';
+import Portal from 'common/components/Portal';
 import PrintPreview from 'react_three/components/PrintPreview';
+import PrintPreviews from 'react_three/components/PrintPreviews';
 
 // Constants
 const IMAGE_WIDTH = 992;
 const IMAGE_HEIGHT = 744;
 
+const PRINT_PREVIEWS_CUSTOM_KEYCAPS = [
+  {
+    buttonText: 'Pacman Ghost Keycap',
+    stlScale: 6,
+    stlUrl: '/bucket/stl/project/custom_keycaps/ghost_preview.stl',
+  },
+  {
+    buttonText: 'Cat Sleeping Keycap',
+    stlScale: 6,
+    stlUrl: '/bucket/stl/project/custom_keycaps/cat_sleeping_preview.stl',
+  },
+  {
+    buttonText: 'Dog Keycap',
+    stlScale: 6,
+    stlUrl: '/bucket/stl/project/custom_keycaps/dog_preview.stl',
+  },
+  {
+    buttonText: 'Cat Sitting Keycap',
+    stlScale: 6,
+    stlUrl: '/bucket/stl/project/custom_keycaps/cat_sitting_preview.stl',
+  },
+  {
+    buttonText: 'Heart Keycap',
+    stlScale: 6,
+    stlUrl: '/bucket/stl/project/custom_keycaps/heart_preview.stl',
+  },
+  {
+    buttonText: 'Turkey Keycap',
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlScale: 6,
+    stlUrl: '/bucket/stl/project/custom_keycaps/turkey_preview.stl',
+  },
+  {
+    buttonText: 'Shift Keycap',
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlScale: 6,
+    stlUrl: '/bucket/stl/project/custom_keycaps/shift_topology_preview.stl',
+  },
+  {
+    buttonText: 'Caps Lock Christmas Tree Keycap',
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlScale: 6,
+    stlUrl: '/bucket/stl/project/custom_keycaps/capslock_christmas_topology_preview.stl',
+  },
+]
+
+// Enums
+import { PortalElementId } from 'common/enums';
+
 // Styled Components
-import { StyledPrintPreviewSection } from 'react_three/styled';
-const StyledCabinetStilt = styled.div`
+import { StyledPrintPreviewsSection } from 'react_three/styled';
+const StyledCustomKeycaps = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1em;
 `;
 
-const CabinetStilt: NextPage = () => (
-  <StyledCabinetStilt>
-    <StyledPrintPreviewSection>
-      <PrintPreview
-        gcodeScale={3}
-        gcodeUrl="/bucket/gcode/project/cabinet_stilt.gcode"
-        stlScale={3}
-        stlUrl="/bucket/stl/project/cabinet_stilt.stl"
-      />
-      <h1 style={{ gridArea: 'heading' }}>Cabinet Bench Stilts</h1>
+const CustomKeycaps: NextPage = () => (
+  <StyledCustomKeycaps>
+    <Portal portalElementId={PortalElementId.PageLinks}>
+      <PageLinks>
+        <ol>
+	  <h1>
+	    <a href="#title">Custom Keycaps</a>
+	  </h1>
+          <li>
+            <h2>Mark 4</h2>
+            <ol>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk4v1">Version 1</a>
+                  </h3>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <h3>
+                    <a href="#mk4v2">Version 2</a>
+                  </h3>
+                </a>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </PageLinks>
+    </Portal>
+    <StyledPrintPreviewsSection>
+      <PrintPreviews ordered printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS} />
+      <h1 id="title" style={{ gridArea: 'heading' }}>Custom Keycaps</h1>
       <p style={{ gridArea: 'paragraph' }}>
-        &emsp;I ran into an issue where the robot vacuum bought to clean up
-        dust and litter in my room was not cleaning up the area underneath the
-        cabinet bench due to its low clearance. To fix this I designed and
-        printed shoes to act as stilts to provide enough clearance to allow the
-        vacuum to reach that area.
+        &emsp;For our Additive Manufacturing course (39-601 Special Topics:
+        Additive Manufacturing Processing and Product Development) our group was
+        tasked with developing a product that could leverage the advantages of
+	additive manufacturing compared to conventional manufacturing. To
+	satisfy this constraint the product needed to be low volume, high
+	priced, and complex enough to such that 3D printing is preferable to
+	injection molding. For this we decided to work on creating customizable
+	keycaps as this product satisfied all of the previously mentioned
+	requirements.
       </p>
-    </StyledPrintPreviewSection>
+    </StyledPrintPreviewsSection>
     <p>
       &emsp; The vacuum would often clean the area around the cabinet bench and
       partially clean the area underneath until the intake would prevent it from
@@ -153,7 +232,7 @@ const CabinetStilt: NextPage = () => (
         Cabinet has been lifted to provide more space for robo-vac.
       </figcaption>
     </figure>
-  </StyledCabinetStilt>
+  </StyledCustomKeycaps>
 );
 
-export default CabinetStilt;
+export default CustomKeycaps;
