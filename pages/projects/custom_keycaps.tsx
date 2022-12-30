@@ -21,7 +21,43 @@ import PrintPreviews from 'react_three/components/PrintPreviews';
 const IMAGE_WIDTH = 992;
 const IMAGE_HEIGHT = 744;
 
-const PRINT_PREVIEWS_CUSTOM_KEYCAPS = [
+const PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_1 = [
+  {
+    buttonText: 'Version 1',
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlScale: 150,
+    stlUrl: '/bucket/stl/project/custom_keycaps/part1v1.stl',
+  },
+  {
+    buttonText: 'Version 2',
+    stlMeshRotation: [0, 0, 0],
+    stlScale: 150,
+    stlUrl: '/bucket/stl/project/custom_keycaps/part1v2.stl',
+  },
+]
+
+const PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_2 = [
+  {
+    buttonText: 'Turkey Keycap',
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlScale: 6,
+    stlUrl: '/bucket/stl/project/custom_keycaps/turkey_preview.stl',
+  },
+  {
+    buttonText: 'Shift Keycap',
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlScale: 6,
+    stlUrl: '/bucket/stl/project/custom_keycaps/shift_topology_preview.stl',
+  },
+  {
+    buttonText: 'Caps Lock Christmas Tree Keycap',
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlScale: 6,
+    stlUrl: '/bucket/stl/project/custom_keycaps/capslock_christmas_topology_preview.stl',
+  },
+]
+
+const PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_3 = [
   {
     buttonText: 'Pacman Ghost Keycap',
     stlScale: 6,
@@ -47,39 +83,11 @@ const PRINT_PREVIEWS_CUSTOM_KEYCAPS = [
     stlScale: 6,
     stlUrl: '/bucket/stl/project/custom_keycaps/heart_preview.stl',
   },
-  {
-    buttonText: 'Turkey Keycap',
-    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
-    stlScale: 6,
-    stlUrl: '/bucket/stl/project/custom_keycaps/turkey_preview.stl',
-  },
-  {
-    buttonText: 'Shift Keycap',
-    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
-    stlScale: 6,
-    stlUrl: '/bucket/stl/project/custom_keycaps/shift_topology_preview.stl',
-  },
-  {
-    buttonText: 'Caps Lock Christmas Tree Keycap',
-    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
-    stlScale: 6,
-    stlUrl: '/bucket/stl/project/custom_keycaps/capslock_christmas_topology_preview.stl',
-  },
 ]
 
-const PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_1 = [
-  {
-    buttonText: 'Version 1',
-    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
-    stlScale: 150,
-    stlUrl: '/bucket/stl/project/custom_keycaps/part1v1.stl',
-  },
-  {
-    buttonText: 'Version 2',
-    stlMeshRotation: [0, 0, 0],
-    stlScale: 150,
-    stlUrl: '/bucket/stl/project/custom_keycaps/part1v2.stl',
-  },
+const PRINT_PREVIEWS_CUSTOM_KEYCAPS = [
+  ...PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_3,
+  ...PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_2,
 ]
 
 // Enums
@@ -92,6 +100,24 @@ const StyledCustomKeycaps = styled.div`
   flex-direction: column;
   gap: 1em;
 `;
+
+const CrealityEnder5PlusLink: FC = () => (
+  <a
+    href="https://store.creality.com/products/ender-5-plus-3d-printer"
+    target="_blank"
+  >
+    Creality Ender 5 Plus
+  </a>
+);
+
+const Dremel3D40Link: FC = () => (
+  <a
+    href="https://3pitech.com/products/dremel-digilab-3d40-flx-3d-printer"
+    target="_blank"
+  >
+    Dremel 3D40-FLX
+  </a>
+);
 
 const FrancisoMaderaLink: FC = () => (
   <a
@@ -113,6 +139,16 @@ const Form2Link: FC = () => (
   </a>
 );
 
+const PreformLink: FC = () => (
+  <a
+    href="https://formlabs.com/software/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Preform
+  </a>
+);
+
 const CustomKeycaps: NextPage = () => (
   <StyledCustomKeycaps>
     <Portal portalElementId={PortalElementId.PageLinks}>
@@ -127,12 +163,49 @@ const CustomKeycaps: NextPage = () => (
             <h1>
 	      <a href="#part1">Part 1</a>
 	    </h1>
+	    <ul>
+	      <li>
+	        <h2>
+	          <a href="#print1">Print 1</a>
+	        </h2>
+	      </li>
+	    </ul>
+          </li>
+          <li>
+            <h1>
+	      <a href="#part2">Part 2</a>
+	    </h1>
+	    <ul>
+	      <li>
+	        <h2>
+	          <a href="#print2">Print 2</a>
+	        </h2>
+	      </li>
+	      <li>
+	        <h2>
+	          <a href="#print3">Print 3</a>
+	        </h2>
+	      </li>
+	      <li>
+	        <h2>
+	          <a href="#prints4&6">Prints 4 & 6</a>
+	        </h2>
+	      </li>
+	      <li>
+	        <h2>
+	          <a href="#print5">Print 5</a>
+	        </h2>
+	      </li>
+	    </ul>
           </li>
         </ol>
       </PageLinks>
     </Portal>
     <StyledPrintPreviewsSection>
-      <PrintPreviews ordered printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS} />
+      <PrintPreviews
+	ordered
+	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS}
+      />
       <h1 id="title" style={{ gridArea: 'heading' }}>Custom Keycaps</h1>
       <p style={{ gridArea: 'paragraph' }}>
         &emsp;For our Additive Manufacturing course (39-601 Special Topics:
@@ -172,17 +245,9 @@ const CustomKeycaps: NextPage = () => (
       >
 	Stratasys F170
       </a>
-      &nbsp;(FDM),&nbsp;
-      <a
-	href="https://3pitech.com/products/dremel-digilab-3d40-flx-3d-printer"
-	target="_blank"
-      >
-	Dremel 3D40-FLX
-      </a>
-      &nbsp;(FDM), and&nbsp;
-      <Form2Link />
-      &nbsp;(SLA); Of which we primarily used the Form 2 for its ability to
-      capture fine details of up to 25 microns.
+      &nbsp;(FDM), <Dremel3D40Link /> (FDM), and <Form2Link /> (SLA); Of which
+      we primarily used the Form 2 for its ability to capture fine details of up
+      to 25 microns.
     </p>
     <figure>
       <Image
@@ -195,6 +260,7 @@ const CustomKeycaps: NextPage = () => (
 	TechSpark's Form 2 SLA machine we primarily used to print custom keycaps.
       </figcaption>
     </figure>
+
     <StyledPrintPreviewsSection>
       <PrintPreviews
 	ordered
@@ -226,13 +292,15 @@ const CustomKeycaps: NextPage = () => (
 	printer.
       </p>
     </StyledPrintPreviewsSection>
+
+    <h2 id="print1">Print 1</h2>
     <p>
       &emsp;The resulting print from this quick sketch produced a tiny keycap
       due to the eyeballed measurements of sample images that were found online.
       The print itself took around 30 minutes in the <Form2Link /> SLA printer
-      with the first version failing due to the lack of support. The second
-      version was prepared with more supports and created a print the better
-      resembled a keycap.
+      with the first version failing due to the lack of adequate thickness.
+      The second version was prepared with greater thickness and resulted in a
+      print the better resembled a keycap.
     </p>
     <figure>
       <Carousel>
@@ -268,114 +336,356 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-        Prints of keycaps version 1 and version 2.
+        Prints of keycaps Version 1 and Version 2.
+      </figcaption>
+    </figure>
+
+    <StyledPrintPreviewsSection>
+      <PrintPreviews
+	ordered
+	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_2}
+      />
+      <h1 id="part2" style={{ gridArea: 'heading' }}>Part 2</h1>
+      <p style={{ gridArea: 'paragraph' }}>
+	&emsp;In the second part of this project we focused on two of the
+	proposed products as outlined by the&nbsp;
+	<a
+      	  href="/bucket/pdf/project/custom_keycaps/part_2.pdf"
+      	  target="_blank"
+      	>
+	  project guidelines
+      	</a>
+	. In our&nbsp;
+	<a
+      	  href="/bucket/pdf/project/custom_keycaps/part_2_group_8.pdf"
+      	  target="_blank"
+      	>
+	  report
+      	</a>
+	&nbsp;We chose to continue with the topology optimized drone bodies and
+	custom keycaps. For this our group's CAD specialist,&nbsp;
+	<FrancisoMaderaLink />, modeled several keycaps with texturing and
+	debossing which are quite difficult to achieve with injection molding.
+	These keycaps were printed with the same <Form2Link /> SLA printer
+	along with tests done on the <Dremel3D40Link /> and&nbsp;
+	<CrealityEnder5PlusLink />.
+      </p>
+    </StyledPrintPreviewsSection>
+
+    <h2 id="print2">Print 2</h2>
+    <p>
+      &emsp;This keycap was designed with dimensions obtained from an existing
+      keycap with the MX switch specification. We chose to deboss a turkey on
+      the top of the keycap to gauge user engagement around holiday themed
+      keycaps. As part of the course's design project,&nbsp;
+      <a
+        href="https://www.thingiverse.com/thing:5606834"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Thingiverse
+      </a>
+      &nbsp;and&nbsp;
+      <a
+        href="https://pinshape.com/items/113365-3d-printed-thanksgiving-keycap"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Pinshape
+      </a>
+      &nbsp;pages were created for this Turkey Keycap in order to gauge market
+      demand for this product.
+    </p>
+    <p>
+      &emsp;The print was prepared and sliced with the <PreformLink /> software
+      from Formlabs with the support autogenerated for Gray resin and a layer
+      thickness of 0.025mm. The finished print was then washed and soaked in
+      isopropyl alcohol for 1 and 10 minutes respectively. Afterwards the
+      supports were removed and the print was UV post cured for 15 minutes at
+      60 &deg;C.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Preform side view of keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print2_1.PNG"
+        />
+        <Image
+          alt="Another Preform side view of keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print2_2.PNG"
+        />
+        <Image
+          alt="Preform view of keycap bottom."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print2_3.PNG"
+        />
+        <Image
+          alt="Preform view of keycap top."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print2_4.PNG"
+        />
+      </Carousel>
+      <figcaption>
+	<PreformLink /> slicer views of Turkey Keycap for Gray resin.
       </figcaption>
     </figure>
     <figure>
-      <video autoPlay loop muted src="/bucket/mp4/project/cabinet_stilt/robo_vac_blocked_trimmed.mp4">
-        Video displaying robo-vac blocked from going underneath cabinet.
-      </video>
+      <Carousel>
+        <Image
+          alt="View of gray Turkey Keycap top."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_0984.HEIC"
+        />
+        <Image
+          alt="View of gray Turkey Keycap bottom."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_0985.HEIC"
+        />
+        <Image
+          alt="Side by side view of Turkey Keycap and doubleshot keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/print2_side_by_side.HEIC"
+        />
+      </Carousel>
       <figcaption>
-        The top of the robot vacuum prevents it from going further.
+	Views of finished keycaps along with side by side comparison.
       </figcaption>
     </figure>
     <p>
-      &emsp;The minimum additional clearance required for the robot vacuum to
-      enter the space underneath the cabinet bench was measured to be
-      approximately 15.75 mm as this was the height of the intake on the robot
-      vacuum. Felt stickers left over from IKEA furniture assembly were used
-      alongside this print to provide additional clearance and floor protection
-      when the bench is moved. These felt stickers have a thickness of 2.65mm
-      and a diameter of 37.00 mm and were taken into consideration when
-      designing the print.
+      &emsp;The resulting print captured the fine texturing along the sides of
+      the keycap and the debossing of the turkey imagery on the top of the
+      keycap. However, there were many visible imperfection generated from the
+      support touchpoints and the hasty removal of the support. The greatest
+      issue was that the keycap did not fit with the MX switch as it was
+      slightly smaller than the connector. We believed this to be mainly an
+      issue that arose during the UV post curing as the dimensions of the
+      keycap were accurate.
+    </p>
+    <figure>
+      <video autoPlay loop muted src="/bucket/mp4/project/custom_keycaps/print2_no_fit.mp4">
+	Video of print 2 of keycap not fitting on MX switch.
+      </video>
+      <figcaption>
+	Turkey Keycap after UV post curing does not fit on MX switch connector.
+      </figcaption>
+    </figure>
+
+    <h2 id="print3">Print 3</h2>
+    <p>
+      &emsp;For this print we wanted to test how the <Dremel3D40Link /> FDM
+      printer would fair with capturing the fine texturing and connector
+      details. The Turkey Keycap was printed with white PLA filament with
+      support placement around the connector as outlined in the slicing
+      software.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Turkey Keycap bottom view without supports"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print3_1.PNG"
+        />
+        <Image
+          alt="Turkey Keycap top view without supports"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print3_4.PNG"
+        />
+        <Image
+          alt="Turkey Keycap bottom view with supports"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print3_2.PNG"
+        />
+        <Image
+          alt="Turkey Keycap top view with supports"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print3_3.PNG"
+        />
+      </Carousel>
+      <figcaption>
+	Views of Turkey Keycap in slicer software before printing with&nbsp;
+	<Dremel3D40Link /> FDM printer.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;This print unfortunately was not able to capture the texturing
+      detail of the keycap due to its rather large layer height of 0.1 mm. The
+      placement and rigidity of the supports made it rather difficult to remove
+      from the keycap and prevent us from testing whether or not the keycap
+      would fit with the MX switch. The lackluster results of this print
+      provided reason to forgo the <Dremel3D40Link /> in favor of other
+      printers capable of reaching higher resolutions.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Top view of white Turkey Keycap printed with dremel"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_0986.HEIC"
+        />
+        <Image
+          alt="Bottom view of white Turkey Keycap printed with dremel"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_0987.HEIC"
+        />
+      </Carousel>
+      <figcaption>
+	Top and bottom views of white Turkey Keycap with partially removed
+	supports.
+      </figcaption>
+    </figure>
+
+    <h2 id="prints4&6">Prints 4 & 6</h2>
+    <p>
+      &emsp;Prints 4 and 6 were done with the <CrealityEnder5PlusLink /> FDM
+      printer which is also capable of a print accuracy of 0.1 mm. However due
+      to its less frequent use in a research lab setting, the prints from this
+      machine captured more of the fine details. The following prints were
+      printed without supports on the glass bed and on a raft as shown in the
+      Creality slicer screenshots.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Bottom view of white Turkey Keycap printed with Ender 5"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print4_1.PNG"
+        />
+        <Image
+          alt="Top view of white Turkey Keycap printed with Ender 5"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print4_2.PNG"
+        />
+        <Image
+          alt="Top view of white Turkey Keycap printed with Ender 5 on a raft"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print6_1.PNG"
+        />
+        <Image
+          alt="Bottom view of white Turkey Keycap printed with Ender 5 on a raft"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/png/project/custom_keycaps/print6_2.PNG"
+        />
+      </Carousel>
+      <figcaption>
+	Prints of Turkey Keycap with <CrealityEnder5PlusLink /> printer with
+	and without raft adhesion.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The prints from the <CrealityEnder5PlusLink /> did a far better job
+      of capturing the fine details of the Turkey Keycap. The raft resulted in
+      a worse surface than the print which was directly printed on the glass.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Turkey Keycap printed on Ender 5 without raft"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_0991.HEIC"
+        />
+        <Image
+          alt="Turkey Keycap printed on Ender 5 with raft"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_0993.HEIC"
+        />
+      </Carousel>
+      <figcaption>
+	Finished keycap prints on printing bed with and without raft adhesion.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The resulting print was the first keycap to fit with the MX switch
+      of the mechanical keyboard further confirming that the dimensions are
+      correct and the possible shrinkage occured during the UV post curing
+      process.
     </p>
     <figure>
       <Image
-        alt="Robo-vac prevented from accessing space underneath cabinet."
+        alt="Ender 5 printed keycap attached to keyboard"
         height={IMAGE_HEIGHT}
         width={IMAGE_WIDTH}
-        src="/bucket/jpeg/project/cabinet_stilt/IMG_0404.JPEG"
+        src="/bucket/heic/project/custom_keycaps/IMG_0995.HEIC"
       />
       <figcaption>
-        Current space under cabinet it too small to allow robo-vac from cleaning.
+	<CrealityEnder5PlusLink /> printed Turkey Keycap attached to keyboard.
       </figcaption>
     </figure>
+
+    <h2 id="print5">Print 5</h2>
     <p>
-      &emsp;This print was significant as this was the first expected to bear
-      significant load. For this reason the infill used was increased to 70% as
-      opposed to the 10% I have used in other projects. Along with this, the
-      dimensions for one cabinet bench stilt was small such that four can be
-      printed in a single go (which took around 17 hours). The prints were
-      successful and felt stickers were applied in the recessed bottom portion
-      which were printed without scaffolding.
+      &emsp;This print builds off the issues discovered in the previous SLA
+      attempt (<a href="#print2">Print 2</a>) and explores if a couple
+      parameter changes would resolve issues. For this minimal supports were
+      used to secure the keycap and the resin color was switched to clear. In
+      addition the UV post curing step was skipped to confirm the hypothesis
+      that the keycap would fit without this step.
     </p>
     <figure>
       <Carousel>
         <Image
-          alt="Finished print."
+          alt="Preform view of the front of Turkey Keycap"
           height={IMAGE_HEIGHT}
           width={IMAGE_WIDTH}
-          src="/bucket/jpeg/project/cabinet_stilt/IMG_0405.JPEG"
+          src="/bucket/png/project/custom_keycaps/print5_1.PNG"
         />
         <Image
-          alt="Elapsed time."
+          alt="Preform view of the back of Turkey Keycap"
           height={IMAGE_HEIGHT}
           width={IMAGE_WIDTH}
-          src="/bucket/jpeg/project/cabinet_stilt/IMG_0406(1).JPEG"
+          src="/bucket/png/project/custom_keycaps/print5_2.PNG"
         />
         <Image
-          alt="Detached print"
+          alt="Preform view of the supports for the Turkey Keycap"
           height={IMAGE_HEIGHT}
           width={IMAGE_WIDTH}
-          src="/bucket/jpeg/project/cabinet_stilt/IMG_0408.JPEG"
-        />
-        <Image
-          alt="Felt sticker applied to prints."
-          height={IMAGE_HEIGHT}
-          width={IMAGE_WIDTH}
-          src="/bucket/jpeg/project/cabinet_stilt/IMG_0407.JPEG"
+          src="/bucket/png/project/custom_keycaps/print5_3.PNG"
         />
       </Carousel>
       <figcaption>
-        Finished prints with felt stickers attached.
+	<PreformLink /> views of the Turkey Keycap with minimal supports.
       </figcaption>
     </figure>
     <p>
-      &emsp;The finished cabinet bench stilts were then applied and more than
-      fully supported its weight (approximately 200+ lbs) along with other items
-      placed on top.
+      &emsp;The resulting Turkey Keycap fit well onto the keyboard and supports
+      the claim that warping occurs during the UV post curing stage. Another
+      theory we had was that the gray resin has different density causing it to
+      shrink more than that of the clear resin. This theory, however, was not
+      tested as all the subsequent print were done with the clear resin.
     </p>
     <figure>
-      <Carousel>
-        <Image
-          alt="Cabinet leg before before print."
-          height={IMAGE_HEIGHT}
-          width={IMAGE_WIDTH}
-          src="/bucket/jpeg/project/cabinet_stilt/IMG_0409.JPEG"
-        />
-        <Image
-          alt="Cabinet leg after adding print."
-          height={IMAGE_HEIGHT}
-          width={IMAGE_WIDTH}
-          src="/bucket/jpeg/project/cabinet_stilt/IMG_0414(1).JPEG"
-        />
-      </Carousel>
+      <Image
+        alt="Form 2 printed keycap on keyboard without UV post curing."
+        height={IMAGE_HEIGHT}
+        width={IMAGE_WIDTH}
+        src="/bucket/heic/project/custom_keycaps/IMG_0994.HEIC"
+      />
       <figcaption>
-        Before and after images of print added to cabinet leg.
+	<Form2Link /> printed Turkey Keycap fit on keyboard without UV post
+	curing.
       </figcaption>
     </figure>
-    <p>
-      &emsp;It also provides more than enough space for the robot vacuum to go
-      underneath and clean the previously unreachable area.
-    </p>
-    <figure>
-      <video autoPlay loop muted src="/bucket/mp4/project/cabinet_stilt/robo_vac_not_blocked_trimmed.mp4">
-        Video displaying robo-vac no longer blocked from going underneath cabinet.
-      </video>
-      <figcaption>
-        Cabinet has been lifted to provide more space for robo-vac.
-      </figcaption>
-    </figure>
+
   </StyledCustomKeycaps>
 );
 
