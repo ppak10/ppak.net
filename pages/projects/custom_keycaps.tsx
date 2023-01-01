@@ -168,7 +168,7 @@ const CustomKeycaps: NextPage = () => (
 	  </li>
           <li>
             <h1>
-	      <a href="#part1">Part 1</a>
+	      <a href="#part1">Project: Part 1</a>
 	    </h1>
 	    <ul>
 	      <li>
@@ -180,7 +180,7 @@ const CustomKeycaps: NextPage = () => (
           </li>
           <li>
             <h1>
-	      <a href="#part2">Part 2</a>
+	      <a href="#part2">Project: Part 2</a>
 	    </h1>
 	    <ul>
 	      <li>
@@ -215,6 +215,28 @@ const CustomKeycaps: NextPage = () => (
 	      </li>
 	    </ul>
           </li>
+	  <li>
+	    <h1>
+	      <a href="#part3">Project: Part 3</a>
+	    </h1>
+	    <ul>
+	      <li>
+	        <h2>
+	          <a href="#print10">Print 10</a>
+	        </h2>
+	      </li>
+	      <li>
+	        <h2>
+	          <a href="#print11">Print 11</a>
+	        </h2>
+	      </li>
+	      <li>
+	        <h2>
+	          <a href="#print12">Print 12</a>
+	        </h2>
+	      </li>
+	    </ul>
+	  </li>
         </ol>
       </PageLinks>
     </Portal>
@@ -283,7 +305,7 @@ const CustomKeycaps: NextPage = () => (
 	ordered
 	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_1}
       />
-      <h1 id="part1" style={{ gridArea: 'heading' }}>Part 1</h1>
+      <h1 id="part1" style={{ gridArea: 'heading' }}>Project: Part 1</h1>
       <p style={{ gridArea: 'paragraph' }}>
 	&emsp;The first part of this project required us to follow the&nbsp;
 	<a
@@ -362,7 +384,7 @@ const CustomKeycaps: NextPage = () => (
 	ordered
 	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_2}
       />
-      <h1 id="part2" style={{ gridArea: 'heading' }}>Part 2</h1>
+      <h1 id="part2" style={{ gridArea: 'heading' }}>Project: Part 2</h1>
       <p style={{ gridArea: 'paragraph' }}>
 	&emsp;In the second part of this project we focused on two of the
 	proposed products as outlined by the&nbsp;
@@ -843,6 +865,261 @@ const CustomKeycaps: NextPage = () => (
 	Images of finished Caps Lock and Shift Keycaps at various stages.
       </figcaption>
     </figure>
+
+    <h1 id="part3">Project: Part 3</h1>
+    <p>
+      &emsp;For this last portion of the design project, the&nbsp;
+      <a
+      	href="/bucket/pdf/project/custom_keycaps/part_3.pdf"
+      	target="_blank"
+      >
+	project guidelines
+      </a>
+      &nbsp;had us focus on one of the two proposed products outlined in our
+      previous design project proposal. In this final&nbsp;
+      <a
+      	href="/bucket/pdf/project/custom_keycaps/part_3_group_8.pdf"
+      	target="_blank"
+      >
+	report
+      </a>
+      &nbsp;we decided to move forward with the custom keycaps and fine tune
+      the manufacturing process associated with these prints. Specifically we
+      focused on the perfecting the UV post curing process and optimizing the
+      orientations within the <PreformLink /> slicer to reduce the resin that
+      would accumulate on the top of each keycap.
+    </p>
+
+    <StyledPrintPreviewSection>
+      <PrintPreview
+	stlMeshRotation={[-Math.PI / 2, 0, Math.PI]}
+	stlScale={6}
+	stlPosition={[75, 0, 0]}
+	stlUrl="/bucket/stl/project/custom_keycaps/bare_keycap.STL"
+      />
+      <h2 id="print10" style={{ gridArea: 'heading' }}>Print 10</h2>
+      <p style={{ gridArea: 'paragraph' }}>
+	&emsp;This keycap is the base model used for the Turkey Keycap without
+	any of the texturing and debossing. We want to determine the best angle
+	to print these keycaps without accumulating excess resin and retaining
+	the model's structure. For this print, a 4 x 4 grid of keycaps was
+	printed with angles along the X and Y axis rotated by 15&deg;.
+      </p>
+    </StyledPrintPreviewSection>
+    <figure>
+      <Image
+	alt="Grid layout of Keycaps in Preform."
+        height={489}
+        width={990}
+        src="/bucket/png/project/custom_keycaps/print10_1.PNG"
+      />
+      <figcaption>
+	View of grid layout in <PreformLink /> slicer.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The keycaps in this print were angled to a maximum of 45&deg; in
+      each X and Y direction in order to gauge to what degree of rotation was
+      necessary to reduce the accumulated resin. This was done with the bare
+      keycap model to increase build rate and more clearly see the defects on
+      what should be a smooth surface. Each keycap was labeled with its
+      corresponding rotation on the raft and organized as seen below.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Layout of rotated keycaps (Front View)."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1046.JPEG"
+        />
+        <Image
+          alt="Layout of rotated keycaps (Side View)."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_1047.HEIC"
+        />
+        <Image
+          alt="Rotated keycaps placed on cardboard."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1076.JPEG"
+        />
+      </Carousel>
+      <figcaption>
+	Images of Bare Keycaps orientated at varying angles.
+      </figcaption>
+    </figure>
+
+    <h2 id="print11">Print 11</h2>
+    <p>
+      &emsp;This next print investigates this same issue however with a subset
+      of the previous rotations. In this print the Y axis was held constant at
+      0&deg; and the X axis was rotated from 0&deg; to -45&deg; in 15&deg;
+      increments. This was done with the Bare Keycap and the Shift Keycap which
+      kept its texturing.
+    </p>
+    <figure>
+      <Image
+	alt="Grid layout of Shift and Bare Keycaps in Preform."
+        height={677}
+        width={1216}
+        src="/bucket/png/project/custom_keycaps/print11_1.PNG"
+      />
+      <figcaption>
+	View of angled Shift and Bare Keycaps in <PreformLink /> slicer.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;This print was a success and provided valuable information
+      regarding the ideal alignment of the keycaps. Like before the Shift
+      Keycaps skipped the UV post curing process so that printing orientation
+      could remain a primary focus here. The Bare Keycaps were cured just to
+      see if there were any significant changes to the keycap after the UV post
+      curing process.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="View of Shift and Bare Keycaps in Form2 Printing Bed (Angle 1)."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1048.JPEG"
+        />
+        <Image
+          alt="View of Shift and Bare Keycaps in Form2 Printing Bed (Angle 2)."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1049.JPEG"
+        />
+        <Image
+          alt="View of Shift and Bare Keycaps in Form2 Printing Bed (Angle 3)."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1050.JPEG"
+        />
+      </Carousel>
+      <figcaption>
+	Various images of printed keycaps still attached to <Form2Link />&nbsp;
+	printing bed.
+      </figcaption>
+    </figure>
+    <figure>
+      <Image
+	alt="Layout of Shift and Bare Keycaps on cardboard."
+        height={4032}
+        width={3024}
+        src="/bucket/jpeg/project/custom_keycaps/IMG_1077.JPEG"
+      />
+      <figcaption>
+	Layout of Shift and Bare Keycaps with orientation increments of 15&deg;.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;One notable difference that was seen with the differences in
+      orientation along the X axis as that the MX connecter started to lose
+      accuracy when the keycap was rotated. This -45&deg; orientation rotated
+      the connector to print as a "X" rather than a "+" and lost much of the
+      fine details around the points of connection. This made us realize that
+      only a slight angle was needed along the Y axis to remove the excess
+      resin and printing with 0&deg; rotation along the X axis was the best
+      solution.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="0 degree rotation of the Shift Keycap"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_1081.HEIC"
+        />
+        <Image
+          alt="-45 degree rotation of the Shift Keycap"
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_1082.HEIC"
+        />
+      </Carousel>
+      <figcaption>
+	View of the "+" printing direction (0&deg; rotation) and "X" printing
+	direction (-45&deg; rotation).
+      </figcaption>
+    </figure>
+
+    <h2 id="print12">Print 12</h2>
+    <p>
+      &emsp;After investigating the issue of resin build up on the tops of the
+      keycaps, the next issue in question was the UV post curing and the
+      appropriate scale needed to account for the shrinkage. This was done by
+      testing out scales settings of 1.00, 1.010, 1.020, and 1.025 in the&nbsp;
+      <PreformLink /> slicer with 2 Shift Keycaps printed at each scale. This
+      allowed us to have a set of UV post cured and as is set of keycaps at
+      each scale for a corresponding control and experimental sample.
+    </p>
+    <figure>
+      <Image
+	alt="Varying scales of the Shift Keycap in Preform"
+        height={404}
+        width={1484}
+        src="/bucket/png/project/custom_keycaps/print12_1.PNG"
+      />
+      <figcaption>
+	View of Shift Keycaps of varying scales in <PreformLink /> slicer.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Once printed, one set of keycaps were UV post cured with the
+      supports still attached as it was noticed that the inclusion of the
+      supports prevented warping during this UV post curing process. However,
+      there still remained the issue of significant "yellowing" of the clear
+      print during the UV post curing process that a adequate solution for had
+      yet to be determined.
+    </p>
+    <figure>
+      <Image
+	alt="Side by Side comparision of UV post cured and as is keycaps"
+        height={IMAGE_HEIGHT}
+	width={IMAGE_WIDTH}
+	src="/bucket/heic/project/custom_keycaps/IMG_1057.HEIC"
+      />
+      <figcaption>
+	Side by side comparisons of UV post cured and as is Shift Key caps.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The UV post curing process was done at 60 &deg;C for 15 minutes
+      with the supports of the prints still attached. It was noticed that for
+      prints with higher length to width ratios, the bending and warping of the
+      keycap during the UV post curing process was more pronounced. Keeping
+      the supports on seems to have mitigated this issue since the supports
+      also act as a mechanism to retain the build up of residual stress.
+    </p>
+    <figure>
+      <video autoPlay loop muted src="/bucket/mp4/project/custom_keycaps/uv_post_curing.mp4">
+	Video of UV post curing on Shift Keycaps.
+      </video>
+      <figcaption>
+	UV post curing process for Shift Keycaps with supports still attached.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;With the as is Shift Keycaps it was found that the ductility of the
+      MX connector allowed for a range of scales to fit. However, with the UV
+      post curing the connector becomes more brittle and the range of fitting
+      keycaps narrows to a scale of 1.020.
+    </p>
+    <figure>
+      <Image
+	alt="Varying Shift Keycap with their scales denoted."
+        height={IMAGE_HEIGHT}
+	width={IMAGE_WIDTH}
+	src="/bucket/jpeg/project/custom_keycaps/IMG_1078.JPEG"
+      />
+      <figcaption>
+	UV post cured and as is Shift Keycaps with their varying sizes.
+      </figcaption>
+    </figure>
+
   </StyledCustomKeycaps>
 );
 
