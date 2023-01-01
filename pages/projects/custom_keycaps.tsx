@@ -235,6 +235,16 @@ const CustomKeycaps: NextPage = () => (
 	          <a href="#print12">Print 12</a>
 	        </h2>
 	      </li>
+	      <li>
+	        <h2>
+	          <a href="#print13">Print 13</a>
+	        </h2>
+	      </li>
+	      <li>
+	        <h2>
+	          <a href="#prints14&15">Prints 14 & 15</a>
+	        </h2>
+	      </li>
 	    </ul>
 	  </li>
         </ol>
@@ -1117,6 +1127,142 @@ const CustomKeycaps: NextPage = () => (
       />
       <figcaption>
 	UV post cured and as is Shift Keycaps with their varying sizes.
+      </figcaption>
+    </figure>
+
+    <h2 id="print13">Print 13</h2>
+    <p>
+      &emsp;With the determined scale adjustment of 1.020 from the previous
+      print producing adequate fittings, these settings were applied to the
+      Turkey Keycaps in a 6 x 5 grid for a total of 30 keycaps per batch. The
+      keycaps were placed a slight angle of 15&deg; such that resin would not
+      collect on the top surface.
+    </p>
+    <figure>
+      <Image
+	alt="6 x 5 layout of Turkey Keycaps in Preform."
+        height={413}
+	width={962}
+	src="/bucket/png/project/custom_keycaps/print13_1.PNG"
+      />
+      <figcaption>
+	6 x 5 layout of Turkey Keycaps angled at 15&deg; in <PreformLink />
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The resulting print was successful and each keycap captured the
+      fine details and texturing. These prints were then washed and exposed to
+      the UV post curing process however did not fit on the keyboard. This was
+      an unexpected result as the same scale of 1.020 from the previous print
+      was adequate enough to secure the Shift Keycap in place. One glaring
+      mistake in the process was assuming that the two different keycaps would
+      exhibit the same shrinkage from the UV post curing process. This issue
+      would be further investigated in the next prints where different scales
+      for each type of keycap would be tested.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Turkey Keycaps attached to printing bed on Form 2 printer."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1060.JPEG"
+        />
+        <Image
+          alt="Keycaps removed from printing bed and drying from alchol wash."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1061.JPEG"
+        />
+        <Image
+          alt="Close up of the front of Turkey Keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1062.JPEG"
+        />
+        <Image
+          alt="Close up of the back of Turkey Keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1063.JPEG"
+        />
+        <Image
+          alt="UV post curing of the Turkey Keycaps."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1065.JPEG"
+        />
+      </Carousel>
+      <figcaption>
+	Finished Turkey Keycap prints and various stages of post treatment
+	process.
+      </figcaption>
+    </figure>
+
+    <h2 id="prints14&15">Prints 14 & 15</h2>
+    <p>
+      &emsp;For the next couple of prints, a range of scales would be tested to
+      determine the appropriate fit for each keycap. This was done within two
+      separate prints where the first (Print 14) would test a wide range from
+      1.000 to 1.025 and the latter (Print 15) would test finer increments of
+      0.005 for each. The keycaps of both prints were arranged to maximize the
+      density of the total keycaps that could be printed in each batch.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Print 14 layout."
+          height={412}
+          width={997}
+          src="/bucket/png/project/custom_keycaps/print14_1.PNG"
+        />
+        <Image
+          alt="Print 15 layout."
+          height={597}
+          width={1011}
+          src="/bucket/png/project/custom_keycaps/print15_1.PNG"
+        />
+      </Carousel>
+      <figcaption>
+	<PreformLink /> layouts of prints 14 and 15.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;After UV post curing, the results for both prints showed similar
+      results were Shift and Caps Lock Keycaps withiin the range of 1.015 and
+      1.025 fit well on the MX connector. However the keycaps for the original
+      Turkey Keycap would still not fit on the keyboard leading us to believe
+      that another factor was contributing to possible uneven warping of the
+      keycap.
+    </p>
+    <figure>
+      <Image
+        alt="Layout of keycaps on printing bed."
+        height={2268}
+        width={4032}
+        src="/bucket/jpeg/project/custom_keycaps/IMG_1068.JPEG"
+      />
+      <figcaption>
+	Layout of all keycaps of varying scale (Print 14).
+      </figcaption>
+    </figure>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Print 15 attached to printing bed in Form 2."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1074.JPEG"
+        />
+        <Image
+          alt="Washed prints removed from printing bed."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1075.JPEG"
+        />
+      </Carousel>
+      <figcaption>
+	A finer subset of keycaps at various scales (Print 15).
       </figcaption>
     </figure>
 
