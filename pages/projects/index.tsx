@@ -34,6 +34,12 @@ const StyledProjects = styled.ul`
     img {
       border-radius: 0.25em;
     }
+
+  }
+
+  // Hacky fix to prevent last list item from expanding entire column width.
+  ${StyledListItem}:last-child {
+    flex: unset;
   }
 `;
 
@@ -41,18 +47,18 @@ const Projects: NextPage = () => {
   return (
     <StyledProjects>
       <StyledListItem>
-        <Link href="/projects/morty_helmet">
+        <Link href="/projects/custom_keycaps">
           <a>
             <h3>
-              Morty Helmet
+              Custom Keycaps
             </h3>
           </a>
         </Link>
         <Image
-          alt="3D render of Morty helmet."
+          alt="Dark image of custom pacman ghost keycap"
           height={THUMBNAIL_HEIGHT}
           width={THUMBNAIL_WIDTH}
-          src="/bucket/jpeg/project/morty_helmet/thumbnail.jpg"
+          src="/bucket/heic/project/custom_keycaps/thumbnail.heic"
         />
       </StyledListItem>
       <StyledListItem>
@@ -86,6 +92,36 @@ const Projects: NextPage = () => {
         />
       </StyledListItem>
       <StyledListItem>
+        <Link href="/projects/chess_piece_container">
+          <a>
+            <h3>
+              Chess Piece Container
+            </h3>
+          </a>
+        </Link>
+        <Image
+          alt="Dog and cat chess pieces in their respective containers"
+          height={THUMBNAIL_HEIGHT}
+          src="/bucket/jpeg/project/chess_piece_container/thumbnail.JPEG"
+          width={THUMBNAIL_WIDTH}
+        />
+      </StyledListItem>
+      <StyledListItem>
+        <Link href="/projects/tex_yoda_2_case">
+          <a>
+            <h3>
+              TEX Yoda II Case
+            </h3>
+          </a>
+        </Link>
+        <Image
+          alt="TEX Yoda II keyboard along with case parts."
+          height={THUMBNAIL_HEIGHT}
+          src="/bucket/jpeg/project/tex_yoda_2_case/thumbnail.JPEG"
+          width={THUMBNAIL_WIDTH}
+        />
+      </StyledListItem>
+      <StyledListItem>
         <Link href="/projects/magsafe_charger_case">
           <a>
             <h3>
@@ -98,6 +134,21 @@ const Projects: NextPage = () => {
           height={THUMBNAIL_HEIGHT}
           width={THUMBNAIL_WIDTH}
           src="/bucket/jpeg/project/magsafe_charger_case/thumbnail.JPEG"
+        />
+      </StyledListItem>
+      <StyledListItem>
+        <Link href="/projects/morty_helmet">
+          <a>
+            <h3>
+              Morty Helmet
+            </h3>
+          </a>
+        </Link>
+        <Image
+          alt="3D render of Morty helmet."
+          height={THUMBNAIL_HEIGHT}
+          width={THUMBNAIL_WIDTH}
+          src="/bucket/jpeg/project/morty_helmet/thumbnail.jpg"
         />
       </StyledListItem>
       <StyledListItem>
@@ -128,36 +179,6 @@ const Projects: NextPage = () => {
           height={THUMBNAIL_HEIGHT}
           width={THUMBNAIL_WIDTH}
           src="/bucket/jpeg/project/dodecahedral_dice/thumbnail.JPEG"
-        />
-      </StyledListItem>
-      <StyledListItem>
-        <Link href="/projects/chess_piece_container">
-          <a>
-            <h3>
-              Chess Piece Container
-            </h3>
-          </a>
-        </Link>
-        <Image
-          alt="Dog and cat chess pieces in their respective containers"
-          height={THUMBNAIL_HEIGHT}
-          src="/bucket/jpeg/project/chess_piece_container/thumbnail.JPEG"
-          width={THUMBNAIL_WIDTH}
-        />
-      </StyledListItem>
-      <StyledListItem>
-        <Link href="/projects/tex_yoda_2_case">
-          <a>
-            <h3>
-              TEX Yoda II Case
-            </h3>
-          </a>
-        </Link>
-        <Image
-          alt="TEX Yoda II keyboard along with case parts."
-          height={THUMBNAIL_HEIGHT}
-          src="/bucket/jpeg/project/tex_yoda_2_case/thumbnail.JPEG"
-          width={THUMBNAIL_WIDTH}
         />
       </StyledListItem>
       <StyledListItem>
