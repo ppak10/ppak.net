@@ -4,7 +4,7 @@
 
 // Node Modules
 import type { NextPage } from 'next';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import styled from 'styled-components';
 
 // Components

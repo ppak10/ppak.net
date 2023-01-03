@@ -87,7 +87,10 @@ const PrintPreview: FC<Props> = ({
   // Hooks
   const [fileType, setFileType] = useState(FileType.Stl);
   const [geometry, setGeometry] = useState<BufferGeometry>();
-  const [object, setObject] = useState<Group>();
+
+  // `{} as Group` is a hacky fix to resolve 
+  // Type error: Type 'Group | undefined' is not assignable to type 'object'.
+  const [object, setObject] = useState<Group>({} as Group);
 
   useEffect(() => {
     // Utilizes STL loader to set geometry from .stl url to state.

@@ -7,7 +7,7 @@
 // Node Modules
 import { Euler } from '@react-three/fiber'
 import type { NextPage } from 'next';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { FC } from 'react';
 import styled from 'styled-components';
 
@@ -389,7 +389,7 @@ const CustomKeycaps: NextPage = () => (
 	      CAD model of our most promising product which was the custom keycap. A
 	      quick basic model of the keycap was sketched by our group&apos;s
         designer, <FrancisoMaderaLink />, and printed using the <Form2Link />
-        &apos;SLA printer.
+        &thinsp;SLA printer.
       </p>
     </StyledPrintPreviewsSection>
 
@@ -477,7 +477,7 @@ const CustomKeycaps: NextPage = () => (
       &emsp;This keycap was designed with dimensions obtained from an existing
       keycap with the MX switch specification. We chose to deboss a turkey on
       the top of the keycap to gauge user engagement around holiday themed
-      keycaps. As part of the course&apos;s design project,&nbsp;
+      keycaps. As part of the course&apos;s design project,&thinsp;
       <a
         href="https://www.thingiverse.com/thing:5606834"
         rel="noreferrer"
@@ -485,7 +485,7 @@ const CustomKeycaps: NextPage = () => (
       >
         Thingiverse
       </a>
-      &nbsp;and&nbsp;
+      &thinsp;and&thinsp;
       <a
         href="https://pinshape.com/items/113365-3d-printed-thanksgiving-keycap"
         rel="noreferrer"
@@ -493,7 +493,7 @@ const CustomKeycaps: NextPage = () => (
       >
         Pinshape
       </a>
-      &nbsp;pages were created for this Turkey Keycap in order to gauge market
+      &thinsp;pages were created for this Turkey Keycap in order to gauge market
       demand for this product.
     </p>
     <p>

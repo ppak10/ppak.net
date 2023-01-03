@@ -6,7 +6,7 @@
 // Node Modules
 import 'rc-slider/assets/index.css';
 import type { NextPage } from 'next';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Slider from 'rc-slider';
 import { FC } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';

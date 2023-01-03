@@ -3,7 +3,7 @@
  */
 
 // Node Modules
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { FC, useState } from 'react';
 import styled from 'styled-components';
 
@@ -80,7 +80,7 @@ const Footer: FC = () => {
 
   return (
     <StyledFooter>
-      <h3>Peter Pak 2022</h3>
+      <h3>Peter Pak 2023</h3>
       <StyledBrandLinks>
         <li>
           <a href="https://angel.co/u/ppak" rel="noreferrer" target="_blank">
