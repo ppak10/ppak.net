@@ -146,6 +146,16 @@ const Form2Link: FC = () => (
   </a>
 );
 
+const MeshmixerLink: FC = () => (
+  <a
+    href="https://www.meshmixer.com/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Meshmixer
+  </a>
+);
+
 const PreformLink: FC = () => (
   <a
     href="https://formlabs.com/software/"
@@ -153,6 +163,16 @@ const PreformLink: FC = () => (
     target="_blank"
   >
     Preform
+  </a>
+);
+
+const ThingiverseLink: FC = () => (
+  <a
+    href="https://www.thingiverse.com/"
+    rel="noreferrer"
+    target="_blank"
+  >
+    Thingiverse
   </a>
 );
 
@@ -168,7 +188,7 @@ const CustomKeycaps: NextPage = () => (
 	  </li>
           <li>
             <h1>
-	      <a href="#part1">Project: Part 1</a>
+	      <a href="#part1">Design Project: Part 1</a>
 	    </h1>
 	    <ul>
 	      <li>
@@ -180,7 +200,7 @@ const CustomKeycaps: NextPage = () => (
           </li>
           <li>
             <h1>
-	      <a href="#part2">Project: Part 2</a>
+	      <a href="#part2">Design Project: Part 2</a>
 	    </h1>
 	    <ul>
 	      <li>
@@ -217,7 +237,7 @@ const CustomKeycaps: NextPage = () => (
           </li>
 	  <li>
 	    <h1>
-	      <a href="#part3">Project: Part 3</a>
+	      <a href="#part3">Design Project: Part 3</a>
 	    </h1>
 	    <ul>
 	      <li>
@@ -245,7 +265,32 @@ const CustomKeycaps: NextPage = () => (
 	          <a href="#prints14&15">Prints 14 & 15</a>
 	        </h2>
 	      </li>
+	      <li>
+	        <h2>
+	          <a href="#meshmixer_prints">Meshmixer Prints</a>
+	        </h2>
+	      </li>
+	      <li>
+	        <h2>
+	          <a href="#print16">Print 16</a>
+	        </h2>
+	      </li>
+	      <li>
+	        <h2>
+	          <a href="#print17">Print 17</a>
+	        </h2>
+	      </li>
 	    </ul>
+	  </li>
+	  <li>
+	    <h1>
+	      <a href="#case">Gift Case</a>
+	    </h1>
+	  </li>
+	  <li>
+	    <h1>
+	      <a href="#future_work">Future Work</a>
+	    </h1>
 	  </li>
         </ol>
       </PageLinks>
@@ -315,7 +360,7 @@ const CustomKeycaps: NextPage = () => (
 	ordered
 	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_1}
       />
-      <h1 id="part1" style={{ gridArea: 'heading' }}>Project: Part 1</h1>
+      <h1 id="part1" style={{ gridArea: 'heading' }}>Design Project: Part 1</h1>
       <p style={{ gridArea: 'paragraph' }}>
 	&emsp;The first part of this project required us to follow the&nbsp;
 	<a
@@ -394,7 +439,7 @@ const CustomKeycaps: NextPage = () => (
 	ordered
 	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_2}
       />
-      <h1 id="part2" style={{ gridArea: 'heading' }}>Project: Part 2</h1>
+      <h1 id="part2" style={{ gridArea: 'heading' }}>Design Project: Part 2</h1>
       <p style={{ gridArea: 'paragraph' }}>
 	&emsp;In the second part of this project we focused on two of the
 	proposed products as outlined by the&nbsp;
@@ -876,7 +921,7 @@ const CustomKeycaps: NextPage = () => (
       </figcaption>
     </figure>
 
-    <h1 id="part3">Project: Part 3</h1>
+    <h1 id="part3">Design Project: Part 3</h1>
     <p>
       &emsp;For this last portion of the design project, the&nbsp;
       <a
@@ -1266,6 +1311,386 @@ const CustomKeycaps: NextPage = () => (
       </figcaption>
     </figure>
 
+    <StyledPrintPreviewsSection>
+      <PrintPreviews
+	ordered
+	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_3}
+      />
+      <h2 id="meshmixer_prints" style={{ gridArea: 'heading' }}>
+	Meshmixer Prints (Prints 16, 17, 18)
+      </h2>
+      <p style={{ gridArea: 'paragraph' }}>
+	&emsp;For the following prints, figures from <ThingiverseLink /> were
+	appended to the Turkey Keycap using a modeling software called&nbsp;
+	<MeshmixerLink />. These figures include the&nbsp;
+	<a
+  	  href="https://www.thingiverse.com/thing:557527"
+  	  rel="noreferrer"
+  	  target="_blank"
+  	>
+	  Pacman Ghost
+  	</a>
+	,&nbsp;
+	<a
+  	  href="https://www.thingiverse.com/thing:4597731"
+  	  rel="noreferrer"
+  	  target="_blank"
+  	>
+	  Sleeping Cat
+  	</a>
+	,&nbsp;
+	<a
+  	  href="https://www.thingiverse.com/thing:4694712"
+  	  rel="noreferrer"
+  	  target="_blank"
+  	>
+	  Dog
+  	</a>
+	,&nbsp; and&nbsp;
+	<a
+  	  href="https://www.thingiverse.com/thing:2638185"
+  	  rel="noreferrer"
+  	  target="_blank"
+  	>
+	  Heart
+  	</a>
+	&nbsp;models, further supporting the product's niche as an additively
+	manufactured product rather than one that is injection molded. For all
+	of these prints, the <Form2Link /> printer displayed its ability to
+	capture the fine details such as the fur on the animal models and the
+	veins and arteries of the anatomical heart model. The clear resin here
+	also shines well here as the LED's from the keyboard illuminate the
+	figure and keycap when attached to the keyboard.
+      </p>
+    </StyledPrintPreviewsSection>
+
+    <h2 id="print16">Print 16</h2>
+    <p>
+      &emsp;The first of these prints uses the Pacman Ghost Keycap and prints
+      it at the same angle as the keycaps from the previous prints to reduce
+      resin build up. This was done in a batch of 20 with 4 x 5 layout of the
+      keycaps.
+    </p>
+    <figure>
+      <Image
+        alt="Layout of keycaps on printing bed."
+        height={456}
+        width={1018}
+        src="/bucket/png/project/custom_keycaps/print16_1.PNG"
+      />
+      <figcaption>
+	4 x 5 Layout of Pacman Ghost Keycaps (Print 16).
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The print was rather successful, however the yield of good keycaps
+      from this print was around 60% with several damaged and incomplete
+      keycaps.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Print 16 still attached to printing bed in Form 2."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1091.JPEG"
+        />
+        <Image
+          alt="Layout of prints with varying quality on print bed."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/jpeg/project/custom_keycaps/IMG_1092.JPEG"
+        />
+        <Image
+          alt="Range of quality from batch print."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_1094.HEIC"
+        />
+        <Image
+          alt="A good quality keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_1095.HEIC"
+        />
+        <Image
+          alt="A bad quality keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_1096.HEIC"
+        />
+      </Carousel>
+      <figcaption>
+	Finished Pacman Ghost Keycaps of varying quality.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;When attached to the keyboard the clear resin allows for the light
+      from the LEDs to scatter throughout the print. This creates a beautiful
+      array of keycaps with the range of colors these keyboards are able to
+      display.
+    </p>
+    <figure>
+      <Carousel>
+        <Image
+          alt="Blue Pacman Ghost Keycaps."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_1103.HEIC"
+        />
+        <Image
+          alt="Orange Pacman Ghost Keycaps."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_1104.HEIC"
+        />
+        <Image
+          alt="Single orange Pacman Ghost Keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+          src="/bucket/heic/project/custom_keycaps/IMG_1105.HEIC"
+        />
+      </Carousel>
+      <figcaption>
+	Pacman Ghost Keycaps lit up with varying colors.
+      </figcaption>
+    </figure>
+
+    <h2 id="print17">Print 17</h2>
+    <p>
+      &emsp;For this print we decided to align the keycap with the switch
+      placed parallel to the build direction. This was intended to see if the
+      consitent printing angle of the "+" MX switch would provide consistent
+      shrinkage during the UV post curing process. In addition to the Pacman
+      Ghost Keycap, a print for an Anatomical Heart Keycap was tested as well.
+      This layout saved space around the printing bed, however required more
+      supports for each keycap with a total of 23 keycaps in this batch; 15
+      Pacman Ghost and 8 Anatomical Heart Keycaps.
+    </p>
+    <figure>
+      <Image
+        alt="Layout of Anatomical Heart and Pacman Ghost Keycaps."
+        height={375}
+        width={904}
+        src="/bucket/png/project/custom_keycaps/print17_1.PNG"
+      />
+      <figcaption>
+	Layout of Anatomical Heart and Pacman Ghost Keycaps in <PreformLink />.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The print for this was successful and each keycap from this batch
+      was usable. The orientation of the keycap did follow the expected
+      behavior with the UV post curing treatment uniformly shrinking around the
+      MX switch. Our analysis of this outcome makes us believe that the UV post
+      curing around the other previous Turkey Keycaps was angled preventing it
+      from fitting properly on the keyboard.
+    </p>
+    <figure>
+      <Image
+        alt="Print bed of Anatomical Heart and Pacman Ghost Keycaps."
+        height={3024}
+        width={4032}
+        src="/bucket/jpeg/project/custom_keycaps/IMG_1133.JPEG"
+      />
+      <figcaption>
+	Anatomical Heart and Pacman Ghost Keycaps printed in the completely
+	vertical orientation.
+      </figcaption>
+    </figure>
+
+    <h2 id="print18">Print 18</h2>
+    <p>
+      &emsp;These last keycaps add figurines for a sleeping cat and sitting dog
+      on the Turkey Keycap. These keycaps were organized similar to the
+      previous iterations with the a total of 20 keycaps organized on the
+      printing bed with a couple duplicates for each.
+    </p>
+    <figure>
+      <Image
+        alt="Layout of Cat, Dog, Heart, and Ghost Keycaps."
+        height={635}
+        width={1294}
+        src="/bucket/png/project/custom_keycaps/print18_1.PNG"
+      />
+      <figcaption>
+	Layout of all 4 types of keycaps in <PreformLink />.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;Each of the keycaps from the print were successfully removed from
+      the print bed and washed with an alcohol bath. These prints were then
+      arranged by type with 6 Dog Keycaps, 6 Cat Keycaps, 5 Ghost Keycaps and
+      5 Heart Keycaps.
+    </p>
+    <figure>
+      <Carousel>
+	<Image
+      	  alt="Cat, Dog, Heart, and Ghost Keycaps drying from alcohol bath."
+      	  height={4032}
+      	  width={3024}
+      	  src="/bucket/jpeg/project/custom_keycaps/IMG_1121.JPEG"
+      	/>
+      	<Image
+      	  alt="Keycaps arranged by type."
+      	  height={4032}
+      	  width={3024}
+      	  src="/bucket/jpeg/project/custom_keycaps/IMG_1126.JPEG"
+      	/>
+      </Carousel>
+      <figcaption>
+	Keycaps dried and arranged from alcohol bath.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The removal of the supports were done after the UV post curing
+      process and prevent serious deformation of the print in any weak areas.
+      Supports do leave a significant amount of imperfections around the
+      touchpoints and further work would be done to minimize the total amount
+      of supports and touch point size. Regardless, the resulting print
+      displayed fine detail and look even nicer under specific lighting
+      conditions.
+    </p>
+    <figure>
+      <Carousel>
+	<Image
+      	  alt="Ghost Keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/IMG_1125.JPEG"
+      	/>
+      	<Image
+      	  alt="Ghost Keycap above light."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/IMG_1129.JPEG"
+      	/>
+	<Image
+      	  alt="Cat Keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/IMG_1123.JPEG"
+      	/>
+      	<Image
+      	  alt="Cat Keycap above light."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/IMG_1127.JPEG"
+      	/>
+	<Image
+      	  alt="Dog Keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/IMG_1124.JPEG"
+      	/>
+      	<Image
+      	  alt="Dog Keycap above light."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/IMG_1130.JPEG"
+      	/>
+	<Image
+      	  alt="Heart Keycap."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/IMG_1122.JPEG"
+      	/>
+      	<Image
+      	  alt="Heart Keycap above light."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/IMG_1128.JPEG"
+      	/>
+      </Carousel>
+      <figcaption>
+	Various keycaps with and without specific lighting conditions.
+      </figcaption>
+    </figure>
+
+    <StyledPrintPreviewSection>
+      <PrintPreview
+	stlUrl="/bucket/stl/project/custom_keycaps/gift_box.stl"
+	gcodeUrl="/bucket/gcode/project/custom_keycaps/gift_box.gcode"
+      />
+      <h1 id="case">Gift Case</h1>
+      <p style={{ gridArea: 'paragraph' }}>
+	&emsp;For Christmas I intended to print a batch of these custom keycaps
+	and give them to loved ones as gifts. For this I needed to create a
+	gift case to display the keycaps and provide protection during travel.
+	A hinged box with extruded placements for the keycaps provided a simple
+	print in place box to house the keycaps without the need for additional
+	parts. Additional decorations such as the embossed Christmas tree was
+	added to give the gift some flair.
+      </p>
+    </StyledPrintPreviewSection>
+    <p>
+      &emsp;This design is primarily based off of Kevin Kennedy's tutorial for
+      creating a simple hinged box with Fusion 360 with slight modifications to
+      house the custom keycaps.
+    </p>
+    <figure>
+      <iframe
+        src="https://www.youtube.com/embed/iSBsBTMsGTk"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        style={{ aspectRatio: '16 / 9' }}
+      />
+      <figcaption>
+        Tutorial for creating a simple hinged box.
+      </figcaption>
+    </figure>
+    <p>
+      &emsp;The model was sliced and grouped into batches of 3 to maximize use
+      of the printing bed and took just over 24 hours to completely print. The
+      box provided adequate housing for the custom keycaps and worked great as
+      Christmas gifts.
+    </p>
+    <figure>
+      <Carousel>
+	<Image
+      	  alt="Cases on print bed."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/cases.jpeg"
+      	/>
+	<Image
+      	  alt="Elapsed time."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/elapsed.jpeg"
+      	/>
+	<Image
+      	  alt="Case with keycaps."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/case.jpeg"
+      	/>
+	<Image
+      	  alt="Cat Keycaps on keyboard."
+          height={IMAGE_HEIGHT}
+          width={IMAGE_WIDTH}
+      	  src="/bucket/jpeg/project/custom_keycaps/cats.jpeg"
+      	/>
+      </Carousel>
+      <figcaption>
+	Keycaps on printed case and keyboard.
+      </figcaption>
+    </figure>
+
+    <h1 id="future_work">Future Work</h1>
+    <p>
+      &emsp;The process for creating custom keycaps has provided many insights
+      into the complexity involved with fabricating the designed product. There
+      are many nuances into refining the processing parameters of SLA printing
+      so that the surfaces and structure of the print are satisfactory.
+    </p>
+    <p>
+      &emsp;One of the areas that could use more investigation is the
+      optimization of the supports so that the print is supported while
+      improving the surface finish of the print. Another would be exploring
+      additional surface treatments such as acetone vapor polishing which would
+      smooth appropriate keycaps such as the Ghost Keycap.
+    </p>
   </StyledCustomKeycaps>
 );
 
