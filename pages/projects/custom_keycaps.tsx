@@ -5,6 +5,7 @@
  */
 
 // Node Modules
+import { Euler } from '@react-three/fiber'
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import { FC } from 'react';
@@ -24,13 +25,13 @@ const IMAGE_HEIGHT = 744;
 const PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_1 = [
   {
     buttonText: 'Version 1',
-    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2] as Euler,
     stlScale: 150,
     stlUrl: '/bucket/stl/project/custom_keycaps/part1v1.stl',
   },
   {
     buttonText: 'Version 2',
-    stlMeshRotation: [0, 0, 0],
+    stlMeshRotation: [0, 0, 0] as Euler,
     stlScale: 150,
     stlUrl: '/bucket/stl/project/custom_keycaps/part1v2.stl',
   },
@@ -39,13 +40,13 @@ const PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_1 = [
 const PRINT_PREVIEWS_8_9 = [
   {
     buttonText: 'Shift Keycap',
-    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2] as Euler,
     stlScale: 6,
     stlUrl: '/bucket/stl/project/custom_keycaps/shift_topology_preview.stl',
   },
   {
     buttonText: 'Caps Lock Christmas Tree Keycap',
-    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2] as Euler,
     stlScale: 6,
     stlUrl: '/bucket/stl/project/custom_keycaps/capslock_christmas_topology_preview.stl',
   },
@@ -54,7 +55,7 @@ const PRINT_PREVIEWS_8_9 = [
 const PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_2 = [
   {
     buttonText: 'Turkey Keycap',
-    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2],
+    stlMeshRotation: [-Math.PI / 2, 0, Math.PI / 2] as Euler,
     stlScale: 6,
     stlUrl: '/bucket/stl/project/custom_keycaps/turkey_preview.stl',
   },
@@ -111,6 +112,7 @@ const StyledCustomKeycaps = styled.div`
 const CrealityEnder5PlusLink: FC = () => (
   <a
     href="https://store.creality.com/products/ender-5-plus-3d-printer"
+    rel="noreferrer"
     target="_blank"
   >
     Creality Ender 5 Plus
@@ -120,6 +122,7 @@ const CrealityEnder5PlusLink: FC = () => (
 const Dremel3D40Link: FC = () => (
   <a
     href="https://3pitech.com/products/dremel-digilab-3d40-flx-3d-printer"
+    rel="noreferrer"
     target="_blank"
   >
     Dremel 3D40-FLX
@@ -297,20 +300,20 @@ const CustomKeycaps: NextPage = () => (
     </Portal>
     <StyledPrintPreviewsSection>
       <PrintPreviews
-	ordered
-	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS}
+	      ordered
+	      printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS}
       />
       <h1 id="title" style={{ gridArea: 'heading' }}>Custom Keycaps</h1>
       <p style={{ gridArea: 'paragraph' }}>
         &emsp;For our Additive Manufacturing course (39-601 Special Topics:
         Additive Manufacturing Processing and Product Development) our group was
         tasked with developing a product that could leverage the advantages of
-	additive manufacturing compared to conventional manufacturing. To
-	satisfy this constraint the product needed to be low volume, high
-	priced, and complex enough to such that 3D printing is preferable to
-	injection molding. For this we decided to work on creating customizable
-	keycaps as this product satisfied all of the previously mentioned
-	requirements.
+	      additive manufacturing compared to conventional manufacturing. To
+	      satisfy this constraint the product needed to be low volume, high
+	      priced, and complex enough to such that 3D printing is preferable to
+	      injection molding. For this we decided to work on creating customizable
+	      keycaps as this product satisfied all of the previously mentioned
+	      requirements.
       </p>
     </StyledPrintPreviewsSection>
     <p>
@@ -327,17 +330,19 @@ const CustomKeycaps: NextPage = () => (
       Stereolithography (SLA) and Fuse Deposition Modeling (FDM). This allowed
       us to work with the machines at&nbsp;
       <a
-	href="https://engineering.cmu.edu/techspark/about/index.html"
-	target="_blank"
+	      href="https://engineering.cmu.edu/techspark/about/index.html"
+        rel="noreferrer"
+	      target="_blank"
       >
-	TechSpark
+	      TechSpark
       </a>
       &nbsp;which included the&nbsp;
       <a
-	href="https://www.stratasys.com/en/3d-printers/printer-catalog/fdm-printers/f123-series-printers/"
-	target="_blank"
+	      href="https://www.stratasys.com/en/3d-printers/printer-catalog/fdm-printers/f123-series-printers/"
+        rel="noreferrer"
+	      target="_blank"
       >
-	Stratasys F170
+	      Stratasys F170
       </a>
       &nbsp;(FDM), <Dremel3D40Link /> (FDM), and <Form2Link /> (SLA); Of which
       we primarily used the Form 2 for its ability to capture fine details of up
@@ -351,39 +356,40 @@ const CustomKeycaps: NextPage = () => (
         src="/bucket/heic/project/custom_keycaps/form_2_techspark.HEIC"
       />
       <figcaption>
-	TechSpark's Form 2 SLA machine we primarily used to print custom keycaps.
+	      TechSpark&apos;s Form 2 SLA machine we primarily used to print custom
+        keycaps.
       </figcaption>
     </figure>
 
     <StyledPrintPreviewsSection>
       <PrintPreviews
-	ordered
-	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_1}
+	      ordered
+	      printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_1}
       />
       <h1 id="part1" style={{ gridArea: 'heading' }}>Design Project: Part 1</h1>
       <p style={{ gridArea: 'paragraph' }}>
-	&emsp;The first part of this project required us to follow the&nbsp;
-	<a
+	      &emsp;The first part of this project required us to follow the&nbsp;
+	      <a
       	  href="/bucket/pdf/project/custom_keycaps/part_1.pdf"
       	  target="_blank"
       	>
-	  project guidelines
+	        project guidelines
       	</a>
-	&nbsp;and propose three possible products which we could develop
-	solutions for specific to additive manufacturing. For this we
-	chose topology optimized drones, custom glasses frames, and custom
-	keycaps. Our&nbsp;
-	<a
+	      &nbsp;and propose three possible products which we could develop
+	      solutions for specific to additive manufacturing. For this we
+	      chose topology optimized drones, custom glasses frames, and custom
+	      keycaps. Our&nbsp;
+	      <a
       	  href="/bucket/pdf/project/custom_keycaps/part_1_group_8.pdf"
       	  target="_blank"
       	>
-	  report
+	        report
       	</a>
-	&nbsp;outlines the market fit and proposed implementations and a rough
-	CAD model of our most promising product which was the custom keycap. A
-	quick basic model of the keycap was sketched by our group's designer,
-	&nbsp;<FrancisoMaderaLink />, and printed using the <Form2Link /> SLA
-	printer.
+	      &nbsp;outlines the market fit and proposed implementations and a rough
+	      CAD model of our most promising product which was the custom keycap. A
+	      quick basic model of the keycap was sketched by our group&apos;s
+        designer, <FrancisoMaderaLink />, and printed using the <Form2Link />
+        &apos;SLA printer.
       </p>
     </StyledPrintPreviewsSection>
 
@@ -436,33 +442,33 @@ const CustomKeycaps: NextPage = () => (
 
     <StyledPrintPreviewsSection>
       <PrintPreviews
-	ordered
-	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_2}
+	      ordered
+	      printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_2}
       />
       <h1 id="part2" style={{ gridArea: 'heading' }}>Design Project: Part 2</h1>
       <p style={{ gridArea: 'paragraph' }}>
-	&emsp;In the second part of this project we focused on two of the
-	proposed products as outlined by the&nbsp;
-	<a
+	      &emsp;In the second part of this project we focused on two of the
+	      proposed products as outlined by the&nbsp;
+	      <a
       	  href="/bucket/pdf/project/custom_keycaps/part_2.pdf"
       	  target="_blank"
       	>
-	  project guidelines
+	        project guidelines
       	</a>
-	. In our&nbsp;
-	<a
+	      . In our&nbsp;
+	      <a
       	  href="/bucket/pdf/project/custom_keycaps/part_2_group_8.pdf"
       	  target="_blank"
       	>
-	  report
+	        report
       	</a>
-	&nbsp;We chose to continue with the topology optimized drone bodies and
-	custom keycaps. For this our group's CAD specialist,&nbsp;
-	<FrancisoMaderaLink />, modeled several keycaps with texturing and
-	debossing which are quite difficult to achieve with injection molding.
-	These keycaps were printed with the same <Form2Link /> SLA printer
-	along with tests done on the <Dremel3D40Link /> and&nbsp;
-	<CrealityEnder5PlusLink />.
+	      &nbsp;We chose to continue with the topology optimized drone bodies and
+	      custom keycaps. For this our group&apos;s CAD specialist,&nbsp;
+	      <FrancisoMaderaLink />, modeled several keycaps with texturing and
+	      debossing which are quite difficult to achieve with injection molding.
+	      These keycaps were printed with the same <Form2Link /> SLA printer
+	      along with tests done on the <Dremel3D40Link /> and&nbsp;
+	      <CrealityEnder5PlusLink />.
       </p>
     </StyledPrintPreviewsSection>
 
@@ -471,7 +477,7 @@ const CustomKeycaps: NextPage = () => (
       &emsp;This keycap was designed with dimensions obtained from an existing
       keycap with the MX switch specification. We chose to deboss a turkey on
       the top of the keycap to gauge user engagement around holiday themed
-      keycaps. As part of the course's design project,&nbsp;
+      keycaps. As part of the course&apos;s design project,&nbsp;
       <a
         href="https://www.thingiverse.com/thing:5606834"
         rel="noreferrer"
@@ -526,7 +532,7 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	<PreformLink /> slicer views of Turkey Keycap for Gray resin.
+	      <PreformLink /> slicer views of Turkey Keycap for Gray resin.
       </figcaption>
     </figure>
     <figure>
@@ -551,7 +557,7 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Views of finished keycaps along with side by side comparison.
+	      Views of finished keycaps along with side by side comparison.
       </figcaption>
     </figure>
     <p>
@@ -565,11 +571,16 @@ const CustomKeycaps: NextPage = () => (
       keycap were accurate.
     </p>
     <figure>
-      <video autoPlay loop muted src="/bucket/mp4/project/custom_keycaps/print2_no_fit.mp4">
-	Video of print 2 of keycap not fitting on MX switch.
+      <video
+        autoPlay
+        loop
+        muted
+        src="/bucket/mp4/project/custom_keycaps/print2_no_fit.mp4"
+      >
+	      Video of print 2 of keycap not fitting on MX switch.
       </video>
       <figcaption>
-	Turkey Keycap after UV post curing does not fit on MX switch connector.
+	      Turkey Keycap after UV post curing does not fit on MX switch connector.
       </figcaption>
     </figure>
 
@@ -609,8 +620,8 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Views of Turkey Keycap in slicer software before printing with&nbsp;
-	<Dremel3D40Link /> FDM printer.
+	      Views of Turkey Keycap in slicer software before printing with&nbsp;
+	      <Dremel3D40Link /> FDM printer.
       </figcaption>
     </figure>
     <p>
@@ -638,8 +649,8 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Top and bottom views of white Turkey Keycap with partially removed
-	supports.
+	      Top and bottom views of white Turkey Keycap with partially removed
+	      supports.
       </figcaption>
     </figure>
 
@@ -680,8 +691,8 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Prints of Turkey Keycap with <CrealityEnder5PlusLink /> printer with
-	and without raft adhesion.
+	      Prints of Turkey Keycap with <CrealityEnder5PlusLink /> printer with
+	      and without raft adhesion.
       </figcaption>
     </figure>
     <p>
@@ -705,7 +716,7 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Finished keycap prints on printing bed with and without raft adhesion.
+	      Finished keycap prints on printing bed with and without raft adhesion.
       </figcaption>
     </figure>
     <p>
@@ -722,7 +733,7 @@ const CustomKeycaps: NextPage = () => (
         src="/bucket/heic/project/custom_keycaps/IMG_0995.HEIC"
       />
       <figcaption>
-	<CrealityEnder5PlusLink /> printed Turkey Keycap attached to keyboard.
+	      <CrealityEnder5PlusLink /> printed Turkey Keycap attached to keyboard.
       </figcaption>
     </figure>
 
@@ -757,7 +768,7 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	<PreformLink /> views of the Turkey Keycap with minimal supports.
+	      <PreformLink /> views of the Turkey Keycap with minimal supports.
       </figcaption>
     </figure>
     <p>
@@ -775,24 +786,24 @@ const CustomKeycaps: NextPage = () => (
         src="/bucket/heic/project/custom_keycaps/IMG_0994.HEIC"
       />
       <figcaption>
-	<Form2Link /> printed Turkey Keycap fit on keyboard without UV post
-	curing.
+	      <Form2Link /> printed Turkey Keycap fit on keyboard without UV post
+	      curing.
       </figcaption>
     </figure>
 
     <StyledPrintPreviewSection>
       <PrintPreview
-	stlMeshRotation={[-Math.PI / 2, 0, Math.PI / 2]}
-	stlScale={150}
-	stlPosition={[-50, -225, 0]}
-	stlUrl="/bucket/stl/project/custom_keycaps/capslock_christmas.stl"
+	      stlMeshRotation={[-Math.PI / 2, 0, Math.PI / 2]}
+	      stlScale={150}
+	      stlPosition={[-50, -225, 0]}
+	      stlUrl="/bucket/stl/project/custom_keycaps/capslock_christmas.stl"
       />
       <h2 id="print7" style={{ gridArea: 'heading' }}>Print 7</h2>
       <p style={{ gridArea: 'paragraph' }}>
-	&emsp;This new keycap embosses a christmas tree on the top surface and
-	extends the spacing to fit the dimensions of a Caps Lock keycap. The
-	sides of this keycap lack the texturing of the previous prints however
-	this will be added in the subsequent prints.
+	      &emsp;This new keycap embosses a christmas tree on the top surface and
+	      extends the spacing to fit the dimensions of a Caps Lock keycap. The
+	      sides of this keycap lack the texturing of the previous prints however
+	      this will be added in the subsequent prints.
       </p>
     </StyledPrintPreviewSection>
     <p>
@@ -817,7 +828,7 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Views of Christmas Tree Keycap and supports in <PreformLink /> slicer.
+	      Views of Christmas Tree Keycap and supports in <PreformLink /> slicer.
       </figcaption>
     </figure>
     <p>
@@ -831,14 +842,14 @@ const CustomKeycaps: NextPage = () => (
       <PrintPreviews ordered printPreviews={PRINT_PREVIEWS_8_9} />
       <h2 id="prints8&9" style={{ gridArea: 'heading' }}>Prints 8 & 9</h2>
       <p style={{ gridArea: 'paragraph' }}>
-	&emsp;For the final couple of prints for <a href="#part2">Part 2</a> of
-	this project, we printed the Christmas Tree Keycap updated with
-	texturing from <a href="#print7">Print 7</a> and a new Shift Keycap
-	with similar texturing. Both of these keycaps were printed in the
-	following two prints with the latter printing duplicates to test out
-	the batch printing capabilities of the <Form2Link /> SLA printer. Both
-	the Shift Keycap and the Caps Lock Keycap skipped the UV post curing
-	process for now.
+	      &emsp;For the final couple of prints for <a href="#part2">Part 2</a> of
+	      this project, we printed the Christmas Tree Keycap updated with
+	      texturing from <a href="#print7">Print 7</a> and a new Shift Keycap
+	      with similar texturing. Both of these keycaps were printed in the
+	      following two prints with the latter printing duplicates to test out
+	      the batch printing capabilities of the <Form2Link /> SLA printer. Both
+	      the Shift Keycap and the Caps Lock Keycap skipped the UV post curing
+	      process for now.
       </p>
     </StyledPrintPreviewsSection>
     <p>
@@ -877,8 +888,8 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Front and Back views of Shift and Caps Locks Keycaps layout in&nbsp;
-	<PreformLink /> slicing software.
+	      Front and Back views of Shift and Caps Locks Keycaps layout in&nbsp;
+	      <PreformLink /> slicing software.
       </figcaption>
     </figure>
     <p>
@@ -891,25 +902,25 @@ const CustomKeycaps: NextPage = () => (
     </p>
     <figure>
       <Carousel>
-	<Image
+	      <Image
       	  alt="Finished Keycaps still attached to print bed."
       	  height={IMAGE_HEIGHT}
       	  width={IMAGE_WIDTH}
       	  src="/bucket/heic/project/custom_keycaps/IMG_1022.HEIC"
       	/>
-	<Image
+	      <Image
       	  alt="Image of the printed Shift and Caps Lock Keycaps."
       	  height={IMAGE_HEIGHT}
       	  width={IMAGE_WIDTH}
       	  src="/bucket/jpeg/project/custom_keycaps/IMG_1020.jpeg"
       	/>
-	<Image
+	      <Image
       	  alt="Caps Lock and Shift Keycaps attached to keyboard."
       	  height={IMAGE_HEIGHT}
       	  width={IMAGE_WIDTH}
       	  src="/bucket/heic/project/custom_keycaps/IMG_1023.HEIC"
       	/>
-	<Image
+	      <Image
       	  alt="Caps Lock and Shift Keycaps attached to keyboard."
       	  height={IMAGE_HEIGHT}
       	  width={IMAGE_WIDTH}
@@ -917,7 +928,7 @@ const CustomKeycaps: NextPage = () => (
       	/>
       </Carousel>
       <figcaption>
-	Images of finished Caps Lock and Shift Keycaps at various stages.
+	      Images of finished Caps Lock and Shift Keycaps at various stages.
       </figcaption>
     </figure>
 
@@ -928,7 +939,7 @@ const CustomKeycaps: NextPage = () => (
       	href="/bucket/pdf/project/custom_keycaps/part_3.pdf"
       	target="_blank"
       >
-	project guidelines
+	      project guidelines
       </a>
       &nbsp;had us focus on one of the two proposed products outlined in our
       previous design project proposal. In this final&nbsp;
@@ -936,7 +947,7 @@ const CustomKeycaps: NextPage = () => (
       	href="/bucket/pdf/project/custom_keycaps/part_3_group_8.pdf"
       	target="_blank"
       >
-	report
+	      report
       </a>
       &nbsp;we decided to move forward with the custom keycaps and fine tune
       the manufacturing process associated with these prints. Specifically we
@@ -947,29 +958,29 @@ const CustomKeycaps: NextPage = () => (
 
     <StyledPrintPreviewSection>
       <PrintPreview
-	stlMeshRotation={[-Math.PI / 2, 0, Math.PI]}
-	stlScale={6}
-	stlPosition={[75, 0, 0]}
-	stlUrl="/bucket/stl/project/custom_keycaps/bare_keycap.STL"
+	      stlMeshRotation={[-Math.PI / 2, 0, Math.PI]}
+	      stlScale={6}
+	      stlPosition={[75, 0, 0]}
+	      stlUrl="/bucket/stl/project/custom_keycaps/bare_keycap.STL"
       />
       <h2 id="print10" style={{ gridArea: 'heading' }}>Print 10</h2>
       <p style={{ gridArea: 'paragraph' }}>
-	&emsp;This keycap is the base model used for the Turkey Keycap without
-	any of the texturing and debossing. We want to determine the best angle
-	to print these keycaps without accumulating excess resin and retaining
-	the model's structure. For this print, a 4 x 4 grid of keycaps was
-	printed with angles along the X and Y axis rotated by 15&deg;.
+	      &emsp;This keycap is the base model used for the Turkey Keycap without
+	      any of the texturing and debossing. We want to determine the best angle
+	      to print these keycaps without accumulating excess resin and retaining
+	      the model&apos;s structure. For this print, a 4 x 4 grid of keycaps was
+	      printed with angles along the X and Y axis rotated by 15&deg;.
       </p>
     </StyledPrintPreviewSection>
     <figure>
       <Image
-	alt="Grid layout of Keycaps in Preform."
+	      alt="Grid layout of Keycaps in Preform."
         height={489}
         width={990}
         src="/bucket/png/project/custom_keycaps/print10_1.PNG"
       />
       <figcaption>
-	View of grid layout in <PreformLink /> slicer.
+	      View of grid layout in <PreformLink /> slicer.
       </figcaption>
     </figure>
     <p>
@@ -1002,7 +1013,7 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Images of Bare Keycaps orientated at varying angles.
+	      Images of Bare Keycaps orientated at varying angles.
       </figcaption>
     </figure>
 
@@ -1016,13 +1027,13 @@ const CustomKeycaps: NextPage = () => (
     </p>
     <figure>
       <Image
-	alt="Grid layout of Shift and Bare Keycaps in Preform."
+	      alt="Grid layout of Shift and Bare Keycaps in Preform."
         height={677}
         width={1216}
         src="/bucket/png/project/custom_keycaps/print11_1.PNG"
       />
       <figcaption>
-	View of angled Shift and Bare Keycaps in <PreformLink /> slicer.
+	      View of angled Shift and Bare Keycaps in <PreformLink /> slicer.
       </figcaption>
     </figure>
     <p>
@@ -1055,30 +1066,30 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Various images of printed keycaps still attached to <Form2Link />&nbsp;
-	printing bed.
+	      Various images of printed keycaps still attached to <Form2Link />&nbsp;
+	      printing bed.
       </figcaption>
     </figure>
     <figure>
       <Image
-	alt="Layout of Shift and Bare Keycaps on cardboard."
+	      alt="Layout of Shift and Bare Keycaps on cardboard."
         height={4032}
         width={3024}
         src="/bucket/jpeg/project/custom_keycaps/IMG_1077.JPEG"
       />
       <figcaption>
-	Layout of Shift and Bare Keycaps with orientation increments of 15&deg;.
+	      Layout of Shift and Bare Keycaps with orientation increments of 15&deg;.
       </figcaption>
     </figure>
     <p>
       &emsp;One notable difference that was seen with the differences in
       orientation along the X axis as that the MX connecter started to lose
       accuracy when the keycap was rotated. This -45&deg; orientation rotated
-      the connector to print as a "X" rather than a "+" and lost much of the
-      fine details around the points of connection. This made us realize that
-      only a slight angle was needed along the Y axis to remove the excess
-      resin and printing with 0&deg; rotation along the X axis was the best
-      solution.
+      the connector to print as a &quot;X&quot; rather than a &quot;+&quot; and
+      lost much of the fine details around the points of connection. This made
+      us realize that only a slight angle was needed along the Y axis to remove
+      the excess resin and printing with 0&deg; rotation along the X axis was
+      the best solution.
     </p>
     <figure>
       <Carousel>
@@ -1096,8 +1107,8 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	View of the "+" printing direction (0&deg; rotation) and "X" printing
-	direction (-45&deg; rotation).
+	      View of the &quot;+&quot; printing direction (0&deg; rotation) and
+        &quot;X&quot; printing direction (-45&deg; rotation).
       </figcaption>
     </figure>
 
@@ -1113,32 +1124,32 @@ const CustomKeycaps: NextPage = () => (
     </p>
     <figure>
       <Image
-	alt="Varying scales of the Shift Keycap in Preform"
+	      alt="Varying scales of the Shift Keycap in Preform"
         height={404}
         width={1484}
         src="/bucket/png/project/custom_keycaps/print12_1.PNG"
       />
       <figcaption>
-	View of Shift Keycaps of varying scales in <PreformLink /> slicer.
+	      View of Shift Keycaps of varying scales in <PreformLink /> slicer.
       </figcaption>
     </figure>
     <p>
       &emsp;Once printed, one set of keycaps were UV post cured with the
       supports still attached as it was noticed that the inclusion of the
       supports prevented warping during this UV post curing process. However,
-      there still remained the issue of significant "yellowing" of the clear
-      print during the UV post curing process that a adequate solution for had
-      yet to be determined.
+      there still remained the issue of significant &quot;yellowing&quot; of the
+      clear print during the UV post curing process that a adequate solution for
+      had yet to be determined.
     </p>
     <figure>
       <Image
-	alt="Side by Side comparision of UV post cured and as is keycaps"
+	      alt="Side by Side comparision of UV post cured and as is keycaps"
         height={IMAGE_HEIGHT}
-	width={IMAGE_WIDTH}
-	src="/bucket/heic/project/custom_keycaps/IMG_1057.HEIC"
+	      width={IMAGE_WIDTH}
+	      src="/bucket/heic/project/custom_keycaps/IMG_1057.HEIC"
       />
       <figcaption>
-	Side by side comparisons of UV post cured and as is Shift Key caps.
+	      Side by side comparisons of UV post cured and as is Shift Key caps.
       </figcaption>
     </figure>
     <p>
@@ -1150,11 +1161,16 @@ const CustomKeycaps: NextPage = () => (
       also act as a mechanism to retain the build up of residual stress.
     </p>
     <figure>
-      <video autoPlay loop muted src="/bucket/mp4/project/custom_keycaps/uv_post_curing.mp4">
-	Video of UV post curing on Shift Keycaps.
+      <video
+        autoPlay
+        loop
+        muted
+        src="/bucket/mp4/project/custom_keycaps/uv_post_curing.mp4"
+      >
+	      Video of UV post curing on Shift Keycaps.
       </video>
       <figcaption>
-	UV post curing process for Shift Keycaps with supports still attached.
+	      UV post curing process for Shift Keycaps with supports still attached.
       </figcaption>
     </figure>
     <p>
@@ -1165,13 +1181,13 @@ const CustomKeycaps: NextPage = () => (
     </p>
     <figure>
       <Image
-	alt="Varying Shift Keycap with their scales denoted."
+	      alt="Varying Shift Keycap with their scales denoted."
         height={IMAGE_HEIGHT}
-	width={IMAGE_WIDTH}
-	src="/bucket/jpeg/project/custom_keycaps/IMG_1078.JPEG"
+	      width={IMAGE_WIDTH}
+	      src="/bucket/jpeg/project/custom_keycaps/IMG_1078.JPEG"
       />
       <figcaption>
-	UV post cured and as is Shift Keycaps with their varying sizes.
+	      UV post cured and as is Shift Keycaps with their varying sizes.
       </figcaption>
     </figure>
 
@@ -1185,13 +1201,13 @@ const CustomKeycaps: NextPage = () => (
     </p>
     <figure>
       <Image
-	alt="6 x 5 layout of Turkey Keycaps in Preform."
+	      alt="6 x 5 layout of Turkey Keycaps in Preform."
         height={413}
-	width={962}
-	src="/bucket/png/project/custom_keycaps/print13_1.PNG"
+	      width={962}
+	      src="/bucket/png/project/custom_keycaps/print13_1.PNG"
       />
       <figcaption>
-	6 x 5 layout of Turkey Keycaps angled at 15&deg; in <PreformLink />
+	      6 x 5 layout of Turkey Keycaps angled at 15&deg; in <PreformLink />
       </figcaption>
     </figure>
     <p>
@@ -1239,8 +1255,8 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Finished Turkey Keycap prints and various stages of post treatment
-	process.
+	      Finished Turkey Keycap prints and various stages of post treatment
+	      process.
       </figcaption>
     </figure>
 
@@ -1269,7 +1285,7 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	<PreformLink /> layouts of prints 14 and 15.
+	      <PreformLink /> layouts of prints 14 and 15.
       </figcaption>
     </figure>
     <p>
@@ -1288,7 +1304,7 @@ const CustomKeycaps: NextPage = () => (
         src="/bucket/jpeg/project/custom_keycaps/IMG_1068.JPEG"
       />
       <figcaption>
-	Layout of all keycaps of varying scale (Print 14).
+	      Layout of all keycaps of varying scale (Print 14).
       </figcaption>
     </figure>
     <figure>
@@ -1307,60 +1323,60 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	A finer subset of keycaps at various scales (Print 15).
+	      A finer subset of keycaps at various scales (Print 15).
       </figcaption>
     </figure>
 
     <StyledPrintPreviewsSection>
       <PrintPreviews
-	ordered
-	printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_3}
+	      ordered
+	      printPreviews={PRINT_PREVIEWS_CUSTOM_KEYCAPS_PART_3}
       />
       <h2 id="meshmixer_prints" style={{ gridArea: 'heading' }}>
-	Meshmixer Prints (Prints 16, 17, 18)
+	      Meshmixer Prints (Prints 16, 17, 18)
       </h2>
       <p style={{ gridArea: 'paragraph' }}>
-	&emsp;For the following prints, figures from <ThingiverseLink /> were
-	appended to the Turkey Keycap using a modeling software called&nbsp;
-	<MeshmixerLink />. These figures include the&nbsp;
-	<a
-  	  href="https://www.thingiverse.com/thing:557527"
-  	  rel="noreferrer"
-  	  target="_blank"
-  	>
-	  Pacman Ghost
-  	</a>
-	,&nbsp;
-	<a
-  	  href="https://www.thingiverse.com/thing:4597731"
-  	  rel="noreferrer"
-  	  target="_blank"
-  	>
-	  Sleeping Cat
-  	</a>
-	,&nbsp;
-	<a
-  	  href="https://www.thingiverse.com/thing:4694712"
-  	  rel="noreferrer"
-  	  target="_blank"
-  	>
-	  Dog
-  	</a>
-	,&nbsp; and&nbsp;
-	<a
-  	  href="https://www.thingiverse.com/thing:2638185"
-  	  rel="noreferrer"
-  	  target="_blank"
-  	>
-	  Heart
-  	</a>
-	&nbsp;models, further supporting the product's niche as an additively
-	manufactured product rather than one that is injection molded. For all
-	of these prints, the <Form2Link /> printer displayed its ability to
-	capture the fine details such as the fur on the animal models and the
-	veins and arteries of the anatomical heart model. The clear resin here
-	also shines well here as the LED's from the keyboard illuminate the
-	figure and keycap when attached to the keyboard.
+	      &emsp;For the following prints, figures from <ThingiverseLink /> were
+	      appended to the Turkey Keycap using a modeling software called&nbsp;
+	      <MeshmixerLink />. These figures include the&nbsp;
+	      <a
+  	      href="https://www.thingiverse.com/thing:557527"
+  	      rel="noreferrer"
+  	      target="_blank"
+  	    >
+	        Pacman Ghost
+  	    </a>
+	      ,&nbsp;
+	      <a
+      	  href="https://www.thingiverse.com/thing:4597731"
+      	  rel="noreferrer"
+      	  target="_blank"
+      	>
+	        Sleeping Cat
+      	</a>
+	      ,&nbsp;
+	      <a
+      	  href="https://www.thingiverse.com/thing:4694712"
+      	  rel="noreferrer"
+      	  target="_blank"
+      	>
+	        Dog
+      	</a>
+	      ,&nbsp; and&nbsp;
+	      <a
+      	  href="https://www.thingiverse.com/thing:2638185"
+      	  rel="noreferrer"
+      	  target="_blank"
+      	>
+	        Heart
+  	    </a>
+	      &nbsp;models, further supporting the product&apos;s niche as an
+        additively manufactured product rather than one that is injection
+        molded. For all of these prints, the <Form2Link /> printer displayed its
+        ability to capture the fine details such as the fur on the animal models
+        and the veins and arteries of the anatomical heart model. The clear
+        resin here also shines well here as the LED&apos;s from the keyboard
+        illuminate the figure and keycap when attached to the keyboard.
       </p>
     </StyledPrintPreviewsSection>
 
@@ -1379,7 +1395,7 @@ const CustomKeycaps: NextPage = () => (
         src="/bucket/png/project/custom_keycaps/print16_1.PNG"
       />
       <figcaption>
-	4 x 5 Layout of Pacman Ghost Keycaps (Print 16).
+	      4 x 5 Layout of Pacman Ghost Keycaps (Print 16).
       </figcaption>
     </figure>
     <p>
@@ -1421,7 +1437,7 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Finished Pacman Ghost Keycaps of varying quality.
+	      Finished Pacman Ghost Keycaps of varying quality.
       </figcaption>
     </figure>
     <p>
@@ -1452,7 +1468,7 @@ const CustomKeycaps: NextPage = () => (
         />
       </Carousel>
       <figcaption>
-	Pacman Ghost Keycaps lit up with varying colors.
+	      Pacman Ghost Keycaps lit up with varying colors.
       </figcaption>
     </figure>
 
@@ -1460,11 +1476,11 @@ const CustomKeycaps: NextPage = () => (
     <p>
       &emsp;For this print we decided to align the keycap with the switch
       placed parallel to the build direction. This was intended to see if the
-      consitent printing angle of the "+" MX switch would provide consistent
-      shrinkage during the UV post curing process. In addition to the Pacman
-      Ghost Keycap, a print for an Anatomical Heart Keycap was tested as well.
-      This layout saved space around the printing bed, however required more
-      supports for each keycap with a total of 23 keycaps in this batch; 15
+      consitent printing angle of the &quot;+&quot; MX switch would provide
+      consistent shrinkage during the UV post curing process. In addition to the
+      Pacman Ghost Keycap, a print for an Anatomical Heart Keycap was tested as
+      well. This layout saved space around the printing bed, however required
+      more supports for each keycap with a total of 23 keycaps in this batch; 15
       Pacman Ghost and 8 Anatomical Heart Keycaps.
     </p>
     <figure>
@@ -1475,7 +1491,7 @@ const CustomKeycaps: NextPage = () => (
         src="/bucket/png/project/custom_keycaps/print17_1.PNG"
       />
       <figcaption>
-	Layout of Anatomical Heart and Pacman Ghost Keycaps in <PreformLink />.
+	      Layout of Anatomical Heart and Pacman Ghost Keycaps in <PreformLink />.
       </figcaption>
     </figure>
     <p>
@@ -1494,8 +1510,8 @@ const CustomKeycaps: NextPage = () => (
         src="/bucket/jpeg/project/custom_keycaps/IMG_1133.JPEG"
       />
       <figcaption>
-	Anatomical Heart and Pacman Ghost Keycaps printed in the completely
-	vertical orientation.
+	      Anatomical Heart and Pacman Ghost Keycaps printed in the completely
+	      vertical orientation.
       </figcaption>
     </figure>
 
@@ -1514,7 +1530,7 @@ const CustomKeycaps: NextPage = () => (
         src="/bucket/png/project/custom_keycaps/print18_1.PNG"
       />
       <figcaption>
-	Layout of all 4 types of keycaps in <PreformLink />.
+	      Layout of all 4 types of keycaps in <PreformLink />.
       </figcaption>
     </figure>
     <p>
@@ -1525,7 +1541,7 @@ const CustomKeycaps: NextPage = () => (
     </p>
     <figure>
       <Carousel>
-	<Image
+	      <Image
       	  alt="Cat, Dog, Heart, and Ghost Keycaps drying from alcohol bath."
       	  height={4032}
       	  width={3024}
@@ -1539,7 +1555,7 @@ const CustomKeycaps: NextPage = () => (
       	/>
       </Carousel>
       <figcaption>
-	Keycaps dried and arranged from alcohol bath.
+	      Keycaps dried and arranged from alcohol bath.
       </figcaption>
     </figure>
     <p>
@@ -1553,7 +1569,7 @@ const CustomKeycaps: NextPage = () => (
     </p>
     <figure>
       <Carousel>
-	<Image
+	      <Image
       	  alt="Ghost Keycap."
           height={IMAGE_HEIGHT}
           width={IMAGE_WIDTH}
@@ -1565,7 +1581,7 @@ const CustomKeycaps: NextPage = () => (
           width={IMAGE_WIDTH}
       	  src="/bucket/jpeg/project/custom_keycaps/IMG_1129.JPEG"
       	/>
-	<Image
+	      <Image
       	  alt="Cat Keycap."
           height={IMAGE_HEIGHT}
           width={IMAGE_WIDTH}
@@ -1577,7 +1593,7 @@ const CustomKeycaps: NextPage = () => (
           width={IMAGE_WIDTH}
       	  src="/bucket/jpeg/project/custom_keycaps/IMG_1127.JPEG"
       	/>
-	<Image
+	      <Image
       	  alt="Dog Keycap."
           height={IMAGE_HEIGHT}
           width={IMAGE_WIDTH}
@@ -1589,7 +1605,7 @@ const CustomKeycaps: NextPage = () => (
           width={IMAGE_WIDTH}
       	  src="/bucket/jpeg/project/custom_keycaps/IMG_1130.JPEG"
       	/>
-	<Image
+	      <Image
       	  alt="Heart Keycap."
           height={IMAGE_HEIGHT}
           width={IMAGE_WIDTH}
@@ -1603,30 +1619,30 @@ const CustomKeycaps: NextPage = () => (
       	/>
       </Carousel>
       <figcaption>
-	Various keycaps with and without specific lighting conditions.
+	      Various keycaps with and without specific lighting conditions.
       </figcaption>
     </figure>
 
     <StyledPrintPreviewSection>
       <PrintPreview
-	stlUrl="/bucket/stl/project/custom_keycaps/gift_box.stl"
-	gcodeUrl="/bucket/gcode/project/custom_keycaps/gift_box.gcode"
+	      stlUrl="/bucket/stl/project/custom_keycaps/gift_box.stl"
+	      gcodeUrl="/bucket/gcode/project/custom_keycaps/gift_box.gcode"
       />
       <h1 id="case">Gift Case</h1>
       <p style={{ gridArea: 'paragraph' }}>
-	&emsp;For Christmas I intended to print a batch of these custom keycaps
-	and give them to loved ones as gifts. For this I needed to create a
-	gift case to display the keycaps and provide protection during travel.
-	A hinged box with extruded placements for the keycaps provided a simple
-	print in place box to house the keycaps without the need for additional
-	parts. Additional decorations such as the embossed Christmas tree was
-	added to give the gift some flair.
+	      &emsp;For Christmas I intended to print a batch of these custom keycaps
+	      and give them to loved ones as gifts. For this I needed to create a
+	      gift case to display the keycaps and provide protection during travel.
+	      A hinged box with extruded placements for the keycaps provided a simple
+	      print in place box to house the keycaps without the need for additional
+	      parts. Additional decorations such as the embossed Christmas tree was
+	      added to give the gift some flair.
       </p>
     </StyledPrintPreviewSection>
     <p>
-      &emsp;This design is primarily based off of Kevin Kennedy's tutorial for
-      creating a simple hinged box with Fusion 360 with slight modifications to
-      house the custom keycaps.
+      &emsp;This design is primarily based off of Kevin Kennedy&apos;s tutorial
+      for creating a simple hinged box with Fusion 360 with slight modifications
+      to house the custom keycaps.
     </p>
     <figure>
       <iframe
@@ -1647,25 +1663,25 @@ const CustomKeycaps: NextPage = () => (
     </p>
     <figure>
       <Carousel>
-	<Image
+	      <Image
       	  alt="Cases on print bed."
           height={IMAGE_HEIGHT}
           width={IMAGE_WIDTH}
       	  src="/bucket/jpeg/project/custom_keycaps/cases.jpeg"
       	/>
-	<Image
+	      <Image
       	  alt="Elapsed time."
           height={IMAGE_HEIGHT}
           width={IMAGE_WIDTH}
       	  src="/bucket/jpeg/project/custom_keycaps/elapsed.jpeg"
       	/>
-	<Image
+	      <Image
       	  alt="Case with keycaps."
           height={IMAGE_HEIGHT}
           width={IMAGE_WIDTH}
       	  src="/bucket/jpeg/project/custom_keycaps/case.jpeg"
       	/>
-	<Image
+	      <Image
       	  alt="Cat Keycaps on keyboard."
           height={IMAGE_HEIGHT}
           width={IMAGE_WIDTH}
@@ -1673,7 +1689,7 @@ const CustomKeycaps: NextPage = () => (
       	/>
       </Carousel>
       <figcaption>
-	Keycaps on printed case and keyboard.
+	      Keycaps on printed case and keyboard.
       </figcaption>
     </figure>
 
