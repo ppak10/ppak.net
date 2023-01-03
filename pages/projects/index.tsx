@@ -7,7 +7,6 @@
 import type { NextPage } from 'next';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
-import styled from 'styled-components';
 
 // Constants
 // Thumbnails should have 4:3 aspect ratio to appear correctly.
@@ -15,33 +14,7 @@ const THUMBNAIL_HEIGHT = 230;
 const THUMBNAIL_WIDTH = 307;
 
 // Styled Components
-import { StyledListItem } from 'common/styled';
-const StyledProjects = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  padding: 0px;
-
-  ${StyledListItem} {
-    align-items: center;
-    min-width: 300px;
-    flex: 1;
-
-    h3 {
-      margin: 0px;
-    }
-
-    img {
-      border-radius: 0.25em;
-    }
-
-  }
-
-  // Hacky fix to prevent last list item from expanding entire column width.
-  ${StyledListItem}:last-child {
-    flex: unset;
-  }
-`;
+import { StyledListItem, StyledProjects } from 'common/styled';
 
 const Projects: NextPage = () => {
   return (
