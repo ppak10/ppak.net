@@ -3,7 +3,7 @@
  */
 
 // Node Modules
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { FC, useState } from 'react';
 import styled from 'styled-components';
 

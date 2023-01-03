@@ -43,23 +43,17 @@ const StyledNavbar = styled.nav`
 const Navbar: FC<{className?: string}> = ({ className }) => (
   <StyledNavbar className={className}>
     <Link href="/">
-      <a>
-        <h1>ppak.net</h1>
-      </a>
+      <h1>ppak.net</h1>
     </Link>
     <ul>
       <li>
         <Link href="/projects">
-          <a>
-            <h2>Projects</h2>
-          </a>
+          <h2>Projects</h2>
         </Link>
       </li>
       <li>
         <Link href="/work/lou">
-          <a>
-            <h2>Work</h2>
-          </a>
+          <h2>Work</h2>
         </Link>
       </li>
     </ul>
