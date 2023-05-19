@@ -4,6 +4,7 @@
  */
 
 // Node Modules
+import { createClient } from 'contentful';
 import type { AppProps } from 'next/app';
 import Head from 'next/head'
 import { FC } from 'react';
@@ -81,6 +82,16 @@ const GlobalStyle = createGlobalStyle<{theme: typeof theme}>`
 
 // Theme
 import { theme } from 'common/themes';
+
+export const getStaticProps = async () => {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID as string,
+    accessToken: process.env.CONTENTFUL_SPACE_ACCESS_TOKEN as string,
+  });
+
+  const data = await client.getEntries()
+  console.log(data.items);
+}
 
 const App: FC<AppProps> = ({ Component, pageProps }) => (
   <ThemeProvider theme={theme}>

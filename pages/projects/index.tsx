@@ -4,6 +4,7 @@
  */
 
 // Node Modules
+import { useEffect } from 'react';
 import type { NextPage } from 'next';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
@@ -13,10 +14,21 @@ import Link from 'next/link';
 const THUMBNAIL_HEIGHT = 230;
 const THUMBNAIL_WIDTH = 307;
 
+// Contentful
+import { getEntries } from 'common/contentful';
+
 // Styled Components
 import { StyledListItem, StyledProjects } from 'common/styled';
 
-const Projects: NextPage = () => {
+export const getStaticProps = async () => {
+  const entries = await getEntries();
+  return { props: { entries } };
+};
+
+const Projects: NextPage = ({ entries }) => {
+  useEffect(() => {
+    console.log(entries);
+  }, [entries])
   return (
     <StyledProjects>
       <StyledListItem>
