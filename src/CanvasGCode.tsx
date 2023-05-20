@@ -47,7 +47,11 @@ const CanvasGCode: FC<CanvasGCodeProp> = ({ className, url }) => {
     <StyledCanvasGCode className={className}>
       <StyledCanvas orthographic={true}>
         <Suspense fallback={null}>
-          <OrthographicCamera makeDefault position={[500, 500, 500]} />
+          <OrthographicCamera
+            getObjectsByProperty={true}
+            makeDefault
+            position={[500, 500, 500]}
+          />
           <Scene url={url} />
           <OrbitControls />
         </Suspense>
