@@ -4,11 +4,9 @@
  */
 
 // Node Modules
-// import { createClient } from 'contentful';
 import type { NextPage } from 'next';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
-// import { useEffect } from 'react';
 import styled from 'styled-components';
 
 // Constants
@@ -23,19 +21,6 @@ const StyledHome = styled.div`
 `;
 
 const Home: NextPage = () => {
-
-  // useEffect(() => {
-  //   // const contentful = require('contentful')
-  //   const client = createClient({
-  //     space: 'n62kcoo4niox',
-  //     environment: 'master', // defaults to 'master' if not set
-  //     accessToken: 'DvTvqWA46uOKM1dIopVH59xiuJyuJOFBNRZx3GSLugQ'
-  //   })
-
-  //   client.getEntries()
-  //   .then((response) => console.log(response.items))
-  //   .catch(console.error)
-  // }, []);
 
   return (
     <StyledHome>
