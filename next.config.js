@@ -9,7 +9,7 @@ module.exports = {
     ]
   },
   images: {
-    domains: ['storage.googleapis.com'],
+    domains: ['storage.googleapis.com', 'images.ctfassets.net'],
   },
   reactStrictMode: true,
 }
