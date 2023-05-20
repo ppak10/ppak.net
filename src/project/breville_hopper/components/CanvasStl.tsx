@@ -43,7 +43,7 @@ const CanvasStl: FC<CanvasStlProp> = ({ className, meshRotation, url }) => {
     <StyledCanvasStl className={className}>
       <StyledCanvas orthographic={true}>
         <Suspense fallback={null}>
-          <OrthographicCamera makeDefault position={[500, 500, 500]}>
+          <OrthographicCamera getObjectsByProperty={true} makeDefault position={[500, 500, 500]}>
             <pointLight castShadow={true} intensity={0.5} position={[-1000, 0, 1000]}/>
             <pointLight castShadow={true} intensity={0.5} position={[1000, 0, 1000]}/>
           </OrthographicCamera>
