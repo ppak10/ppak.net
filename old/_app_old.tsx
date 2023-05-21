@@ -100,7 +100,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => (
       <meta name="description" content="Peter's Website" />
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <GlobalStyle />
+    {/* <GlobalStyle /> */}
     <Navbar />
     <Component {...pageProps} />
     <Footer />
