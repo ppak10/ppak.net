@@ -13,7 +13,7 @@ export default function Home() {
         </header>
 
         {/* About Section */}
-        <section className="mb-12 border-4 border-black bg-[#a7f3d0] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <section id="about" className="mb-12 border-4 border-black bg-[#a7f3d0] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <h2 className="mb-4 text-3xl font-black">About</h2>
           <p className="text-lg font-medium leading-relaxed">
             I'm a passionate developer who loves building things for the web. I
@@ -24,7 +24,7 @@ export default function Home() {
         </section>
 
         {/* Projects Grid */}
-        <section className="mb-12">
+        <section id="projects" className="mb-12">
           <h2 className="mb-6 text-3xl font-black">Projects</h2>
           <div className="grid gap-6 sm:grid-cols-2">
             {/* Project 1 */}
@@ -97,7 +97,7 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section className="mb-12 border-4 border-black bg-[#f472b6] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <section id="skills" className="mb-12 border-4 border-black bg-[#f472b6] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <h2 className="mb-4 text-3xl font-black">Skills</h2>
           <div className="flex flex-wrap gap-3">
             {[
@@ -123,7 +123,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section className="border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <section id="contact" className="border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <h2 className="mb-4 text-3xl font-black">Get In Touch</h2>
           <p className="mb-6 text-lg font-medium">
             I'm always open to new opportunities and collaborations. Feel free
@@ -157,7 +157,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="mt-12 text-center">
-          <p className="text-lg font-bold">© 2025 Your Name. All rights reserved.</p>
+          <p className="text-lg font-bold">© 2025 Peter Pak. All rights reserved.</p>
         </footer>
       </div>
     </div>
