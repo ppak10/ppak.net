@@ -8,9 +8,8 @@ import { FC } from 'react';
 import { MailIcon, GithubIcon, LinkedinIcon } from 'lucide-react';
 
 // Components
+import PublishedWorksSection from './PublishedWorksSection';
 import { Button } from 'components/ui/button';
-import { Checkbox } from 'components/ui/checkbox';
-import { Label } from 'components/ui/label';
 import { Section, SectionTitle } from 'components/Section';
 
 const About: FC = () => (
@@ -35,14 +34,7 @@ const About: FC = () => (
         </p>
       </Section>
 
-      {/* Published Works Section */}
-      <Section id="published_works">
-        <SectionTitle>Published Works</SectionTitle>
-        <div className="flex items-center space-x-2">
-          <Checkbox id="first_author_only" />
-          <Label htmlFor="first_author_only">Show first author only</Label>
-        </div>
-      </Section>
+      <PublishedWorksSection />
   
       {/* Find Me Section */}
       <Section>
