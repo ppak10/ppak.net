@@ -1,119 +1,111 @@
 /**
- * Navbar.tsx 
+ * Navbar.tsx
  * Navbar component for various page links.
  */
 
 'use client';
 
 // Node Modules
-import { useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
 
-export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+// Components
+import Logo from './Logo';
+
+const Navbar: FC = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Check if scrolled past threshold
+      setScrolled(currentScrollY > 20);
+
+      // Show navbar when scrolling up, hide when scrolling down
+      if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        setVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setVisible(false);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const navItems = [
-    { name: 'About', href: 'about' },
-    { name: 'Projects', href: 'projects' },
-    { name: 'Contact', href: 'contact' },
+    { name: 'About', href: '/about' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 border-b-4 border-black bg-white shadow-[0px_4px_0px_0px_rgba(0,0,0,1)]">
+    <nav
+      className={`
+        fixed top-0 left-0 right-0 z-50 w-full
+        transition-all duration-300 ease-in-out
+        ${visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}
+        ${scrolled
+          ? 'bg-white shadow-sm border-b border-gray-200'
+          : 'bg-white'
+        }
+      `}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Name */}
-          <div className="flex-shrink-0">
-            <Link
-              href="/"
-              className="text-2xl font-black tracking-tight hover:text-gray-700 transition-colors"
-            >
-              ppak.net
-            </Link>
-          </div>
+          <Link href="/">
+            <Logo height={34} width={54} />
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="flex items-center space-x-1">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="px-4 py-2 text-base font-bold transition-all hover:bg-[#fef6e4]"
-                >
-                  {item.name}
-                </a>
-              ))}
-              <a
-                href="mailto:ppak10@gmail.com"
-                className="ml-4 border-4 border-black bg-[#fbbf24] px-6 py-2 text-base font-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+          <div className="hidden md:flex items-center space-x-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-colors hover:bg-gray-50"
               >
-                Get In Touch
-              </a>
-            </div>
+                {item.name}
+              </Link>
+            ))}
+            <a
+              href="mailto:ppak10@gmail.com"
+              className="ml-3 px-5 py-2 text-sm font-semibold text-white bg-black hover:bg-gray-800 transition-all"
+            >
+              Get In Touch
+            </a>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="border-2 border-black bg-white p-2 font-bold hover:bg-gray-100 transition-colors"
+              className="p-2 text-gray-700 hover:text-black transition-colors"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? (
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
             </button>
           </div>
         </div>
       </div>
-
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="border-t-4 border-black bg-white md:hidden">
-          <div className="space-y-1 px-4 pb-3 pt-2">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block border-2 border-black bg-white px-4 py-3 text-base font-bold hover:bg-[#fef6e4] transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-            <a
-              href="mailto:ppak10@gmail.com"
-              className="block border-4 border-black bg-[#fbbf24] px-4 py-3 text-center text-base font-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Get In Touch
-            </a>
-          </div>
-        </div>
-      )}
     </nav>
   );
-}
+};
+
+export default Navbar;
+
