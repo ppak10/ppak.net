@@ -4,7 +4,7 @@
  */
 
 // Node Modules
-import { FC, useState } from "react";
+import { FC, useState } from 'react';
 
 interface Props {
   height?: number;
@@ -15,14 +15,14 @@ interface Props {
 const Logo: FC<Props> = ({
   height = 68,
   width = 108,
-  viewBox = "0 0 108 68"
+  viewBox = '0 0 108 68',
 }) => {
   // Hooks
   const [key, setKey] = useState(0);
 
   const handleMouseEnter = () => {
     // Increment key to remount the SVG
-    setKey((prev) => prev + 1);
+    setKey(prev => prev + 1);
   };
 
   return (
@@ -88,7 +88,13 @@ const Logo: FC<Props> = ({
         strokeDashoffset="40"
       >
         <animate
-          attributeName="stroke-dashoffset" from="40" to="0" dur="0.1s" begin="0.1s" fill="freeze"/>
+          attributeName="stroke-dashoffset"
+          from="40"
+          to="0"
+          dur="0.1s"
+          begin="0.1s"
+          fill="freeze"
+        />
       </path>
 
       {/* Second "p" */}
@@ -101,7 +107,14 @@ const Logo: FC<Props> = ({
         strokeDasharray="30"
         strokeDashoffset="30"
       >
-        <animate attributeName="stroke-dashoffset" from="30" to="0" dur="0.1s" begin="0.2s" fill="freeze"/>
+        <animate
+          attributeName="stroke-dashoffset"
+          from="30"
+          to="0"
+          dur="0.1s"
+          begin="0.2s"
+          fill="freeze"
+        />
       </path>
       <path
         d="m 44.917421,29.124911 c 12.172708,-6.652445 7.298331,16.615259 -1.776275,7.231978"
@@ -112,7 +125,14 @@ const Logo: FC<Props> = ({
         strokeDasharray="40"
         strokeDashoffset="40"
       >
-        <animate attributeName="stroke-dashoffset" from="40" to="0" dur="0.1s" begin="0.3s" fill="freeze"/>
+        <animate
+          attributeName="stroke-dashoffset"
+          from="40"
+          to="0"
+          dur="0.1s"
+          begin="0.3s"
+          fill="freeze"
+        />
       </path>
 
       {/* "a" */}
@@ -125,7 +145,14 @@ const Logo: FC<Props> = ({
         strokeDasharray="50"
         strokeDashoffset="50"
       >
-        <animate attributeName="stroke-dashoffset" from="50" to="0" dur="0.1s" begin="0.4s" fill="freeze"/>
+        <animate
+          attributeName="stroke-dashoffset"
+          from="50"
+          to="0"
+          dur="0.1s"
+          begin="0.4s"
+          fill="freeze"
+        />
       </path>
       <path
         d="m 68.640349,28.16665 c -2.6631,6.634994 -4.821959,12.977602 1.141891,10.023267"
@@ -136,7 +163,14 @@ const Logo: FC<Props> = ({
         strokeDasharray="40"
         strokeDashoffset="40"
       >
-        <animate attributeName="stroke-dashoffset" from="40" to="0" dur="0.1s" begin="0.5s" fill="freeze"/>
+        <animate
+          attributeName="stroke-dashoffset"
+          from="40"
+          to="0"
+          dur="0.1s"
+          begin="0.5s"
+          fill="freeze"
+        />
       </path>
 
       {/* "k" */}
@@ -149,7 +183,14 @@ const Logo: FC<Props> = ({
         strokeDasharray="40"
         strokeDashoffset="40"
       >
-        <animate attributeName="stroke-dashoffset" from="40" to="0" dur="0.1s" begin="0.6s" fill="freeze"/>
+        <animate
+          attributeName="stroke-dashoffset"
+          from="40"
+          to="0"
+          dur="0.1s"
+          begin="0.6s"
+          fill="freeze"
+        />
       </path>
       <path
         d="m 86.529977,27.786019 -5.455702,4.186935 3.933181,6.34384"
@@ -160,11 +201,17 @@ const Logo: FC<Props> = ({
         strokeDasharray="50"
         strokeDashoffset="50"
       >
-        <animate attributeName="stroke-dashoffset" from="50" to="0" dur="0.1s" begin="0.7s" fill="freeze"/>
+        <animate
+          attributeName="stroke-dashoffset"
+          from="50"
+          to="0"
+          dur="0.1s"
+          begin="0.7s"
+          fill="freeze"
+        />
       </path>
     </svg>
   );
 };
 
 export default Logo;
-

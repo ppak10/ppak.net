@@ -13,12 +13,15 @@ export default function Home() {
         </header>
 
         {/* About Section */}
-        <section id="about" className="mb-12 border-4 border-black bg-[#a7f3d0] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <section
+          id="about"
+          className="mb-12 border-4 border-black bg-[#a7f3d0] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+        >
           <h2 className="mb-4 text-3xl font-black">About</h2>
           <p className="text-lg font-medium leading-relaxed">
-            I'm a passionate developer who loves building things for the web. I
+            I&apos;m a passionate developer who loves building things for the web. I
             specialize in modern web technologies and creating delightful user
-            experiences. When I'm not coding, you can find me exploring new
+            experiences. When I&apos;m not coding, you can find me exploring new
             technologies or contributing to open source.
           </p>
         </section>
@@ -97,21 +100,24 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="mb-12 border-4 border-black bg-[#f472b6] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <section
+          id="skills"
+          className="mb-12 border-4 border-black bg-[#f472b6] p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+        >
           <h2 className="mb-4 text-3xl font-black">Skills</h2>
           <div className="flex flex-wrap gap-3">
             {[
-              "JavaScript",
-              "TypeScript",
-              "React",
-              "Next.js",
-              "Node.js",
-              "Python",
-              "Tailwind CSS",
-              "Git",
-              "PostgreSQL",
-              "Docker",
-            ].map((skill) => (
+              'JavaScript',
+              'TypeScript',
+              'React',
+              'Next.js',
+              'Node.js',
+              'Python',
+              'Tailwind CSS',
+              'Git',
+              'PostgreSQL',
+              'Docker',
+            ].map(skill => (
               <span
                 key={skill}
                 className="border-2 border-black bg-white px-4 py-2 text-lg font-bold"
@@ -123,10 +129,13 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <section
+          id="contact"
+          className="border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+        >
           <h2 className="mb-4 text-3xl font-black">Get In Touch</h2>
           <p className="mb-6 text-lg font-medium">
-            I'm always open to new opportunities and collaborations. Feel free
+            I&apos;m always open to new opportunities and collaborations. Feel free
             to reach out!
           </p>
           <div className="flex flex-wrap gap-4">
@@ -157,7 +166,9 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="mt-12 text-center">
-          <p className="text-lg font-bold">© 2025 Peter Pak. All rights reserved.</p>
+          <p className="text-lg font-bold">
+            © 2025 Peter Pak. All rights reserved.
+          </p>
         </footer>
       </div>
     </div>

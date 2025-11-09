@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -14,11 +14,11 @@
   --overlay: oklch(0% 0 0 / 0.8);
   --shadow: 2px 2px 0px 0px var(--border);
   --shadow-lg: 8px 8px 0px 0px var(--border);
-  --chart-1: #FF7A05;
-  --chart-2: #0099FF;
-  --chart-3: #FFBF00;
-  --chart-4: #00D696;
-  --chart-5: #7A83FF;
+  --chart-1: #ff7a05;
+  --chart-2: #0099ff;
+  --chart-3: #ffbf00;
+  --chart-4: #00d696;
+  --chart-5: #7a83ff;
   --chart-active-dot: #000;
 }
 
@@ -32,11 +32,11 @@
   --ring: oklch(100% 0 0);
   --shadow: 2px 2px 0px 0px var(--border);
   --shadow-lg: 8px 8px 0px 0px var(--border);
-  --chart-1: #EB6D00;
-  --chart-2: #008AE5;
-  --chart-3: #E5AC00;
-  --chart-4: #00BD84;
-  --chart-5: #7A83FF;
+  --chart-1: #eb6d00;
+  --chart-2: #008ae5;
+  --chart-3: #e5ac00;
+  --chart-4: #00bd84;
+  --chart-5: #7a83ff;
   --chart-active-dot: #fff;
 }
 
@@ -65,15 +65,26 @@
   --font-weight-base: 500;
   --font-weight-heading: 700;
 }
-  
+
 @layer base {
   body {
     @apply text-foreground font-base bg-background;
-    font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      SF Mono,
+      Menlo,
+      Consolas,
+      Liberation Mono,
+      monospace;
   }
 
-  h1, h2, h3, h4, h5, h6{
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
   }
 }
-
