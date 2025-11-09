@@ -9,12 +9,14 @@ import { FC, useState } from 'react';
 interface Props {
   height?: number;
   width?: number;
+  stroke?: string;
   viewBox?: string;
 }
 
 const Logo: FC<Props> = ({
   height = 68,
   width = 108,
+  stroke = "currentColor",
   viewBox = '0 0 108 68',
 }) => {
   // Hooks
@@ -43,7 +45,7 @@ const Logo: FC<Props> = ({
         rx="15"
         ry="15"
         fill="none"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="8"
         strokeDasharray="400"
         strokeDashoffset="400"
@@ -62,7 +64,7 @@ const Logo: FC<Props> = ({
       {/* First "p" */}
       <path
         d="m 19.158397,51.13135 9.51576,-22.457192"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="5"
         fill="none"
         strokeLinecap="round"
@@ -80,7 +82,7 @@ const Logo: FC<Props> = ({
       </path>
       <path
         d="m 28.801034,29.181663 c 12.172708,-6.652445 7.298331,16.615259 -1.776275,7.231978"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="4"
         fill="none"
         strokeLinecap="round"
@@ -100,7 +102,7 @@ const Logo: FC<Props> = ({
       {/* Second "p" */}
       <path
         d="m 35.274784,51.074598 9.51576,-22.457192"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="5"
         fill="none"
         strokeLinecap="round"
@@ -118,7 +120,7 @@ const Logo: FC<Props> = ({
       </path>
       <path
         d="m 44.917421,29.124911 c 12.172708,-6.652445 7.298331,16.615259 -1.776275,7.231978"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="4"
         fill="none"
         strokeLinecap="round"
@@ -138,7 +140,7 @@ const Logo: FC<Props> = ({
       {/* "a" */}
       <path
         d="M 67.371581,30.957939 C 59.418535,19.537408 51.17286,45.638021 65.341552,36.413642"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="4"
         fill="none"
         strokeLinecap="round"
@@ -156,7 +158,7 @@ const Logo: FC<Props> = ({
       </path>
       <path
         d="m 68.640349,28.16665 c -2.6631,6.634994 -4.821959,12.977602 1.141891,10.023267"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="4"
         fill="none"
         strokeLinecap="round"
@@ -176,7 +178,7 @@ const Logo: FC<Props> = ({
       {/* "k" */}
       <path
         d="M 83.484934,17.508999 74.730435,38.824301"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="4"
         fill="none"
         strokeLinecap="round"
@@ -194,7 +196,7 @@ const Logo: FC<Props> = ({
       </path>
       <path
         d="m 86.529977,27.786019 -5.455702,4.186935 3.933181,6.34384"
-        stroke="currentColor"
+        stroke={stroke}
         strokeWidth="4"
         fill="none"
         strokeLinecap="round"
