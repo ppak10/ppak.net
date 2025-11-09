@@ -16,7 +16,7 @@ interface Props {
 const Logo: FC<Props> = ({
   height = 68,
   width = 108,
-  stroke = "currentColor",
+  stroke = 'currentColor',
   viewBox = '0 0 108 68',
 }) => {
   // Hooks

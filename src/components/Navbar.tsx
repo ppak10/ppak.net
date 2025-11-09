@@ -63,7 +63,11 @@ const Navbar: FC = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Name */}
           <Link href="/">
-            <Logo height={34} width={54} stroke={scrolled ? "currentColor" : "white"} />
+            <Logo
+              height={34}
+              width={54}
+              stroke={scrolled ? 'currentColor' : 'white'}
+            />
           </Link>
 
           {/* Desktop Navigation */}
