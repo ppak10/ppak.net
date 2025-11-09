@@ -13,7 +13,18 @@ import { Button } from 'components/ui/button';
 import { Section, SectionTitle } from 'components/Section';
 
 const About: FC = () => (
-  <div className="min-h-screen bg-[#fef6e4] p-4 sm:p-8">
+  <div className="relative min-h-screen bg-[#fef6e4] p-4 sm:p-8">
+    {/* Background Video */}
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="fixed left-0 top-0 -z-10 h-full w-full object-cover"
+    >
+      <source src="/background.webm" type="video/webm" />
+    </video>
+
     <div className="mx-auto max-w-5xl">
       {/* Header */}
       <header className="mb-12 border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
