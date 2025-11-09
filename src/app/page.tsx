@@ -19,10 +19,10 @@ export default function Home() {
         >
           <h2 className="mb-4 text-3xl font-black">About</h2>
           <p className="text-lg font-medium leading-relaxed">
-            I&apos;m a passionate developer who loves building things for the web. I
-            specialize in modern web technologies and creating delightful user
-            experiences. When I&apos;m not coding, you can find me exploring new
-            technologies or contributing to open source.
+            I&apos;m a passionate developer who loves building things for the
+            web. I specialize in modern web technologies and creating delightful
+            user experiences. When I&apos;m not coding, you can find me
+            exploring new technologies or contributing to open source.
           </p>
         </section>
 
@@ -135,8 +135,8 @@ export default function Home() {
         >
           <h2 className="mb-4 text-3xl font-black">Get In Touch</h2>
           <p className="mb-6 text-lg font-medium">
-            I&apos;m always open to new opportunities and collaborations. Feel free
-            to reach out!
+            I&apos;m always open to new opportunities and collaborations. Feel
+            free to reach out!
           </p>
           <div className="flex flex-wrap gap-4">
             <a
