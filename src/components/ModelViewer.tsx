@@ -24,10 +24,7 @@ export default function ModelViewer({
 }: ModelViewerProps) {
   return (
     <div className={`w-full h-full ${className}`}>
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 50 }}
-        className="rounded-lg"
-      >
+      <Canvas camera={{ position: [0, 0, 5], fov: 50 }} className="rounded-lg">
         <Suspense fallback={null}>
           <Stage environment="city" intensity={0.5} adjustCamera={false}>
             <Model modelPath={modelPath} />
