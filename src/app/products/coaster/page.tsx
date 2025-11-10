@@ -19,12 +19,11 @@ export default function CoasterPage() {
 
         {/* Content Overlay on Hero */}
         <div className="relative z-10 flex h-full flex-col items-center justify-center p-4 sm:p-8">
-          <div className="mx-auto max-w-2xl">
+          <div className="mx-auto w-full max-w-2xl">
             <LogoCoaster
-              height={68 * 4}
-              width={150 * 4}
               stroke="white"
               fill="white"
+              className="w-full h-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl"
             />
           </div>
         </div>

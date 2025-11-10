@@ -6,19 +6,22 @@ interface Props {
   stroke?: string;
   fill?: string;
   viewBox?: string;
+  className?: string;
 }
 
 const LogoCoaster: FC<Props> = ({
-  height = 68,
-  width = 150,
+  height,
+  width,
   fill = 'currentColor',
   stroke = 'currentColor',
   viewBox = '0 0 39.6875 17.991667',
+  className,
 }) => (
   <svg
     width={width}
     height={height}
     viewBox={viewBox}
+    className={className}
     xmlns="http://www.w3.org/2000/svg"
   >
     <g id="layer1">
