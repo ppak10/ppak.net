@@ -45,7 +45,7 @@ const Navbar: FC = () => {
   }, [lastScrollY, mobileMenuOpen]);
 
   const navItems = [
-    { name: 'Products', href: '/products' },
+    { name: 'Products', href: '/products/coaster' },
     { name: 'About', href: '/about' },
   ];
 

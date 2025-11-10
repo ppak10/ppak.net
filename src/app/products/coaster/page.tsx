@@ -1,4 +1,5 @@
 import ModelViewer from 'components/ModelViewer';
+import LogoCoaster from 'components/LogoCoaster';
 
 export default function CoasterPage() {
   return (
@@ -19,23 +20,11 @@ export default function CoasterPage() {
         {/* Content Overlay on Hero */}
         <div className="relative z-10 flex h-full flex-col items-center justify-center p-4 sm:p-8">
           <div className="mx-auto max-w-2xl">
-            <header className="border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-              <h1 className="mb-2 text-5xl font-black tracking-tight sm:text-6xl">
-                Peter Pak
-              </h1>
-              <p className="text-xl font-bold text-gray-700">
-                Mechanical Engineer / Materials Scientist / Software Developer /
-                U.S. Citizen
-              </p>
-            </header>
+            <LogoCoaster height={68*4} width={150*4} stroke="white" fill="white" />
           </div>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8 text-center">
-          Hexagonal Coaster
-        </h1>
-
+      <div className="max-w-6xl mx-auto my-12">
         <div className="grid md:grid-cols-2 gap-8 items-start">
           {/* 3D Model Viewer */}
           <div className="w-full h-[600px] bg-neutral-50 dark:bg-neutral-900 rounded-lg">
@@ -49,8 +38,8 @@ export default function CoasterPage() {
                 Product Description
               </h2>
               <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                A beautifully designed hexagonal coaster. Rotate and zoom the 3D
-                model to explore the design from all angles.
+                A beautifully designed hexagonal coaster. Rotate and zoom the
+                3D model to explore the design from all angles.
               </p>
             </div>
 
@@ -64,9 +53,7 @@ export default function CoasterPage() {
             </div>
 
             <div className="text-sm text-neutral-600 dark:text-neutral-400 border-t pt-4">
-              <p className="font-medium mb-2">
-                How to interact with the model:
-              </p>
+              <p className="font-medium mb-2">How to interact with the model:</p>
               <ul className="space-y-1">
                 <li>" Click and drag to rotate</li>
                 <li>" Scroll to zoom in/out</li>
