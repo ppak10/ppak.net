@@ -20,7 +20,12 @@ export default function CoasterPage() {
         {/* Content Overlay on Hero */}
         <div className="relative z-10 flex h-full flex-col items-center justify-center p-4 sm:p-8">
           <div className="mx-auto max-w-2xl">
-            <LogoCoaster height={68*4} width={150*4} stroke="white" fill="white" />
+            <LogoCoaster
+              height={68 * 4}
+              width={150 * 4}
+              stroke="white"
+              fill="white"
+            />
           </div>
         </div>
       </div>
@@ -38,8 +43,8 @@ export default function CoasterPage() {
                 Product Description
               </h2>
               <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
-                A beautifully designed hexagonal coaster. Rotate and zoom the
-                3D model to explore the design from all angles.
+                A beautifully designed hexagonal coaster. Rotate and zoom the 3D
+                model to explore the design from all angles.
               </p>
             </div>
 
@@ -53,7 +58,9 @@ export default function CoasterPage() {
             </div>
 
             <div className="text-sm text-neutral-600 dark:text-neutral-400 border-t pt-4">
-              <p className="font-medium mb-2">How to interact with the model:</p>
+              <p className="font-medium mb-2">
+                How to interact with the model:
+              </p>
               <ul className="space-y-1">
                 <li>" Click and drag to rotate</li>
                 <li>" Scroll to zoom in/out</li>
