@@ -28,8 +28,9 @@ const Coaster: FC = () => (
         </div>
 
         {/* Product Information */}
-        <div className="space-y-6">
+        <div className="space-y-6 mt-24">
           <div>
+            <h1 className="text-4xl font-semibold mb-4">Coaster V1.0</h1>
             <h2 className="text-2xl font-semibold mb-4">Product Description</h2>
             <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
               A beautifully designed hexagonal coaster. Rotate and zoom the 3D

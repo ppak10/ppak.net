@@ -24,7 +24,13 @@ export default function ModelViewer({
 }: ModelViewerProps) {
   return (
     <div className={`w-full h-full ${className}`}>
-      <Canvas camera={{ position: [0, 0, 5], fov: 50 }} className="rounded-lg">
+      <Canvas
+        camera={{ position: [0, 0, 5], fov: 50 }}
+        className="rounded-lg"
+        gl={{ antialias: true }}
+        style={{ background: 'transparent' }}
+      >
+        <color attach="background" args={['#ffedd6']} />
         <Suspense fallback={null}>
           <Stage environment="city" intensity={0.5} adjustCamera={false}>
             <Model modelPath={modelPath} />
@@ -34,6 +40,8 @@ export default function ModelViewer({
             enablePan={false}
             minDistance={0.1}
             maxDistance={0.25}
+            autoRotate
+            autoRotateSpeed={2}
           />
         </Suspense>
       </Canvas>
