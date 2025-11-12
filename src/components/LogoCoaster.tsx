@@ -21,7 +21,7 @@ const LogoCoaster: FC<Props> = ({
     width={width}
     height={height}
     viewBox={viewBox}
-    className={className}
+    className={`mx-auto ${className}`}
     xmlns="http://www.w3.org/2000/svg"
   >
     <g id="layer1">

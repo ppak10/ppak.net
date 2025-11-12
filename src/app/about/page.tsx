@@ -11,38 +11,25 @@ import { MailIcon, GithubIcon, LinkedinIcon } from 'lucide-react';
 import PublishedWorksSection from './PublishedWorksSection';
 import { Button } from 'components/ui/button';
 import { Section, SectionTitle } from 'components/Section';
+import BackgroundVideo from 'components/sections/BackgroundVideo';
+import AnimatedWords from 'components/AnimatedWords';
 
 const About: FC = () => (
   <div className="relative">
-    {/* Hero Section with Background Video */}
-    <div className="relative h-screen w-full overflow-hidden bg-[#fef6e4]">
-      {/* Background Video - Fixed Position */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute left-0 top-0 h-full w-full object-cover"
-      >
-        <source src="/background.webm" type="video/webm" />
-        <source src="/background.mp4" type="video/mp4" />
-      </video>
-
-      {/* Content Overlay on Hero */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center p-4 sm:p-8">
-        <div className="mx-auto max-w-2xl">
-          <header className="border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <h1 className="mb-2 text-5xl font-black tracking-tight sm:text-6xl">
-              Peter Pak
-            </h1>
-            <p className="text-xl font-bold text-gray-700">
-              Mechanical Engineer / Materials Scientist / Software Developer /
-              U.S. Citizen
-            </p>
-          </header>
-        </div>
-      </div>
-    </div>
+    <BackgroundVideo src="/background.webm" type="video/webm">
+      {/* Bio Section */}
+      <Section className="w-full" id="name">
+        <SectionTitle>Peter Pak</SectionTitle>
+        <AnimatedWords
+          words={[
+            'Mechanical Engineer',
+            'Materials Scientist',
+            'Software Developer',
+            'U.S. Citizen',
+          ]}
+        />
+      </Section>
+    </BackgroundVideo>
 
     {/* Main Content Section - Scrollable */}
     <div className="relative z-20 bg-[#fef6e4] p-4 sm:p-8">
