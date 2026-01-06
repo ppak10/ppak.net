@@ -5,7 +5,13 @@
 
 // Node Modules
 import { FC } from 'react';
-import { MailIcon, GithubIcon, LinkedinIcon } from 'lucide-react';
+import { 
+  GithubIcon,
+  GraduationCapIcon,
+  LinkedinIcon,
+  MailIcon,
+  SmileIcon,
+} from 'lucide-react';
 
 // Components
 import PublishedWorksSection from './PublishedWorksSection';
@@ -63,7 +69,7 @@ const About: FC = () => (
           <div className="flex flex-wrap gap-4">
             <Button>
               <a
-                className="flex items-center gap-1"
+                className="flex items-center gap-3"
                 href="mailto:ppak10@gmail.com"
               >
                 <MailIcon />
@@ -72,7 +78,7 @@ const About: FC = () => (
             </Button>
             <Button>
               <a
-                className="flex items-center gap-1"
+                className="flex items-center gap-3"
                 href="https://github.com/ppak10"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -83,13 +89,35 @@ const About: FC = () => (
             </Button>
             <Button>
               <a
-                className="flex items-center gap-1"
+                className="flex items-center gap-3"
                 href="https://linkedin.com/in/ppak10"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <LinkedinIcon />
                 LinkedIn
+              </a>
+            </Button>
+            <Button>
+              <a
+                className="flex items-center gap-3"
+                href="https://scholar.google.com/citations?user=SpOSuqQAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <GraduationCapIcon />
+                Google Scholar 
+              </a>
+            </Button>
+            <Button>
+              <a
+                className="flex items-center gap-3"
+                href="https://huggingface.co/ppak10"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SmileIcon />
+                Hugging Face
               </a>
             </Button>
           </div>
