@@ -5,7 +5,7 @@
 
 // Node Modules
 import { FC } from 'react';
-import { 
+import {
   GithubIcon,
   GraduationCapIcon,
   LinkedinIcon,
@@ -106,7 +106,7 @@ const About: FC = () => (
                 rel="noopener noreferrer"
               >
                 <GraduationCapIcon />
-                Google Scholar 
+                Google Scholar
               </a>
             </Button>
             <Button>

@@ -20,13 +20,20 @@ const publishedWorks = [
   },
   {
     articleHref: 'https://arxiv.org/pdf/2511.20636',
-    articleTitle: 'Image2Gcode: Image-to-G-code Generation for Additive Manufacturing Using Diffusion-Transformer Model',
-    authors: ['Ziyue Wang', 'Yayati Jadhav', 'Peter Pak', 'Amir Barati Farimani'],
+    articleTitle:
+      'Image2Gcode: Image-to-G-code Generation for Additive Manufacturing Using Diffusion-Transformer Model',
+    authors: [
+      'Ziyue Wang',
+      'Yayati Jadhav',
+      'Peter Pak',
+      'Amir Barati Farimani',
+    ],
     publisher: 'arXiv',
     year: 2025,
   },
   {
-    articleHref: 'https://www.sciencedirect.com/science/article/pii/S2214860425003926',
+    articleHref:
+      'https://www.sciencedirect.com/science/article/pii/S2214860425003926',
     articleTitle:
       'LLM-3D Print: Large Language Models to Monitor and Control 3D Printing',
     authors: ['Yayati Jadhav', 'Peter Pak', 'Amir Barati Farimani'],
@@ -78,8 +85,9 @@ const publishedWorks = [
     year: 2024,
   },
   {
-    articleHref:'https://ieeexplore.ieee.org/abstract/document/10707116',
-    articleTitle:'BeadSight: An Inexpensive Tactile Sensor Using Hydro-Gel Beads',
+    articleHref: 'https://ieeexplore.ieee.org/abstract/document/10707116',
+    articleTitle:
+      'BeadSight: An Inexpensive Tactile Sensor Using Hydro-Gel Beads',
     authors: [
       'Abraham George',
       'Yibo Chen',
