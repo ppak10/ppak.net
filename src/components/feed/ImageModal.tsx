@@ -15,7 +15,12 @@ interface ImageModalProps {
   onClose: () => void;
 }
 
-export function ImageModal({ imageUrl, alt, isOpen, onClose }: ImageModalProps) {
+export function ImageModal({
+  imageUrl,
+  alt,
+  isOpen,
+  onClose,
+}: ImageModalProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -50,7 +55,7 @@ export function ImageModal({ imageUrl, alt, isOpen, onClose }: ImageModalProps) 
             height={1200}
             className="max-h-[85vh] w-auto object-contain"
             unoptimized
-            onClick={(e) => e.stopPropagation()}
+            onClick={e => e.stopPropagation()}
           />
         </div>
       </div>

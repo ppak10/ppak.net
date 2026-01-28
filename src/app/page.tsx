@@ -1,16 +1,18 @@
 import InfiniteScrollFeed from 'components/feed/InfiniteScrollFeed';
 import { fetchBlueskyPosts } from 'lib/api/bluesky';
-import { fetchInstagramPosts } from 'lib/api/instagram';
+import { fetchYouTubeVideos } from 'lib/api/youtube';
+import { fetchRedditPosts } from 'lib/api/reddit';
 import type { FeedResponse } from 'lib/api/types';
 
 // Revalidate every 5 minutes (300 seconds)
 export const revalidate = 300;
 
 async function getFeedData(): Promise<FeedResponse & { cursor?: string }> {
-  // Fetch from both platforms in parallel
-  const [blueskyResult, instagramResult] = await Promise.allSettled([
+  // Fetch from all platforms in parallel
+  const [blueskyResult, youtubeResult, redditResult] = await Promise.allSettled([
     fetchBlueskyPosts(20),
-    fetchInstagramPosts(process.env.INSTAGRAM_ACCESS_TOKEN || '', 20),
+    fetchYouTubeVideos(process.env.YOUTUBE_API_KEY || '', 10),
+    fetchRedditPosts(10),
   ]);
 
   const posts = [];
@@ -31,17 +33,30 @@ async function getFeedData(): Promise<FeedResponse & { cursor?: string }> {
     });
   }
 
-  // Collect Instagram posts
-  if (instagramResult.status === 'fulfilled' && instagramResult.value) {
-    posts.push(...instagramResult.value);
+  // Collect YouTube videos
+  if (youtubeResult.status === 'fulfilled' && youtubeResult.value) {
+    posts.push(...youtubeResult.value);
   } else if (
-    instagramResult.status === 'rejected' ||
-    (instagramResult.status === 'fulfilled' && instagramResult.value === null)
+    youtubeResult.status === 'rejected' ||
+    (youtubeResult.status === 'fulfilled' && youtubeResult.value === null)
   ) {
     errors.push({
-      platform: 'instagram' as const,
+      platform: 'youtube' as const,
       message:
-        'Failed to load Instagram posts. Please check your access token configuration.',
+        'Failed to load YouTube videos. Please check your API key configuration.',
+    });
+  }
+
+  // Collect Reddit posts
+  if (redditResult.status === 'fulfilled' && redditResult.value) {
+    posts.push(...redditResult.value);
+  } else if (
+    redditResult.status === 'rejected' ||
+    (redditResult.status === 'fulfilled' && redditResult.value === null)
+  ) {
+    errors.push({
+      platform: 'reddit' as const,
+      message: 'Failed to load Reddit posts.',
     });
   }
 
@@ -64,7 +79,33 @@ export default async function Home() {
             Feed
           </h1>
           <p className="text-xl font-bold text-gray-700">
-            Latest updates from Bluesky and Instagram
+            Latest updates from{' '}
+            <a
+              href="https://bsky.app/profile/ppak.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#0085ff] underline hover:no-underline"
+            >
+              Bluesky
+            </a>
+            ,{' '}
+            <a
+              href="https://www.youtube.com/@ppak10"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#FF0000] underline hover:no-underline"
+            >
+              YouTube
+            </a>
+            , and{' '}
+            <a
+              href="https://www.reddit.com/user/_ppak10"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#FF4500] underline hover:no-underline"
+            >
+              Reddit
+            </a>
           </p>
         </header>
 

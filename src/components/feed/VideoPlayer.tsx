@@ -17,7 +17,14 @@ interface VideoPlayerProps {
   loop?: boolean;
 }
 
-export function VideoPlayer({ src, poster, className, autoPlay = false, muted = true, loop = false }: VideoPlayerProps) {
+export function VideoPlayer({
+  src,
+  poster,
+  className,
+  autoPlay = false,
+  muted = true,
+  loop = false,
+}: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {

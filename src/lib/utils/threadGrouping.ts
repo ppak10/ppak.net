@@ -14,6 +14,7 @@ export interface Thread {
 /**
  * Groups posts into threads based on reply relationships.
  * Bluesky posts that are part of the same conversation are grouped together.
+ * YouTube videos and Reddit posts are always standalone.
  */
 export function groupPostsIntoThreads(posts: SocialPost[]): Thread[] {
   const threads: Thread[] = [];
@@ -22,7 +23,7 @@ export function groupPostsIntoThreads(posts: SocialPost[]): Thread[] {
   // First pass: identify root posts and their threads
   const threadMap = new Map<string, SocialPost[]>();
 
-  posts.forEach((post) => {
+  posts.forEach(post => {
     if (post.platform === 'bluesky') {
       const blueskyPost = post as BlueskyPost;
 
@@ -42,8 +43,8 @@ export function groupPostsIntoThreads(posts: SocialPost[]): Thread[] {
         threadMap.get(postUri)!.unshift(post); // Add root post at the beginning
       }
     } else {
-      // Non-Bluesky posts are standalone
-      threadMap.set(`instagram-${post.id}`, [post]);
+      // Non-Bluesky posts (YouTube) are standalone
+      threadMap.set(`${post.platform}-${post.id}`, [post]);
     }
   });
 
@@ -51,8 +52,9 @@ export function groupPostsIntoThreads(posts: SocialPost[]): Thread[] {
   threadMap.forEach((threadPosts, rootUri) => {
     if (threadPosts.length > 0) {
       // Sort posts in thread by timestamp
-      threadPosts.sort((a, b) =>
-        new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+      threadPosts.sort(
+        (a, b) =>
+          new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
       );
 
       threads.push({
@@ -67,8 +69,12 @@ export function groupPostsIntoThreads(posts: SocialPost[]): Thread[] {
 
   // Sort threads by the timestamp of the most recent post in each thread
   threads.sort((a, b) => {
-    const aLatest = Math.max(...a.posts.map(p => new Date(p.timestamp).getTime()));
-    const bLatest = Math.max(...b.posts.map(p => new Date(p.timestamp).getTime()));
+    const aLatest = Math.max(
+      ...a.posts.map(p => new Date(p.timestamp).getTime())
+    );
+    const bLatest = Math.max(
+      ...b.posts.map(p => new Date(p.timestamp).getTime())
+    );
     return bLatest - aLatest;
   });
 

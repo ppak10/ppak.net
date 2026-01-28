@@ -23,7 +23,6 @@ export async function fetchBlueskyPosts(
   limit: number = 20,
   cursor?: string
 ): Promise<{ posts: BlueskyPost[]; cursor?: string } | null> {
-
   try {
     // Create abort controller for timeout
     const controller = new AbortController();
@@ -38,7 +37,7 @@ export async function fetchBlueskyPosts(
     const response = await fetch(url, {
       signal: controller.signal,
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
       },
       cache: cursor ? 'no-store' : 'default', // Don't cache paginated requests
       next: cursor ? undefined : { revalidate: 300 }, // Cache only initial request
@@ -47,7 +46,9 @@ export async function fetchBlueskyPosts(
     clearTimeout(timeoutId);
 
     if (!response.ok) {
-      console.error(`Bluesky API error: ${response.status} ${response.statusText}`);
+      console.error(
+        `Bluesky API error: ${response.status} ${response.statusText}`
+      );
       return null;
     }
 
@@ -83,7 +84,10 @@ function transformBlueskyPost(item: BlueskyFeedItem): BlueskyPost {
 
   // Extract images from embed
   const images: string[] = [];
-  if (post.embed?.$type === 'app.bsky.embed.images#view' && post.embed?.images) {
+  if (
+    post.embed?.$type === 'app.bsky.embed.images#view' &&
+    post.embed?.images
+  ) {
     images.push(...post.embed.images.map(img => img.fullsize));
   } else if (post.record.embed?.images) {
     images.push(...post.record.embed.images.map(img => img.fullsize));
@@ -91,7 +95,10 @@ function transformBlueskyPost(item: BlueskyFeedItem): BlueskyPost {
 
   // Extract video from embed - check $type to ensure it's a video embed
   let video: { url: string; thumbnail?: string } | undefined;
-  if (post.embed?.$type === 'app.bsky.embed.video#view' && post.embed?.playlist) {
+  if (
+    post.embed?.$type === 'app.bsky.embed.video#view' &&
+    post.embed?.playlist
+  ) {
     video = {
       url: post.embed.playlist,
       thumbnail: post.embed.thumbnail,

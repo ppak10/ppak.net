@@ -41,7 +41,7 @@ export default function FeedGrid({ posts, errors }: FeedGridProps) {
       {/* Display Threads or Empty State */}
       {hasPosts ? (
         <div className="grid gap-6 grid-cols-1">
-          {threads.map((thread) => (
+          {threads.map(thread => (
             <ThreadView key={thread.id} thread={thread} />
           ))}
         </div>
