@@ -122,7 +122,13 @@ export async function fetchYouTubeVideos(
 
     // Transform to unified format
     return playlistData.items.map(item =>
-      transformYouTubeVideo(item, channelTitle, channelHandle, channelAvatar, statsMap)
+      transformYouTubeVideo(
+        item,
+        channelTitle,
+        channelHandle,
+        channelAvatar,
+        statsMap
+      )
     );
   } catch (error) {
     if (error instanceof Error) {

@@ -101,9 +101,7 @@ export default function InfiniteScrollFeed({
 
   // Filter posts by platform
   const filteredPosts =
-    filter === 'all'
-      ? posts
-      : posts.filter(post => post.platform === filter);
+    filter === 'all' ? posts : posts.filter(post => post.platform === filter);
 
   // Group posts into threads
   const threads = groupPostsIntoThreads(filteredPosts);

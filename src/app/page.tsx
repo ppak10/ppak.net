@@ -9,11 +9,13 @@ export const revalidate = 300;
 
 async function getFeedData(): Promise<FeedResponse & { cursor?: string }> {
   // Fetch from all platforms in parallel
-  const [blueskyResult, youtubeResult, redditResult] = await Promise.allSettled([
-    fetchBlueskyPosts(20),
-    fetchYouTubeVideos(process.env.YOUTUBE_API_KEY || '', 10),
-    fetchRedditPosts(10),
-  ]);
+  const [blueskyResult, youtubeResult, redditResult] = await Promise.allSettled(
+    [
+      fetchBlueskyPosts(20),
+      fetchYouTubeVideos(process.env.YOUTUBE_API_KEY || '', 10),
+      fetchRedditPosts(10),
+    ]
+  );
 
   const posts = [];
   const errors = [];

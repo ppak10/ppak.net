@@ -102,7 +102,9 @@ export function RedditPostCard({ post }: RedditPostProps) {
         </div>
 
         {/* Title */}
-        <h3 className="mb-3 text-lg font-black leading-tight">{content.title}</h3>
+        <h3 className="mb-3 text-lg font-black leading-tight">
+          {content.title}
+        </h3>
 
         {/* Text Content */}
         {content.text && (
@@ -147,7 +149,9 @@ export function RedditPostCard({ post }: RedditPostProps) {
               ))}
               {content.images.length > 4 && (
                 <div className="flex h-64 w-32 flex-shrink-0 items-center justify-center border-2 border-black bg-gray-100">
-                  <span className="font-bold">+{content.images.length - 4}</span>
+                  <span className="font-bold">
+                    +{content.images.length - 4}
+                  </span>
                 </div>
               )}
             </div>
@@ -186,14 +190,18 @@ export function RedditPostCard({ post }: RedditPostProps) {
         <div className="mb-4 flex gap-4 border-t-2 border-black pt-4">
           <div className="flex items-center gap-1">
             <span className="text-lg">⬆️</span>
-            <span className="font-bold">{formatNumber(engagement.upvotes)}</span>
+            <span className="font-bold">
+              {formatNumber(engagement.upvotes)}
+            </span>
             <span className="text-sm text-gray-500">
               ({Math.round(engagement.upvoteRatio * 100)}%)
             </span>
           </div>
           <div className="flex items-center gap-1">
             <span className="text-lg">💬</span>
-            <span className="font-bold">{formatNumber(engagement.comments)}</span>
+            <span className="font-bold">
+              {formatNumber(engagement.comments)}
+            </span>
           </div>
         </div>
 
