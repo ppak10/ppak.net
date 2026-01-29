@@ -51,7 +51,7 @@ export function YouTubeVideoCard({ post }: YouTubeVideoProps) {
     <article className="border-4 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       {/* Platform Badge */}
       <div className="mb-4 inline-flex items-center gap-2 border-2 border-black bg-[#FF0000] px-3 py-1">
-        <YouTubeLogo className="h-4 w-4 text-white" />
+        <YouTubeLogo />
         <span className="text-sm font-black text-white">YouTube</span>
       </div>
 

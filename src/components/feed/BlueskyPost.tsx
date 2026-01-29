@@ -59,7 +59,7 @@ export function BlueskyPost({
       <article className={articleClassName}>
         {/* Platform Badge */}
         <div className="mb-4 inline-flex items-center gap-2 border-2 border-black bg-transparent px-3 py-1">
-          <BlueskyLogo className="h-4 w-4" />
+          <BlueskyLogo />
           <span className="text-sm font-black">Bluesky</span>
         </div>
 
