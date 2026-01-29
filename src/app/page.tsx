@@ -1,3 +1,9 @@
+/**
+ * page.tsx
+ * Feed Page
+ */
+
+// Node Modules
 import InfiniteScrollFeed from 'components/feed/InfiniteScrollFeed';
 import { fetchBlueskyPosts } from 'lib/api/bluesky';
 import { fetchYouTubeVideos } from 'lib/api/youtube';
@@ -74,7 +80,7 @@ export default async function Home() {
   const feedData = await getFeedData();
 
   return (
-    <div className="min-h-screen bg-[#fef6e4] p-4 sm:p-8 pt-24">
+    <div className="min-h-screen bg-[#fef6e4] p-4 pt-32 sm:p-8 sm:pt-32">
       <div className="mx-auto max-w-6xl">
         <header className="mb-12 border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <h1 className="mb-2 text-5xl font-black tracking-tight sm:text-6xl">
