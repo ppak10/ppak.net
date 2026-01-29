@@ -8,13 +8,13 @@ import { FC } from 'react';
 
 // Components
 import ModelViewer from 'components/ModelViewer';
-import LogoCoaster from 'components/LogoCoaster';
+import CoasterLogo from 'components/logos/ppak_net/Coaster';
 import BackgroundVideo from 'components/sections/BackgroundVideo';
 
 const Coaster: FC = () => (
   <div>
     <BackgroundVideo src="/coaster_background.webm" type="video/webm">
-      <LogoCoaster
+      <CoasterLogo
         stroke="white"
         fill="white"
         className="w-full h-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl"

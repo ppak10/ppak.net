@@ -1,14 +1,15 @@
 /**
- * API route for fetching Bluesky posts.
- * This allows client-side components to fetch more posts.
+ * bluesky.py
+ * API for retrieving posts from bluesky
  */
 
+// Node Modules
 import { NextRequest, NextResponse } from 'next/server';
 import { fetchBlueskyPosts } from 'lib/api/bluesky';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET(request: NextRequest) {
+export const GET = async (request: NextRequest) => {
   const searchParams = request.nextUrl.searchParams;
   const cursor = searchParams.get('cursor') || undefined;
   const limit = parseInt(searchParams.get('limit') || '20', 10);
@@ -31,4 +32,4 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+};

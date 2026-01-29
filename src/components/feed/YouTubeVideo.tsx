@@ -5,7 +5,11 @@
 
 'use client';
 
+// Node Modules
 import Image from 'next/image';
+
+// Components
+import YouTubeLogo from 'components/logos/third_party/YouTube';
 import type { YouTubeVideo } from 'lib/api/types';
 
 interface YouTubeVideoProps {
@@ -47,13 +51,7 @@ export function YouTubeVideoCard({ post }: YouTubeVideoProps) {
     <article className="border-4 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       {/* Platform Badge */}
       <div className="mb-4 inline-flex items-center gap-2 border-2 border-black bg-[#FF0000] px-3 py-1">
-        <svg
-          className="h-4 w-4 text-white"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-        >
-          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-        </svg>
+        <YouTubeLogo className="h-4 w-4 text-white" />
         <span className="text-sm font-black text-white">YouTube</span>
       </div>
 

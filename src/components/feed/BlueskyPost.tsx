@@ -5,8 +5,12 @@
 
 'use client';
 
+// Node Modules
 import Image from 'next/image';
 import { useState } from 'react';
+
+// Components
+import BlueskyLogo from 'components/logos/third_party/Bluesky';
 import type { BlueskyPost } from 'lib/api/types';
 import { ImageModal } from './ImageModal';
 import { VideoPlayer } from './VideoPlayer';
@@ -55,13 +59,7 @@ export function BlueskyPost({
       <article className={articleClassName}>
         {/* Platform Badge */}
         <div className="mb-4 inline-flex items-center gap-2 border-2 border-black bg-transparent px-3 py-1">
-          <Image
-            src="https://bsky.app/static/favicon-32x32.png"
-            alt="Bluesky"
-            width={16}
-            height={16}
-            unoptimized
-          />
+          <BlueskyLogo className="h-4 w-4" />
           <span className="text-sm font-black">Bluesky</span>
         </div>
 

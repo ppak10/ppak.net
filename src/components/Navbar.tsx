@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 // Components
-import Logo from './Logo';
+import Logo from 'components/logos/ppak_net/Main';
 
 const Navbar: FC = () => {
   // Hooks

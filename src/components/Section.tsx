@@ -11,7 +11,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
 // Lib
-import { cn } from 'lib/utils';
+import { cn } from 'components/lib/utils';
 
 const sectionVariants = cva(
   'border-4 border-border bg-white shadow-shadow-lg',

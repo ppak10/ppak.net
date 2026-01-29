@@ -1,5 +1,5 @@
 /**
- * Logo.tsx
+ * Main.tsx
  * Animated logo that redraws on remount.
  */
 

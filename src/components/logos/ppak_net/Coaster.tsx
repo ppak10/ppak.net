@@ -1,3 +1,9 @@
+/**
+ * Coaster.tsx
+ * Coaster logo
+ */
+
+// Node Modules
 import { FC } from 'react';
 
 interface Props {

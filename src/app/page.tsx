@@ -3,12 +3,15 @@
  * Feed Page
  */
 
-// Node Modules
+// Components
 import InfiniteScrollFeed from 'components/feed/InfiniteScrollFeed';
 import { fetchBlueskyPosts } from 'lib/api/bluesky';
 import { fetchYouTubeVideos } from 'lib/api/youtube';
 import { fetchRedditPosts } from 'lib/api/reddit';
 import type { FeedResponse } from 'lib/api/types';
+
+// UI
+import { Alert, AlertDescription, AlertTitle } from 'components/ui/alert';
 
 // Revalidate every 5 minutes (300 seconds)
 export const revalidate = 300;
@@ -80,19 +83,17 @@ export default async function Home() {
   const feedData = await getFeedData();
 
   return (
-    <div className="min-h-screen bg-[#fef6e4] p-4 pt-32 sm:p-8 sm:pt-32">
+    <div className="min-h-screen bg-[#ffffff] p-4 pt-32 sm:p-8 sm:pt-32">
       <div className="mx-auto max-w-6xl">
-        <header className="mb-12 border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          <h1 className="mb-2 text-5xl font-black tracking-tight sm:text-6xl">
-            Feed
-          </h1>
-          <p className="text-xl font-bold text-gray-700">
+        <Alert className="mb-8">
+          <AlertTitle className="text-5xl sm:text-6xl">Feed</AlertTitle>
+          <AlertDescription className="block text-xl">
             Latest updates from{' '}
             <a
               href="https://bsky.app/profile/ppak.net"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#0085ff] underline hover:no-underline"
+              className="underline hover:no-underline"
             >
               Bluesky
             </a>
@@ -101,7 +102,7 @@ export default async function Home() {
               href="https://www.youtube.com/@ppak10"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#FF0000] underline hover:no-underline"
+              className="underline hover:no-underline"
             >
               YouTube
             </a>
@@ -110,13 +111,12 @@ export default async function Home() {
               href="https://www.reddit.com/user/_ppak10"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#FF4500] underline hover:no-underline"
+              className="underline hover:no-underline"
             >
               Reddit
             </a>
-          </p>
-        </header>
-
+          </AlertDescription>
+        </Alert>
         <InfiniteScrollFeed
           initialPosts={feedData.posts}
           initialErrors={feedData.errors}
