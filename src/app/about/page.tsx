@@ -104,7 +104,7 @@ const About: FC = () => (
                 rel="noopener noreferrer"
               >
                 <SmileIcon />
-                Hugging Face
+                HuggingFace
               </a>
             </Button>
           </div>

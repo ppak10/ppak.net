@@ -12,7 +12,7 @@
   --border: oklch(0% 0 0);
   --ring: oklch(0% 0 0);
   --overlay: oklch(0% 0 0 / 0.8);
-  --shadow: 2px 2px 0px 0px var(--border);
+  --shadow: 4px 4px 0px 0px var(--border);
   --shadow-lg: 8px 8px 0px 0px var(--border);
   --chart-1: #ff7a05;
   --chart-2: #0099ff;
@@ -30,7 +30,7 @@
   --main: oklch(67.56% 0.1796 49.61);
   --border: oklch(0% 0 0);
   --ring: oklch(100% 0 0);
-  --shadow: 2px 2px 0px 0px var(--border);
+  --shadow: 4px 4px 0px 0px var(--border);
   --shadow-lg: 8px 8px 0px 0px var(--border);
   --chart-1: #eb6d00;
   --chart-2: #008ae5;
@@ -67,6 +67,11 @@
 }
 
 @layer base {
+  html {
+    @apply bg-background;
+    overscroll-behavior: none;
+  }
+
   body {
     @apply text-foreground font-base bg-background;
     font-family:

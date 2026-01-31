@@ -6,36 +6,98 @@
 'use client';
 
 // Node Modules
+import { Menu, X } from 'lucide-react';
 import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { cva } from 'class-variance-authority';
 
 // Components
+import { Button } from 'components/ui/button';
 import Logo from 'components/logos/ppak_net/Main';
+
+// Constants
+const LINKS = [
+  { name: 'Products', href: '/products/coaster' },
+  { name: 'About', href: '/about' },
+];
+
+// Style
+const navStyles = cva(
+  'fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out border-b-2',
+  {
+    variants: {
+      hidden: {
+        true: '-translate-y-full opacity-0',
+        false: 'translate-y-0 opacity-100',
+      },
+      clear: {
+        true: 'bg-transparent border-white',
+        false: 'bg-white shadow-sm border-black',
+      },
+    },
+  }
+);
+
+const mobileMenuButtonStyles = cva('p-2 transition-colors', {
+  variants: {
+    clear: {
+      false: 'text-gray-700 hover:text-black',
+      true: 'text-white hover:text-gray-200',
+    },
+  },
+});
+
+const mobileMenuStyles = cva('md:hidden border-t border-gray-200', {
+  variants: {
+    clear: {
+      false: 'bg-white',
+      true: 'bg-transparent',
+    },
+  },
+});
+
+const mobileLinkStyles = cva(
+  'block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-black rounded-md transition-colors',
+  {
+    variants: {
+      clear: {
+        false: 'text-black',
+        true: 'text-white',
+      },
+    },
+  }
+);
 
 const Navbar: FC = () => {
   // Hooks
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
-  const [visible, setVisible] = useState(true);
+  const [hidden, setHidden] = useState(false); // Hides during scroll
+  const [clear, setClear] = useState(pathname !== '/');
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Force opaque navbar on certain pages
-  const forceOpaque = pathname === '/';
+  // const forceOpaque = pathname === '/';
+  // const theme = scrolled || forceOpaque ? 'opaque' : 'transparent';
 
   useEffect(() => {
+    setClear(pathname !== '/'); // Sets correct navbar transparent on page load
+
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Check if scrolled past threshold
-      setScrolled(currentScrollY > 20);
+      // Check if scrolled past threshold (only on non-homepage)
+      if (pathname !== '/') {
+        const scrolled = currentScrollY > 20;
+        setClear(!scrolled);
+      }
 
       // Show navbar when scrolling up, hide when scrolling down
       if (currentScrollY < lastScrollY || currentScrollY < 100) {
-        setVisible(true);
+        setHidden(false);
       } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setVisible(false);
+        setHidden(true);
       }
 
       // Close mobile menu when scrolling
@@ -47,24 +109,32 @@ const Navbar: FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, mobileMenuOpen]);
 
-  const navItems = [
-    { name: 'Products', href: '/products/coaster' },
-    { name: 'About', href: '/about' },
-  ];
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY, mobileMenuOpen, pathname]);
+
+  // JSX
+  const desktopLinksJSX = LINKS.map(({ name, href }) => (
+    <Button key={name} variant={clear ? 'clear' : 'default'}>
+      <a href={href}>{name}</a>
+    </Button>
+  ));
+
+  const mobileLinksJSX = LINKS.map(({ name, href }) => (
+    <Link
+      className={mobileLinkStyles({ clear })}
+      href={href}
+      key={name}
+      onClick={() => setMobileMenuOpen(false)}
+    >
+      {name}
+    </Link>
+  ));
 
   return (
-    <nav
-      className={`
-        fixed top-0 left-0 right-0 z-50 w-full
-        transition-all duration-300 ease-in-out
-        border-b
-        ${visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}
-        ${scrolled || forceOpaque ? 'bg-white shadow-sm border-black' : 'bg-transparent border-white'}
-      `}
-    >
+    <nav className={navStyles({ clear, hidden })}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Name */}
@@ -72,86 +142,31 @@ const Navbar: FC = () => {
             <Logo
               height={34}
               width={54}
-              stroke={scrolled || forceOpaque ? 'currentColor' : 'white'}
+              stroke={!clear ? 'currentColor' : 'white'}
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {navItems.map(item => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`
-                  px-4 py-2 text-sm font-medium hover:text-black transition-colors hover:bg-gray-50
-                  ${scrolled || forceOpaque ? 'text-black' : 'text-white'}
-                `}
-              >
-                {item.name}
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center gap-3 space-x-1">
+            {desktopLinksJSX}
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 transition-colors ${scrolled || forceOpaque ? 'text-gray-700 hover:text-black' : 'text-white hover:text-gray-200'}`}
               aria-label="Toggle menu"
+              className={mobileMenuButtonStyles({ clear })}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? (
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
+              {mobileMenuOpen ? <X /> : <Menu />}
             </button>
           </div>
         </div>
 
         {/* Mobile menu dropdown */}
         {mobileMenuOpen && (
-          <div
-            className={`
-              md:hidden border-t border-gray-200 
-              ${scrolled || forceOpaque ? 'bg-white' : 'bg-transparent'}
-            `}
-          >
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {navItems.map(item => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`
-                    block px-3 py-2 text-base font-medium text-gray-700
-                    hover:bg-gray-50 hover:text-black rounded-md transition-colors
-                    ${scrolled || forceOpaque ? 'text-black' : 'text-white'}
-                  `}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
+          <div className={mobileMenuStyles({ clear })}>
+            <div className="space-y-1 px-2 pb-3 pt-2">{mobileLinksJSX}</div>
           </div>
         )}
       </div>
