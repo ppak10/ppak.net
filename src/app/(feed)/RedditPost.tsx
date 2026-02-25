@@ -15,6 +15,7 @@ import RedditLogo from 'components/logos/third_party/Reddit';
 import type { RedditPost } from 'lib/api/types';
 import { ImageModal } from './ImageModal';
 import { VideoPlayer } from './VideoPlayer';
+import { ArrowBigUp, MessageSquareMore } from 'lucide-react';
 
 interface RedditPostProps {
   post: RedditPost;
@@ -188,7 +189,7 @@ export function RedditPostCard({ post }: RedditPostProps) {
         {/* Engagement Footer */}
         <div className="mb-4 flex gap-4 border-t-2 border-black pt-4">
           <div className="flex items-center gap-1">
-            <span className="text-lg">⬆️</span>
+            <ArrowBigUp />
             <span className="font-bold">
               {formatNumber(engagement.upvotes)}
             </span>
@@ -197,7 +198,7 @@ export function RedditPostCard({ post }: RedditPostProps) {
             </span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="text-lg">💬</span>
+            <MessageSquareMore />
             <span className="font-bold">
               {formatNumber(engagement.comments)}
             </span>

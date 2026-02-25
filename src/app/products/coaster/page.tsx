@@ -21,15 +21,15 @@ const Coaster: FC = () => (
         className="w-full h-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl"
       />
     </BackgroundVideo>
-    <div className="max-w-6xl mx-auto my-12">
+    <div className="max-w-6xl mx-auto my-12 px-4 md:px-0">
       <div className="grid md:grid-cols-2 gap-8 items-start">
         {/* 3D Model Viewer */}
-        <div className="w-full h-[600px] bg-neutral-50 dark:bg-neutral-900 rounded-lg">
+        <div className="order-2 md:order-1 w-full h-[600px] bg-neutral-50 dark:bg-neutral-900 rounded-lg">
           <ModelViewer modelPath="/CoasterHex.glb" />
         </div>
 
         {/* Product Information */}
-        <div className="space-y-6 mt-24">
+        <div className="order-1 md:order-2 space-y-6 mt-0 md:mt-24 text-center md:text-left">
           <div>
             <h1 className="text-4xl font-semibold mb-4">Coaster v1.0</h1>
             <p>Designed by me. Perfected for you.</p>

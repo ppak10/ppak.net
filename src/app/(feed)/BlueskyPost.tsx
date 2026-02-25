@@ -15,6 +15,7 @@ import type { BlueskyPost } from 'lib/api/types';
 import { Button } from 'components/ui/button';
 import { ImageModal } from './ImageModal';
 import { VideoPlayer } from './VideoPlayer';
+import { MessageSquareMore, Heart, Repeat2 } from 'lucide-react';
 
 interface BlueskyPostProps {
   post: BlueskyPost;
@@ -138,15 +139,15 @@ export function BlueskyPost({
         {/* Engagement Footer */}
         <div className="mb-4 flex gap-4 border-t-2 border-black pt-4">
           <div className="flex items-center gap-1">
-            <span className="text-lg">❤️</span>
+            <Heart />
             <span className="font-bold">{engagement.likes}</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="text-lg">💬</span>
+            <MessageSquareMore />
             <span className="font-bold">{engagement.replies}</span>
           </div>
           <div className="flex items-center gap-1">
-            <span className="text-lg">🔁</span>
+            <Repeat2 />
             <span className="font-bold">{engagement.reposts}</span>
           </div>
         </div>
