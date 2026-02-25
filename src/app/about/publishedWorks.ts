@@ -12,7 +12,8 @@ export interface PublishedWork {
 
 const publishedWorks = [
   {
-    articleHref: 'https://arxiv.org/abs/2510.02567',
+    articleHref:
+      'https://www.sciencedirect.com/science/article/pii/S2772369026000022',
     articleTitle: 'Agentic Additive Manufacturing Alloy Evaluation',
     authors: ['Peter Pak', 'Achuth Chandrasekhar', 'Amir Barati Farimani'],
     publisher: 'Additive Manufacturing Letters',
