@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 // Components
+import { Button } from 'components/ui/button';
 import RedditLogo from 'components/logos/third_party/Reddit';
 import type { RedditPost } from 'lib/api/types';
 import { ImageModal } from './ImageModal';
@@ -76,11 +77,11 @@ export function RedditPostCard({ post }: RedditPostProps) {
         isOpen={!!selectedImage}
         onClose={() => setSelectedImage(null)}
       />
-      <article className="border-4 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+      <article className="border-2 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
         {/* Platform Badge */}
-        <div className="mb-4 inline-flex items-center gap-2 border-2 border-black bg-[#FF4500] px-3 py-1">
+        <div className="mb-4 inline-flex items-center gap-2 border-2 border-black px-3 py-1">
           <RedditLogo />
-          <span className="text-sm font-black text-white">Reddit</span>
+          <span className="text-sm font-black">Reddit</span>
         </div>
 
         {/* Subreddit and Post Type */}
@@ -203,15 +204,11 @@ export function RedditPostCard({ post }: RedditPostProps) {
           </div>
         </div>
 
-        {/* Action Button */}
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block border-4 border-black bg-[#FF4500] px-4 py-2 text-center font-black text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-[#CC3700]"
-        >
-          View on Reddit →
-        </a>
+        <Button>
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            View on Reddit →
+          </a>
+        </Button>
       </article>
     </>
   );

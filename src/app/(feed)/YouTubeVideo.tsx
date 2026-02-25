@@ -48,7 +48,7 @@ export function YouTubeVideoCard({ post }: YouTubeVideoProps) {
   };
 
   return (
-    <article className="border-4 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+    <article className="border-2 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       {/* Platform Badge */}
       <div className="mb-4 inline-flex items-center gap-2 border-2 border-black bg-[#FF0000] px-3 py-1">
         <YouTubeLogo />
@@ -138,7 +138,7 @@ export function YouTubeVideoCard({ post }: YouTubeVideoProps) {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="block border-4 border-black bg-[#FF0000] px-4 py-2 text-center font-black text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-[#CC0000]"
+        className="block border-2 border-black bg-[#FF0000] px-4 py-2 text-center font-black text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-[#CC0000]"
       >
         Watch on YouTube →
       </a>

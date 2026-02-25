@@ -31,7 +31,7 @@ export function ThreadView({ thread }: ThreadViewProps) {
 
   // Multiple posts in thread (only Bluesky supports threads)
   return (
-    <div className="border-4 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+    <div className="border-2 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
       {posts.map((post, index) => (
         <div key={post.id}>
           <div className={index > 0 ? 'border-t-4 border-black' : ''}>
@@ -39,6 +39,7 @@ export function ThreadView({ thread }: ThreadViewProps) {
               <BlueskyPost
                 post={post}
                 isInThread={true}
+                isFirstInThread={index === 0}
                 isLastInThread={index === posts.length - 1}
               />
             ) : post.platform === 'youtube' ? (
@@ -47,14 +48,6 @@ export function ThreadView({ thread }: ThreadViewProps) {
               <RedditPostCard post={post} />
             )}
           </div>
-          {index < posts.length - 1 && (
-            <div className="flex items-center gap-2 bg-gray-100 px-6 py-2">
-              <div className="h-0.5 w-8 bg-black"></div>
-              <span className="text-sm font-bold text-gray-600">
-                Thread continues
-              </span>
-            </div>
-          )}
         </div>
       ))}
     </div>

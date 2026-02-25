@@ -6,6 +6,7 @@
 // Node Modules
 import { FC } from 'react';
 import {
+  FileDown,
   GithubIcon,
   GraduationCapIcon,
   LinkedinIcon,
@@ -15,9 +16,10 @@ import {
 
 // Components
 import PublishedWorksSection from './PublishedWorksSection';
+import { Alert, AlertDescription } from 'components/ui/alert';
 import { Button } from 'components/ui/button';
 import { Section, SectionTitle } from 'components/Section';
-import BackgroundVideo from 'components/sections/BackgroundVideo';
+import BackgroundVideo from 'components/BackgroundVideo';
 import AnimatedWords from 'components/AnimatedWords';
 
 const About: FC = () => (
@@ -35,6 +37,29 @@ const About: FC = () => (
           ]}
         />
       </Section>
+      <div className="flex justify-center gap-10">
+        <Alert>
+          <AlertDescription>
+            <a
+              className="flex items-center gap-2 w-full"
+              href="mailto:ppak10@gmail.com"
+            >
+              <MailIcon /> Email
+            </a>
+          </AlertDescription>
+        </Alert>
+        <Alert>
+          <AlertDescription className="items-center">
+            <a
+              className="flex items-center gap-2 w-full"
+              href="/resume.pdf"
+              download
+            >
+              <FileDown /> Resume
+            </a>
+          </AlertDescription>
+        </Alert>
+      </div>
     </BackgroundVideo>
 
     {/* Main Content Section - Scrollable */}
@@ -54,15 +79,6 @@ const About: FC = () => (
         <Section>
           <SectionTitle>Find Me</SectionTitle>
           <div className="flex flex-wrap gap-4">
-            <Button>
-              <a
-                className="flex items-center gap-3"
-                href="mailto:ppak10@gmail.com"
-              >
-                <MailIcon />
-                Email Me
-              </a>
-            </Button>
             <Button>
               <a
                 className="flex items-center gap-3"

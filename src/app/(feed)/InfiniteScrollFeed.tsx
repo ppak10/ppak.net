@@ -118,7 +118,7 @@ export default function InfiniteScrollFeed({
 
   return (
     <Tabs className="space-y-6" defaultValue="all">
-      <TabsList className="grid w-full grid-cols-4">
+      {/* <TabsList className="grid w-full grid-cols-4">
         <TabsTrigger value="all">All</TabsTrigger>
         <TabsTrigger value="bluesky">
           <BlueskyLogo />
@@ -132,7 +132,7 @@ export default function InfiniteScrollFeed({
           <RedditLogo />
           Reddit
         </TabsTrigger>
-      </TabsList>
+      </TabsList> */}
 
       {/* Display Threads or Empty State */}
       {hasPosts ? (
@@ -146,13 +146,13 @@ export default function InfiniteScrollFeed({
           {/* Loading indicator and intersection observer target */}
           <div ref={observerTarget} className="py-8">
             {isLoading && (
-              <div className="border-4 border-black bg-white p-6 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-black border-t-transparent"></div>
+              <div className="border-2 border-black bg-white p-6 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+                <div className="inline-block h-8 w-8 animate-spin rounded-full border-2 border-black border-t-transparent"></div>
                 <p className="mt-4 font-bold">Loading more posts...</p>
               </div>
             )}
             {!hasMore && !isLoading && (
-              <div className="border-4 border-black bg-white p-6 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+              <div className="border-2 border-black bg-white p-6 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
                 <p className="font-bold text-gray-600">
                   You&apos;ve reached the end! 🎉
                 </p>

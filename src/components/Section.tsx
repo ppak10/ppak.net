@@ -14,12 +14,12 @@ import * as React from 'react';
 import { cn } from 'components/lib/utils';
 
 const sectionVariants = cva(
-  'border-4 border-border bg-white shadow-shadow-lg',
+  'border-2 border-border bg-white shadow-shadow-lg',
   {
     variants: {
       size: {
-        default: 'mb-12 p-8',
-        sm: 'mb-8 p-6',
+        default: 'mb-10 p-8',
+        sm: 'mb-8 p-4',
         lg: 'mb-16 p-10',
       },
     },

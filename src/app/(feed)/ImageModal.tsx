@@ -8,6 +8,9 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 
+// Components
+import { Button } from 'components/ui/button';
+
 interface ImageModalProps {
   imageUrl: string;
   alt: string;
@@ -41,13 +44,10 @@ export function ImageModal({
       onClick={onClose}
     >
       <div className="relative max-h-[90vh] max-w-[90vw]">
-        <button
-          onClick={onClose}
-          className="absolute -right-4 -top-4 z-10 border-4 border-black bg-white px-4 py-2 text-2xl font-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-gray-100"
-        >
+        <Button className="absolute right-2 top-2 z-1" onClick={onClose}>
           ×
-        </button>
-        <div className="relative border-4 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        </Button>
+        <div className="relative border-2 border-black">
           <Image
             src={imageUrl}
             alt={alt}

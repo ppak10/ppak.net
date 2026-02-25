@@ -12,18 +12,21 @@ import { useState } from 'react';
 // Components
 import BlueskyLogo from 'components/logos/third_party/Bluesky';
 import type { BlueskyPost } from 'lib/api/types';
+import { Button } from 'components/ui/button';
 import { ImageModal } from './ImageModal';
 import { VideoPlayer } from './VideoPlayer';
 
 interface BlueskyPostProps {
   post: BlueskyPost;
   isInThread?: boolean;
+  isFirstInThread?: boolean;
   isLastInThread?: boolean;
 }
 
 export function BlueskyPost({
   post,
   isInThread = false,
+  isFirstInThread = true,
   isLastInThread = true,
 }: BlueskyPostProps) {
   const { author, content, engagement, timestamp, url } = post;
@@ -46,7 +49,7 @@ export function BlueskyPost({
 
   const articleClassName = isInThread
     ? 'bg-white p-6'
-    : 'border-4 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]';
+    : 'border-2 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]';
 
   return (
     <>
@@ -58,10 +61,12 @@ export function BlueskyPost({
       />
       <article className={articleClassName}>
         {/* Platform Badge */}
-        <div className="mb-4 inline-flex items-center gap-2 border-2 border-black bg-transparent px-3 py-1">
-          <BlueskyLogo />
-          <span className="text-sm font-black">Bluesky</span>
-        </div>
+        {isFirstInThread && (
+          <div className="mb-4 inline-flex items-center gap-2 border-2 border-black bg-transparent px-3 py-1">
+            <BlueskyLogo />
+            <span className="text-sm font-black">Bluesky</span>
+          </div>
+        )}
 
         {/* Author Section */}
         <div className="mb-4 flex items-center gap-3">
@@ -146,16 +151,12 @@ export function BlueskyPost({
           </div>
         </div>
 
-        {/* Action Button */}
         {isLastInThread && (
-          <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block border-4 border-black bg-white px-4 py-2 text-center font-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-gray-100"
-          >
-            View on Bluesky →
-          </a>
+          <Button>
+            <a href={url} target="_blank" rel="noopener noreferrer">
+              View on Bluesky →
+            </a>
+          </Button>
         )}
       </article>
     </>

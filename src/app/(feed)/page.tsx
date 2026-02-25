@@ -4,7 +4,7 @@
  */
 
 // Components
-import InfiniteScrollFeed from 'components/feed/InfiniteScrollFeed';
+import InfiniteScrollFeed from './InfiniteScrollFeed';
 import { fetchBlueskyPosts } from 'lib/api/bluesky';
 import { fetchYouTubeVideos } from 'lib/api/youtube';
 import { fetchRedditPosts } from 'lib/api/reddit';
@@ -86,7 +86,7 @@ export default async function Home() {
     <div className="min-h-screen bg-[#ffffff] p-4 pt-32 sm:p-8 sm:pt-32">
       <div className="mx-auto max-w-6xl">
         <Alert className="mb-8">
-          <AlertTitle className="text-5xl sm:text-6xl">Feed</AlertTitle>
+          <AlertTitle className="text-3xl sm:text-4xl">Feed</AlertTitle>
           <AlertDescription className="block text-xl">
             Latest updates from{' '}
             <a
