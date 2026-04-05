@@ -69,9 +69,13 @@ const PublishedWorksSection: FC = () => {
     setShowFirstAuthorOnly(prevState => !prevState);
   };
 
+  const filteredWorks = publishedWorks.filter(({ authors }) =>
+    showFirstAuthorOnly ? authors[0] === 'Peter Pak' : true
+  );
+
   return (
     <Section id="published_works">
-      <SectionTitle>Published Works</SectionTitle>
+      <SectionTitle>Published Works ({filteredWorks.length})</SectionTitle>
       <div className="flex items-center space-x-2">
         <Checkbox
           id="first_author_only"
@@ -81,16 +85,12 @@ const PublishedWorksSection: FC = () => {
         <Label htmlFor="first_author_only">Show first author only</Label>
       </div>
       <ul className="flex flex-col mt-4 gap-4">
-        {publishedWorks
-          .filter(({ authors }) =>
-            showFirstAuthorOnly ? authors[0] === 'Peter Pak' : authors
-          )
-          .map(publishedWork => (
-            <PublishedWorkListItem
-              key={publishedWork.articleHref}
-              publishedWork={publishedWork}
-            />
-          ))}
+        {filteredWorks.map(publishedWork => (
+          <PublishedWorkListItem
+            key={publishedWork.articleHref}
+            publishedWork={publishedWork}
+          />
+        ))}
       </ul>
     </Section>
   );
