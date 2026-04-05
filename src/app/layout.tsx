@@ -8,6 +8,9 @@ import type { Metadata } from 'next';
 // Components
 import Navbar from 'components/Navbar';
 
+// Providers
+import { PostHogProvider } from './providers.tsx';
+
 // Styles
 import './globals.css';
 
@@ -24,8 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <Navbar />
-        {children}
+        <PostHogProvider>
+          <Navbar />
+          {children}
+        </PostHogProvider>
       </body>
     </html>
   );

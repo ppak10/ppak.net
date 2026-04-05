@@ -7,6 +7,7 @@
 
 // Node Modules
 import { FC, Fragment, useState } from 'react';
+import { usePostHog } from 'posthog-js/react';
 
 // Components
 import { Checkbox } from 'components/ui/checkbox';
@@ -21,32 +22,43 @@ interface Props {
   publishedWork: PublishedWork;
 }
 
-const PublishedWorkListItem: FC<Props> = ({ publishedWork }) => (
-  <li className="border-2 border-black bg-main/10 p-4 shadow-shadow">
-    <h3 className="mb-2 text-base sm:text-lg">
-      <a
-        href={publishedWork.articleHref}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {publishedWork.articleTitle}
-      </a>
-    </h3>
-    <p className="mb-1 text-sm sm:text-base font-medium">
-      {publishedWork.authors.map((author, index, array) => (
-        <Fragment key={index}>
-          <span className={index ? '' : 'font-black'}>{author}</span>
-          <span>
-            {array.length > 0 && index !== array.length - 1 ? ', ' : ''}
-          </span>
-        </Fragment>
-      ))}
-    </p>
-    <p className="text-xs sm:text-sm font-bold">
-      <em>{publishedWork.publisher}</em> · {publishedWork.year}
-    </p>
-  </li>
-);
+const PublishedWorkListItem: FC<Props> = ({ publishedWork }) => {
+  const posthog = usePostHog();
+
+  return (
+    <li className="border-2 border-black bg-main/10 p-4 shadow-shadow">
+      <h3 className="mb-2 text-base sm:text-lg">
+        <a
+          href={publishedWork.articleHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() =>
+            posthog.capture('published_work_clicked', {
+              title: publishedWork.articleTitle,
+              publisher: publishedWork.publisher,
+              year: publishedWork.year,
+            })
+          }
+        >
+          {publishedWork.articleTitle}
+        </a>
+      </h3>
+      <p className="mb-1 text-sm sm:text-base font-medium">
+        {publishedWork.authors.map((author, index, array) => (
+          <Fragment key={index}>
+            <span className={index ? '' : 'font-black'}>{author}</span>
+            <span>
+              {array.length > 0 && index !== array.length - 1 ? ', ' : ''}
+            </span>
+          </Fragment>
+        ))}
+      </p>
+      <p className="text-xs sm:text-sm font-bold">
+        <em>{publishedWork.publisher}</em> · {publishedWork.year}
+      </p>
+    </li>
+  );
+};
 
 const PublishedWorksSection: FC = () => {
   // Hooks

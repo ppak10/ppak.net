@@ -8,6 +8,7 @@
 // Node Modules
 import { useState, useEffect, useCallback, useRef } from 'react';
 import type { SocialPost, FeedResponse } from 'lib/api/types';
+import { usePostHog } from 'posthog-js/react';
 
 // Components
 import BlueskyLogo from 'components/logos/third_party/Bluesky';
@@ -35,6 +36,7 @@ export default function InfiniteScrollFeed({
   initialErrors,
   initialCursor,
 }: InfiniteScrollFeedProps) {
+  const posthog = usePostHog();
   const [posts, setPosts] = useState<SocialPost[]>(initialPosts);
   const [errors, setErrors] = useState(initialErrors);
   const [cursor, setCursor] = useState<string | undefined>(initialCursor);
@@ -46,6 +48,7 @@ export default function InfiniteScrollFeed({
   const loadMore = useCallback(async () => {
     if (isLoading || !hasMore) return;
 
+    posthog.capture('feed_load_more', { cursor });
     setIsLoading(true);
 
     try {

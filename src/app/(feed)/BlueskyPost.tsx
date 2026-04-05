@@ -8,6 +8,7 @@
 // Node Modules
 import Image from 'next/image';
 import { useState } from 'react';
+import { usePostHog } from 'posthog-js/react';
 
 // Components
 import BlueskyLogo from 'components/logos/third_party/Bluesky';
@@ -31,6 +32,7 @@ export function BlueskyPost({
   isLastInThread = true,
 }: BlueskyPostProps) {
   const { author, content, engagement, timestamp, url } = post;
+  const posthog = usePostHog();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Format timestamp to relative time
@@ -120,7 +122,12 @@ export function BlueskyPost({
               {content.images.slice(0, 4).map((imageUrl, index) => (
                 <button
                   key={index}
-                  onClick={() => setSelectedImage(imageUrl)}
+                  onClick={() => {
+                    setSelectedImage(imageUrl);
+                    posthog.capture('bluesky_post_image_opened', {
+                      post_url: url,
+                    });
+                  }}
                   className="relative h-64 w-64 flex-shrink-0 border-2 border-black hover:opacity-80"
                 >
                   <Image
@@ -154,7 +161,12 @@ export function BlueskyPost({
 
         {isLastInThread && (
           <Button>
-            <a href={url} target="_blank" rel="noopener noreferrer">
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => posthog.capture('bluesky_post_opened', { url })}
+            >
               View on Bluesky →
             </a>
           </Button>

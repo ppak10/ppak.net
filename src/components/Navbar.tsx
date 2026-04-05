@@ -11,6 +11,7 @@ import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cva } from 'class-variance-authority';
+import { usePostHog } from 'posthog-js/react';
 
 // Components
 import { Button } from 'components/ui/button';
@@ -72,6 +73,7 @@ const mobileLinkStyles = cva(
 const Navbar: FC = () => {
   // Hooks
   const pathname = usePathname();
+  const posthog = usePostHog();
   const [hidden, setHidden] = useState(false); // Hides during scroll
   const [clear, setClear] = useState(pathname !== '/');
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -118,7 +120,12 @@ const Navbar: FC = () => {
   // JSX
   const desktopLinksJSX = LINKS.map(({ name, href }) => (
     <Button key={name} variant={clear ? 'clear' : 'default'}>
-      <a href={href}>{name}</a>
+      <a
+        href={href}
+        onClick={() => posthog.capture('navbar_link_clicked', { name, href })}
+      >
+        {name}
+      </a>
     </Button>
   ));
 
@@ -127,7 +134,10 @@ const Navbar: FC = () => {
       className={mobileLinkStyles({ clear })}
       href={href}
       key={name}
-      onClick={() => setMobileMenuOpen(false)}
+      onClick={() => {
+        setMobileMenuOpen(false);
+        posthog.capture('navbar_link_clicked', { name, href });
+      }}
     >
       {name}
     </Link>
@@ -138,7 +148,7 @@ const Navbar: FC = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Name */}
-          <Link href="/">
+          <Link href="/" onClick={() => posthog.capture('navbar_logo_clicked')}>
             <Logo
               height={34}
               width={54}
