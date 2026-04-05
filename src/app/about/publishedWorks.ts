@@ -12,15 +12,15 @@ export interface PublishedWork {
 
 const publishedWorks = [
   {
-    articleHref:
-      'https://www.sciencedirect.com/science/article/pii/S2772369026000022',
-    articleTitle: 'Agentic Additive Manufacturing Alloy Evaluation',
-    authors: ['Peter Pak', 'Achuth Chandrasekhar', 'Amir Barati Farimani'],
-    publisher: 'Additive Manufacturing Letters',
+    articleHref: 'https://doi.org/10.48550/arXiv.2603.22017',
+    articleTitle:
+      'AdditiveLLM2: A Multi-modal Large Language Model for Additive Manufacturing',
+    authors: ['Peter Pak', 'Amir Barati Farimani'],
+    publisher: 'arXiv',
     year: 2026,
   },
   {
-    articleHref: 'https://arxiv.org/pdf/2511.20636',
+    articleHref: 'https://doi.org/10.1016/j.addlet.2026.100374',
     articleTitle:
       'Image2Gcode: Image-to-G-code Generation for Additive Manufacturing Using Diffusion-Transformer Model',
     authors: [
@@ -29,8 +29,16 @@ const publishedWorks = [
       'Peter Pak',
       'Amir Barati Farimani',
     ],
-    publisher: 'arXiv',
-    year: 2025,
+    publisher: 'Additive Manufacturing Letters',
+    year: 2026,
+  },
+  {
+    articleHref:
+      'https://www.sciencedirect.com/science/article/pii/S2772369026000022',
+    articleTitle: 'Agentic Additive Manufacturing Alloy Evaluation',
+    authors: ['Peter Pak', 'Achuth Chandrasekhar', 'Amir Barati Farimani'],
+    publisher: 'Additive Manufacturing Letters',
+    year: 2026,
   },
   {
     articleHref:
