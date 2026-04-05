@@ -6,8 +6,6 @@
 // Components
 import InfiniteScrollFeed from './InfiniteScrollFeed';
 import { fetchBlueskyPosts } from 'lib/api/bluesky';
-import { fetchYouTubeVideos } from 'lib/api/youtube';
-import { fetchRedditPosts } from 'lib/api/reddit';
 import type { FeedResponse } from 'lib/api/types';
 
 // UI
@@ -17,14 +15,7 @@ import { Alert, AlertDescription, AlertTitle } from 'components/ui/alert';
 export const revalidate = 300;
 
 async function getFeedData(): Promise<FeedResponse & { cursor?: string }> {
-  // Fetch from all platforms in parallel
-  const [blueskyResult, youtubeResult, redditResult] = await Promise.allSettled(
-    [
-      fetchBlueskyPosts(20),
-      fetchYouTubeVideos(process.env.YOUTUBE_API_KEY || '', 10),
-      fetchRedditPosts(10),
-    ]
-  );
+  const [blueskyResult] = await Promise.allSettled([fetchBlueskyPosts(20)]);
 
   const posts = [];
   const errors = [];
@@ -41,33 +32,6 @@ async function getFeedData(): Promise<FeedResponse & { cursor?: string }> {
     errors.push({
       platform: 'bluesky' as const,
       message: 'Failed to load Bluesky posts. Please check your configuration.',
-    });
-  }
-
-  // Collect YouTube videos
-  if (youtubeResult.status === 'fulfilled' && youtubeResult.value) {
-    posts.push(...youtubeResult.value);
-  } else if (
-    youtubeResult.status === 'rejected' ||
-    (youtubeResult.status === 'fulfilled' && youtubeResult.value === null)
-  ) {
-    errors.push({
-      platform: 'youtube' as const,
-      message:
-        'Failed to load YouTube videos. Please check your API key configuration.',
-    });
-  }
-
-  // Collect Reddit posts
-  if (redditResult.status === 'fulfilled' && redditResult.value) {
-    posts.push(...redditResult.value);
-  } else if (
-    redditResult.status === 'rejected' ||
-    (redditResult.status === 'fulfilled' && redditResult.value === null)
-  ) {
-    errors.push({
-      platform: 'reddit' as const,
-      message: 'Failed to load Reddit posts.',
     });
   }
 
@@ -88,33 +52,7 @@ export default async function Home() {
         <Alert className="mb-8">
           <AlertTitle className="text-3xl sm:text-4xl">Feed</AlertTitle>
           <AlertDescription className="block text-xl">
-            Latest updates from{' '}
-            <a
-              href="https://bsky.app/profile/ppak.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:no-underline"
-            >
-              Bluesky
-            </a>
-            ,{' '}
-            <a
-              href="https://www.youtube.com/@ppak10"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:no-underline"
-            >
-              YouTube
-            </a>
-            , and{' '}
-            <a
-              href="https://www.reddit.com/user/_ppak10"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:no-underline"
-            >
-              Reddit
-            </a>
+            Latest updates
           </AlertDescription>
         </Alert>
         <InfiniteScrollFeed
