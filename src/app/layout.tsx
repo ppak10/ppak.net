@@ -9,7 +9,7 @@ import type { Metadata } from 'next';
 import Navbar from 'components/Navbar';
 
 // Providers
-import { PostHogProvider } from './providers.tsx';
+import { PostHogProvider } from './providers';
 
 // Styles
 import './globals.css';
