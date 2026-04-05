@@ -1,28 +1,9 @@
 'use client';
 
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect, Suspense } from 'react';
+import { useEffect } from 'react';
 
 import posthog from 'posthog-js';
-import { PostHogProvider as PHProvider, usePostHog } from 'posthog-js/react';
-
-function PostHogPageView() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const ph = usePostHog();
-
-  useEffect(() => {
-    if (pathname && ph) {
-      const url = window.origin + pathname;
-      const search = searchParams.toString();
-      ph.capture('$pageview', {
-        $current_url: search ? `${url}?${search}` : url,
-      });
-    }
-  }, [pathname, searchParams, ph]);
-
-  return null;
-}
+import { PostHogProvider as PHProvider } from 'posthog-js/react';
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -33,12 +14,5 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  return (
-    <PHProvider client={posthog}>
-      <Suspense fallback={null}>
-        <PostHogPageView />
-      </Suspense>
-      {children}
-    </PHProvider>
-  );
+  return <PHProvider client={posthog}>{children}</PHProvider>;
 }
