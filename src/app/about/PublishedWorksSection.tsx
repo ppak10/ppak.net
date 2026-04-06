@@ -26,7 +26,7 @@ const PublishedWorkListItem: FC<Props> = ({ publishedWork }) => {
   const posthog = usePostHog();
 
   return (
-    <li className="border-2 border-black bg-main/10 p-4 shadow-shadow">
+    <li className="border-2 border-border bg-main/10 p-4 shadow-shadow">
       <h3 className="mb-2 text-base sm:text-lg">
         <a
           href={publishedWork.articleHref}

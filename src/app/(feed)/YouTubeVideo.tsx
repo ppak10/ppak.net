@@ -48,9 +48,9 @@ export function YouTubeVideoCard({ post }: YouTubeVideoProps) {
   };
 
   return (
-    <article className="border-2 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+    <article className="border-2 border-border bg-background p-6 shadow-shadow-lg">
       {/* Platform Badge */}
-      <div className="mb-4 inline-flex items-center gap-2 border-2 border-black bg-[#FF0000] px-3 py-1">
+      <div className="mb-4 inline-flex items-center gap-2 border-2 border-border bg-[#FF0000] px-3 py-1">
         <YouTubeLogo />
         <span className="text-sm font-black text-white">YouTube</span>
       </div>
@@ -58,7 +58,7 @@ export function YouTubeVideoCard({ post }: YouTubeVideoProps) {
       {/* Author Section */}
       <div className="mb-4 flex items-center gap-3">
         {author.avatar && (
-          <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-black">
+          <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-border">
             <Image
               src={author.avatar}
               alt={author.name}
@@ -70,9 +70,11 @@ export function YouTubeVideoCard({ post }: YouTubeVideoProps) {
         )}
         <div>
           <p className="font-black leading-tight">{author.name}</p>
-          <p className="text-sm font-medium text-gray-700">{author.handle}</p>
+          <p className="text-sm font-medium text-foreground/70">
+            {author.handle}
+          </p>
         </div>
-        <span className="ml-auto text-sm font-medium text-gray-600">
+        <span className="ml-auto text-sm font-medium text-foreground/60">
           {formatTimestamp(timestamp)}
         </span>
       </div>
@@ -83,7 +85,7 @@ export function YouTubeVideoCard({ post }: YouTubeVideoProps) {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative mb-4 block aspect-video w-full overflow-hidden border-2 border-black hover:opacity-90"
+          className="relative mb-4 block aspect-video w-full overflow-hidden border-2 border-border hover:opacity-90"
         >
           <Image
             src={content.thumbnail}
@@ -94,9 +96,9 @@ export function YouTubeVideoCard({ post }: YouTubeVideoProps) {
           />
           {/* Play button overlay */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-black/70">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-foreground/70">
               <svg
-                className="ml-1 h-8 w-8 text-white"
+                className="ml-1 h-8 w-8 text-background"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
@@ -112,13 +114,13 @@ export function YouTubeVideoCard({ post }: YouTubeVideoProps) {
 
       {/* Description */}
       {content.text && (
-        <p className="mb-4 font-medium leading-relaxed text-gray-700">
+        <p className="mb-4 font-medium leading-relaxed text-foreground/70">
           {truncateText(content.text, 150)}
         </p>
       )}
 
       {/* Engagement Footer */}
-      <div className="mb-4 flex gap-4 border-t-2 border-black pt-4">
+      <div className="mb-4 flex gap-4 border-t-2 border-border pt-4">
         <div className="flex items-center gap-1">
           <span className="text-lg">👁️</span>
           <span className="font-bold">{formatViews(engagement.views)}</span>
@@ -138,7 +140,7 @@ export function YouTubeVideoCard({ post }: YouTubeVideoProps) {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="block border-2 border-black bg-[#FF0000] px-4 py-2 text-center font-black text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-[#CC0000]"
+        className="block border-2 border-border bg-[#FF0000] px-4 py-2 text-center font-black text-white shadow-shadow hover:bg-[#CC0000]"
       >
         Watch on YouTube →
       </a>

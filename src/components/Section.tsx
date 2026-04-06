@@ -14,7 +14,7 @@ import * as React from 'react';
 import { cn } from 'components/lib/utils';
 
 const sectionVariants = cva(
-  'border-2 border-border bg-white shadow-shadow-lg',
+  'border-2 border-border bg-background shadow-shadow-lg',
   {
     variants: {
       size: {

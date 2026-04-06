@@ -51,8 +51,8 @@ export function BlueskyPost({
   };
 
   const articleClassName = isInThread
-    ? 'bg-white p-6'
-    : 'border-2 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]';
+    ? 'bg-background p-6'
+    : 'border-2 border-border bg-background p-6 shadow-shadow-lg';
 
   return (
     <>
@@ -65,7 +65,7 @@ export function BlueskyPost({
       <article className={articleClassName}>
         {/* Platform Badge */}
         {isFirstInThread && (
-          <div className="mb-4 inline-flex items-center gap-2 border-2 border-black bg-transparent px-3 py-1">
+          <div className="mb-4 inline-flex items-center gap-2 border-2 border-border bg-transparent px-3 py-1">
             <BlueskyLogo />
             <span className="text-sm font-black">Bluesky</span>
           </div>
@@ -74,7 +74,7 @@ export function BlueskyPost({
         {/* Author Section */}
         <div className="mb-4 flex items-center gap-3">
           {author.avatar && (
-            <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-black">
+            <div className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-border">
               <Image
                 src={author.avatar}
                 alt={author.name}
@@ -86,9 +86,11 @@ export function BlueskyPost({
           )}
           <div>
             <p className="font-black leading-tight">{author.name}</p>
-            <p className="text-sm font-medium text-gray-700">{author.handle}</p>
+            <p className="text-sm font-medium text-foreground/70">
+              {author.handle}
+            </p>
           </div>
-          <span className="ml-auto text-sm font-medium text-gray-600">
+          <span className="ml-auto text-sm font-medium text-foreground/60">
             {formatTimestamp(timestamp)}
           </span>
         </div>
@@ -104,7 +106,7 @@ export function BlueskyPost({
         <div className="mb-4 flex gap-2 overflow-x-auto">
           {/* Video */}
           {content.video && (
-            <div className="relative h-64 w-64 flex-shrink-0 border-2 border-black">
+            <div className="relative h-64 w-64 flex-shrink-0 border-2 border-border">
               <VideoPlayer
                 src={content.video.url}
                 poster={content.video.thumbnail}
@@ -128,7 +130,7 @@ export function BlueskyPost({
                       post_url: url,
                     });
                   }}
-                  className="relative h-64 w-64 flex-shrink-0 border-2 border-black hover:opacity-80"
+                  className="relative h-64 w-64 flex-shrink-0 border-2 border-border hover:opacity-80"
                 >
                   <Image
                     src={imageUrl}
@@ -144,7 +146,7 @@ export function BlueskyPost({
         </div>
 
         {/* Engagement Footer */}
-        <div className="mb-4 flex gap-4 border-t-2 border-black pt-4">
+        <div className="mb-4 flex gap-4 border-t-2 border-border pt-4">
           <div className="flex items-center gap-1">
             <Heart />
             <span className="font-bold">{engagement.likes}</span>

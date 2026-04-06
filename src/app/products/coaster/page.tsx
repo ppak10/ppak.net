@@ -15,16 +15,14 @@ import { Badge } from 'components/ui/badge';
 const Coaster: FC = () => (
   <div>
     <BackgroundVideo src="/coaster_background.webm" type="video/webm">
-      <CoasterLogo
-        stroke="white"
-        fill="white"
-        className="w-full h-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl"
-      />
+      <div className="text-white dark:text-black">
+        <CoasterLogo className="w-full h-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl" />
+      </div>
     </BackgroundVideo>
     <div className="max-w-6xl mx-auto my-12 px-4 md:px-0">
       <div className="grid md:grid-cols-2 gap-8 items-start">
         {/* 3D Model Viewer */}
-        <div className="order-2 md:order-1 w-full h-[600px] bg-neutral-50 dark:bg-neutral-900 rounded-lg">
+        <div className="order-2 md:order-1 w-full h-[600px] bg-secondary-background rounded-lg">
           <ModelViewer modelPath="/CoasterHex.glb" />
         </div>
 

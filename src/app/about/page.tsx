@@ -71,7 +71,7 @@ const About: FC = () => {
       </BackgroundVideo>
 
       {/* Main Content Section - Scrollable */}
-      <div className="relative z-20 bg-[#fef6e4] p-4 sm:p-8">
+      <div className="relative z-20 bg-background p-4 sm:p-8">
         <div className="mx-auto max-w-5xl">
           {/* Bio Section */}
           <Section id="bio">

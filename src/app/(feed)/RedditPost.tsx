@@ -78,27 +78,29 @@ export function RedditPostCard({ post }: RedditPostProps) {
         isOpen={!!selectedImage}
         onClose={() => setSelectedImage(null)}
       />
-      <article className="border-2 border-black bg-white p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+      <article className="border-2 border-border bg-background p-6 shadow-shadow-lg">
         {/* Platform Badge */}
-        <div className="mb-4 inline-flex items-center gap-2 border-2 border-black px-3 py-1">
+        <div className="mb-4 inline-flex items-center gap-2 border-2 border-border px-3 py-1">
           <RedditLogo />
           <span className="text-sm font-black">Reddit</span>
         </div>
 
         {/* Subreddit and Post Type */}
         <div className="mb-3 flex items-center gap-2">
-          <span className="rounded border-2 border-black bg-gray-100 px-2 py-0.5 text-sm font-bold">
+          <span className="rounded border-2 border-border bg-foreground/10 px-2 py-0.5 text-sm font-bold">
             {subreddit}
           </span>
           <span className="text-sm">{getPostTypeIcon()}</span>
-          <span className="ml-auto text-sm font-medium text-gray-600">
+          <span className="ml-auto text-sm font-medium text-foreground/60">
             {formatTimestamp(timestamp)}
           </span>
         </div>
 
         {/* Author */}
         <div className="mb-3 flex items-center gap-2">
-          <p className="text-sm font-medium text-gray-700">{author.handle}</p>
+          <p className="text-sm font-medium text-foreground/70">
+            {author.handle}
+          </p>
         </div>
 
         {/* Title */}
@@ -108,7 +110,7 @@ export function RedditPostCard({ post }: RedditPostProps) {
 
         {/* Text Content */}
         {content.text && (
-          <p className="mb-4 whitespace-pre-wrap font-medium leading-relaxed text-gray-700">
+          <p className="mb-4 whitespace-pre-wrap font-medium leading-relaxed text-foreground/70">
             {truncateText(content.text, 300)}
           </p>
         )}
@@ -117,7 +119,7 @@ export function RedditPostCard({ post }: RedditPostProps) {
         <div className="mb-4">
           {/* Video */}
           {content.video && (
-            <div className="relative aspect-video w-full border-2 border-black">
+            <div className="relative aspect-video w-full border-2 border-border">
               <VideoPlayer
                 src={content.video.url}
                 poster={content.video.thumbnail}
@@ -136,7 +138,7 @@ export function RedditPostCard({ post }: RedditPostProps) {
                 <button
                   key={index}
                   onClick={() => setSelectedImage(imageUrl)}
-                  className="relative h-64 w-64 flex-shrink-0 border-2 border-black hover:opacity-80"
+                  className="relative h-64 w-64 flex-shrink-0 border-2 border-border hover:opacity-80"
                 >
                   <Image
                     src={imageUrl}
@@ -148,7 +150,7 @@ export function RedditPostCard({ post }: RedditPostProps) {
                 </button>
               ))}
               {content.images.length > 4 && (
-                <div className="flex h-64 w-32 flex-shrink-0 items-center justify-center border-2 border-black bg-gray-100">
+                <div className="flex h-64 w-32 flex-shrink-0 items-center justify-center border-2 border-border bg-foreground/10">
                   <span className="font-bold">
                     +{content.images.length - 4}
                   </span>
@@ -163,10 +165,10 @@ export function RedditPostCard({ post }: RedditPostProps) {
               href={content.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 border-2 border-black bg-gray-50 p-3 hover:bg-gray-100"
+              className="flex items-center gap-2 border-2 border-border bg-foreground/5 p-3 hover:bg-foreground/10"
             >
               {content.thumbnail && (
-                <div className="relative h-16 w-16 flex-shrink-0 border border-black">
+                <div className="relative h-16 w-16 flex-shrink-0 border border-border">
                   <Image
                     src={content.thumbnail}
                     alt="Link thumbnail"
@@ -187,13 +189,13 @@ export function RedditPostCard({ post }: RedditPostProps) {
         </div>
 
         {/* Engagement Footer */}
-        <div className="mb-4 flex gap-4 border-t-2 border-black pt-4">
+        <div className="mb-4 flex gap-4 border-t-2 border-border pt-4">
           <div className="flex items-center gap-1">
             <ArrowBigUp />
             <span className="font-bold">
               {formatNumber(engagement.upvotes)}
             </span>
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-foreground/50">
               ({Math.round(engagement.upvoteRatio * 100)}%)
             </span>
           </div>

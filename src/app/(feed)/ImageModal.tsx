@@ -40,14 +40,14 @@ export function ImageModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/80 p-4"
       onClick={onClose}
     >
       <div className="relative max-h-[90vh] max-w-[90vw]">
         <Button className="absolute right-2 top-2 z-1" onClick={onClose}>
           ×
         </Button>
-        <div className="relative border-2 border-black">
+        <div className="relative border-2 border-border">
           <Image
             src={imageUrl}
             alt={alt}

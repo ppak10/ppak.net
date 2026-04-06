@@ -7,7 +7,7 @@
 
 // Node Modules
 import { Menu, X } from 'lucide-react';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cva } from 'class-variance-authority';
@@ -24,6 +24,9 @@ const LINKS = [
 ];
 
 // Style
+// clear=true  — transparent over background video; text/border/stroke driven by CSS so
+//               the browser applies the correct dark: colour before JS runs (no flash).
+// clear=false — opaque; bg-white dark:bg-black except on home where we want the page bg.
 const navStyles = cva(
   'fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ease-in-out border-b-2',
   {
@@ -33,8 +36,8 @@ const navStyles = cva(
         false: 'translate-y-0 opacity-100',
       },
       clear: {
-        true: 'bg-transparent border-white',
-        false: 'bg-white shadow-sm border-black',
+        true: 'bg-transparent border-white dark:border-black text-white dark:text-black',
+        false: 'bg-white dark:bg-black shadow-sm border-black',
       },
     },
   }
@@ -43,28 +46,28 @@ const navStyles = cva(
 const mobileMenuButtonStyles = cva('p-2 transition-colors', {
   variants: {
     clear: {
-      false: 'text-gray-700 hover:text-black',
-      true: 'text-white hover:text-gray-200',
+      false: 'text-foreground/70 hover:text-foreground',
+      true: '', // inherits text-white / dark:text-black from nav
     },
   },
 });
 
-const mobileMenuStyles = cva('md:hidden border-t border-gray-200', {
+const mobileMenuStyles = cva('md:hidden border-t border-border/20', {
   variants: {
     clear: {
-      false: 'bg-white',
+      false: 'bg-white dark:bg-black',
       true: 'bg-transparent',
     },
   },
 });
 
 const mobileLinkStyles = cva(
-  'block px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-black rounded-md transition-colors',
+  'block px-3 py-2 text-base font-medium hover:bg-foreground/5 rounded-md transition-colors',
   {
     variants: {
       clear: {
-        false: 'text-black',
-        true: 'text-white',
+        false: 'text-foreground',
+        true: '', // inherits text-white / dark:text-black from nav
       },
     },
   }
@@ -74,25 +77,28 @@ const Navbar: FC = () => {
   // Hooks
   const pathname = usePathname();
   const posthog = usePostHog();
-  const [hidden, setHidden] = useState(false); // Hides during scroll
-  const [clear, setClear] = useState(pathname !== '/');
+  const [hidden, setHidden] = useState(false);
+  const [scrolledPast20, setScrolledPast20] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Force opaque navbar on certain pages
-  // const forceOpaque = pathname === '/';
-  // const theme = scrolled || forceOpaque ? 'opaque' : 'transparent';
+  // Reset scroll state synchronously during render when pathname changes so `clear`
+  // is correct on the very first render of the new page — no useEffect lag, no flash.
+  const prevPathnameRef = useRef(pathname);
+  if (prevPathnameRef.current !== pathname) {
+    prevPathnameRef.current = pathname;
+    if (scrolledPast20) setScrolledPast20(false);
+  }
+
+  // Derived — always correct at render time.
+  const clear = pathname !== '/' && !scrolledPast20;
 
   useEffect(() => {
-    setClear(pathname !== '/'); // Sets correct navbar transparent on page load
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Check if scrolled past threshold (only on non-homepage)
       if (pathname !== '/') {
-        const scrolled = currentScrollY > 20;
-        setClear(!scrolled);
+        setScrolledPast20(currentScrollY > 20);
       }
 
       // Show navbar when scrolling up, hide when scrolling down
@@ -102,19 +108,13 @@ const Navbar: FC = () => {
         setHidden(true);
       }
 
-      // Close mobile menu when scrolling
-      if (mobileMenuOpen) {
-        setMobileMenuOpen(false);
-      }
+      if (mobileMenuOpen) setMobileMenuOpen(false);
 
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY, mobileMenuOpen, pathname]);
 
   // JSX
@@ -144,16 +144,23 @@ const Navbar: FC = () => {
   ));
 
   return (
-    <nav className={navStyles({ clear, hidden })}>
+    <nav
+      className={navStyles({ clear, hidden })}
+      style={!clear ? { backgroundColor: 'var(--background)' } : undefined}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Name */}
           <Link href="/" onClick={() => posthog.capture('navbar_logo_clicked')}>
-            <Logo
-              height={34}
-              width={54}
-              stroke={!clear ? 'currentColor' : 'white'}
-            />
+            <div
+              className={
+                !clear
+                  ? 'text-black dark:drop-shadow-[0_0_10px_rgba(255,255,255,0.55)]'
+                  : ''
+              }
+            >
+              <Logo height={34} width={54} stroke="currentColor" />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

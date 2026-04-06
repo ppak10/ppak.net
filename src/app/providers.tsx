@@ -4,6 +4,15 @@ import { useEffect } from 'react';
 
 import posthog from 'posthog-js';
 import { PostHogProvider as PHProvider } from 'posthog-js/react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <NextThemesProvider attribute="class" defaultTheme="system" enableSystem>
+      {children}
+    </NextThemesProvider>
+  );
+}
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {

@@ -6,7 +6,7 @@ import * as React from 'react';
 import { cn } from 'components/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap rounded-base text-sm font-base ring-offset-white transition-all gap-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center whitespace-nowrap rounded-base text-sm font-base ring-offset-background transition-all gap-2 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
@@ -18,7 +18,7 @@ const buttonVariants = cva(
         reverse:
           'text-main-foreground bg-main border-2 border-border hover:translate-x-reverseBoxShadowX hover:translate-y-reverseBoxShadowY hover:shadow-shadow',
         clear:
-          'text-white bg-transparent border-2 border-white shadow-[4px_4px_0px_0px_white] hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none',
+          'bg-transparent border-2 border-current shadow-[4px_4px_0px_0px_currentColor] hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none',
       },
       size: {
         default: 'h-10 px-4 py-2',

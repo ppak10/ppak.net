@@ -31,10 +31,10 @@ export function ThreadView({ thread }: ThreadViewProps) {
 
   // Multiple posts in thread (only Bluesky supports threads)
   return (
-    <div className="border-2 border-black bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+    <div className="border-2 border-border bg-background shadow-shadow-lg">
       {posts.map((post, index) => (
         <div key={post.id}>
-          <div className={index > 0 ? 'border-t-4 border-black' : ''}>
+          <div className={index > 0 ? 'border-t-4 border-border' : ''}>
             {post.platform === 'bluesky' ? (
               <BlueskyPost
                 post={post}

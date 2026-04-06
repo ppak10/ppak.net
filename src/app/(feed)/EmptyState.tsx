@@ -13,10 +13,10 @@ export function EmptyState({
   message = 'No posts available',
 }: EmptyStateProps) {
   return (
-    <div className="border-2 border-black bg-[#fbbf24] p-12 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+    <div className="border-2 border-border bg-main p-12 text-center shadow-shadow-lg">
       <div className="mb-4 text-6xl">📭</div>
       <h3 className="mb-2 text-2xl font-black">{message}</h3>
-      <p className="font-medium text-gray-700">
+      <p className="font-medium text-foreground/70">
         Check back later for new content!
       </p>
     </div>

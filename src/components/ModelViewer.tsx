@@ -3,6 +3,7 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Stage } from '@react-three/drei';
 import { Suspense } from 'react';
+import { useTheme } from 'next-themes';
 
 interface ModelProps {
   modelPath: string;
@@ -22,6 +23,9 @@ export default function ModelViewer({
   modelPath,
   className = '',
 }: ModelViewerProps) {
+  const { resolvedTheme } = useTheme();
+  const bgColor = resolvedTheme === 'dark' ? '#322215' : '#ffedd6';
+
   return (
     <div className={`w-full h-full ${className}`}>
       <Canvas
@@ -30,7 +34,7 @@ export default function ModelViewer({
         gl={{ antialias: true }}
         style={{ background: 'transparent' }}
       >
-        <color attach="background" args={['#ffedd6']} />
+        <color attach="background" args={[bgColor]} />
         <Suspense fallback={null}>
           <Stage environment="city" intensity={0.5} adjustCamera={false}>
             <Model modelPath={modelPath} />

@@ -47,7 +47,7 @@ export default async function Home() {
   const feedData = await getFeedData();
 
   return (
-    <div className="min-h-screen bg-[#ffffff] p-4 pt-32 sm:p-8 sm:pt-32">
+    <div className="min-h-screen bg-background p-4 pt-32 sm:p-8 sm:pt-32">
       <div className="mx-auto max-w-6xl">
         <Alert className="mb-8">
           <AlertTitle className="text-3xl sm:text-4xl">Feed</AlertTitle>

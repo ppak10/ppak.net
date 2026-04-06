@@ -9,7 +9,7 @@ import type { Metadata } from 'next';
 import Navbar from 'components/Navbar';
 
 // Providers
-import { PostHogProvider } from './providers';
+import { PostHogProvider, ThemeProvider } from './providers';
 
 // Styles
 import './globals.css';
@@ -25,12 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="antialiased">
-        <PostHogProvider>
-          <Navbar />
-          {children}
-        </PostHogProvider>
+        <ThemeProvider>
+          <PostHogProvider>
+            <Navbar />
+            {children}
+          </PostHogProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

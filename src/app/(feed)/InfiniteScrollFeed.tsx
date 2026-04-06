@@ -149,14 +149,14 @@ export default function InfiniteScrollFeed({
           {/* Loading indicator and intersection observer target */}
           <div ref={observerTarget} className="py-8">
             {isLoading && (
-              <div className="border-2 border-black bg-white p-6 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <div className="inline-block h-8 w-8 animate-spin rounded-full border-2 border-black border-t-transparent"></div>
+              <div className="border-2 border-border bg-background p-6 text-center shadow-shadow-lg">
+                <div className="inline-block h-8 w-8 animate-spin rounded-full border-2 border-border border-t-transparent"></div>
                 <p className="mt-4 font-bold">Loading more posts...</p>
               </div>
             )}
             {!hasMore && !isLoading && (
-              <div className="border-2 border-black bg-white p-6 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-                <p className="font-bold text-gray-600">
+              <div className="border-2 border-border bg-background p-6 text-center shadow-shadow-lg">
+                <p className="font-bold text-foreground/60">
                   You&apos;ve reached the end! 🎉
                 </p>
               </div>
